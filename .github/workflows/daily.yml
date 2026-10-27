@@ -1,0 +1,47 @@
+name: 每日报告
+
+on:
+  schedule:
+    # 美股收盘后：UTC 22:30，周一至周五（= 马来西亚/香港时间次日早上 6:30）
+    - cron: "30 22 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装中文字体和 matplotlib（画图用）
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          pip install -q matplotlib
+          rm -rf ~/.cache/matplotlib
+
+      - name: 生成大盘报告 + 每日选股
+        run: python tools/jlaw_daily_report.py . --no-open --publish docs
+
+      - name: 保存结果
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A docs 大盘报告 每日选股
+          if git diff --cached --quiet; then
+            echo "没有变化"
+          else
+            git commit -q -m "每日报告 $(date -u +%Y-%m-%d)"
+            git push
+          fi
