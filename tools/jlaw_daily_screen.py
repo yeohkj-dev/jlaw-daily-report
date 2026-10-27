@@ -210,7 +210,7 @@ def charts(items, path):
     try:
         import matplotlib
         matplotlib.use("Agg")
-        matplotlib.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "Arial Unicode MS", "DejaVu Sans"]
+        matplotlib.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "Noto Sans SC", "Arial Unicode MS", "DejaVu Sans"]
         import matplotlib.pyplot as plt
     except ImportError:
         return False

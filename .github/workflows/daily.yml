@@ -11,12 +11,12 @@ permissions:
 
 concurrency:
   group: daily-report
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -25,9 +25,11 @@ jobs:
           python-version: "3.12"
 
       - name: 安装中文字体和 matplotlib（画图用）
+        timeout-minutes: 5
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-noto-cjk
+          mkdir -p ~/.local/share/fonts
+          curl -sSL --retry 3 -o ~/.local/share/fonts/NotoSansSC-Regular.otf \
+            https://github.com/notofonts/noto-cjk/raw/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
           pip install -q matplotlib
           rm -rf ~/.cache/matplotlib
 
