@@ -778,5 +778,47 @@
 "Entered into agreements to transfer a portion of its retiree benefit obligations to an insurer, which will assume full legal and administrative responsibility, resulting in approximately $350 million paid in the quart er.",
 "Wind : Organic revenue* down mid-single digits, versus prior guidance of down low-double digits, and $400-$500 million of segment EBITDA losses, versus prior guidance of approximately $400 million of segment EBITDA losses."
 ]
+},
+"MSFT:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436122/msft-ex99_1.htm",
+"filed": "2026-10-28",
+"quotes": []
+},
+"GOOG:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+"filed": "2026-10-28",
+"quotes": []
+},
+"TMUS:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000128/tmus09302026ex991.htm",
+"filed": "2026-10-28",
+"quotes": [
+"Effective tax rate is now expected to be between 24% and 25%, a decrease from prior guidance of between 25% and 26%.",
+"Core Adjusted EBITDA, which is Adjusted EBITDA less lease revenues, is expected to be between $37.35 billion and $37.45 billion, an increase at the midpoint from prior guidance of $37.1 billion to $37.5 billion.",
+"Net cash provided by operating activities, including net payments for UScellular merger-related costs, is now expected to be between $28.7 billion and $28.8 billion, an increase at the midpoint from prior guidance of $28.4 billion to $28.8 billion."
+]
+},
+"PSX:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000035/psx-2026930_ex991.htm",
+"filed": "2026-10-28",
+"quotes": []
+},
+"AEP:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000069/a3q20268kpressreleaseex991.htm",
+"filed": "2026-10-28",
+"quotes": [
+"AEP expects full-year results to be at or above the high end of its 2026 operating earnings guidance range of $6.25 to $6.55 per share.",
+"AEP is also announcing an expanded $100 billion five-year capital plan through 2031 and a new long-term operating earnings growth outlook as accelerating electricity demand creates significant investment opportunities across the company’s service territory.",
+"AEP is further introducing an expected annual operating earnings per share growth rate of 9% to 11% from 2027 through 2031, with a greater than 10% CAGR through 2031 based off the original 2026 guidance midpoint of $6.30 per share."
+]
+},
+"EQIX:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000178/a991eqix-q326xpr.htm",
+"filed": "2026-10-28",
+"quotes": [
+"Adjusted EBITDA is expected to range between $1.328 and $1.368 billion, reflecting an adjusted EBITDA margin of 49 - 50%.",
+"For the full year of 2026, total revenues are expected to range between $10.325 and $10.365 billion, an increase of approximately 12% over the previous year on both an as-reported and a normalized and constant currency basis.",
+"Adjusted EBITDA is expected to range between $5.290 and $5.330 billion, reflecting an adjusted EBITDA margin of approximately 51%, an approximate 200 basis points expansion over the previous year."
+]
 }
 }
