@@ -1,0 +1,3002 @@
+{
+"NVDA": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"AAPL": [
+"Technology",
+"Consumer Electronics",
+"2026-10-28"
+],
+"MSFT": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"GOOG": [
+"Communication Services",
+"Internet Content & Information",
+"2026-10-28"
+],
+"AMZN": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"SPCX": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"AVGO": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"TSLA": [
+"Consumer Cyclical",
+"Auto Manufacturers",
+"2026-10-28"
+],
+"META": [
+"Communication Services",
+"Internet Content & Information",
+"2026-10-28"
+],
+"LLY": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"BRK.A": [
+"Financial Services",
+"Insurance - Diversified",
+"2026-10-28"
+],
+"MU": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"WMT": [
+"Consumer Defensive",
+"Discount Stores",
+"2026-10-28"
+],
+"AMD": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"JPM": [
+"Financial Services",
+"Banks - Diversified",
+"2026-10-28"
+],
+"V": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"XOM": [
+"Energy",
+"Oil & Gas Integrated",
+"2026-10-28"
+],
+"JNJ": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"MA": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"ABBV": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"INTC": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"PLTR": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"CVX": [
+"Energy",
+"Oil & Gas Integrated",
+"2026-10-28"
+],
+"COST": [
+"Consumer Defensive",
+"Discount Stores",
+"2026-10-28"
+],
+"CSCO": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"ORCL": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"KO": [
+"Consumer Defensive",
+"Beverages - Non-Alcoholic",
+"2026-10-28"
+],
+"PG": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"UNH": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"BAC": [
+"Financial Services",
+"Banks - Diversified",
+"2026-10-28"
+],
+"MRK": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"PANW": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"CAT": [
+"Industrials",
+"Farm & Heavy Construction Machinery",
+"2026-10-28"
+],
+"DELL": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"HD": [
+"Consumer Cyclical",
+"Home Improvement Retail",
+"2026-10-28"
+],
+"PM": [
+"Consumer Defensive",
+"Tobacco",
+"2026-10-28"
+],
+"AMAT": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"GE": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"LRCX": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"MS": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"TXN": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"CRWD": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"GS": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"RTX": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"NFLX": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"TMO": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"WFC": [
+"Financial Services",
+"Banks - Diversified",
+"2026-10-28"
+],
+"AMGN": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"GEV": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"IBM": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"ANET": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"LIN": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"MRVL": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"SHOP": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"AXP": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"ADI": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"C": [
+"Financial Services",
+"Banks - Diversified",
+"2026-10-28"
+],
+"KLAC": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"CRM": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"GILD": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"QCOM": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"APH": [
+"Technology",
+"Electronic Components",
+"2026-10-28"
+],
+"DIS": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"SNDK": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"BLK": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"VZ": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"PEP": [
+"Consumer Defensive",
+"Beverages - Non-Alcoholic",
+"2026-10-28"
+],
+"ABT": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"UNP": [
+"Industrials",
+"Railroads",
+"2026-10-28"
+],
+"COP": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"MCD": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"NEE": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"DE": [
+"Industrials",
+"Farm & Heavy Construction Machinery",
+"2026-10-28"
+],
+"PFE": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"SCCO": [
+"Basic Materials",
+"Copper",
+"2026-10-28"
+],
+"WELL": [
+"Real Estate",
+"REIT - Healthcare Facilities",
+"2026-10-28"
+],
+"DHR": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"NOW": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"TMUS": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"ISRG": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"SCHW": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"TJX": [
+"Consumer Cyclical",
+"Apparel Retail",
+"2026-10-28"
+],
+"STX": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"ETN": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"BX": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"LMT": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"WDC": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"T": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"IBKR": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"ACN": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"CB": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"FTNT": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"UBER": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"BA": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"SPGI": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"VRTX": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"PGR": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"BMY": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"MO": [
+"Consumer Defensive",
+"Tobacco",
+"2026-10-28"
+],
+"PLD": [
+"Real Estate",
+"REIT - Industrial",
+"2026-10-28"
+],
+"MPC": [
+"Energy",
+"Oil & Gas Refining & Marketing",
+"2026-10-28"
+],
+"COF": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"MDT": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"SNOW": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"SBUX": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"NEM": [
+"Basic Materials",
+"Gold",
+"2026-10-28"
+],
+"NET": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"CVS": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"ADP": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"SYK": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"SPOT": [
+"Communication Services",
+"Internet Content & Information",
+"2026-10-28"
+],
+"PH": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"BKNG": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"MCK": [
+"Healthcare",
+"Medical Distribution",
+"2026-10-28"
+],
+"VLO": [
+"Energy",
+"Oil & Gas Refining & Marketing",
+"2026-10-28"
+],
+"LOW": [
+"Consumer Cyclical",
+"Home Improvement Retail",
+"2026-10-28"
+],
+"GLW": [
+"Technology",
+"Electronic Components",
+"2026-10-28"
+],
+"PSX": [
+"Energy",
+"Oil & Gas Refining & Marketing",
+"2026-10-28"
+],
+"SO": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"CME": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"MAR": [
+"Consumer Cyclical",
+"Lodging",
+"2026-10-28"
+],
+"TT": [
+"Industrials",
+"Building Products & Equipment",
+"2026-10-28"
+],
+"ABNB": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"DDOG": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"BNY": [
+"Financial Services",
+"Banks - Diversified",
+"2026-10-28"
+],
+"EQIX": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"HCA": [
+"Healthcare",
+"Medical Care Facilities",
+"2026-10-28"
+],
+"DUK": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"ADBE": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"CSX": [
+"Industrials",
+"Railroads",
+"2026-10-28"
+],
+"GD": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"FCX": [
+"Basic Materials",
+"Copper",
+"2026-10-28"
+],
+"CDNS": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"JCI": [
+"Industrials",
+"Building Products & Equipment",
+"2026-10-28"
+],
+"WM": [
+"Industrials",
+"Waste Management",
+"2026-10-28"
+],
+"BN": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"USB": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"EMR": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"CEG": [
+"Utilities",
+"Utilities - Independent Power Producers",
+"2026-10-28"
+],
+"ELV": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"SNPS": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"MRSH": [
+"Financial Services",
+"Insurance Brokers",
+"2026-10-28"
+],
+"WMB": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"PNC": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"UPS": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"MNST": [
+"Consumer Defensive",
+"Beverages - Non-Alcoholic",
+"2026-10-28"
+],
+"MMM": [
+"Industrials",
+"Conglomerates",
+"2026-10-28"
+],
+"APP": [
+"Communication Services",
+"Advertising Agencies",
+"2026-10-28"
+],
+"INTU": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"ICE": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"PWR": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"AMT": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"CTAS": [
+"Industrials",
+"Specialty Business Services",
+"2026-10-28"
+],
+"MELI": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"HOOD": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"EOG": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"REGN": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"MRNA": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"KKR": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"MCO": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"ECL": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"TRV": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"HPE": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"VRT": [
+"Industrials",
+"Electrical Equipment & Parts",
+"2026-10-28"
+],
+"EPD": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"SLB": [
+"Energy",
+"Oil & Gas Equipment & Services",
+"2026-10-28"
+],
+"MSI": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"MDLZ": [
+"Consumer Defensive",
+"Confectioners",
+"2026-10-28"
+],
+"RCL": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"SHW": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"CI": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"ITW": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"LITE": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"NOC": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"HLT": [
+"Consumer Cyclical",
+"Lodging",
+"2026-10-28"
+],
+"CMCSA": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"BAM": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"HWM": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"NSC": [
+"Industrials",
+"Railroads",
+"2026-10-28"
+],
+"KMI": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"DASH": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"ROST": [
+"Consumer Cyclical",
+"Apparel Retail",
+"2026-10-28"
+],
+"CL": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"CMI": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"FDX": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"ORLY": [
+"Consumer Cyclical",
+"Auto Parts",
+"2026-10-28"
+],
+"RSG": [
+"Industrials",
+"Waste Management",
+"2026-10-28"
+],
+"URI": [
+"Industrials",
+"Rental & Leasing Services",
+"2026-10-28"
+],
+"AEP": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"ET": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"HON": [
+"Industrials",
+"Conglomerates",
+"2026-10-28"
+],
+"SPG": [
+"Real Estate",
+"REIT - Retail",
+"2026-10-28"
+],
+"APD": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"GM": [
+"Consumer Cyclical",
+"Auto Manufacturers",
+"2026-10-28"
+],
+"APO": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"TGT": [
+"Consumer Defensive",
+"Discount Stores",
+"2026-10-28"
+],
+"DLR": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"AJG": [
+"Financial Services",
+"Insurance Brokers",
+"2026-10-28"
+],
+"BSX": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"TEL": [
+"Technology",
+"Electronic Components",
+"2026-10-28"
+],
+"CVNA": [
+"Consumer Cyclical",
+"Auto & Truck Dealerships",
+"2026-10-28"
+],
+"TRGP": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"BE": [
+"Industrials",
+"Electrical Equipment & Parts",
+"2026-10-28"
+],
+"AON": [
+"Financial Services",
+"Insurance Brokers",
+"2026-10-28"
+],
+"NXPI": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"ALL": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"MET": [
+"Financial Services",
+"Insurance - Life",
+"2026-10-28"
+],
+"GWW": [
+"Industrials",
+"Industrial Distribution",
+"2026-10-28"
+],
+"OXY": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"TDG": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"COR": [
+"Healthcare",
+"Medical Distribution",
+"2026-10-28"
+],
+"LNG": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"NUE": [
+"Basic Materials",
+"Steel",
+"2026-10-28"
+],
+"AFL": [
+"Financial Services",
+"Insurance - Life",
+"2026-10-28"
+],
+"OKE": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"NU": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"MSTR": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"MPWR": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"TFC": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"NTRA": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"MPLX": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"FAST": [
+"Industrials",
+"Industrial Distribution",
+"2026-10-28"
+],
+"BKR": [
+"Energy",
+"Oil & Gas Equipment & Services",
+"2026-10-28"
+],
+"PSA": [
+"Real Estate",
+"REIT - Industrial",
+"2026-10-28"
+],
+"NDAQ": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"D": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"FANG": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"KEYS": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"CAH": [
+"Healthcare",
+"Medical Distribution",
+"2026-10-28"
+],
+"CRH": [
+"Basic Materials",
+"Building Materials",
+"2026-10-28"
+],
+"AME": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"DVN": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"GRMN": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"NKE": [
+"Consumer Cyclical",
+"Footwear & Accessories",
+"2026-10-28"
+],
+"SRE": [
+"Utilities",
+"Utilities - Diversified",
+"2026-10-28"
+],
+"TEAM": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"PCAR": [
+"Industrials",
+"Farm & Heavy Construction Machinery",
+"2026-10-28"
+],
+"O": [
+"Real Estate",
+"REIT - Retail",
+"2026-10-28"
+],
+"DAL": [
+"Industrials",
+"Airlines",
+"2026-10-28"
+],
+"HONA": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"BDX": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"EBAY": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"EW": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"ETR": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"VEEV": [
+"Healthcare",
+"Health Information Services",
+"2026-10-28"
+],
+"TER": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"ADSK": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"AZO": [
+"Consumer Cyclical",
+"Auto Parts",
+"2026-10-28"
+],
+"A": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"HUM": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"CIEN": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"ALAB": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"WDAY": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"VST": [
+"Utilities",
+"Utilities - Independent Power Producers",
+"2026-10-28"
+],
+"CCEP": [
+"Consumer Defensive",
+"Beverages - Non-Alcoholic",
+"2026-10-28"
+],
+"XEL": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"ROK": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"FITB": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"VMRK": [
+"Real Estate",
+"REIT - Residential",
+"2026-10-28"
+],
+"LHX": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"VYLR": [
+"Financial Services",
+"Shell Companies",
+"2026-10-28"
+],
+"PYPL": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"CARR": [
+"Industrials",
+"Building Products & Equipment",
+"2026-10-28"
+],
+"KDP": [
+"Consumer Defensive",
+"Beverages - Non-Alcoholic",
+"2026-10-28"
+],
+"WAB": [
+"Industrials",
+"Railroads",
+"2026-10-28"
+],
+"F": [
+"Consumer Cyclical",
+"Auto Manufacturers",
+"2026-10-28"
+],
+"STT": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"COHR": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"NBIS": [
+"Communication Services",
+"Internet Content & Information",
+"2026-10-28"
+],
+"P": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"EXC": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"WAT": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"FIX": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"XYZ": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"NTAP": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"IQV": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"FERG": [
+"Industrials",
+"Industrial Distribution",
+"2026-10-28"
+],
+"IDXX": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"AU": [
+"Basic Materials",
+"Gold",
+"2026-10-28"
+],
+"VTR": [
+"Real Estate",
+"REIT - Healthcare Facilities",
+"2026-10-28"
+],
+"AMP": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"MCHP": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"MSCI": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"ROP": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"MDLN": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"ZS": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"ED": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"ILMN": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"COIN": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"AIG": [
+"Financial Services",
+"Insurance - Diversified",
+"2026-10-28"
+],
+"DHI": [
+"Consumer Cyclical",
+"Residential Construction",
+"2026-10-28"
+],
+"YUM": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"LYV": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"SYY": [
+"Consumer Defensive",
+"Food Distribution",
+"2026-10-28"
+],
+"RVMD": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"PRU": [
+"Financial Services",
+"Insurance - Life",
+"2026-10-28"
+],
+"OKTA": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"EL": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"TWLO": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"RBLX": [
+"Communication Services",
+"Electronic Gaming & Multimedia",
+"2026-10-28"
+],
+"KR": [
+"Consumer Defensive",
+"Grocery Stores",
+"2026-10-28"
+],
+"PAYX": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"ODFL": [
+"Industrials",
+"Trucking",
+"2026-10-28"
+],
+"VIK": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"ADM": [
+"Consumer Defensive",
+"Farm Products",
+"2026-10-28"
+],
+"TTWO": [
+"Communication Services",
+"Electronic Gaming & Multimedia",
+"2026-10-28"
+],
+"RPRX": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"CCI": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"BIIB": [
+"Healthcare",
+"Drug Manufacturers - General",
+"2026-10-28"
+],
+"KVUE": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"CCL": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"HEI": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"WEC": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"PEG": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"KMB": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"UI": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"MLM": [
+"Basic Materials",
+"Building Materials",
+"2026-10-28"
+],
+"HIG": [
+"Financial Services",
+"Insurance - Diversified",
+"2026-10-28"
+],
+"CMG": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"RMD": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"EQT": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"STLD": [
+"Basic Materials",
+"Steel",
+"2026-10-28"
+],
+"CBRE": [
+"Real Estate",
+"Real Estate Services",
+"2026-10-28"
+],
+"RKLB": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"AXON": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"VG": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"IRM": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"ACGL": [
+"Financial Services",
+"Insurance - Diversified",
+"2026-10-28"
+],
+"UAL": [
+"Industrials",
+"Airlines",
+"2026-10-28"
+],
+"VMC": [
+"Basic Materials",
+"Building Materials",
+"2026-10-28"
+],
+"CNC": [
+"Healthcare",
+"Healthcare Plans",
+"2026-10-28"
+],
+"MTD": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"QSR": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"SUNB": [
+"Industrials",
+"Rental & Leasing Services",
+"2026-10-28"
+],
+"RKT": [
+"Financial Services",
+"Mortgage Finance",
+"2026-10-28"
+],
+"EXPE": [
+"Consumer Cyclical",
+"Travel Services",
+"2026-10-28"
+],
+"HSY": [
+"Consumer Defensive",
+"Confectioners",
+"2026-10-28"
+],
+"CRWV": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"TKO": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"ZTS": [
+"Healthcare",
+"Drug Manufacturers - Specialty & Generic",
+"2026-10-28"
+],
+"GEHC": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"MTB": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"CQP": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"HBAN": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"CRDO": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"MDB": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"NTRS": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"FLEX": [
+"Technology",
+"Electronic Components",
+"2026-10-28"
+],
+"ON": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"EXR": [
+"Real Estate",
+"REIT - Industrial",
+"2026-10-28"
+],
+"RJF": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"ALNY": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"HPQ": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"TDY": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"AEE": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"BSP": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"CTSH": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"WTW": [
+"Financial Services",
+"Insurance Brokers",
+"2026-10-28"
+],
+"DXCM": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"WSM": [
+"Consumer Cyclical",
+"Specialty Retail",
+"2026-10-28"
+],
+"HAL": [
+"Energy",
+"Oil & Gas Equipment & Services",
+"2026-10-28"
+],
+"EME": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"IR": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"JBL": [
+"Technology",
+"Electronic Components",
+"2026-10-28"
+],
+"BAP": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"ATO": [
+"Utilities",
+"Utilities - Regulated Gas",
+"2026-10-28"
+],
+"PCG": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"KHC": [
+"Consumer Defensive",
+"Packaged Foods",
+"2026-10-28"
+],
+"ZM": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"OTIS": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"RBRK": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"AWK": [
+"Utilities",
+"Utilities - Regulated Water",
+"2026-10-28"
+],
+"WST": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"TW": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"FTI": [
+"Energy",
+"Oil & Gas Equipment & Services",
+"2026-10-28"
+],
+"DG": [
+"Consumer Defensive",
+"Discount Stores",
+"2026-10-28"
+],
+"CINF": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"SN": [
+"Consumer Cyclical",
+"Furnishings, Fixtures & Appliances",
+"2026-10-28"
+],
+"CNP": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"DTE": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"CFG": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"DOV": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"ARES": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"VRSN": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"WRB": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"LH": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"ULTA": [
+"Consumer Cyclical",
+"Specialty Retail",
+"2026-10-28"
+],
+"CPRT": [
+"Industrials",
+"Specialty Business Services",
+"2026-10-28"
+],
+"FE": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"CBRS": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"DGX": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"PPL": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"ROIV": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"ECHO": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"RDDT": [
+"Communication Services",
+"Internet Content & Information",
+"2026-10-28"
+],
+"VICI": [
+"Real Estate",
+"REIT - Diversified",
+"2026-10-28"
+],
+"FCNCA": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"CPAY": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"FFIV": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"EXPD": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"CASY": [
+"Consumer Cyclical",
+"Specialty Retail",
+"2026-10-28"
+],
+"FOX": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"GFS": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"ES": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"IOT": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"UTHR": [
+"Healthcare",
+"Drug Manufacturers - Specialty & Generic",
+"2026-10-28"
+],
+"PPG": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"VLTO": [
+"Industrials",
+"Pollution & Treatment Controls",
+"2026-10-28"
+],
+"LPLA": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"CPNG": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"CHD": [
+"Consumer Defensive",
+"Household & Personal Products",
+"2026-10-28"
+],
+"Q": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"AFRM": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"DOW": [
+"Basic Materials",
+"Chemicals",
+"2026-10-28"
+],
+"VRSK": [
+"Industrials",
+"Consulting Services",
+"2026-10-28"
+],
+"RF": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"DRI": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"PFG": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"GH": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"BIP": [
+"Utilities",
+"Utilities - Diversified",
+"2026-10-28"
+],
+"IFF": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"INCY": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"SYM": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"SYF": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"RL": [
+"Consumer Cyclical",
+"Apparel Manufacturing",
+"2026-10-28"
+],
+"ROKU": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"DLTR": [
+"Consumer Defensive",
+"Discount Stores",
+"2026-10-28"
+],
+"AER": [
+"Industrials",
+"Rental & Leasing Services",
+"2026-10-28"
+],
+"SMCI": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"MKL": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"HUBB": [
+"Industrials",
+"Electrical Equipment & Parts",
+"2026-10-28"
+],
+"ENTG": [
+"Technology",
+"Semiconductor Equipment & Materials",
+"2026-10-28"
+],
+"TPL": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"L": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"ARXS": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"LVS": [
+"Consumer Cyclical",
+"Resorts & Casinos",
+"2026-10-28"
+],
+"ATI": [
+"Industrials",
+"Metal Fabrication",
+"2026-10-28"
+],
+"KEY": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"PKG": [
+"Consumer Cyclical",
+"Packaging & Containers",
+"2026-10-28"
+],
+"BRO": [
+"Financial Services",
+"Insurance Brokers",
+"2026-10-28"
+],
+"EIX": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"PHM": [
+"Consumer Cyclical",
+"Residential Construction",
+"2026-10-28"
+],
+"RS": [
+"Basic Materials",
+"Steel",
+"2026-10-28"
+],
+"STE": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"SW": [
+"Consumer Cyclical",
+"Packaging & Containers",
+"2026-10-28"
+],
+"USFD": [
+"Consumer Defensive",
+"Food Distribution",
+"2026-10-28"
+],
+"TROW": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"STZ": [
+"Consumer Defensive",
+"Beverages - Brewers",
+"2026-10-28"
+],
+"TPR": [
+"Consumer Cyclical",
+"Luxury Goods",
+"2026-10-28"
+],
+"FWONA": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"XPO": [
+"Industrials",
+"Trucking",
+"2026-10-28"
+],
+"AMRZ": [
+"Basic Materials",
+"Building Materials",
+"2026-10-28"
+],
+"EXE": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"LYB": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"NVT": [
+"Industrials",
+"Electrical Equipment & Parts",
+"2026-10-28"
+],
+"XYL": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"CMS": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"JBHT": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"GPN": [
+"Industrials",
+"Specialty Business Services",
+"2026-10-28"
+],
+"VTRS": [
+"Healthcare",
+"Drug Manufacturers - Specialty & Generic",
+"2026-10-28"
+],
+"OMC": [
+"Communication Services",
+"Advertising Agencies",
+"2026-10-28"
+],
+"TSEM": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"PR": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"LUV": [
+"Industrials",
+"Airlines",
+"2026-10-28"
+],
+"AMCR": [
+"Consumer Cyclical",
+"Packaging & Containers",
+"2026-10-28"
+],
+"SOFI": [
+"Financial Services",
+"Credit Services",
+"2026-10-28"
+],
+"PTC": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"THC": [
+"Healthcare",
+"Medical Care Facilities",
+"2026-10-28"
+],
+"NI": [
+"Utilities",
+"Utilities - Regulated Gas",
+"2026-10-28"
+],
+"CRCL": [
+"Financial Services",
+"Capital Markets",
+"2026-10-28"
+],
+"INSM": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"BBY": [
+"Consumer Cyclical",
+"Specialty Retail",
+"2026-10-28"
+],
+"EFX": [
+"Industrials",
+"Consulting Services",
+"2026-10-28"
+],
+"SNX": [
+"Technology",
+"Electronics & Computer Distribution",
+"2026-10-28"
+],
+"RGLD": [
+"Basic Materials",
+"Gold",
+"2026-10-28"
+],
+"DINO": [
+"Energy",
+"Oil & Gas Refining & Marketing",
+"2026-10-28"
+],
+"CDW": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"SWKS": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"LEN": [
+"Consumer Cyclical",
+"Residential Construction",
+"2026-10-28"
+],
+"NRG": [
+"Utilities",
+"Utilities - Independent Power Producers",
+"2026-10-28"
+],
+"BR": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"NTNX": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"EVRG": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"GFL": [
+"Industrials",
+"Waste Management",
+"2026-10-28"
+],
+"OVV": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"SBAC": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"MTSI": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"BG": [
+"Consumer Defensive",
+"Farm Products",
+"2026-10-28"
+],
+"TSN": [
+"Consumer Defensive",
+"Farm Products",
+"2026-10-28"
+],
+"FSLR": [
+"Technology",
+"Solar",
+"2026-10-28"
+],
+"MEDP": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"SSNC": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"WES": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"PS": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"PAA": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"FTV": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"DD": [
+"Basic Materials",
+"Specialty Chemicals",
+"2026-10-28"
+],
+"CHTR": [
+"Communication Services",
+"Telecom Services",
+"2026-10-28"
+],
+"TOST": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"SNA": [
+"Industrials",
+"Tools & Accessories",
+"2026-10-28"
+],
+"DT": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"FIS": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"ZBH": [
+"Healthcare",
+"Medical Devices",
+"2026-10-28"
+],
+"CF": [
+"Basic Materials",
+"Agricultural Inputs",
+"2026-10-28"
+],
+"LNT": [
+"Utilities",
+"Utilities - Regulated Electric",
+"2026-10-28"
+],
+"NDSN": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"RVTY": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"ZBRA": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"EWBC": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"WWD": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"GIS": [
+"Consumer Defensive",
+"Packaged Foods",
+"2026-10-28"
+],
+"APG": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"APA": [
+"Energy",
+"Oil & Gas E&P",
+"2026-10-28"
+],
+"IP": [
+"Consumer Cyclical",
+"Packaging & Containers",
+"2026-10-28"
+],
+"ESS": [
+"Real Estate",
+"REIT - Residential",
+"2026-10-28"
+],
+"U": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"CW": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"LDOS": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"ITT": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"J": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"HST": [
+"Real Estate",
+"REIT - Hotel & Motel",
+"2026-10-28"
+],
+"IEX": [
+"Industrials",
+"Specialty Industrial Machinery",
+"2026-10-28"
+],
+"RGA": [
+"Financial Services",
+"Insurance - Reinsurance",
+"2026-10-28"
+],
+"TPG": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"CRL": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"RIVN": [
+"Consumer Cyclical",
+"Auto Manufacturers",
+"2026-10-28"
+],
+"BALL": [
+"Consumer Cyclical",
+"Packaging & Containers",
+"2026-10-28"
+],
+"TSCO": [
+"Consumer Cyclical",
+"Specialty Retail",
+"2026-10-28"
+],
+"GPC": [
+"Consumer Cyclical",
+"Auto Parts",
+"2026-10-28"
+],
+"NWS": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"HAS": [
+"Consumer Cyclical",
+"Leisure",
+"2026-10-28"
+],
+"VNOM": [
+"Energy",
+"Oil & Gas Midstream",
+"2026-10-28"
+],
+"CHRW": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"WCC": [
+"Industrials",
+"Industrial Distribution",
+"2026-10-28"
+],
+"CLH": [
+"Industrials",
+"Waste Management",
+"2026-10-28"
+],
+"AS": [
+"Consumer Cyclical",
+"Leisure",
+"2026-10-28"
+],
+"TLN": [
+"Utilities",
+"Utilities - Independent Power Producers",
+"2026-10-28"
+],
+"ASTS": [
+"Technology",
+"Communication Equipment",
+"2026-10-28"
+],
+"H": [
+"Consumer Cyclical",
+"Lodging",
+"2026-10-28"
+],
+"CHKP": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"FTAI": [
+"Industrials",
+"Aerospace & Defense",
+"2026-10-28"
+],
+"ROL": [
+"Consumer Cyclical",
+"Personal Services",
+"2026-10-28"
+],
+"FDXF": [
+"Industrials",
+"Integrated Freight & Logistics",
+"2026-10-28"
+],
+"EXEL": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"INVH": [
+"Real Estate",
+"REIT - Residential",
+"2026-10-28"
+],
+"KIM": [
+"Real Estate",
+"REIT - Retail",
+"2026-10-28"
+],
+"BEN": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"WMG": [
+"Communication Services",
+"Entertainment",
+"2026-10-28"
+],
+"CRBG": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"LAMR": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"YUMC": [
+"Consumer Cyclical",
+"Restaurants",
+"2026-10-28"
+],
+"TYL": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"NVR": [
+"Consumer Cyclical",
+"Residential Construction",
+"2026-10-28"
+],
+"W": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+],
+"LECO": [
+"Industrials",
+"Tools & Accessories",
+"2026-10-28"
+],
+"ASND": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"DOCU": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"RBC": [
+"Industrials",
+"Tools & Accessories",
+"2026-10-28"
+],
+"JHX": [
+"Basic Materials",
+"Building Materials",
+"2026-10-28"
+],
+"ALLE": [
+"Industrials",
+"Security & Protection Services",
+"2026-10-28"
+],
+"PFGC": [
+"Consumer Defensive",
+"Food Distribution",
+"2026-10-28"
+],
+"PNFP": [
+"Financial Services",
+"Banks - Regional",
+"2026-10-28"
+],
+"SWK": [
+"Industrials",
+"Tools & Accessories",
+"2026-10-28"
+],
+"EG": [
+"Financial Services",
+"Insurance - Reinsurance",
+"2026-10-28"
+],
+"FICO": [
+"Technology",
+"Software - Application",
+"2026-10-28"
+],
+"SUN": [
+"Energy",
+"Oil & Gas Refining & Marketing",
+"2026-10-28"
+],
+"EQH": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"NBIX": [
+"Healthcare",
+"Drug Manufacturers - Specialty & Generic",
+"2026-10-28"
+],
+"MAS": [
+"Industrials",
+"Building Products & Equipment",
+"2026-10-28"
+],
+"CACI": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"BURL": [
+"Consumer Cyclical",
+"Apparel Retail",
+"2026-10-28"
+],
+"SITM": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"TRMB": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"LSCC": [
+"Technology",
+"Semiconductors",
+"2026-10-28"
+],
+"ARMK": [
+"Industrials",
+"Specialty Business Services",
+"2026-10-28"
+],
+"CDE": [
+"Basic Materials",
+"Gold",
+"2026-10-28"
+],
+"HALO": [
+"Healthcare",
+"Biotechnology",
+"2026-10-28"
+],
+"ULS": [
+"Industrials",
+"Specialty Business Services",
+"2026-10-28"
+],
+"SGI": [
+"Consumer Cyclical",
+"Furnishings, Fixtures & Appliances",
+"2026-10-28"
+],
+"GEN": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"OWL": [
+"Financial Services",
+"Asset Management",
+"2026-10-28"
+],
+"WPC": [
+"Real Estate",
+"REIT - Diversified",
+"2026-10-28"
+],
+"TRU": [
+"Financial Services",
+"Financial Data & Stock Exchanges",
+"2026-10-28"
+],
+"NLY": [
+"Real Estate",
+"REIT - Mortgage",
+"2026-10-28"
+],
+"MKSI": [
+"Technology",
+"Scientific & Technical Instruments",
+"2026-10-28"
+],
+"AKAM": [
+"Technology",
+"Software - Infrastructure",
+"2026-10-28"
+],
+"CRS": [
+"Industrials",
+"Metal Fabrication",
+"2026-10-28"
+],
+"RNR": [
+"Financial Services",
+"Insurance - Reinsurance",
+"2026-10-28"
+],
+"MTZ": [
+"Industrials",
+"Engineering & Construction",
+"2026-10-28"
+],
+"IONQ": [
+"Technology",
+"Computer Hardware",
+"2026-10-28"
+],
+"SOLV": [
+"Healthcare",
+"Medical Instruments & Supplies",
+"2026-10-28"
+],
+"AIZ": [
+"Financial Services",
+"Insurance - Property & Casualty",
+"2026-10-28"
+],
+"ICLR": [
+"Healthcare",
+"Diagnostics & Research",
+"2026-10-28"
+],
+"UNM": [
+"Financial Services",
+"Insurance - Life",
+"2026-10-28"
+],
+"SUI": [
+"Real Estate",
+"REIT - Residential",
+"2026-10-28"
+],
+"OHI": [
+"Real Estate",
+"REIT - Healthcare Facilities",
+"2026-10-28"
+],
+"WY": [
+"Real Estate",
+"REIT - Specialty",
+"2026-10-28"
+],
+"IT": [
+"Technology",
+"Information Technology Services",
+"2026-10-28"
+],
+"PAG": [
+"Consumer Cyclical",
+"Auto & Truck Dealerships",
+"2026-10-28"
+],
+"CART": [
+"Consumer Cyclical",
+"Internet Retail",
+"2026-10-28"
+]
+}
