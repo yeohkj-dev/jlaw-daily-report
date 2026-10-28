@@ -32,7 +32,14 @@ SCREEN_DIR = os.path.join(OUT_DIR, "每日选股")
 HIST = os.path.join(OUT_DIR, "大盘报告", "大盘历史.csv")
 SCAN = "https://scanner.tradingview.com/america/scan"
 COLS = ["name", "description", "close", "market_cap_basic", "Value.Traded", "Perf.1M", "Perf.6M", "sector", "industry",
-        "earnings_release_next_date", "earnings_release_date", "average_volume_30d_calc"]
+        "earnings_release_next_date", "earnings_release_date", "average_volume_30d_calc", "exchange"]
+EXCH = {}                  # 代码 → 交易所（做 TradingView 图表链接用）
+
+
+def tv_url(sym):
+    """TradingView 日线图链接（例如 NASDAQ:AAPL）。"""
+    ex = EXCH.get(sym)
+    return "https://www.tradingview.com/chart/?symbol=" + (f"{ex}:{sym}" if ex else sym)
 
 MIN_DOLLAR_VOL = 1e8        # 20 日平均成交额（美元）
 BIG_DOLLAR_VOL = 1e9        # 机构大量参与
@@ -134,6 +141,7 @@ def analyse(meta, px, spy):
 
     er = meta.get("earnings_release_next_date")
     days_to_er = (dt.datetime.fromtimestamp(er, dt.timezone.utc).date() - dt.date.today()).days if er else None
+    EXCH[meta["name"]] = meta.get("exchange") or ""
     base = dict(sym=meta["name"], name=(meta["description"] or "")[:30], sector=meta["sector"] or "", industry=meta["industry"] or "",
                 close=round(close, 2), dollar20=dollar20, rs_near_high=rs_near_high, rs_down=round(rs_down * 100, 2), rs_ok=rs_ok,
                 p1m=round(meta["Perf.1M"] or 0, 1), p6m=round(meta["Perf.6M"] or 0, 1), er_days=days_to_er,
@@ -423,8 +431,12 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
             return f'<span style="color:#C62828;font-weight:600;">⚠ {r["er_days"]} 天后</span>'
         return "—" if r["er_days"] is None else f'{r["er_days"]} 天后'
 
+    def link(sym):
+        return (f'<a href="{h.escape(tv_url(sym))}" target="_blank" rel="noopener" title="在 TradingView 打开 {h.escape(sym)} 的图表" '
+                f'style="color:#1565C0;text-decoration:none;font-weight:700;">{h.escape(sym)} <span style="font-size:11px;">📈</span></a>')
+
     def name(r):
-        return f'<b>{h.escape(r["sym"])}</b><br><span style="color:#888;font-size:11px;">{h.escape(r["name"][:22])}</span>'
+        return f'{link(r["sym"])}<br><span style="color:#888;font-size:11px;">{h.escape(r["name"][:22])}</span>'
 
     def wrap(head, body):
         hd = "".join(f"<th {th}>{x}</th>" for x in head)
@@ -464,9 +476,9 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
         with open(png_path, "rb") as f:
             img = ('<h3 style="margin:22px 0 8px;">图表（META：橙色虚线 = 突破位；VCP：橙色虚线 = 突破点；紫色点线 = 建议止损）</h3>'
                    f'<img alt="候选股图表" style="width:100%;border:1px solid #eee;" src="data:image/png;base64,{base64.b64encode(f.read()).decode()}">')
-    hot_html = "".join(f'<li><b>{h.escape(k)}</b>（{len(v)}）：{h.escape("、".join(v[:12]))}</li>'
+    hot_html = "".join(f'<li><b>{h.escape(k)}</b>（{len(v)}）：{"、".join(link(x) for x in v[:12])}</li>'
                        for k, v in sorted(hot.items(), key=lambda x: -len(x[1]))[:10]) or "<li>无</li>"
-    fresh_html = "".join(f'<li><b>{h.escape(r["sym"])}</b>（{h.escape(r["industry"][:20])}）{r["mom"]["date"]:%m-%d} '
+    fresh_html = "".join(f'<li>{link(r["sym"])}（{h.escape(r["industry"][:20])}）{r["mom"]["date"]:%m-%d} '
                          f'<span style="color:#2E7D32;">+{r["mom"]["size"]*100:.0f}%</span>，量 {r["mom"]["vr"]:.1f}x{"，业绩催化" if r["catalyst"] else ""}</li>'
                          for r in fresh_mom[:15]) or "<li>无</li>"
     new_line = (f'<p style="margin:10px 0 0;"><b>新进入就绪名单：</b>{h.escape("、".join(new_names[:20]))}</p>' if new_names else "")
@@ -493,6 +505,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 <div style="flex:1 1 360px;">{sec(f"热门产业组（同一行业 ≥{HOT_GROUP_MIN} 只）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{hot_html}</ul></div>
 <div style="flex:1 1 360px;">{sec("近 5 日新的动能事件（等低量回调）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{fresh_html}</ul></div></div>
 {img}
+<p style="margin:14px 0 0;font-size:12px;color:#555;">📈 点股票代码会在新分页打开 TradingView 日线图，方便研究形态。</p>
 <h3 style="margin:22px 0 6px;">下单前仍须人工确认</h3>
 <ul style="margin:0;padding-left:20px;">
 <li>META 回调：动能要有催化剂（业绩、指引、新产品、主题），回调成交量明显萎缩，股价守在 10/20 天线或突破位区间（均线是区间，不是一条线）</li>

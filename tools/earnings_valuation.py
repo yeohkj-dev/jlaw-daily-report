@@ -332,7 +332,7 @@ def analyse(tv, sector, industry, ciks, gcache):
     rel = tv["earnings_release_date"]
     days_since = (TODAY - dt.datetime.fromtimestamp(rel, dt.timezone.utc).date()).days if rel else None
     guide = guidance(sym, rel, ciks, gcache) if days_since is not None and days_since <= 120 else None
-    return dict(sym=sym, name=(s.get("price", {}).get("longName") or tv["description"] or "")[:40], sector=sector,
+    return dict(sym=sym, exchange=tv.get("exchange") or "", name=(s.get("price", {}).get("longName") or tv["description"] or "")[:40], sector=sector,
                 industry=industry, mcap=tv["market_cap_basic"], price=price, quarter=(last or {}).get("quarter", {}).get("fmt"),
                 eps_a=eps_a, eps_e=eps_e, eps_beat=eps_beat, rev_a=rev_a, rev_e=rev_e, rev_beat=rev_beat, rev_yoy=rev_yoy,
                 react=react, release=str(dt.datetime.fromtimestamp(rel, dt.timezone.utc).date()) if rel else None,
@@ -340,6 +340,13 @@ def analyse(tv, sector, industry, ciks, gcache):
                 rev_q=rev_q, rev_y0=rev_y0, rev_y1=rev_y1, target=raw(fd, "targetMeanPrice"), target_lo=raw(fd, "targetLowPrice"),
                 target_hi=raw(fd, "targetHighPrice"), n_analysts=raw(fd, "numberOfAnalystOpinions"),
                 rec=fd.get("recommendationKey"), val=val, why=why, flags=flags, notes=notes, guide=guide)
+
+
+def tv_link(r):
+    ex = r.get("exchange") or ""
+    url = "https://www.tradingview.com/chart/?symbol=" + (f"{ex}:{r['sym']}" if ex else r["sym"])
+    return (f'<a href="{esc(url)}" target="_blank" rel="noopener" title="在 TradingView 打开图表" '
+            f'style="color:#1565C0;text-decoration:none;font-weight:700;">{esc(r["sym"])} <span style="font-size:11px;">📈</span></a>')
 
 
 def money(x):
@@ -409,7 +416,7 @@ def company_rows(rs):
                f'<span style="color:{AMBER};" title="{esc("；".join(r["flags"]))}">⚠ {len(r["flags"])}</span>')
         er = r["next_er"] or "—"
         soon = r["next_er"] and 0 <= (dt.date.fromisoformat(r["next_er"]) - TODAY).days <= 14
-        body += (f'<tr><td {TD}><b>{esc(r["sym"])}</b><br><span class="ev-s">{esc(r["name"][:24])}</span></td>'
+        body += (f'<tr><td {TD}>{tv_link(r)}<br><span class="ev-s">{esc(r["name"][:24])}</span></td>'
                  f'<td {TDN}>{money(r["mcap"])}<br><span class="ev-s">${r["price"]:.2f}</span></td>'
                  f'<td {TDN}>{esc(r["quarter"] or "—")}<br><span style="font-size:11px;">EPS {pct(r["eps_beat"])} · 营收 {pct(r["rev_beat"])}</span></td>'
                  f'<td {TDN}>{pct(r["rev_yoy"])}</td><td {TDN}>{pct(r["react"])}</td>'
@@ -465,7 +472,7 @@ def build_html(groups, recent, upcoming, checks):
     if recent:
         body += h3("最近 14 天公布业绩", GREEN) + company_rows(recent) + "".join(detail(r) for r in recent)
     if upcoming:
-        rows = "".join(f'<li><b>{esc(r["sym"])}</b> {esc(r["name"][:28])} · {esc(SECTOR_ZH.get(r["sector"], r["sector"]))} · '
+        rows = "".join(f'<li>{tv_link(r)} {esc(r["name"][:28])} · {esc(SECTOR_ZH.get(r["sector"], r["sector"]))} · '
                        f'<span style="color:{RED};">{esc(r["next_er"])}</span></li>' for r in upcoming)
         body += h3("未来 14 天将公布业绩", AMBER) + f'<ul style="margin:0;padding-left:20px;">{rows}</ul>'
     for sec, rs in groups.items():
