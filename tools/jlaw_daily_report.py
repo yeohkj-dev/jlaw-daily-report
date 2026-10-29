@@ -98,6 +98,42 @@ def latest_file(folder, pattern=r"\d{4}-\d{2}-\d{2}\.html$"):
     return os.path.join(d, files[-1]) if files else None
 
 
+MY_TZ = dt.timezone(dt.timedelta(hours=8))          # 马来西亚 / 新加坡时间
+WEEK_ZH = "一二三四五六日"
+
+
+def next_run(now):
+    """下一次排程（与 .github/workflows/daily.yml 一致）：UTC 周一至五 22:30 平日版、周日 23:00 周末版。"""
+    for i in range(8):
+        d = (now + dt.timedelta(days=i)).date()
+        hm = (22, 30) if d.weekday() <= 4 else (23, 0) if d.weekday() == 6 else None
+        if hm:
+            t = dt.datetime(d.year, d.month, d.day, *hm, tzinfo=dt.timezone.utc)
+            if t > now:
+                return t
+    return None
+
+
+def update_html(now):
+    """页头：这次几点更新、下次几点更新、更新时间表。"""
+    gen = now.astimezone(MY_TZ)
+    nxt = next_run(now)
+    n8 = nxt.astimezone(MY_TZ) if nxt else None
+    nxt_txt = f"{n8:%m-%d} 周{WEEK_ZH[n8.weekday()]} {n8:%H:%M}" if n8 else "—"
+    stale = int((nxt + dt.timedelta(hours=3)).timestamp() * 1000) if nxt else 0
+    return (f'<span class="meta" id="upd" data-gen="{int(now.timestamp() * 1000)}" data-stale="{stale}">'
+            f'🕒 更新于 <b style="color:#fff;">{gen:%m-%d %H:%M}</b>（GMT+8）<span id="ago"></span>'
+            f' · 下次约 <b style="color:#fff;">{nxt_txt}</b></span>'
+            '<details class="chk"><summary style="color:#555;">更新时间表</summary><ul>'
+            '<li>📅 <b>平日版</b>：每周二至周六早上 <b>06:30</b>（GMT+8），即美股周一至周五收盘后约 1.5 小时。'
+            '包含大盘报告、每日选股、今日新闻、业绩与估值、本周重大事件。</li>'
+            '<li>📅 <b>周末版</b>：每周一早上 <b>07:00</b>（GMT+8），即美东周日晚上。'
+            '包含周末新闻、本周回顾、业绩与估值、每周展望。</li>'
+            '<li>⏳ GitHub 的排程常会晚 10–60 分钟才开始，跑完约需 2–5 分钟。</li>'
+            '<li>⚠ 数据核对有严重问题时，网站不会更新，会继续显示上一份报告。若超过下次更新时间 3 小时还没更新，页头会出现提示。</li>'
+            '</ul></details>')
+
+
 def note(text):
     return f'<div style="max-width:1080px;margin:12px auto 0;padding:8px 16px;font-size:12px;color:#555;">{html.escape(text)}</div>'
 
@@ -210,7 +246,7 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 </style></head><body>
 <div class="bar"><div class="top"><span class="title">J Law 每日报告 · {today}{"（周末版）" if weekend else ""}</span>
 <span class="meta">大盘数据 {html.escape(mkt_date)} · 大盘状态 <b style="color:#fff;background:{color};padding:1px 6px;border-radius:4px;">{html.escape(state)}</b></span>
-{chk_html}<!--NAV--></div>
+{chk_html}{update_html(dt.datetime.now(dt.timezone.utc))}<!--NAV--></div>
 <div class="tabs" role="tablist">{btns}</div></div>
 {panels}
 <script>
@@ -219,6 +255,11 @@ function show(id){{tabs.forEach(function(t){{var on=t.id===id;t.setAttribute('ar
 document.getElementById(t.getAttribute('aria-controls')).classList.toggle('on',on);}});
 try{{localStorage.setItem('jlaw-tab',id);}}catch(e){{}}window.scrollTo(0,0);}}
 tabs.forEach(function(t){{t.addEventListener('click',function(){{show(t.id);}});}});
+(function(){{var u=document.getElementById('upd');if(!u)return;var g=+u.dataset.gen,st=+u.dataset.stale,n=Date.now();
+var m=Math.round((n-g)/60000),txt=m<60?m+' 分钟前':m<2880?Math.round(m/60)+' 小时前':Math.round(m/1440)+' 天前';
+document.getElementById('ago').textContent='，'+txt;
+if(st&&n>st&&location.pathname.indexOf("/archive/")<0){{var w=document.createElement('b');w.style.cssText='color:#fff;background:#C62828;padding:1px 6px;border-radius:4px;margin-left:6px;';
+w.textContent='⚠ 已过预定更新时间，可能更新失败';u.appendChild(w);}}}})();
 try{{var s=localStorage.getItem('jlaw-tab');if(s&&document.getElementById(s))show(s);}}catch(e){{}}
 </script></body></html>"""
 
