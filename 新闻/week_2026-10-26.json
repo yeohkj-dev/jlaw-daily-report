@@ -1,0 +1,42 @@
+[
+ {
+  "title": "Federal Funds Rate",
+  "when": "2026-10-28T14:00:00-04:00",
+  "impact": "High",
+  "forecast": "4.00%",
+  "previous": "4.00%",
+  "actual": ""
+ },
+ {
+  "title": "FOMC Statement",
+  "when": "2026-10-28T14:00:00-04:00",
+  "impact": "High",
+  "forecast": "",
+  "previous": "",
+  "actual": ""
+ },
+ {
+  "title": "FOMC Press Conference",
+  "when": "2026-10-28T14:30:00-04:00",
+  "impact": "High",
+  "forecast": "",
+  "previous": "",
+  "actual": ""
+ },
+ {
+  "title": "Advance GDP q/q",
+  "when": "2026-10-29T08:30:00-04:00",
+  "impact": "High",
+  "forecast": "3.2%",
+  "previous": "1.5%",
+  "actual": ""
+ },
+ {
+  "title": "Core PCE Price Index m/m",
+  "when": "2026-10-29T08:30:00-04:00",
+  "impact": "High",
+  "forecast": "0.3%",
+  "previous": "0.2%",
+  "actual": ""
+ }
+]

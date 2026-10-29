@@ -1,0 +1,889 @@
+{
+ "mode": "daily",
+ "generated": "2026-10-29T06:15:17.096002+00:00",
+ "window_start": "2026-10-28T06:15:17.096002+00:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "Oil prices fall as peace hopes offset fears of growing Middle East conflict",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQdy1kTGwzTi1ZWVpiLUFTbF9HS0VGbXFnVWhMVzBfOUhieU95OGhLZnpZLTB3ckdrOEFMZms2UU1qYUMyY01yd3VOQmNhNGU4MmZvNE1uUzdqcXc0OWxLYlRRSk5NaU85cUdZYTd0a1d0QU93S0JfaTNMdlpVa3pMeVBUZnFtd0ZMVXhMWGhHejZOVjQtZlN2ekVsaTdWU2hCVE8xaTlpamEzXzQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters",
+    "WSJ",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-28T09:20:33+00:00",
+   "latest": "2026-10-29T06:05:36+00:00",
+   "desc": "",
+   "n_sources": 3,
+   "score": 32
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Petrochina shares rise as Q3 profit surges on strong oil prices",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNnhOeVl6OFJicmV5US1pQmlOYXl4R0J3ek4yR1RjcjRFcTFSaWxteTFaV0pGLURIckRZYk5rZGJtVmduSUlCR0oySkttU2o3N2FaTmhlaXFia19sZHNFRnJzQU5zRlc0ZzhIandQQTVfMEZsUXc0c3NTdTNzVEI0eHhsZ21CTmlQ?oc=5",
+   "source": "Yahoo Finance Singapore",
+   "sources": [
+    "Yahoo Finance Singapore"
+   ],
+   "when": "2026-10-29T05:02:46+00:00",
+   "latest": "2026-10-29T05:26:44+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "地缘政治",
+   "title": "China’s tech darlings are losing their shine. Here’s what’s behind the sell-off",
+   "link": "https://www.cnbc.com/2026/10/29/china-tech-stocks-selloff.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T02:14:14+00:00",
+   "latest": "2026-10-29T02:14:14+00:00",
+   "desc": "China's tech rally is being tested as as investors question whether AI profits can justify lofty valuations.",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil Futures Rise as Attacks on Saudi Arabia, U.S.-Iran Risks Persist",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQYjRlQlhGVEJPT2JaeEpGWkxTZFVEdnpuMUxLRUZhUU1EY09ZcnJMaFlZNmdUbHkwdlBpcURmeHpZXzl1c1Z4WW94YmtMNTJ2N0paSlQtNXJ2eGVfam4tdW5NekpScjdYLU1RSzVGRTJqN3hCT3NOWnNmNGZpYjEwemo3ejBfOTU2ODFoMWtFX1hWS3RHZU9lcm93anl4UUczODQyd1hrUVc4VHQ5ZEpPay1SWGhWbW9YdFFPVmZWd3ZwNmhV?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T01:52:57+00:00",
+   "latest": "2026-10-29T01:52:57+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Bessent says 'not necessarily' a mistake if the Fed hikes again",
+   "link": "https://www.cnbc.com/2026/10/28/scott-bessent-interview.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T21:06:37+00:00",
+   "latest": "2026-10-28T21:06:37+00:00",
+   "desc": "Treasury Secretary Scott Bessent joined CNBC for an interview on Oct. 28, 2026.",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed's Warsh says US economy not running too hot",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZkEyTjdocVJTajR1TGpGWW5sbVdtZEpKZ2QzLVRCWWxQZkpyQmM5c0tBMEFkd1dtTXgyb1JJWGhSdFFfS2tWNWJLYmpvemw0ODBhYi1CSUVZLUZIc1ExU3ZLQXNkMmlXSHNTVnk1bUlKMEdCeENkSDZwRE9UVDJ1WHJNUzFlLUFWVzNJbXQ0VUt6ZC1hWkE?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T23:33:11+00:00",
+   "latest": "2026-10-28T23:33:11+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed highlights economic strength but muddies outlook for Treasuries",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbF9GR2lXNExEVWlIMldlTk5QWXQyWTVIbHlzMnM1bTRhdUFzQ2NwQm9MYXdyaG92dlB1YTlJVW1ESG5iNmtkTDhnMG9IanBqeUJmOUQ2Sm45c3pHSzEtZ3lvZUxSRmNLc184eWhReTVvbEdhQ1AwTnF6akVFUlFyd2NJRFdIOWF6OHFISDAxZWMxOHFJcXJPRlp0RFVpZzB0MF9rNTh2TQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-29T05:04:00+00:00",
+   "latest": "2026-10-29T05:04:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Why Alphabet’s stock could see its worst drop in years after the latest results",
+   "link": "https://www.marketwatch.com/story/why-alphabets-stock-could-see-its-worst-drop-in-years-after-the-latest-results-6b64cf98?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-29T01:58:00+00:00",
+   "latest": "2026-10-29T01:58:00+00:00",
+   "desc": "A doubling of cloud revenue wasn’t enough to appease Wall Street as investors grew more concerned that AI is hurting the company’s ability to make money off search queries.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "The Fed's new headache: An AI boom that turns to bust",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVTdHYXBUMEV4enBnVGx4aC1OeHZXZktKYklMcWEwQmZIMi13QzcyU1hQeC15bXpWVE95Zm9IbDRvbzRvS1QtV2JiZTFuMmlpR3FhSHRTeFM3Y2c3QjJ1amM1b0VxWEMyYlhNbUxMajlLeG9ETGRjeU5ubmFuODVNdHZzN0JkRXFMUWNTSlhR?oc=5",
+   "source": "Politico",
+   "sources": [
+    "Politico"
+   ],
+   "when": "2026-10-28T09:00:00+00:00",
+   "latest": "2026-10-28T09:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump methane policy rollback may have minimal impact on crude prices, EPA says",
+   "link": "https://www.cnbc.com/2026/10/29/trump-methane-rollback-oil-prices-epa.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T04:00:51+00:00",
+   "latest": "2026-10-29T04:00:51+00:00",
+   "desc": "The EPA projects Trump’s methane rollback would only lower 2027 U.S. crude prices 11 cents a barrel, while lifting domestic oil output 0.09%.",
+   "n_sources": 1,
+   "score": 14
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump says imported robotics pose national security risks but does not impose tariffs",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSzYzMENTbWlLLWdKa2YzdVN4bXhKZUpVeG8tWm1RUVFHcmg5bXdiQ2dtY3lWYlY0dlF4anMyWWc2NF9zQld1TjlSMlFhR3hfMkxzY05iRGM5MmFXNGpQaGRNN3p6NW9YYm9sVXZXV0IwTE9BdDE5WkdHN3cwUnFzWGRDRHVPR2MxU1M2ZXktSk5MWG9aOHg4c0Rxc2diRzQ1RWUxZzlNRnJoMi1wTEFZWHNCWEJ0eGlxX01CektB?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Bloomberg.com",
+    "Reuters"
+   ],
+   "when": "2026-10-28T20:11:38+00:00",
+   "latest": "2026-10-29T01:00:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 14
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Asian shares fall as Alphabet earnings miss drags Wall St futures lower",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdGpSVnlWS0RWZjJab2tvblVoMzVTZEE1aGtMQkcwYnhwTWd1Vk5iVUctTlVFWjBiV3htT0duWENueWFPMnNNWmZERHRYaWU1bjFFdTg1WHpJWTNUbGxYX0w1SUtUQ3BxQXhaQkl0WW01YXFqTnRRMHFJLW9QTmJjZ2xlcFNIMHNKRlhycmtQVmdtVGRjZ3NLQ1MzYl96aGs5Unc3OVFyTTR3RXNaU2c?oc=5",
+   "source": "The Straits Times",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T02:23:27+00:00",
+   "latest": "2026-10-29T03:18:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil's War Premium Could Vanish Fast Once a Hormuz Deal Lands, Analysts Warn",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTUZkQ2VjYmdCNXJlVHF6dmlQRjJsaS1nV2R1M0FnbGE0TWNIenJ4RmtSQ1EtZkxnRG1YTS1iMXhwYk5PSHljSWdfZVp0Y3Q3SWJSY3M4WXdRYXBveDNqaC1TX2N1bU1TUk5KdXBHMWVlU0YwQkJucDVNMFdoeU9mVGhWcEZnS0x2S3N1QWtCWGhPa29Wd1h3TXJGUndzbGRQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T00:40:00+00:00",
+   "latest": "2026-10-29T00:40:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil Declines as Traders Parse Signs of Fresh Diplomacy on Iran",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNMXRYVWp4bHpiMXZNREYzMkRlY3FaNkJPN0M2cTFtVEtGTVNOdlR4RThON3lyazBhWGZCSl9yVmx2bFh5UlluakNRUGt5dGxlOUlOS285MjdGVUliMWxUTlBKZjh1cWQyTndUQlhvNWxBLVA1eHZUU2pMTnZ1Q29VZ2tYOFJPTng4djhRTGJtWTRSaDg?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-28T22:05:01+00:00",
+   "latest": "2026-10-28T22:05:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Iran poses a threat beyond rising oil prices: Lt Gen Keith Kellogg",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBqOEJFTXFiQ0ZUNG83OGlTb1NHNjIwNmN1akFFN0E0V3JQRGN4aUNYRGl0VXhBZWNtdS1GUFVPeHZDbkFfWjFVNWlJZEpSVWJhaHdqOEZFbDBBZUU?oc=5",
+   "source": "Fox Business",
+   "sources": [
+    "Fox Business"
+   ],
+   "when": "2026-10-28T21:44:12+00:00",
+   "latest": "2026-10-28T21:44:12+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "ServiceNow’s stock slides as earnings miss overshadows a raised AI outlook",
+   "link": "https://www.marketwatch.com/story/servicenows-stock-slides-as-earnings-miss-clouds-a-raised-ai-outlook-96e48385?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-28T23:02:00+00:00",
+   "latest": "2026-10-28T23:02:00+00:00",
+   "desc": "Even with an uptick in multimillion-dollar AI deals, ServiceNow’s earnings results weren’t enough to win over software skeptics.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Jim Cramer sees major implications from SK Hynix's home-run quarter",
+   "link": "https://www.cnbc.com/2026/10/28/cramer-sk-hynix-ai-chip-stocks.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T23:00:27+00:00",
+   "latest": "2026-10-28T23:00:27+00:00",
+   "desc": "CNBC’s Jim Cramer said SK Hynix’s blockbuster earnings showed that AI stocks can still rally.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Stock Market Today, Oct. 28: SK Hynix Surges on Record Q3 Results and AI-Memory Demand",
+   "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONDJ6WUY4OTYxU2VCZVp4XzBhUEJtR2dJd1U4aHQwSnZTSFZvQl9ESlVsZ2lfV2dRTGpGdl82b0VzYnVXc1I4WlFOZzBPWWFzLU9yRVpFMEwyRWRrTmtlV1B0UWtpQXZQYjZWbzhLTWdhWXJvOFJSTFdzSkdPREp2X1JYM3h5WEQ2SUtqQUNsbXBpQXBYS2JKZG1jNVRiZXB1eUk3b0VWNHpmV18wM3BqeUliM2hfV0RoSHcxSmU1ZGlxSXdxV3dWUzlLQVgxSlp3a1ZMcWdtdDFDeU0t?oc=5",
+   "source": "The Motley Fool",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-28T21:48:59+00:00",
+   "latest": "2026-10-28T22:28:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "China’s stock markets are the great global exception",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUHp6ajdhVDZUMl85TS1mb2FwRThEUTBZOUVmc3dhdUJid1NyaGlHNXI2TDQwcWliOW0zWXFBS0NlM1BIYmpCZlNHeFBlNnBaaGZIWjBpNkt5WU5ndmhvWkxBUzd3SWFpUnFBVkJwemlvUWptT3VVS2IwakFrWVA1dDMyaWgyMWUwbEdqWGM4bndMcWlaeElkZFFqTzRiUG5qUGpibjhRN0RhYnh0ZWFV?oc=5",
+   "source": "The Economist",
+   "sources": [
+    "The Economist"
+   ],
+   "when": "2026-10-28T19:48:19+00:00",
+   "latest": "2026-10-28T19:48:19+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "The UK cuts energy bills, taxes banks and boosts defense in high-stakes budget",
+   "link": "https://www.cnbc.com/2026/10/28/uk-autumn-budget-cost-living-defense-ai.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T15:39:14+00:00",
+   "latest": "2026-10-28T15:39:14+00:00",
+   "desc": "The U.K. budget cuts household energy costs, raises taxes on banks and directs billions toward defense, Ukraine and artificial intelligence",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "China rushes to shore up markets as AI trade sours",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSnVPSDFLZ1NVWE1fVVJTTkxTTXJOWTFYd2RjQTlnTUFMbTFSODdBX3Z2V2RQWkNGeDNobEVadzhRejdYcWNXcjNWOXdPTVU0SHhyaGdFSnhFcTdkT0hiTW1Lejg2ZHkzdG1FSDdEMldNRXFrdzhEVXpCdmJSajBPNkJ2Q1A?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-10-28T10:21:56+00:00",
+   "latest": "2026-10-28T10:21:56+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Microsoft stock jumps 4% as cloud growth drives earnings and revenue beat",
+   "link": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T06:03:35+00:00",
+   "latest": "2026-10-29T06:03:35+00:00",
+   "desc": "Microsoft reported better-than-expected results driven by 48% growth in Azure revenue.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Asian shares and U.S. futures are mixed after Google parent Alphabet's earnings disappoint",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOS3FERHowX3duMzluOThNT1VnV2ZGdmZ0eW52QlFHTzVXOVExdWNIdFJqN19CRDZHRVczRlUzZVhJamUxaGJUU2cwZFh0OVA4V2FET2lxamtWaERNd01KTmlyZnBOTnJrQTd4bFJ5a3BQSUtJR1VPWjlVMHdpV20ydHRRRzc1ektsTUtjdHVySzFvaXppTW9pZA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T05:03:00+00:00",
+   "latest": "2026-10-29T05:03:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "3 Airline Stocks Retail Investors Are Watching As Oil Prices Swing",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNdWc2Wk1pNnVpTTNqYmhnbW9ERXhMcWpsZ2FaT0xUTlNoUTRCMjY4NGtwNUtwOTUyN2Fham9VTXBTeC0tajMtYzRmanA4Y2RDZWlNZkFYYkZYbmM5Sm9qX0xFUW9adlBzLTFvbUJjYUlLd2VmMHFEUV9uS3JtcXdfTzgwRjhwOU5KVm9TRktFMm5KdndBaGpnNFNRVlVTRU0?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:09:00+00:00",
+   "latest": "2026-10-29T03:09:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Dow Jones Futures: Microsoft Rises, But Google, ServiceNow, Fortinet Dive On Earnings",
+   "link": "https://finance.yahoo.com/m/6c0b166b-19af-3d40-b6ff-7c6d65d3c4da/dow-jones-futures%3A-microsoft.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:06:19+00:00",
+   "latest": "2026-10-29T03:06:19+00:00",
+   "desc": "After the stock market rose for a third day, Microsoft rose late on strong earnings. But Google, ServiceNow and Fortinet dived.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Japan futures fall as oil prices retreat, Thai supply improves",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPQmc0TlpnNFpsWC0zR2d5Zk55VFZQWHVwdUIwWmUyYm44NThGWTl3UlRjelEzN28ycU1jcnlHUENxbGs0YklkX05iN0VKNTNLcktQM09LTFY0NEgwejB5ZFlZSGdQUVNjMU9hNjItMVR3VGVkSWZSUnRXRmlPR3pkQ0ZkM0w3V0EtVGlOekEyRGtGeklUdU9jSGRJSXpCRFlGQW9lVUNmbXR3Y3l2Z25xRmZ3eHJYb0FYcWlZRldod09BaU81LTFyX2NKOA?oc=5",
+   "source": "TradingView",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T00:21:00+00:00",
+   "latest": "2026-10-29T02:04:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Our next steps for Alphabet stock after earnings disappoint at nearly every turn",
+   "link": "https://www.cnbc.com/investingclub/2026/10/28/our-next-steps-for-alphabet-stock-after-earnings-disappoint-at-nearly-every-turn.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T01:11:10+00:00",
+   "latest": "2026-10-29T01:11:10+00:00",
+   "desc": "Alphabet whiffed.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "U.S. stock futures drop as Alphabet slides on soft earnings, Microsoft firms",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-drop-alphabet-010136494.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T01:01:00+00:00",
+   "latest": "2026-10-29T01:01:36+00:00",
+   "desc": "Investing.com-- U.S. stock index futures fell on Wednesday evening, pressured chiefly by a sharp drop in Google owner Alphabet after its third-quarter earnings missed expectations.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "The major reason Microsoft’s stock is heading higher after earnings",
+   "link": "https://www.marketwatch.com/story/the-major-reason-microsofts-stock-is-heading-higher-after-earnings-c019a036?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-29T00:10:00+00:00",
+   "latest": "2026-10-29T00:10:00+00:00",
+   "desc": "Microsoft showed investors that it’s able to grow rapidly while keeping spending in check.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Microsoft pops as Q1 results, guidance top estimates (MSFT:NASDAQ)",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQLUlkWHB4aGl4ekVGSU9uM3BuczV6VmhSZk5IQmN0ODJiSGU5SDNHUFlPOW5TbDlLdnlnSExCYm5taXZpVVgyb1pPQlVZN0FjUVBoNDdBN2xGYjdkcGtBNkQtbjdBQjJJNDEwTkFaX3RtNTBXV04zVjlldmRrSHRmc05zZkJMRFk?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-10-28T23:17:00+00:00",
+   "latest": "2026-10-28T23:17:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Bank of America (BAC) Stock May Be 40% Undervalued After AI Financing News",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZXRUdUJibi05dUJ4enVMU1RhbUc1blR2UVZmT2RkNVpyXzJiUUUyRHJxMVQyRVIyOW5ocWNUcFZJVS1MclJPblZ2VUxQYkQ1R2p6RTVtUTFaenpka1ltQXR0bUVyWm1WSmZubVZOUzlXNXRLVkMtd3JpcHJrWFNVWE41SURRUUgxV2R3dTZ6ZkMtNEx2S1E?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:16:00+00:00",
+   "latest": "2026-10-29T03:16:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia Stock Has Dropped Nearly 6% in a Month; Now Jim Cramer Is Asking Why ‘Anything Negative in Tech’ Immediately Crushes NVDA",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNcWZmNGZfcHpPQ3V5YWpBOV8yTTZ5OFhVbWV2M0VtLUprRzJwRllPbXVMWDVodmFoUG9wYndHZFlVdFc5Q3RIMkwzMzRGWUVhVmh0M3RURjd1VVJCRVpYbGJiTlc4V1pqTGpuWThGVFpCdXdHVWthTEUycVNybkh1STJYeUtXbFQ2YkhvYVUzdV82RFlGRXcxcGVn?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T02:00:00+00:00",
+   "latest": "2026-10-29T02:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "2 Warren Buffett Artificial Intelligence (AI) Stocks That Could Soar Even if the Stock Market Crashes in 2027",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSTlyUzdEd1pxNHJTdXpkZTZWVi1LMEVKT3RGd2VuUVNJdFFOaHI5cW1nWGU3eXVXX3VyanV1OERJdDRjdDdZNVd0Ykh0MG9vZTJDUjZQYVNNRGoxT3o0OGlSS3JfbUxSUnBsYlhqUUxwbU9yZ2FHZDVjc3VvTEJ3RXRXTzFuaU4tMkEwSGdXUlRiZDZFWWlNeTVWSFU4TUNpTnVHUEtTcHg?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T01:20:00+00:00",
+   "latest": "2026-10-29T01:20:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed's policy committee to weigh balance sheet issues early next year, Warsh says",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQaDZHdmRFaXBHQzZvWXZjZU8xOFRrT0Q1WGx2ekJuQ1hCTV9EbHdTOElZTERXemZwY1o0ZzRZUXR6aDNkM0tOejh1N201SmxqR29NSFE2Q0c5TlJMQ29pZGhvM0E5TVc0UjkyTFVNY1VONjl3WG5WOXJaRElkNEktODF4LXhkaF9YTW5kN01DYUFtcy1hclBQbXFSdk5aSGFJMG8yTWtLd2ZlTnY5Ylp4MmJmWldCNXVZekg5T3FwMEpmSVBCWDFV?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T23:33:51+00:00",
+   "latest": "2026-10-28T23:33:51+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed's Warsh announces changes in how future FOMC meetings will go",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOc3k2UHRGbkFLQmRDN3h4WHJyQWoyWnkxOHVkY0JqNHRFSFBER25td3pVVEhJX0pRQnhXdzJiR2FnSG11cGpSYnlQeVRFSnFuTi1mVDNtSTRVOUVwWHVwN2E1SEhiRmVmMFVTcm5oaHl3Q1pLRHY3NUVmeTdEekk0UXVwOTBHREFkZTV1dVhuTG0wa2I1RDFndWFSQ2JEWGNqcjBDcnNLZXM3X280?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T23:32:40+00:00",
+   "latest": "2026-10-28T23:32:40+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Warsh says politics played no role in Fed's rate decision by group he is 'honored' to lead",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPT2picUVQd3dYWDhKUnVJWUlEbmFULTE2RUF5NlBYemZiSHQzejU3OS05d3FrbHJXRXI2clNabXhwQ1RMSkJxU0VVTy1GT3VBbDFWSmozLWl1V3dybzVBZFd2bGdnWUVQelNhQ3psMmpVQXlEOFNHZURtaDZQLTR2aHY1T2FkSk9KbklCQTV6eXA2Z3h3V05xQVVTRVo3ZkNua25RTEotVi1JR0U4MXNodExiUFBBTmZFOTBJd1h3?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T21:34:00+00:00",
+   "latest": "2026-10-28T21:34:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "AI Borrowing Is Becoming A Threat To The Stock Market",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPb1VBTldidVhMVWdPbWZWaDc3X3JhaEExQmp2Rjk4ZkhudWJhYjNUU0VUeGZJVFZWbzNVejF5dVpGOTF2aUVLR2s3QUgxUUNUV2xwaEpMVHdoT1dXcVdnNGV2REJaYzFjUzB5MnU3Z1FrRHpaRWRGQ0FYMTgwTk9PYzJNZl80M01xekhLMDB1N3ZsVTdJNmRHSzBBVWdMMmltb2lILVdn?oc=5",
+   "source": "Forbes",
+   "sources": [
+    "Forbes"
+   ],
+   "when": "2026-10-28T20:30:30+00:00",
+   "latest": "2026-10-28T20:30:30+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Did the Fed just make a huge mistake?",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBRNlIxZUJfajdMT2Zfa1E0NXNIZ1g4QVpZWUZLTUM3cDFBQzFjZVJSQTBvT3RXUzhfN0dQNVBsRVdfUzlTWFNRNndNNTNMZ0FtOFJmRU9PMEVZTEhfR0FMa3hTbzZEQUZSUXRsNzJUUk9RcmZ1?oc=5",
+   "source": "CNN",
+   "sources": [
+    "CNN"
+   ],
+   "when": "2026-10-28T19:54:08+00:00",
+   "latest": "2026-10-28T19:54:08+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Bond investor Jeff Gundlach on Fed's rate pause: 'What are you waiting for?'",
+   "link": "https://www.cnbc.com/2026/10/28/bond-investor-jeff-gundlach-talks-feds-rate-pause-with-cnbc.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T19:53:50+00:00",
+   "latest": "2026-10-28T19:53:50+00:00",
+   "desc": "The DoubleLine founder spoke with CNBC's \"Closing Bell\" on Wednesday after the Fed held interest rates steady.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "通胀",
+   "title": "Is it curtains for COLA? Saving Social Security could mean changing the cost-of-living adjustment.",
+   "link": "https://www.marketwatch.com/story/is-it-curtains-for-cola-saving-social-security-could-mean-changing-the-cost-of-living-adjustment-867c6bd8?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-28T22:41:00+00:00",
+   "latest": "2026-10-28T22:41:00+00:00",
+   "desc": "Several proposals consider changing the way retirees receive inflation protection. Here’s what it could cost you.",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "市场动态",
+   "title": "Ouster, Inc. (OUST) Outpaces Stock Market Gains: What You Should Know",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNVlFVTTh5Q3h0LTJCTHI1bE5iWHh0UEpkZHY1Qk5vWjA3UDN2eGJqZjhaVXZfTWxYLVNCUU45Uk00NW9KdGNZblVQR05YY281M0pfVlRaeHRKTlFlOXFmV3ZLWHU3M2R4cW1xZVF4VHZCbGNhNHhuY3ZfbHg0Znp6Y1IzaVp5UQ?oc=5",
+   "source": "Yahoo Finance Singapore",
+   "sources": [
+    "Yahoo Finance",
+    "Yahoo Finance Singapore"
+   ],
+   "when": "2026-10-28T20:45:03+00:00",
+   "latest": "2026-10-28T21:15:01+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "It is too soon to hold a funeral for US tariffs",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZ0ZiUlpjUHhKcXE4czNlT2QwbnRXWEI0VHo1WTRzbEJWblBPUVVWdmRkV1E0OERMMGhyeGRld0xHSmtRTE5XamsyVDQ3czhQTlozUFMyZjZva292YUhiMkRSbmdMVmlWUmZHTjFvTlAzMm1jaUZ4b3o2ZUdSNUh5dWlPZnE?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-10-29T05:00:20+00:00",
+   "latest": "2026-10-29T05:00:20+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Indonesia’s Wealth Fund CIO Owns Stake in Sanctioned Brokerage",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQVNCdFFCV0dPeXFKZjFoaUJyOWp0cERVb2dXbU8yR0VDMmFOaHM5VVVxOUVzMTRNeW9IeENRXzdRMl9SdmNaNl9oNTlnQldxb1dOc2pIUnN5bktza0MtTnNuMW0yeGZjSnNGZF9uUktuaTNwU2ZzalRJRTFfWnhJd09xUTJnbXpOblpBcmJBM2JXdGJBRVJEb1d0RFNhc1dTY3lNMHktRkV0RnVMRDQ4MHVUMA?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-29T02:30:00+00:00",
+   "latest": "2026-10-29T02:30:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Canada reports limited progress in trade talks with US",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxObkVGYXBiWnNCZDFyNVRMSjNnZG5xRENTUDkzbk04SVdRV3d5LVZFbkxRR2FVSGt5MnhUYkZSVWtBNzJBclcxZ3FacC1JTUpMTExLQU9USDhTTjY3aWwyTWNpSlRMUy1FLURMQkpYalZXdl9qS2RFdHQ0Tm9XaWdjU2pqSTNOQ2U5WDU1OXUyaVZYcG1LMkl6UmRJZ0M?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T19:10:59+00:00",
+   "latest": "2026-10-28T20:18:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Conifex Receives Regional Tariff Response Funding",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTUxjbXd3WksySVZPaklZczdwVHptRGhBYlk4MDMtVFdMbWVsUVd5TndrXzlUQ0l2MlhPOVpQQm40VVJzSkt3Rzl4N0ZTeHhYMjhwM1EtUjJzdDh6enEtUjFGWEMwWUxGeTFDQWZJYzVINENMMXhvc205NEJ4SHo5T21ldGpaXzkzX2ZsU05KczNKZnQtWHdTMFE4MW9VWE95dEU4TVJIbVFkdw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-28T20:15:00+00:00",
+   "latest": "2026-10-28T20:15:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "US Hits Chinese Trailers With Tariffs to Aid Domestic Producers",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNMGx1YmYzOHhfSnRjeGxPb1FncjBicVUxN3R0ZlNsRFlvMnRDUThSVFVHZG5IeXNfQjAzSXZhdWNJbkpzRnJhcVllZVBkZEJFenNmVE1QNVlzbElZbmpxVzNOZWZDRTN1UkYxV29RZjExSi1XMnJMaWJwUllNLTEtOUFyR2pUZWQ1YTFlaDluMHplSVREVTdRX3pzakNnanpFWk1iSVNFbEZRNjVzQVdpZFJNU0c?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-10-28T12:00:00+00:00",
+   "latest": "2026-10-28T17:35:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Europe's STOXX 600 subdued as earnings and oil prices weigh",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcXE1bGx1U0l2OThtWFF4WlFvUVJVWkoydE5FWkpXeHRpVVkyRUJfNHBIbDdzQm9BLWV6UjhiX0NPNFkxSGpNMTNhcHprSWZPX1duOW44emJjVTVYMGNDMkE0dVJReHBieVZtenBSMjZISHFZb2hZMmt3ekJiMXlmTTV2cjVtbVpoZXhfVVVXeWpDcnVlUU95d21SYjNKSGE4eUZqZU03MUc3dEYyYXU3MEJwaGJZOTdR?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-28T17:32:32+00:00",
+   "latest": "2026-10-28T17:32:32+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump is using tariffs as a 'tool for grift,' Raskin says in demand for donor records",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBGNUNUS0tnaUlETHhWRHdTMlhwQjJiRXI0b2I5a2U0RWdBSWlGMjM0Q3pNTDk3dmVOWEwwTTgyRWtEa1U1MG5sbnVKeHRGNFpfUDdPbjFNT0M2a2RwempEbHBFajU1eHVvN25pZUg2RjYxUTZhdVdj0gF8QVVfeXFMUDhsZnRpc0swdHlDWWk0S1N5WF9VdndGWVliNEV6aGpxeDU1TnNxQ0ZzWHRiNE5jX0dNN19ZNzJRcmNrbjhXUGg1emVUblJaUTJoWFFyQ1NZbjFpSnVma3pJYlJjWGJxZ2xBRGgycUlTVGdIUmQzcU1qcXBIZg?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T16:00:01+00:00",
+   "latest": "2026-10-28T16:00:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "PPL (PPL) Stock Looks Hard To Call On Current Earnings",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUVhva09kWHc3NXFwX0paMWlfYmg0LV8xRFByWjF0azNJeHZicENqaWFJTXZ3eG5jUGlIbXZ4bGkxa0JZazA5VDhsMjJndGcwNjd2RHJ6V2NkUUhCZzUwUmdXV1EzY2ltY1BCTU5FV1RPdWNHSjdCRFl5Sy1EZThvbFVSbDBiVVVEajhCZExLanB3YUU?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T05:22:00+00:00",
+   "latest": "2026-10-29T05:22:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Materialise (NasdaqGS:MTLS) Stock Price Sinks After Q3 Results Miss Profit Expectations",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMDctb0p1ZUZ2b3diMTJWN3JBMU83Qm9uQXc3QVhXLTNzcnd5YlBlR0pQdnNSaWdEVjlUaTZYWlJXRVROc3NlcVdzSGxRTUZUNW5vdVpQX1BiWHJOTkRERG1LcEJHZXkxekNrVnlqMnRrZmV0bXVoUFY2SnFOWTdsaDBuS1dNdW9paFV5RmE5MGRKbDNJMXZGdWZkMmN5dGlXdnUtaA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:12:00+00:00",
+   "latest": "2026-10-29T03:12:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Galaxy Digital (NasdaqGS:GLXY) Stock Jumps As Q3 Earnings Revive Profit Story",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMnktVkt4a3FtSXZPV1FTUjBMSVlBOTJQbmdsOHU1dExKOU90M0xKLXlQcldhOExxYktnamhyOGJwSnhQWWNPWlhmUHA5VXJHOWs3RUVfMlFQZVNhWUpINmNNVDB6eFJXck1hTGozSktqczZCOHhLRmJsd3dYN242dFdGa19hVzBUR3I3VEE5VzEwcDlKR1p6WUw0YmVmWk1H?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:11:00+00:00",
+   "latest": "2026-10-29T03:11:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Essential Utilities (WTRG) Stock Gets Fair Value Trim As Merger Exchange Ratio Shapes Analyst Views",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOMF8tdHlVN1cyZDBHc29SUnhoSkcyWEhENm1LMGs1dkZUNnZqUlVib19XZE05REo4VHpoU0JHV1c1c0I3R2lpdHJRUjNmd1hYbDByU3ZRSExfNktQOUU3WjBvVzJxSDZyT0JIWndLM3VrRTVORjN2YU9nZmF5WnowTWRGTVJfTTc3SDR3dUlKaTZZWWJpeWVBNUNDLWREeFZFR3c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:10:00+00:00",
+   "latest": "2026-10-29T03:10:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "One Stop Systems (OSS) Stock Slides As Q3 Results Deepen Loss Concerns",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOUExueU11b1NrYkZnSy0za1Z6eEwwa1FmMWpWRE9JRmdQOEdnSFpLZFk3SEpwZEVqMHhlb1ZlZVMtNjNBRTBlV0pJcEJSZTZmakllaWFhc3RNZ1hzZnMtQkpmOXNXakZMM1JfbDdTY3FvTF9aUzZ5SENEMnJBaXc3aExobU1rcHNVN1hnQkR2VHlySC1lWUE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T03:09:00+00:00",
+   "latest": "2026-10-29T03:09:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Asian stock markets fluctuate after mixed tech results",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSXA3V0lkZzZYYzI4RWlBRDNzbWg2eXBDb3NkTDVvYmtmQ3Q5c0lXMmdjTmlZYkdNaHBwcjNQRzRLNDJudTlFc0RfOHlzTm9NZ1dYb0JEQUJHWTdYai1TX3kwYnZSVTVOSk1EMFdBcnlmQ1J6MjI3a2l4dGtGcWhSWmVXVmZKX0FObS05dndYanJFZmhCYVVGVnpiQzVUaThGV3FHQzJPbElEOW8?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T02:44:00+00:00",
+   "latest": "2026-10-29T02:44:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "FedEx's soft holiday-quarter outlook doesn't change our view on the stock",
+   "link": "https://www.cnbc.com/investingclub/2026/10/28/fedexs-soft-holiday-quarter-outlook-doesnt-change-our-view-on-the-stock.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T00:58:50+00:00",
+   "latest": "2026-10-29T00:58:50+00:00",
+   "desc": "CEO Raj Subramaniam's transformation is making progress.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Fortinet’s stock is taking a dive after earnings. Here’s why.",
+   "link": "https://www.marketwatch.com/story/fortinets-stock-is-taking-a-dive-after-earnings-heres-why-d407896e?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-28T23:18:00+00:00",
+   "latest": "2026-10-28T23:18:00+00:00",
+   "desc": "Cybersecurity stocks are broadly falling as growth slows significantly in one of Fortinet’s business segments.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "FedEx beats expectations, raises outlook in first report since calendar adjustment",
+   "link": "https://www.cnbc.com/2026/10/28/fedex-fdx-sept-2026-earnings.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T22:27:00+00:00",
+   "latest": "2026-10-28T22:27:00+00:00",
+   "desc": "FedEx on Wednesday beat Wall Street expectations on the top and bottom lines for the third quarter of its newly aligned fiscal year.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Chipotle now has more demand from lower-income diners than higher-income ones",
+   "link": "https://www.marketwatch.com/story/chipotle-expects-modestly-higher-sales-this-year-as-drive-thru-chipotlanes-come-to-more-stores-4f255bbc?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-28T22:25:00+00:00",
+   "latest": "2026-10-28T22:25:00+00:00",
+   "desc": "The fast-casual chain says menu-price increases helped results. It also noted rising beef costs and “higher protein usage” as people try to find ways to pack more protein into their diets.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "GE Vernova shares slip despite a beat-and-raise. What the sellers are getting wrong",
+   "link": "https://www.cnbc.com/investingclub/2026/10/28/ge-vernova-shares-slip-despite-a-beat-and-raise-what-the-sellers-are-getting-wrong.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-28T17:50:44+00:00",
+   "latest": "2026-10-28T17:50:44+00:00",
+   "desc": "We're reiterating our buy-equivalent 1 rating on the stock after another strong earnings report.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Oil Is Gushing Out of the Gulf. Why Are Prices Still Above $100 a Barrel?",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQSlR5Qm9DS2VkZTB0VFRkc3RKVFF6SnpvaGp6dkhGc0ZWdEJCR0VYX3VjaGFVTVlsNGlKRHZHdzNVb1lwQmplSlNXTzZBUnFuVklIRmxIckxGQTYwZ1dsVnNiS2RXX09YS28yMlZmdEIxVjc2YnRNMmdhQ254ZmQwaFNla0g2Z2xJSXJQT09JQl8zMzF5X2hXZVRTSlJ1SC04a1FLX1ozQ2FaNW5kS0VHb3U1TUJGb0I0UWoxc3E4dzZKV3Y3a0E?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T01:00:00+00:00",
+   "latest": "2026-10-29T01:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 6
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 627 条标题，合并后 117 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "3 个事件有 ≥2 家媒体报道"
+  },
+  {
+   "name": "市场快照",
+   "ok": true,
+   "critical": false,
+   "detail": "12/12 个品种取到数据"
+  },
+  {
+   "name": "快照数据新鲜度",
+   "ok": true,
+   "critical": false,
+   "detail": "12/12 个在 4 天内更新"
+  },
+  {
+   "name": "经济日历",
+   "ok": true,
+   "critical": false,
+   "detail": "Forex Factory"
+  }
+ ]
+}
