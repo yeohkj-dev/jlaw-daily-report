@@ -1,7 +1,7 @@
 """J Law 每日报告 —— 一个脚本跑完所有报告，合并成一个多分页的 HTML。
 
-平日（美东周一至周五）：大盘报告 → 每日选股 → 今日新闻 → 业绩与估值；每周展望显示最近一个周日的版本
-周末（美东周六、周日）：周末新闻 → 业绩与估值 → 每周展望；大盘报告和每日选股显示周五的版本
+平日（美东周一至周五）：大盘报告 → 每日选股 → 今日新闻 → 业绩与估值 → 本周重大事件（放在今日新闻分页最上面）；每周展望显示最近一个周日的版本
+周末（美东周六、周日）：周末新闻 → 业绩与估值 → 本周回顾 → 每周展望；大盘报告和每日选股显示周五的版本
 合并到 每日报告/YYYY-MM-DD.html，另存 每日报告/最新报告.html，然后自动用浏览器打开。
 顶部显示「数据核对」：新闻、业绩、展望各模块的核对结果；有严重问题时加 --strict 就不更新网站。
 
@@ -111,7 +111,8 @@ def main():
     news_mode = ["--mode", "weekend" if weekend else "daily"]
     steps = ([] if weekend else [("mkt", "大盘报告", "market_regime.py", ()), ("scr", "每日选股", "jlaw_daily_screen.py", ())]) + [
         ("news", "周末新闻" if weekend else "今日新闻", "news_digest.py", news_mode),
-        ("ev", "业绩与估值", "earnings_valuation.py", ())] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else [])
+        ("ev", "业绩与估值", "earnings_valuation.py", ()),
+        ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else [])
     res, errs = {}, {}
     for i, (key, label, script, extra) in enumerate(steps, 1):
         print(f"{i}/{len(steps)} {label} 运行中……", flush=True)
@@ -140,10 +141,12 @@ def main():
         tabs.append(("mkt", "大盘报告", html.escape(state), body_of(mkt["html"]) if mkt else error_box("大盘报告", errs["mkt"])))
         tabs.append(("scr", "每日选股", f"META {n_ready[0]} · VCP {n_ready[1]}" if n_ready else "失败",
                      body_of(scr["html"]) if scr else error_box("每日选股", errs["scr"])))
-    news = res.get("news")
+    news, we = res.get("news"), res.get("we")
+    we_body = body_of(we["html"]) if we else error_box("本周重大事件", errs["we"])
     tabs.append(("news", "周末新闻" if weekend else "今日新闻",
-                 f"{news['stories']} 条 · 多来源 {news['multi_source']}" if news else "失败",
-                 body_of(news["html"]) if news else error_box("新闻", errs["news"])))
+                 (f"本周 SPY {we['spy_week']:+.1f}% · " if we and we.get("spy_week") is not None else "")
+                 + (f"{news['stories']} 条新闻" if news else "新闻失败"),
+                 we_body + (body_of(news["html"]) if news else error_box("新闻", errs["news"]))))
     ev = res.get("ev")
     tabs.append(("ev", "业绩与估值", f"最近公布 {len(ev['recent'])} 家" if ev else "失败",
                  ("<!--EV-START-->" + body_of(ev["html"]) + "<!--EV-END-->") if ev else error_box("业绩与估值", errs["ev"])))
@@ -161,7 +164,7 @@ def main():
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("news", "新闻"), ("ev", "业绩估值"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]

@@ -3,7 +3,8 @@
 大盘报告/*.html
 每日选股/*.html
 每日选股/*_图表.png
-新闻/
+新闻/*.html
+新闻/_*.json
 业绩估值/*.html
 业绩估值/*.json
 __pycache__/

@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add -A docs 大盘报告 每日选股 每周展望 业绩估值/cache
+          git add -A docs 大盘报告 每日选股 每周展望 业绩估值/cache 新闻
           if git diff --cached --quiet; then
             echo "没有变化"
           else
