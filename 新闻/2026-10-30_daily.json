@@ -1,0 +1,913 @@
+{
+ "mode": "daily",
+ "generated": "2026-10-30T05:52:44.974357+00:00",
+ "window_start": "2026-10-29T05:52:44.974357+00:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "Inflation surges, PCE shows. Fed pause on rate hikes unlikely to last with prices still rising.",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOM2lGRUFlcF9Idy1xbjFtMGN0LWVNNlh6V09GMjRrTmpaMTBDSC1kWG9mNl9XbWs2SkE2ZS1xRk14Sl8zMHIza2RHLU04cDR6YnhxVVMtTHFFby1hU0FsNENPMDhlaktaMjMxdm4tUWtWeXZJdlRtbGxWS1drb25MRlRoc3FoY2lmdnBOQU9QSjF0Z3QxSnFvNFZTYnJmVHBqQllWRnAtSk53Q25QeFNWclRIWlRPYl9CMHdNVGFwR3A5NU00cE1qRXFRX19namJuUGFNYlI5Yw?oc=5",
+   "source": "MarketWatch",
+   "sources": [
+    "Axios",
+    "Barron's",
+    "CNBC",
+    "CNN",
+    "Fox Business",
+    "MarketWatch",
+    "Reuters",
+    "Seeking Alpha",
+    "The New York Times",
+    "WSJ",
+    "Yahoo Finance",
+    "Yahoo Finance Australia",
+    "Yahoo Finance UK"
+   ],
+   "when": "2026-10-29T06:05:36+00:00",
+   "latest": "2026-10-30T04:59:00+00:00",
+   "desc": "Merck's immunotherapy Keytruda, including a newer injectable form of the drug, showed stronger-than-expected sales.",
+   "n_sources": 13,
+   "score": 78
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Taxes and high oil prices are set to spur more UK energy deals",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPajZvWmx1cVNMeHVPeHhIXzlVUnhwX3R6WTVnODhySnZvR2Y1QzZ4Y3FBaEUtS0hTenZHbmZWd2Fla0hXc3RpcG00SGtHckdtejJJT19nRFYzYVNrb2dtZ0FSR2lqSlRtZURQNHFqWU92Smh2SGdHMmcxeDduUnlXM19PdmtPekxtemJsbGZUYUNNUGUwdUxhQ2VZWjd4eGl4UGR5NTlDUUhLajQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Fox Business",
+    "Investopedia",
+    "Morningstar",
+    "Reuters",
+    "The New York Times",
+    "WSJ",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T06:15:06+00:00",
+   "latest": "2026-10-30T05:33:47+00:00",
+   "desc": "",
+   "n_sources": 7,
+   "score": 51
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold slips as higher oil, U.S. inflation data bolster Fed hike bets",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdjlKLXlnamZleEs0bzBVS3FiZl9lZWYyTkVBMlV5anRwVTlqTEJnTlhOd2dGUVpfWlBZNFhRTWplbVFUejJLcWxjREgtWmlOYzVrdWpoMVpQTnVuVUo4c0ZpMDhUUTBhbGp3WHZ5alpndi1oOG5DZE9WazZxaEw5RWNoQjV3U0wtdzhGVzZmcTZKaFlBWjluR3FIYmJoT2xPVE9z0gGoAUFVX3lxTE9rUEd0MXk3bUJ2VUFzNTJHU1lrSE1EV1prYVMwRENLbXJzNEJNZ0NKa2RYcEJkNDdmRDlSMVJOM1d4V2E1NFpjVzVodHhtYy14UFZoc0RaemNoTTJ4RExPZUZzcWVJdHNMa2tTLUtPZk9zaXh2N1dlalBwVFNQOU5HdFZNYlZZbXZ5eV9aTUJBUW1mMnhqNmZCTjBGOHVvMjMyeU5qZEF3cQ?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Reuters"
+   ],
+   "when": "2026-10-30T03:24:00+00:00",
+   "latest": "2026-10-30T03:59:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 29
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Intel stock plunges 21% as chipmaker blames PC slowdown for weak guidance",
+   "link": "https://www.cnbc.com/2026/10/29/intel-intc-q3-earnings-report-2026-.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Investor's Business Daily",
+    "Seeking Alpha"
+   ],
+   "when": "2026-10-29T20:04:08+00:00",
+   "latest": "2026-10-30T00:39:52+00:00",
+   "desc": "Intel has been a Wall Street darling this year due to its emergence as a player in AI, but the company is being weighed down by a struggling PC market.",
+   "n_sources": 3,
+   "score": 26
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil rises on supply concerns as Houthis attack Saudi Arabia",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWXNRM19jS2hMWmo1Z3hvYktPVXplUUxoMktKampsVWlFblFYMnljbXBNOGkwQnNseURTT2x2ZW5aZ2RnOURFZWU0VUpIS1FMQmxhRVQ0Z0hZQ3pXR1lJM09YYjR5UzE3SUg4bFJlMWdUcUhTWjg3UFJRdi1CSHBXdERqMkRDUTNfSExiVG9lRm1KS05KUElWa09jRDRUMHpoRGfSAaIBQVVfeXFMUFlzUTNfY0toTFpqNWd4b2JLT1V6ZVFMaDJLSmpqbFVpRW5RWDJ5Y21wTThpMEJzbHlEU09sdmVuWmdkZzlERWVlNFVKSEtRTEJsYUVUNGdIWUN6V0dZSTNPWGI0eVMxN0lIOGxSZTFnVHFIU1o4N1BSUXYtQkhwV3REajJEQ1EzX0hMYlRvZUZtSktOSlBJVmtPY0Q0VDB6aERn?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "WSJ"
+   ],
+   "when": "2026-10-29T18:28:10+00:00",
+   "latest": "2026-10-30T02:46:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 24
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "We're raising our price target on Eli Lilly as the obesity-drug boom rolls on",
+   "link": "https://www.cnbc.com/investingclub/2026/10/29/were-raising-our-eli-lilly-price-target-as-obesity-drug-boom-continues.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Seeking Alpha",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T13:37:13+00:00",
+   "latest": "2026-10-30T01:04:00+00:00",
+   "desc": "The Lilly train keeps on rolling thanks to Mounjaro and Zepbound. And there's more growth to be had.",
+   "n_sources": 3,
+   "score": 21
+  },
+  {
+   "topic": "通胀",
+   "title": "Third-quarter U.S. GDP increases a better-than-expected 3.4% as September inflation accelerates",
+   "link": "https://www.cnbc.com/2026/10/29/pce-inflation-report-september-2026-.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T18:06:31+00:00",
+   "latest": "2026-10-29T18:06:31+00:00",
+   "desc": "The personal consumption expenditures price index was projected to increase 0.5% in September for an annual rate of 3.7%, according to the Dow Jones consensus.",
+   "n_sources": 1,
+   "score": 21
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Wall Street ends lower as Alphabet revenue miss revives AI capex jitters",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObTRZdktaNHNaUkc2SG45TFV3V3hKRlMwdWdFTEhyUVFSRnBodWFIM0gxSHh5NWZDVkp3WnJOX3RTZGFtUDVIN3ZPQnB6NlNOQ01OOXhTRnNhNjkyajZ2ejhEZkRBS1IxMkxjVWJmY3FYa3lqcHUxajVqRXpWdS1UWjdxZFZYTW8tUjBtN2NZTGlLSWFiRlpjTDNKaVlVbHRiLVRCcA?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T20:29:47+00:00",
+   "latest": "2026-10-29T23:35:39+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 20
+  },
+  {
+   "topic": "地缘政治",
+   "title": "ANZ Raises Oil Price Forecast as Market Tightens on Iran War",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNaVo3eEdoNjYtcFBpS1AwZjJRWUN4N3pXN0tOUHBRcUpSRllDeThuc1ctSk5JTm53Y0l1Qm5yLVFXS1QxWVV1emJLa0RSUzBTS0lBRWFybVRSZlFtcXpKY3pTZDNwdzdKeWo5ZlpLN09LSG92YXBKT0llQXo2ZnpxOUU4cmJINV9raVVYZlkxUjlpc0lmMFd5WUQ2VWJWYzRqNE95aG96Zkk4aTAyejdoNg?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-30T02:18:00+00:00",
+   "latest": "2026-10-30T02:18:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "In Moving Gradually, Fed Risks Having to Play Catch-Up to Quell Inflation",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQT0duQ2s1THJaQTllWHI4eXh0UEZXVjVLUkdBbUFyaHpERDhqQkxLcnhTRzVQU3k0MW5FeWF4Q25BZnJ4dHZuckZiRHZnN2V4eEljbEZDbFFxZnFZREJnQ29wTHdJSDhfV0FzYkdRQ1NkblZyZDAwTmZOdzhyZFlUc3N6M25CMWt6Y0VQMGZ3QmE?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-10-29T18:55:42+00:00",
+   "latest": "2026-10-29T18:55:42+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Shell nearly doubles quarterly profit year-on-year as refining margins soar to record high",
+   "link": "https://www.cnbc.com/2026/10/29/shell-earnings-oil-q3.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T12:29:00+00:00",
+   "latest": "2026-10-29T16:13:38+00:00",
+   "desc": "The oil major hiked its share buyback program as geopolitical volatility and a refined products crunch drove energy and fuel prices sharply higher.",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Strong US inflation and growth will keep Fed on a tightening path",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8xZlBJclhlMUl0SS1hRnJLUnBMekVNT2UxTG9Wa2pqY0owaGtRbDFnMW5hRllBcVBwNEF4UzBxdmZxZ0xCN2E1ZDJxQmlRTThLQ0FTYTdZZG9KY25sRmk2LUtleEFxUldNeUJKTFo3Zm4?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-10-29T14:00:18+00:00",
+   "latest": "2026-10-29T14:00:18+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Why isn’t China’s AI and tech boom saving its stock markets?",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9YdU1UN0YxR2F6VEtwY2NvTzBRZFNWa2U1Z2NDUkxQclRHX2NkVzZ2MExucGI5QmZuMk5ZLU0tTGNrNFoyVTFDREhDMzFYWU8wbFdfcjhUdHFYeE4xeTJkOVowRHBsTGxiTXhUMHBjaHZVTDQwZjVYQ1ozaw?oc=5",
+   "source": "CNN",
+   "sources": [
+    "CNN"
+   ],
+   "when": "2026-10-30T05:05:20+00:00",
+   "latest": "2026-10-30T05:05:20+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "U.S./Canada Tariffs Raise Tensions and Costs",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNeXJFekE3YXJBallXcVRPZC1TTEVkczM1bUxDbjF6ZkdVMXVfNXdSbDZfSVF4NGtYbXRxNmxYcXZxcTBXZms3Z0RjRExBdmV4NnJDSVhBQzA1MWV2bTVlNU11SGJvbnQwV01NRTRWZ2xrXzIxTUhnN0Nva3g3R1hLSnFR?oc=5",
+   "source": "Window + Door magazine",
+   "sources": [
+    "Bloomberg Law News"
+   ],
+   "when": "2026-10-29T11:05:26+00:00",
+   "latest": "2026-10-29T21:54:28+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Microsoft (MSFT) Stock Shrugs Off Q1 Earnings As AI Spending Looms",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcVl0VWhEWUhhTi1wb2pFS2EwdEhvem12dWtCNENMNGRhNjVCbkJ4OHJsLWgtaVRSa2xXcFFoQ1I0RzNLRVdUTmhjYVVkZDJQTmM3SUdZUk5jcWFxZjZfcnJrQnF4Qm5ickpyOU01QmJqMUNsQ2l4UjNmWU9BcDN3Nzk1NUVsTklzTmtUQnM4dTlFLVZEQzRpVkgtUWo?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T03:20:00+00:00",
+   "latest": "2026-10-30T03:20:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Amazon Stock Takes a Beating, but Munster Sees AI Powerhouse, Jim Cramer Calls Earnings ‘Very, Very Good’",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOLXpjRFRLbHcteFpENjBSRGswVWhnYUNfUm9Cb0V2VnNFdzdXcHJvZEd5UGlqZjZzUnQyYmpPM3VUelp5aDVOWHpiNUN6UFNzWndaV05aLW1fNWdIX25LWHo0UFFQWkVDYVc0ejUtLU43czFOMFVtUzJJM0RZMVFXODJNZ21RNElWZUQ0amJQdllLVzV0Z2U1SzdGNHRqc1Vp?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T03:18:00+00:00",
+   "latest": "2026-10-30T03:18:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "ServiceNow Stock Is Worst in S&P 500 After a Key Revenue Measure Fell Short",
+   "link": "https://finance.yahoo.com/m/5f9750f9-b04e-3830-9f5a-d06f079281de/servicenow-stock-is-worst-in.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T23:07:00+00:00",
+   "latest": "2026-10-29T23:07:00+00:00",
+   "desc": "Wall Street analysts are raising questions about why greater AI adoption hasn’t boosted growth for the software maker.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "ServiceNow shares plunge 27% to worst day ever after earnings revive AI disruption fears",
+   "link": "https://www.cnbc.com/2026/10/29/servicenow-now-earnings-q3-2026.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T20:02:32+00:00",
+   "latest": "2026-10-29T20:27:44+00:00",
+   "desc": "ServiceNow's stock recorded its worst day ever on underwhelming third-quarter results.",
+   "n_sources": 2,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Alphabet earnings miss reflects first real sign that AI is taking a bite out of search",
+   "link": "https://www.cnbc.com/2026/10/29/alphabet-google-search-ai-earnings.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T20:16:03+00:00",
+   "latest": "2026-10-29T20:16:03+00:00",
+   "desc": "Wall Street hammered Alphabet for an earnings miss that included weaker-than-expected revenue out of the company's core business.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Reddit shares sink on weak sales guidance and plans login requirement test as Google search traffic shrinks",
+   "link": "https://www.cnbc.com/2026/10/29/reddit-rddt-q3-2026.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Investor's Business Daily"
+   ],
+   "when": "2026-10-29T20:07:59+00:00",
+   "latest": "2026-10-30T00:28:45+00:00",
+   "desc": "Reddit posts third-quarter earnings and reveals plans to require all users to create official accounts as Google search traffic shrinks",
+   "n_sources": 2,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Equities and bond yields dip with AI jitters and economic data in focus",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWjBPTkdNTS1MdFEwWlB0TjhJbHN6ZEw4VFZjd2FpMmd2YTA5alR0aDhZdzE1Qy03eUZWVU5ScWxEeE9EbmdsNXFka2pZZE0tU21BS2NZd0pIdlpiOWtUbUM5V1Nvak11TlRNZ3dvWXBnOTdPWTdTZU40UExKWHkxdWc3VWU1ZUk2S3owbF9lYjJEbThvSkEwM0pfYWZQYVYxb2c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T21:31:24+00:00",
+   "latest": "2026-10-29T21:31:24+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Analysis: Kevin Warsh is keeping Wall Street guessing. It may be his most powerful tool",
+   "link": "https://www.cnbc.com/2026/10/29/kevin-warsh-fed-october-rate-decision-december-hike.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T17:32:34+00:00",
+   "latest": "2026-10-29T17:32:34+00:00",
+   "desc": "The new chairman made clear he leans toward higher interest rates, but left himself options depending on how the data comes in.",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Here’s How Much You’re Paying for Trump’s Tariffs and Iran War",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPZDBvaXE2U0Q5QTlPTUJTZnNPUnNZakNvVlB0QWgtbURJSDhJNUZzdzZRSUs0MGN0dmpBY0tnN2NSUDV4ZkV2NkZ2X28xSTVjQ1hiTU9SUEpqQnphUUhXMktXYUhFV2EwMkQwWF8xTHV2NWZDRkw0V1J6UzdWU2NiT2tyN2wyMWYzM0R6SzUzaUVHZHNyQlhjSEFiQ3lrdUp5Wlh3SUtR?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-29T16:41:13+00:00",
+   "latest": "2026-10-29T16:41:13+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Warsh’s AI Optimism May Box Him In at the Fed",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQOXVva3ZTOGhrVDZQeV9OSzZQcTJDS292VVRCRHBDdTNkRWhDQVhOYXBPeGl4TDdqaUxObEtjODhTc2swTk9KWHJpLVJib0V6YVZkNV96M2ZUci1FSl9jRThlbmkwcVZPekRXaEdScE9xYlVjQVFpcXFyRDlNMEQtV2VfUEhnejZzS0xnT2ZHbWJCT3R1NHpsbVhGVEpxNUhPNG5kYnRSN21peGdKcFM3LUNVS3d5dEppQ1RnRVAxRQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-29T09:00:15+00:00",
+   "latest": "2026-10-29T09:00:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil Climbs on Signs US May Resume Military Strikes Against Iran",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbV9tbXFMMlg1cjY2NzhHaWxOS1Y0ZFNYcGhWRFg4RTE1YzhrcW96UDVLdXY2QjNTVG5aajd0ODRhQWVZSFM1X3ZCUVZTbzZpVXhna3F4eF9jcm5aT0ptZkZ1bXRnYzA2TkV3RWNGYm5ta01xODdWRzU2Y1lpY2pHQ1ZCX3hkbDAxcktreEtWSWVWRWV2S2ZMS3BhWGs1QQ?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-10-30T01:49:21+00:00",
+   "latest": "2026-10-30T02:50:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil set for fourth monthly gain as Hormuz tanker attack highlights supply risks from war",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWE5IUkRJTVJvTFE5SUdOdFFCM2tVN1lKcDI3ci01cjlleVVuXzB1SjI0MDhuWkhwakZFSzl3SGNUZk9uUUYwdHNfMGJOUXExaW1RdmRRVy1Cd0tHb3RqblJCQWczeXdORDVKbVMxMGFrbnVMM3FCY2h5Xzl6T0ZoeTBtbGdnbW9jdWF6VEtqNi14ZnlFaVVpb0xZcHlGTDhtM0ZmY2RYZ2Q?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-30T02:27:00+00:00",
+   "latest": "2026-10-30T02:27:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "China’s Oil Majors Get More Firepower for Energy Security Push",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVkJmcVRibXE3N3lBcjZjVzlFcmg4dGs1cnY1YktCV2hOWWJHZVZXbWxWVlNtYkc5MjdETFBkZDNZMjNhNXNObElwSjZvVE0taWg4S1BhYmVNem1lUTF2ZE9tbTNwRG9pZndncU9QQjNmQk1fbnJiS0lQbUJoUW0zcklkT0R5Rl93X2MxcXdCYlVaUUNfVVBKbi1mZm1HZWQ2eEJ0Q1JLaWstMWU5SnN0aU1WOA?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-30T02:13:00+00:00",
+   "latest": "2026-10-30T02:13:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil Prices Ease as U.S. Seeks to Renew Diplomacy With Iran",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTW53UkVQVFpVMFB6SjNNeTdCWjNiSUxKZGJVVGVHQkJRZTA2UFljc3ZMc1ZqeVdtMzNPa1BtTkw5T21VMGp5bmVxOUF4QVQ4QWxWNERFbnJicUtuUXo2QWIyVkRCUzVFaHoycEpFVFVjcWRPWGdyQ2xyWHc2V1F3YVVsTk9JQ2pfV2VFLVFKT1lyRHRsM2NhaXlHUWNlSzJTV0E?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T19:53:00+00:00",
+   "latest": "2026-10-29T19:53:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Tariff Refunds Boost Polaris and Logistics Stocks, but Leave Caterpillar Sidelined",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQN2JtdHI3eGE4eHNJX3l2Qk5mNjdQVnY3clEzOS1PeGFSNG5NWEVVTDNKUURvc1ZtUXg3YTB3bkFWNHRqUmFORHNMWTY3cjJPLWJJLUY5TjlpZnZ1U1dFSkh6NUJZdmtpbF9DUHBKcmZkcnJBek55WFdxY2x3cFE5aGY5SlNXX2M2Y0h3aW5IQ1BxdExKZ2Nn?oc=5",
+   "source": "Barron's",
+   "sources": [
+    "Barron's"
+   ],
+   "when": "2026-10-29T17:51:00+00:00",
+   "latest": "2026-10-29T17:51:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Asian tech stocks slump as AI rout deepens on disappointing U.S. earnings",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUW5pTFBRMi1SclJpRWVUV2tLcHAwYXRXbG1xY1lhOEVmV2ptTFlvWllrMS1jY0UwODRXdXFkbEhEUk0wbm4zY3ZPWWZqZlUwckZwRG9PUjJ1SlNYLXJ2eVduS2NPdUhCbmdlSDVVRW5Qd1VQT2pNMjdrRnBuclEtRGNLUjhmaWhKVmw4NlNRQUItNzNBMEE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T04:48:00+00:00",
+   "latest": "2026-10-30T04:48:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "经济数据",
+   "title": "Robust consumer spending, AI-related investment power US economy in third quarter",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNd0JuSzdaWWtxaGJGdW5CV0pONGc2dlpzMVJnaGl2UUIwQmtkc1FNSUVNQzhxTFRycVZ4dGpRaVlvbGdraXBWenkzY1otSno3TC1zWTlQUmFRandmM0hlSm14a1pfWTJMNjdNclo5bFlFQWt3UlpIcFlPY3RtZzBQVXhKUzVPSWMxUXZFckNVM3ZXZEU?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-29T20:29:42+00:00",
+   "latest": "2026-10-29T20:29:42+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Stellantis Loses $503 Million In Q3 As Tariffs Take Effect",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNaTJXMk1WSDJJWnB5QWJkbDFRanp5M3dueDN1amVkb3U0QjJud3QzdXVUa211Ml9vczdRSlF5SWEwVGdUZUh3b1lnTXp0QzF0cU9HZ3R1NElkdE9MbDNxeW4zbFNvZERsczkwZ3BVTGx4eUJhcjJmemlNVWotLWVJVkd1VUNtZGVHMmNUR1dMZWQ1bG9qZFVtT2xpTW5fSlVua1E?oc=5",
+   "source": "Forbes",
+   "sources": [
+    "Forbes",
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T12:00:00+00:00",
+   "latest": "2026-10-29T12:00:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Dow, S&P 500, Nasdaq Futures Fall As Weak Tech Earnings Trigger Selloff: INTC, IOVA, SLS, AMZN Stocks In Focus",
+   "link": "https://stocktwits.com/news-articles/markets/equity/dow-s-and-p-500-nasdaq-futures-fall-as-weak-tech-earnings-trigger-selloff-intc-iova-sls-amzn-stocks-in-focus/cZUhiAhR9RF?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T04:03:00+00:00",
+   "latest": "2026-10-30T04:03:05+00:00",
+   "desc": "Markets are headed for a mixed close in October, with the Nasdaq likely to end lower, while the Dow and S&P 500 are headed to close in the green.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Copper Declines as Tech Selloff, Oil Rally Dent Risk Appetite",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTzBfN1BnUGNHLU51amNfNTFubUNBb3ppbTFRMmg0NWFTcHk2MC1iVHBqeU9RdTZsTHZNbDRyN1VRVk11UzNSNEdKeXpmcDF0dGJsU19HWWg1OWkzbzZoU0lDVWxqUXlac0xhenRZamR3c2xqVnNibXMwcXNsejJINENDLTFxdnVTdHdpV1RYRjlsaG1EVHpTQ0FMMG44cC05TGl3MVBTSllZQkFaTjZ0YQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-10-30T03:31:00+00:00",
+   "latest": "2026-10-30T03:31:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "What TriMas (TRS) Said on Its Q3 Earnings Call",
+   "link": "https://www.marketbeat.com/instant-alerts/transcript-what-trimas-trs-said-on-its-q3-earnings-call-2026-10-29/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T03:14:06+00:00",
+   "latest": "2026-10-30T03:14:06+00:00",
+   "desc": "TriMas (NASDAQ:TRS) reported higher third-quarter sales, operating profit and adjusted earnings as demand increased across its Packaging and Specialty Products businesses and cost-reduction actions contributed to profitability. Third-quarter net sales rose 7.7",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Dow Jones Futures Fall, Nasdaq Futures Plunge 2% On Amazon, Intel After Google, ServiceNow, Fortinet Dive",
+   "link": "https://finance.yahoo.com/m/0a5ce393-a6df-312b-af64-1893a264d0df/dow-jones-futures-fall%2C.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T01:36:00+00:00",
+   "latest": "2026-10-30T03:04:55+00:00",
+   "desc": "Amazon, Intel and Illumina were earnings losers overnight after Google, ServiceNow and Fortinet slammed techs. Much of the market is doing fine.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Caught Out By Reddit's Slide? What Bears Saw",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/caught-reddits-slide-bears-saw-010907537.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T01:09:07+00:00",
+   "latest": "2026-10-30T01:09:07+00:00",
+   "desc": "Reddit has just reported another strong set of quarterly results and even secured a place in the S&P 500, yet the stock chart tells a very different story. Investors who held Reddit over the past year are down 33.3%, including dividends. If an investor had bou",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Bitcoin Is Beating the S&P 500, so Why Is $85,000 Still Out of Reach?",
+   "link": "https://beincrypto.com/bitcoin-outperforms-sp500-below-85000/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T00:45:19+00:00",
+   "latest": "2026-10-30T00:45:19+00:00",
+   "desc": "Bitcoin now beats the S&P 500 on more trading days, after outperforming on just one day in five during June.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Amazon’s stock drops — even in the face of a bold new cloud forecast",
+   "link": "https://www.marketwatch.com/story/amazons-bold-cloud-forecast-isnt-enough-to-stave-off-a-stock-drop-ee23c1bb?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-30T00:15:00+00:00",
+   "latest": "2026-10-30T00:15:00+00:00",
+   "desc": "Modest AWS results and weak advertising growth left Wall Street disappointed in Amazon’s third-quarter earnings",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Alphabet just had its worst day as a public company. BofA now values Google search at a lower multiple than fossil fuel stocks",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/alphabet-just-had-worst-day-001015980.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T00:10:15+00:00",
+   "latest": "2026-10-30T00:10:15+00:00",
+   "desc": "Search revenue missed forecasts and free cash flow went negative. Bank of America now values Google’s core search business at about 10 times earnings, against 18.7 for the S&P 500.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Sandisk sees revenue nearly quintuple — and a stock split is on the way",
+   "link": "https://www.marketwatch.com/story/sandisk-sees-revenue-nearly-quintuple-and-its-stock-is-heading-higher-b9318916?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-30T00:06:00+00:00",
+   "latest": "2026-10-30T00:06:00+00:00",
+   "desc": "Sandisk’s stock has climbed more than 2,600% since the company separated from Western Digital 20 months ago — and it has one of the highest prices in the S&P 500.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Nasdaq 100 Futures Dip On Weak Intel, Amazon Earnings With Bloated Capex Worries Weighing On Sentiment — AMZN, INTC, SBUX, PLTR, ASTS In Focus",
+   "link": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-futures-dip-on-weak-intel-amazon-earnings-with-bloated-capex-worries-weighing-on-sentiment-amzn-intc-sbux-pltr-asts-in-focus/cZUXcXOR9Ri?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T23:54:15+00:00",
+   "latest": "2026-10-29T23:54:15+00:00",
+   "desc": "Amazon’s Q3 earnings and revenue fell short of expectations.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Nasdaq Dives As Alphabet Has Worst Day Ever. But Note These Stock Market Silver Linings.",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTZmdnViVXpWYjZ4bjBYM2ZBRXVxb0VCdUxBV0h2dmUzUFYwWS1HM0NyWHdGZ3U4SG82M2dNdGoyZmpNdTVmSGRtazVJRzVET3F4ZkhzQnlJc1VLTmNOcVlUOU1qQjAydWhPN2JLQmN1U1BJcjdVcG5xR0VNamczX01lTlRtR1R6UERPY0N2akpEMV82SnZqX2hoZ1B5T0tZLVhZaWc3MVhFbk8yb01kMDF3bXYzckIyS0tWc1djd00ya1ZDNzdz?oc=5",
+   "source": "Investor's Business Daily",
+   "sources": [
+    "Investor's Business Daily"
+   ],
+   "when": "2026-10-29T23:09:00+00:00",
+   "latest": "2026-10-29T23:09:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Amazon posts negative free cash flow of $42.4 billion, holds 2026 capex unchanged",
+   "link": "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T22:24:49+00:00",
+   "latest": "2026-10-29T22:24:49+00:00",
+   "desc": "Amazon's negative free cash flow ballooned during the third quarter, while its earnings and revenue fell short of Wall Street's expectations.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Starbucks' revenue miss overshadows solid FQ4 results, upbeat profit guidance (SBUX:NASDAQ)",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRmpmNFB0Yl9SaGFvbmZxNnBTTy1nanhkbnJPSF9NVHJLb2Z0bVI5Z0wyR1FTUlVtS0pORzlLbF9RVF9JYS1YbXVaWnlhMk51QW1maTcxNXBtVERkaDVraUViN3VfcDRPOGFWUW5KY0s4c2xLWE1NMml5MmktSUVnaGxJc1FscTg2VU1LVXk2cUNBWGlGSVlWMzU3TVRmOFh4V3QyZ2NwR1ZLSmdzakpmX3RLcw?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-10-29T20:37:27+00:00",
+   "latest": "2026-10-29T20:37:27+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Jim Cramer: Why investors are punishing Alphabet and giving Microsoft a pass",
+   "link": "https://www.cnbc.com/investingclub/2026/10/29/jim-cramer-why-investors-are-punishing-alphabet-and-giving-microsoft-a-pass.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T19:30:33+00:00",
+   "latest": "2026-10-29T20:16:53+00:00",
+   "desc": "Microsoft is faring better because of its financial spending, Jim Cramer said Thursday, a day after earnings.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Sandisk perks up as storage strength boosts Q1 results, guidance; unveils 8-1 stock split (SNDK:NASDAQ)",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxONE5KMU90X093RlpLdVV4dXVFb3BaNkk2N24xSEZuNllRai1LNmM4dTE3eHFHbVNWdzYzNWo3NG0wUFBRb1BJdlo4cmlzZ3FhWFRDMExCS05qdTUxOE5JRWo4MEg1TGg4anMxMVQ3QXJ0aC1YQjgyUUtvV2MyQURLVnVYZHdRQmQ1RS1ZUzdRNnY5czdwYzBvLUdNeGpIQ3NzclI4OXladGtwT0F3UDBjZm8wUlEtQ0ZYQlNGdG1rWURtUExrd3c?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-10-29T20:16:45+00:00",
+   "latest": "2026-10-29T20:16:45+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "US Equity Markets End Lower After Unexpected Drop in Alphabet's Earnings Leads Decline in Major Tech Stocks",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWTltY1VIRV9nbVNJemdBR0NZdHJmVVB1OW5RT3FPdzR1aktETWd6a1cwQ0xWclZ0OGUzNnBWa2dNU2h6U3A5N1dPWm5haGJnZmxqQ1RvT1BDanNWRTloeHA2RjVKcWcya2UzVWtBNGxPNEdEemFsbzhRMTNCZ3haTXVodkZWbmNrN19VbEN1MDN6dzdXMHZn?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T20:15:09+00:00",
+   "latest": "2026-10-29T20:15:09+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Why Microsoft stock isn't getting crushed like Google stock after its earnings report",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPNl90cjBzWjNJM3p0T0tXLXc1aXVuTThBNXg1blZUZTRfV2xXbXJrN3hzOVVPX2czZEliMkNZYVo4UGxyVndhOUo1X2hXUnd1VklTTmlMTmYwZzMtUWhJUlBQeXVjM2dZT25qNlh4cGQwNmxUWHMybzBzR3ZOLXd4TldVSkVlZXZxZWF5MEdGY1JSUWJ1Nzd6Sk5mMVBNb2VVeGpjbGJxMWo2dkpYbmpUTGJSbFF6MGF6SHNFOG5kdEtpZEFBZXFzYU14OE0xYXp1VXdUTWJhMkIwSjNsSm1MUFVn?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T18:50:43+00:00",
+   "latest": "2026-10-29T18:50:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "AI buildout hits snag as Google and Microsoft put off raising capex forecasts",
+   "link": "https://www.cnbc.com/2026/10/29/microsoft-google-ai-capex-estimates.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-10-29T16:20:51+00:00",
+   "latest": "2026-10-29T16:20:51+00:00",
+   "desc": "Microsoft and Alphabet both reported capital expenditures that fell short of estimates, adding to concern over the cost of the AI buildout.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stocks slump, bonds leap as AI giants' spending spooks investors",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQSzZnTkxtZ0FGMHoyYTFxbVg4dmF3TXI3LVhrN2tNMm0zWVN6QWxiSW8xSUg0SHlXckF4ODNiZHBMWlQ0ZVpEXzBmclhOdWVKSlRXYXF5bG5oVEw3SkgxZEtLSkMwcElpcW0xVnBDLThldnlIX2ZQWVZkaHFTU0VHU18wTVl6SUladjd1aUw1OHFPRElLSVE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-30T02:48:00+00:00",
+   "latest": "2026-10-30T02:48:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Japan's Nikkei slumps 3% as tech stocks tumble on AI worries",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQU9uNjhpN1dHMHNxdDR0SlBWa1VGV0Q5MkxrVWxKYWk0YWhtd2ZBZFM4dkYwaFNocVBfYmR2czM3VU9aUlV5SVMwRGtOWUJicTV4VFlZODRZRC1IMUw2aFZyYzcxUWpjWFNJbWY0YWFyaHJaRloxM1BWTlZzc1NzRkoyUm45aVNBM1hNODNWbkY4ZmpreWVmMXc4b2FGbkc5NzdWQkwwaWVCYm8?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-30T02:20:00+00:00",
+   "latest": "2026-10-30T02:20:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "10-Year Treasury Yield Climbs Back Above 5% After Fed Decision",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNnFBMXppa1d6cWYtODNONmFtTl9RRFZCa250cm1yZGFjUUNXc002TlIycUpUNlYweHZXTkFtUGhVX2tKOWtuYlBTbFplNFdLemdaNjFWRG9OQmFPWGduMTV1U1kzOTVwS2lwU0wyZ1lzVDEwNXotdG9BZ0pYcHFxMFp5WEtZY2Jha0pUbWM0NEk0V3Y0Uk1XOEFzRkZ5UTZ2RHNWQU9BQXF4enR1S2FHX25WbVo0WXFLUnZmTUpEb1FyemNRc0NZ?oc=5",
+   "source": "24/7 Wall St.",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-10-29T14:33:53+00:00",
+   "latest": "2026-10-30T02:07:34+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "U.S. said to promise tariff relief to Audi for Georgia plant",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOdTM1c1BucmhEN3VBNDRvRUEzdGQ0eVVwVEZJVU1ObTd1ZlFmUWNxaXlKaEsxa1F0XzlaMDZDR1EycFlZSy1wdVdPU3F6dTZhbzF6QS1FS21Pcjk5R0ZGSVVfX29lSWhzR3FqWUgxcm1vV3lET3dhLTNqN1l6Um5PMmk5TENyZw?oc=5",
+   "source": "Automotive News",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T13:36:00+00:00",
+   "latest": "2026-10-30T00:48:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "COMMENTARY: Warsh's muddled messaging revives Fed credibility doubts",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQbFItLXdsM192U2swb09iUUdnRjhfeVh4QmNGelZPc2lsTHR3SnIyTVhlelVyMVVEanhlZlFjU1BkUWZfTVZvNmFOMHlMWGhPNXQ2OTR1OXE3STVtekZMbVNiSXowUW5ZVU1KNkQzN1lPUUZWSTZaSG03eU9uS0FXald3TWxrNWc2b3BKREdKYmstUDZINFdhVi1uQUN6NVdoa2xwWEhwdU9zZUxSTUJwamRiaUVSQTE1T2VtNklUU1UwQQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-10-29T23:30:27+00:00",
+   "latest": "2026-10-29T23:30:27+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Why Intel’s stock is sinking toward its worst drop in two years",
+   "link": "https://www.marketwatch.com/story/why-intels-stock-is-sinking-toward-its-worst-drop-in-two-years-492d71a7?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-29T23:21:00+00:00",
+   "latest": "2026-10-29T23:21:00+00:00",
+   "desc": "Intel’s PC business is under pressure as memory-chip prices dent demand and as corporate IT teams have less budget for laptops.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Google parent Alphabet suffers nearly $500B Wall Street wipeout amid AI spending fears",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYVNFY2lBeUZZS2t3MnBITVE3WGVpdUhPQTRIV3hwWE9aazh5b1BCZWtJNTFIRmdScklnNXRGTWM4ZDE4N0J5REJoUG02V3p6YmV1SjF6dlluSkVpSlNESHV6SWFBV0UyTHUxUjZIbEx1Q3N5SS1uYVRaVmtVTS1COGxSMzVJdzd6LU5MYjZuWnZIYWdXRVU0VkE2YVpCdEJYZmhQQlRIYUluQzVsYlNud2hmTzJPMV9HaFlFeFNn0gHDAUFVX3lxTE9DemkxMlBiTmhWNGtuSGxUSFJ0ekZpR3BQOG0xNkRGdFlibEhXU0FJYWJOZUgybXozamFLdDRUdHExRU9pNzlhNmpPbURmcklCQTEtWnRSMENuN241ZEV3Vy0wd3EwaHRqUE1tQXZtaHRZdVJEeXhrbllqT0dVWnBiM1F6MFdULU5Bd2F5clZaZHBQQmttSFhJckg0a255Tng3SzFvXzE3NENudFF1LXk1Y052N3VETFBMcncxbnRoX1B5MA?oc=5",
+   "source": "Fox Business",
+   "sources": [
+    "Fox Business"
+   ],
+   "when": "2026-10-29T23:17:00+00:00",
+   "latest": "2026-10-29T23:17:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "US Bond Treasury Yield Notes fall big: Why are 10-year, 30-year, 2-year notes down? Check factors, what to",
+   "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxOYWRiVWNpWkh3TENra1NMMndRRFUyV1BPMW10cEczTmROWGhVVUlIWXNtb0w5V2g0Yzk1alpnRVZMOVFVWGthbTJ6NWlwcWxWMTc2cHg1TFJYMW5uVVpKa2VrRnVONGNTWVFTRkVnY1Q0eGJEMjlTSl9xdEZnUFZlS3lPcmdlNDU4M0tpR0RONW5sR04xUzlLbkRjUXFlY3p1X0FRdlQtTXdBcWdoanUwbVpTVjFxTkhGZUtoRXZJYnZJTVJuRDRvUEpZbHRjNVRrYkR5TVZKOERpeUFpaE9QcVRoZkpwb1RvcUlZRUNHNzhzZEJna3NqSHBZZUJiQS1aOTRBVy10RDRpSENGclEyc1ln0gGXAkFVX3lxTE1YS1lfSnBHbDVYRVNXX1BYVkJXMEJ0N2NwdFF6RWNHeV9oRzItc0FIWGZNTDVMSmNwMEUyZ05KajFTSXZfQkM2NFRheG9KalNfOFBQTnBLUi1mRy1zZ1VPNE9HZGNzemZENjVBLUlNOHNXMHVTNFZXM0xEdEVVOVhRZUVtVUVSSkVsQ2Q1UjFENUZ1U1FVWnpkcG55WGJ0UlFHMnBRY0h1Mm4zVWxZZFNiRVZBRkZIbGNwcy1OU28zMy1Yb1ZiNjBaem5Tb19xQUlCTU1kRG5aTjRRUHNKQllyckxiZzlremFxVS1RQjZQR1RxeGk0MF95Yk4yWm5xT0YzYWV4YzNscVUySzdvMXZ1QUx3aVdBUQ?oc=5",
+   "source": "The Economic Times",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T15:23:00+00:00",
+   "latest": "2026-10-29T21:58:12+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZl9NRnpPb3laN0tSUlB6NFUwekhQWkUyNG11ck5jQmxHZUxTZl82RzJoVmlLMzlQY2JCS1BuTC1mMDlZYjdXVHFFeTgxTXJ5eGJZazZOcGdLaDg4RFhvaDNidXhySlVzRFBTUmoyeTJ4YjYtMUR2M0RYT1M2WVZSRTIxYlNQQjk2RGJmWmRTMml5MEoyV1h5bHpSQ2dFaExzZVJmU1N3djBENFhM?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-10-29T21:48:04+00:00",
+   "latest": "2026-10-29T21:48:04+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Did the Fed make a mistake with its October rate pause? The Treasury could help save the day.",
+   "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQZk45ZWVGX3Q2YVVVRTN4R1I0cld2ZmsydjNDTExsZWh3TFhObTRMdENLYUlIc014WUZJY2pPcDE1OHFiSU41T2gyNFh0cVhvemxSNHU1SU05czhJTFVnMWRBMUZlQnZ1dmpSQ1dRcmZhU1FsbGttUE9zMmRzLWtoUkNsUUF2ZTBfa05nUkFMR3RCRWNsNkJHXy0zZzNGMlhoRExYbi0wT1F0NFdUSVc5SHVmeVBTY1dnazQtSlp5U1FVbE1ZQWxCS00yMXNubHM?oc=5",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-10-29T17:59:00+00:00",
+   "latest": "2026-10-29T17:59:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 628 条标题，合并后 135 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "11 个事件有 ≥2 家媒体报道"
+  },
+  {
+   "name": "市场快照",
+   "ok": true,
+   "critical": false,
+   "detail": "12/12 个品种取到数据"
+  },
+  {
+   "name": "快照数据新鲜度",
+   "ok": true,
+   "critical": false,
+   "detail": "12/12 个在 4 天内更新"
+  },
+  {
+   "name": "经济日历",
+   "ok": true,
+   "critical": false,
+   "detail": "Forex Factory"
+  }
+ ]
+}
