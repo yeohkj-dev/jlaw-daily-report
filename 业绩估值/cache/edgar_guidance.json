@@ -943,5 +943,49 @@
 "quotes": [
 "The total includes 100% of spending on projects contributed to joint ventures and fund prior to their contribution . (3) Recurring capital expenditures represent non-incremental data center improvements required to maintain current revenues, including second-generation tenant improvements and external leasing commissions."
 ]
+},
+"ABBV:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000033/abbv-20260930xexhibit991.htm",
+"filed": "2026-10-30",
+"quotes": [
+"Raises 2026 Adjusted Diluted EPS Guidance Range from $13.76 - $13.96 to $13.95 - $13.99, which Includes an Unfavorable Impact of $0.69 Per Share Related to Acquired IPR&D and Milestones Expense Incurred Year-To-Date Through the Third Quarter 2026"
+]
+},
+"CL:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000047/q32026pressreleasetables.htm",
+"filed": "2026-10-30",
+"quotes": [
+"The Company now expects net sales to be up 4% to 5% (versus 2% to 6% previously), including a low-single-digit positive impact from foreign exchange.",
+"The Company now expects organic sales growth to be broadly in line with its nine-month performance (versus 1% to 4% previously).",
+"On a non-GAAP (Base Business) basis, the Company now expects gross profit margin to be up (versus roughly flat previously) and still expects advertising to be up on both a dollar basis and as a percentage of net sales; it also now expects 5% to 7% earnings per share growth (versus mid-single-digit growth previously)."
+]
+},
+"CVX:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
+"filed": "2026-10-30",
+"quotes": []
+},
+"XOM:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000018/livef8k3q26991.htm",
+"filed": "2026-10-30",
+"quotes": [
+"Solidified ExxonMobil's position as operator of choice in international upstream developments: assumed operatorship at Papua LNG and reached agreement to increase working interest in LNG projects at Papua to 34% and Rovuma, Mozambique to 50%, where we are already the operator"
+]
+},
+"D:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/715957/000119312526439883/d-ex99.htm",
+"filed": "2026-10-30",
+"quotes": [
+"Guidance The company expects to be in the top half of the 2026 operating earnings guidance range of $3.45 to $3.69 per share and reaffirms existing operating earnings, credit, dividend, and long-term growth guidance.",
+"$95 million of regulated asset retirements and other charges (benefits) primarily due to a net charge associated with Virginia Power’s share of costs not expected to be recovered from customers on the Coastal Virginia Offshore Wind (CVOW) Commercial project."
+]
+},
+"EXC:2026-10-30": {
+"url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000092/exc-20261030ex991.htm",
+"filed": "2026-10-30",
+"quotes": [
+"Narrowing full year 2026 Adjusted (non-GAAP) operating earnings guidance range to $2.85-$2.91 per share and affirming operating EPS compounded annual growth near top end of 5-7% from 2025 to 2029",
+"With our performance for the year, we are narrowing our full-year 2026 guidance range to $2.85 to $2.91 per share, and affirming annualized earnings growth near the top end of 5% to 7% from 2025 through 2029."
+]
 }
 }
