@@ -14,6 +14,7 @@
   3. VCP 突破：沿用 8 项评分，并要求 1 个月 / 6 个月涨幅约为标普两倍
   4. META 回调：近 30 个交易日内有动能事件，回调 2%–15%，按 8 项优势计数
   5. 标出未来 14 天内有业绩的股票（课程：业绩前不建大仓）
+  6. Stage 名单：Stage 1 → 2 转换候选（200 天线走平、底部整理后接近或刚突破），以及已确认的 Stage 2 名单
 
 用法：python jlaw_daily_screen.py [输出目录]
 输出：<输出目录>/每日选股/YYYY-MM-DD.html（主要）、.md、.csv、_图表.png
@@ -49,6 +50,12 @@ VCP_MAX_RISK = 8.0          # VCP 止损上限 %
 HOT_GROUP_MIN = 3           # 同一细分行业 ≥3 只 = 热门组
 
 
+STAGE_SHOW = 30             # 名单先显示前 N 只，其余放在展开里
+STAGE_MAX = 200             # 网页最多放 N 只
+SLOPE_UP = 1.0              # 200 天线近 21 日升幅 ≥ 此值（%）= 向上；-1.5 至此值 = 走平
+BASE_DEPTH = 40             # 底部（近 6 个月）最大振幅 %
+
+
 def http_json(url, body=None):
     data = json.dumps(body).encode() if body else None
     req = urllib.request.Request(url, data=data, headers={"User-Agent": "Mozilla/5.0", "Content-Type": "application/json"})
@@ -70,11 +77,16 @@ def scan():
     rows = [dict(zip(COLS, r["d"])) for r in http_json(SCAN, body)["data"]]
     # 先用 30 日均量 × 股价粗筛成交额，再在日线里精算 20 日平均成交额
     rows = [r for r in rows if (r["close"] or 0) * (r["average_volume_30d_calc"] or 0) >= MIN_DOLLAR_VOL * 0.7]
-    return dict(spy1m=spy1m, spy6m=spy6m, min1m=max(2 * spy1m, 5.0), min6m=max(2 * spy6m, 10.0), rows=rows)
+    # Stage 1 → 2 候选的 50 天线可能还在 200 天线下方，所以多扫一批站上 50 天线的股票（只用于 Stage 名单）
+    body["filter"] = body["filter"][:-2] + [{"left": "close", "operation": "egreater", "right": "SMA50"}]
+    have = {r["name"] for r in rows}
+    extra = [dict(zip(COLS, r["d"])) for r in http_json(SCAN, body)["data"]]
+    extra = [r for r in extra if r["name"] not in have and (r["close"] or 0) * (r["average_volume_30d_calc"] or 0) >= MIN_DOLLAR_VOL * 0.7]
+    return dict(spy1m=spy1m, spy6m=spy6m, min1m=max(2 * spy1m, 5.0), min6m=max(2 * spy6m, 10.0), rows=rows, extra=extra)
 
 
 def prices(sym):
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym.replace('.', '-')}?range=1y&interval=1d"
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym.replace('.', '-')}?range=2y&interval=1d"
     for _ in range(3):
         try:
             d = http_json(url)["chart"]["result"][0]
@@ -201,6 +213,58 @@ def analyse(meta, px, spy):
     return base
 
 
+def stage_check(meta, px, spy):
+    """判断 Stage 2 / Stage 1 → 2 转换，都不是就返回 None。"""
+    if not px or len(px) < 252:
+        return None
+    c = [x["c"] for x in px]; h = [x["h"] for x in px]; l = [x["l"] for x in px]; v = [x["v"] for x in px]
+    n, close = len(px), c[-1]
+    dollar20 = sum(c[i] * v[i] for i in range(n - 20, n)) / 20
+    if dollar20 < MIN_DOLLAR_VOL:
+        return None
+    s50, s200 = sma(c, 50), sma(c, 200)
+    slope200 = (s200 / sma(c, 200, 21) - 1) * 100
+    slope50 = (s50 / sma(c, 50, 10) - 1) * 100
+    hi52, lo52 = max(h[-252:]), min(l[-252:])
+    spy_c = {x["d"]: x["c"] for x in spy}
+    rs = [c[i] / spy_c[px[i]["d"]] for i in range(n) if px[i]["d"] in spy_c]
+    if len(rs) < 127:
+        return None
+    rs1m, rs6m = (rs[-1] / rs[-22] - 1) * 100, (rs[-1] / rs[-127] - 1) * 100
+    # 50 天线上穿 200 天线后的天数
+    days_cross, full = 0, True
+    for b in range(0, n - 200):
+        if sma(c, 50, b) > sma(c, 200, b):
+            days_cross += 1
+        else:
+            full = False
+            break
+    er = meta.get("earnings_release_next_date")
+    days_to_er = (dt.datetime.fromtimestamp(er, dt.timezone.utc).date() - dt.date.today()).days if er else None
+    EXCH[meta["name"]] = meta.get("exchange") or ""
+    base = dict(sym=meta["name"], name=(meta["description"] or "")[:30], industry=meta["industry"] or "", close=round(close, 2),
+                p1m=round(meta["Perf.1M"] or 0, 1), p6m=round(meta["Perf.6M"] or 0, 1), er_days=days_to_er, rs6m=round(rs6m, 1),
+                rs_high=rs[-1] >= 0.97 * max(rs[-126:]), from_hi=round((close / hi52 - 1) * 100, 1), to50=round((close / s50 - 1) * 100, 1),
+                slope200=round(slope200, 1), days_cross=days_cross, cross_full=full)
+
+    if close > s50 > s200 and slope200 >= SLOPE_UP and slope50 > 0 and close >= 0.75 * hi52 and close >= 1.25 * lo52:
+        phase = "早期" if days_cross <= 60 else "中段" if days_cross <= 180 else "后段"
+        return dict(base, kind="S2", phase=phase, extended=base["to50"] > 25)
+
+    # Stage 1 → 2：底部 = 最近 2 周之前的 6 个月
+    bhi, blo = max(h[-136:-10]), min(l[-136:-10])
+    depth = (bhi - blo) / bhi * 100
+    if (-1.5 <= slope200 < SLOPE_UP and depth <= BASE_DEPTH and close >= s50 and close >= 0.97 * s200 and slope50 >= 0
+            and rs1m >= 0 and 0.92 * bhi <= close <= 1.10 * bhi):
+        avg50 = sum(v[-60:-10]) / 50
+        up = [v[i] / avg50 for i in range(n - 10, n) if c[i] > c[i - 1]]
+        vx = round(max(up), 1) if up else 0
+        edges = [close > bhi, vx >= 1.5, close > s200, s50 >= 0.98 * s200, base["rs_high"]]
+        return dict(base, kind="S12", pivot=round(bhi, 2), to_pivot=round((close / bhi - 1) * 100, 1), depth=round(depth), vx=vx,
+                    status="刚突破" if close > bhi else "接近突破", score=sum(edges))
+    return None
+
+
 def market_state():
     if not os.path.exists(HIST):
         return None
@@ -279,6 +343,11 @@ def main():
     with ThreadPoolExecutor(8) as ex:
         pxs = list(ex.map(lambda r: prices(r["name"]), s["rows"]))
     res = [x for x in (analyse(m, p, spy) for m, p in zip(s["rows"], pxs)) if x]
+    with ThreadPoolExecutor(8) as ex:
+        px_extra = list(ex.map(lambda r: prices(r["name"]), s["extra"]))
+    staged = [x for x in (stage_check(m, p, spy) for m, p in zip(s["rows"] + s["extra"], pxs + px_extra)) if x]
+    stage2 = sorted([x for x in staged if x["kind"] == "S2"], key=lambda x: -x["rs6m"])
+    stage12 = sorted([x for x in staged if x["kind"] == "S12"], key=lambda x: (-x["score"], abs(x["to_pivot"])))
 
     # ---- 产业组：有动能事件或通过 VCP 相对强度层的股票，按细分行业计数 ----
     rs_layer = {r["sym"] for r in res if r["p1m"] >= s["min1m"] and r["p6m"] >= s["min6m"]}
@@ -368,6 +437,14 @@ def main():
               + ("，业绩催化" if r["catalyst"] else "") for r in fresh_mom[:15]] or ["无。"]
     if new_names:
         lines += ["", "**新进入就绪名单**（对比上一份）：" + "、".join(new_names[:20])]
+    lines += ["", f"## C1. Stage 1 → 2 转换候选：{len(stage12)} 只（前 {STAGE_SHOW} 只）", "",
+              "| 股票 | 行业 | 收盘 | 底部高点 | 距高点 | 状态 | 量比 | 得分 | 业绩 |", "|---|---|---|---|---|---|---|---|---|"]
+    lines += [f"| {r['sym']} | {r['industry'][:18]} | {r['close']} | {r['pivot']} | {r['to_pivot']}% | {r['status']} | {r['vx']}x | {r['score']}/5 | {er_txt(r)} |"
+              for r in stage12[:STAGE_SHOW]]
+    lines += ["", f"## C2. Stage 2 名单：{len(stage2)} 只（按 6 个月 RS 排序，前 {STAGE_SHOW} 只）", "",
+              "| 股票 | 行业 | 收盘 | 1月 | 6月 | RS 6月 | 距52周高 | 距50天线 | 阶段 | 业绩 |", "|---|---|---|---|---|---|---|---|---|---|"]
+    lines += [f"| {r['sym']} | {r['industry'][:18]} | {r['close']} | {r['p1m']}% | {r['p6m']}% | {r['rs6m']}% | {r['from_hi']}% | {r['to50']}% | {r['phase']} | {er_txt(r)} |"
+              for r in stage2[:STAGE_SHOW]]
     lines += ["", "## 下单前仍须人工确认",
               "- META 回调：确认动能有催化剂（业绩、指引、新产品、主题），回调成交量明显萎缩，股价守在 10/20 天线或突破位区间",
               "- VCP 突破：最后收缩 < 10%，带量突破才买，高于突破点 5% 不追",
@@ -402,7 +479,7 @@ def main():
     html_path = os.path.join(SCREEN_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, ms, s, len(res), sum(1 for r in res if r["mom"]), len(vcp_pool), meta_ready, vcp_ready,
-                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None))
+                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2))
 
     print(json.dumps({"html": html_path, "date": str(today), "market_state": state, "universe": len(res),
                       "meta_ready": [(r["sym"], r["meta"]["n_edges"], r["meta"]["risk"], r["er_days"]) for r in meta_ready[:10]],
@@ -410,10 +487,11 @@ def main():
                       "watch": [r["sym"] for r in (meta_watch + vcp_watch)[:12]],
                       "hot_groups": {k: len(v) for k, v in sorted(hot.items(), key=lambda x: -len(x[1]))[:6]},
                       "fresh_momentum": [r["sym"] for r in fresh_mom[:10]], "new_ready": new_names[:10],
+                      "stage12": len(stage12), "stage2": len(stage2), "stage12_top": [r["sym"] for r in stage12[:15]],
                       "report": md, "chart": png if has_png else None}, ensure_ascii=False))
 
 
-def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path):
+def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=()):
     """单文件 HTML（内联样式，图表以 base64 内嵌）。"""
     import base64
     import html as h
@@ -471,6 +549,55 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
                      f'<td {td}>{shares_per_100k(v["pivot"], v["stop"])}</td><td {td}>{er(r)}</td><td {tdw}>{h.escape(v["fails"] or "—")}</td></tr>')
         return wrap(("股票", "行业", "收盘", "突破点", "距突破点", "建议止损", "止损", "得分", "状态", "每10万股数", "业绩", "未通过项"), body)
 
+    # Stage 名单有 200 多行，用 CSS class 代替内联样式，页面小很多
+    st_css = ("<style>.st td{padding:6px 8px;border-bottom:1px solid #eee;white-space:nowrap}.st a{color:#1565C0;text-decoration:none;font-weight:700}"
+              ".st small{color:#888;font-size:11px}.st u{text-decoration:none;color:#2E7D32}.st s{text-decoration:none;color:#C62828}</style>")
+
+    def sname(r):
+        return (f'<a href="{h.escape(tv_url(r["sym"]))}" target="_blank" rel="noopener">{h.escape(r["sym"])} 📈</a>'
+                f'<br><small>{h.escape(r["name"][:22])}</small>')
+
+    def spc(x):
+        return f"<u>{x:+.1f}%</u>" if x > 0 else f"<s>{x:+.1f}%</s>" if x < 0 else f"{x:+.1f}%"
+
+    def swrap(head, body):
+        return wrap(head, body).replace("<table ", '<table class="st" ', 1)
+
+    def more(rows, tbl):
+        """前 STAGE_SHOW 只直接显示，其余放在展开里。"""
+        rows = list(rows)[:STAGE_MAX]
+        if not rows:
+            return '<p style="color:#777;">今天没有符合条件的股票。</p>'
+        out = tbl(rows[:STAGE_SHOW])
+        if len(rows) > STAGE_SHOW:
+            out += (f'<details style="margin-top:8px;"><summary style="cursor:pointer;color:#1565C0;font-size:13px;">'
+                    f'展开其余 {len(rows) - STAGE_SHOW} 只</summary>{tbl(rows[STAGE_SHOW:])}</details>')
+        return out
+
+    def s12_tbl(rows):
+        body = ""
+        for r in rows:
+            st = "#2E7D32" if r["status"] == "刚突破" else "#B26A00"
+            body += (f'<tr><td>{sname(r)}</td><td>{h.escape(r["industry"][:20])}</td><td>{r["close"]}</td>'
+                     f'<td><b>{r["pivot"]}</b></td><td>{spc(r["to_pivot"])}</td><td><b style="color:{st};">{r["status"]}</b></td>'
+                     f'<td>{r["vx"]}x</td><td>{r["depth"]}%</td><td>{r["slope200"]:+.1f}%</td>'
+                     f'<td>{spc(r["rs6m"])}</td><td><b>{r["score"]}/5</b></td><td>{er(r)}</td></tr>')
+        return swrap(("股票", "行业", "收盘", "底部高点", "距高点", "状态", "放量", "底部振幅", "200 天线斜率", "RS 6月", "得分", "业绩"), body)
+
+    def s2_tbl(rows):
+        body = ""
+        pcol = {"早期": "#2E7D32", "中段": "#555", "后段": "#B26A00"}
+        for r in rows:
+            days = f'{">" if r["cross_full"] else ""}{r["days_cross"]} 天'
+            ext = " <s>远离</s>" if r["extended"] else ""
+            flag = " <u>RS新高</u>" if r["rs_high"] else ""
+            body += (f'<tr><td>{sname(r)}</td><td>{h.escape(r["industry"][:20])}</td><td>{r["close"]}</td>'
+                     f'<td>{spc(r["p1m"])}</td><td>{spc(r["p6m"])}</td><td>{spc(r["rs6m"])}{flag}</td>'
+                     f'<td>{r["from_hi"]}%</td><td>{spc(r["to50"])}{ext}</td>'
+                     f'<td><b style="color:{pcol[r["phase"]]};">{r["phase"]}</b> <small>{days}</small></td>'
+                     f'<td>{er(r)}</td></tr>')
+        return swrap(("股票", "行业", "收盘", "1月", "6月", "RS 6月", "距52周高", "距50天线", "阶段", "业绩"), body)
+
     img = ""
     if png_path and os.path.exists(png_path):
         with open(png_path, "rb") as f:
@@ -501,6 +628,12 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
 {sec("B. 观察名单 · META（优势 ≥3）", "#B26A00")}{meta_tbl(meta_watch[:10])}
 {sec("B. 观察名单 · VCP（得分 ≥5）", "#B26A00")}{vcp_tbl(vcp_watch[:10])}
+{st_css}{sec(f"C1. Stage 1 → 2 转换候选（{len(stage12)} 只）", "#6A1B9A")}
+<p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">底部整理后、快要进入上升阶段的股票：200 天线走平，近 6 个月底部振幅 ≤{BASE_DEPTH}%，股价站上 50 天线且 50 天线转上，RS 近 1 个月转强，股价在底部高点 −8% 至 +10% 之内。得分看 5 项：已突破底部高点、上涨日放量 ≥1.5 倍、站上 200 天线、50 天线接近或高于 200 天线、RS 线接近新高。程序分不清底部（Stage 1）和顶部横盘（Stage 3），两者都是 200 天线走平，请点图看之前是下跌还是上涨。</p>
+{more(stage12, s12_tbl)}
+{sec(f"C2. Stage 2 名单（{len(stage2)} 只，按 6 个月 RS 排序）", "#6A1B9A")}
+<p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">已确认的上升阶段：收盘 &gt; 50 天线 &gt; 200 天线，50 和 200 天线都向上，距 52 周高 25% 以内，比 52 周低点高 ≥25%。阶段按 50 天线上穿 200 天线后的天数：早期 ≤60、中段 ≤180、后段 &gt;180。距 50 天线 &gt;25% 标「远离」，不宜追高。这是强势股名单，不是买点，买点仍看上面的 META / VCP。</p>
+{more(stage2, s2_tbl)}
 <div style="display:flex;flex-wrap:wrap;gap:16px;">
 <div style="flex:1 1 360px;">{sec(f"热门产业组（同一行业 ≥{HOT_GROUP_MIN} 只）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{hot_html}</ul></div>
 <div style="flex:1 1 360px;">{sec("近 5 日新的动能事件（等低量回调）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{fresh_html}</ul></div></div>

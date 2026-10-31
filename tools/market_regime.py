@@ -135,15 +135,94 @@ def stage2_count():
     return len(d), near[:15]
 
 
+FNG_ZH = {"extreme fear": "极度恐惧", "fear": "恐惧", "neutral": "中性", "greed": "贪婪", "extreme greed": "极度贪婪"}
+FNG_PARTS = [("market_momentum_sp500", "市场动能（标普 vs 125 天线）"), ("stock_price_strength", "股价强度（新高 vs 新低）"),
+             ("stock_price_breadth", "股价宽度（成交量）"), ("put_call_options", "看跌 / 看涨期权"),
+             ("market_volatility_vix", "市场波动（VIX）"), ("safe_haven_demand", "避险需求（股 vs 债）"),
+             ("junk_bond_demand", "垃圾债需求")]
+
+
+def fear_greed():
+    """CNN 恐惧与贪婪指数（0–100）。这是 CNN 网页用的接口，不是公开 API，取不到时返回 None。"""
+    req = urllib.request.Request("https://production.dataviz.cnn.io/index/fearandgreed/graphdata", headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36",
+        "Referer": "https://www.cnn.com/markets/fear-and-greed", "Accept": "application/json"})
+    try:
+        d = json.load(urllib.request.urlopen(req, timeout=30))
+        f = d["fear_and_greed"]
+        return dict(score=f["score"], rating=f["rating"], time=dt.datetime.fromisoformat(f["timestamp"]),
+                    prev=f.get("previous_close"), wk=f.get("previous_1_week"), mo=f.get("previous_1_month"), yr=f.get("previous_1_year"),
+                    hist=[x["y"] for x in d["fear_and_greed_historical"]["data"]],
+                    vix=d["market_volatility_vix"]["data"][-1]["y"],
+                    parts=[(zh, d[k]["score"], d[k]["rating"]) for k, zh in FNG_PARTS if k in d])
+    except Exception as e:
+        print("CNN 恐惧贪婪指数取不到：", type(e).__name__, file=sys.stderr)
+        return None
+
+
+def vix_stats():
+    rows = daily("%5EVIX")
+    c = [r["c"] for r in rows]
+    yr = c[-252:]
+    return dict(close=c[-1], date=rows[-1]["date"], d1=c[-1] - c[-2], w1=c[-1] - c[-6], sma20=sma(c, 20), hi=max(yr), lo=min(yr),
+                pctile=sum(1 for x in yr if x <= c[-1]) / len(yr) * 100, hist=yr)
+
+
+def fear_html(fng, vix):
+    """恐惧指数区块：CNN 恐惧贪婪（越低越恐惧）+ VIX（越高越恐惧）。"""
+    td = 'style="padding:4px 6px;border-bottom:1px solid #eee;"'
+    colour = lambda v: "#C62828" if v < 25 else "#E65100" if v < 45 else "#555" if v <= 55 else "#689F38" if v <= 75 else "#2E7D32"
+    box = 'style="flex:1 1 300px;border:1px solid #e3e3e3;border-radius:6px;padding:10px 12px;"'
+    if fng:
+        s = fng["score"]
+        col = colour(s)
+        bands = "".join(f'<div style="flex:0 0 {w}%;background:{c};color:#fff;font-size:10px;text-align:center;line-height:14px;">{t}</div>'
+                        for w, c, t in ((25, "#C62828", "极度恐惧"), (20, "#E65100", "恐惧"), (10, "#888", "中性"), (20, "#689F38", "贪婪"), (25, "#2E7D32", "极度贪婪")))
+        cmp_ = "".join(f'<span style="margin-right:12px;white-space:nowrap;">{t} <b style="color:{colour(v)};">{v:.0f}</b></span>'
+                       for t, v in (("昨日", fng["prev"]), ("1 周前", fng["wk"]), ("1 个月前", fng["mo"]), ("1 年前", fng["yr"])) if v is not None)
+        parts = "".join(f'<tr><td {td}>{zh}</td><td {td}><b style="color:{colour(sc)};">{sc:.0f}</b></td>'
+                        f'<td {td}>{FNG_ZH.get(rt, rt)}</td></tr>' for zh, sc, rt in fng["parts"])
+        left = f"""<div {box}><div style="font-size:12px;color:#666;">CNN 恐惧与贪婪指数（0 = 极度恐惧，100 = 极度贪婪）</div>
+<div style="font-size:30px;font-weight:700;color:{col};line-height:1.3;">{s:.0f} <span style="font-size:17px;">{FNG_ZH.get(fng["rating"], fng["rating"])}</span></div>
+<div style="position:relative;margin:4px 0 10px;"><div style="display:flex;border-radius:3px;overflow:hidden;">{bands}</div>
+<div style="position:absolute;left:{s:.1f}%;top:-3px;width:3px;height:20px;background:#111;margin-left:-1px;"></div></div>
+<div style="font-size:12px;line-height:1.7;">{cmp_}</div>
+<div style="font-size:12px;color:#666;margin-top:4px;">近 1 年走势 {sparkline(fng["hist"], 200, 28, "#666")}</div>
+<details style="margin-top:6px;font-size:12px;"><summary style="cursor:pointer;color:#1565C0;">7 个分项</summary>
+<table style="width:100%;border-collapse:collapse;margin-top:4px;">{parts}</table></details></div>"""
+    else:
+        left = (f'<div {box}><div style="font-size:12px;color:#666;">CNN 恐惧与贪婪指数</div><div style="margin-top:8px;color:#B26A00;font-size:13px;">'
+                '今天取不到 CNN 的数据，请看右边的 VIX，或到 CNN 网站查看。</div></div>')
+    if vix:
+        v = vix["close"]
+        lab, col = (("平静", "#2E7D32") if v < 15 else ("正常", "#555") if v < 20 else ("偏高", "#E65100") if v < 30 else ("恐慌", "#C62828"))
+        rc = lambda x: "#C62828" if x > 0 else "#2E7D32" if x < 0 else "#555"     # VIX 上升 = 恐惧增加，用红色
+        right = f"""<div {box}><div style="font-size:12px;color:#666;">VIX 恐慌指数（越高越恐慌）</div>
+<div style="font-size:30px;font-weight:700;color:{col};line-height:1.3;">{tv_link("VIX", "TVC", f"{v:.2f}")} <span style="font-size:17px;">{lab}</span></div>
+<div style="font-size:12px;line-height:1.7;margin-top:6px;">当日 <b style="color:{rc(vix["d1"])};">{vix["d1"]:+.2f}</b> · 1 周 <b style="color:{rc(vix["w1"])};">{vix["w1"]:+.2f}</b> · 20 天线 {vix["sma20"]:.2f}<br>
+近 1 年范围 {vix["lo"]:.1f}–{vix["hi"]:.1f}，比过去 1 年 <b>{vix["pctile"]:.0f}%</b> 的日子高</div>
+<div style="font-size:12px;color:#666;margin-top:4px;">近 1 年走势 {sparkline(vix["hist"], 200, 28, "#666")}</div></div>"""
+    else:
+        right = f'<div {box}><div style="font-size:12px;color:#666;">VIX 恐慌指数</div><div style="margin-top:8px;color:#B26A00;font-size:13px;">今天取不到 VIX。</div></div>'
+    note = ""
+    if fng and vix:
+        ok = abs(fng["vix"] / vix["close"] - 1) <= 0.03
+        note = (f'<span style="color:{"#2E7D32" if ok else "#C62828"};">数据核对：VIX {vix["close"]:.2f}（Yahoo）/ {fng["vix"]:.2f}（CNN）'
+                f'{"一致" if ok else "不一致，请以官方为准"}。</span>')
+    stamp = f'CNN 数据时间 {fng["time"]:%m-%d %H:%M} UTC。' if fng else ""
+    return f"""<h3 style="margin:18px 0 6px;">恐惧指数</h3><div style="display:flex;flex-wrap:wrap;gap:12px;">{left}{right}</div>
+<p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">恐惧指数只反映市场情绪，不是买卖信号：极度恐惧常在急跌时出现，但大盘可以继续下跌，仍要以上面的大盘状态和见底信号为准。{stamp} {note}</p>"""
+
+
 def ret(c, n):
     return c[-1] / c[-1 - n] - 1 if len(c) > n else None
 
 
-def sparkline(vals, w=90, h=22):
+def sparkline(vals, w=90, h=22, col=None):
     lo, hi = min(vals), max(vals)
     span = (hi - lo) or 1
     pts = " ".join(f"{i * w / (len(vals) - 1):.1f},{h - 2 - (v - lo) / span * (h - 4):.1f}" for i, v in enumerate(vals))
-    col = "#2E7D32" if vals[-1] >= vals[0] else "#C62828"
+    col = col or ("#2E7D32" if vals[-1] >= vals[0] else "#C62828")
     return (f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" style="vertical-align:middle;">'
             f'<polyline points="{pts}" fill="none" stroke="{col}" stroke-width="1.5"/></svg>')
 
@@ -276,7 +355,7 @@ def load_hist():
         return list(csv.DictReader(f))
 
 
-def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html=""):
+def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html="", fear=""):
     """邮件友好的 HTML（全部内联样式，浅色背景）。"""
     col = {"🔴": ("#C62828", "#FDECEA"), "🟡": ("#B26A00", "#FFF4E0"), "🟢": ("#2E7D32", "#E8F5E9")}[state[0]]
     td = 'style="padding:6px 8px;border-bottom:1px solid #eee;"'
@@ -319,6 +398,7 @@ def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, pre
 <table style="width:100%;border-collapse:collapse;font-size:13px;">
 <tr><th {th}>指数</th><th {th}>收盘</th><th {th}>当日</th><th {th}>近1月</th><th {th}>20天</th><th {th}>50天</th><th {th}>200天</th><th {th}>50线</th><th {th}>出货日</th></tr>
 {rows}</table>
+{fear}
 <p style="margin:14px 0 4px;"><b>市场宽度</b>（{n} 只市值 ≥100 亿美元的美股）：<b>{b50:.1f}%</b> 在 50 天线之上{delta(b50, "above50", ".1f")}，{b200:.1f}% 在 200 天线之上</p>
 <p style="margin:4px 0;"><b>JLaw Stage 2 筛出</b>：<b>{s2}</b> 只{delta(s2, "stage2", ".0f")}</p>
 {sig}
@@ -339,6 +419,11 @@ def main():
     n, b50, b200 = breadth()
     s2, near = stage2_count()
     sec = sectors(spy)
+    fng = fear_greed()
+    try:
+        vix = vix_stats()
+    except Exception:
+        vix = None
     check, check_ok = tv_check(sec)
     shist = load_sector_hist()
     prev_rank, prev_rdate = sector_prev_rank(sec, shist)
@@ -407,6 +492,9 @@ def main():
     if yellow:
         lines += ["### 🟡 警戒信号"] + [f"- {t}" for t in yellow] + [""]
     lines += ["### 见底 / 转强信号（8 大见底信号的可自动部分）"] + [f"- {'✔' if ok else '✘'} {t}" for t, ok in bottom] + [""]
+    lines += ["### 恐惧指数", "",
+              f'- CNN 恐惧与贪婪：{fng["score"]:.0f}（{FNG_ZH.get(fng["rating"], fng["rating"])}）' if fng else "- CNN 恐惧与贪婪：今天取不到",
+              f'- VIX：{vix["close"]:.2f}' if vix else "- VIX：今天取不到", ""]
     lines += ["### 行业指数追踪（按近 1 月涨幅排名）", "",
               "| 排名 | 行业 | 收盘 | 当日 | 1周 | 1月 | 3月 | 今年 | RS 1月 | 趋势 |", "|---|---|---|---|---|---|---|---|---|---|"]
     f1 = lambda v: "—" if v is None else f"{v * 100:+.1f}%"
@@ -427,7 +515,7 @@ def main():
     html_path = os.path.join(REPORT_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, changed and prev["state"], advice, spy, qqq, n, b50, b200, s2, prev,
-                           red, yellow, bottom, near, sector_html(sec, prev_rank, prev_rdate, check, check_ok)))
+                           red, yellow, bottom, near, sector_html(sec, prev_rank, prev_rdate, check, check_ok), fear_html(fng, vix)))
     save_sector_hist(sec, shist)
 
     new = not os.path.exists(HIST)
@@ -440,7 +528,12 @@ def main():
                         len(spy["dist"]), len(qqq["dist"]), s2])
     print(json.dumps({"date": str(today), "state": state, "changed": bool(changed), "report": path, "html": html_path,
                       "red": red, "yellow": yellow, "above50": round(b50, 1), "stage2": s2,
-                      "sectors": [x["sym"] for x in sec], "sector_check": check}, ensure_ascii=False))
+                      "sectors": [x["sym"] for x in sec], "sector_check": check,
+                      "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,
+                      "checks": [dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
+                                      detail=f'{fng["score"]:.0f}（{fng["time"]:%m-%d}）' if fng else "取不到，只显示 VIX"),
+                                 dict(name="VIX", ok=bool(vix) and (not fng or abs(fng["vix"] / vix["close"] - 1) <= 0.03), critical=False,
+                                      detail=(f'Yahoo {vix["close"]:.2f}' + (f' / CNN {fng["vix"]:.2f}' if fng else "")) if vix else "取不到")]}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

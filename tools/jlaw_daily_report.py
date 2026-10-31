@@ -174,7 +174,7 @@ def main():
         state = mkt["state"] if mkt else (scr or {}).get("market_state", "未知")
         mkt_date = mkt["date"] if mkt else "—"
         n_ready = (len(scr["meta_ready"]), len(scr["vcp_ready"])) if scr else None
-        tabs.append(("mkt", "大盘报告", html.escape(state), body_of(mkt["html"]) if mkt else error_box("大盘报告", errs["mkt"])))
+        tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), body_of(mkt["html"]) if mkt else error_box("大盘报告", errs["mkt"])))
         tabs.append(("scr", "每日选股", f"META {n_ready[0]} · VCP {n_ready[1]}" if n_ready else "失败",
                      body_of(scr["html"]) if scr else error_box("每日选股", errs["scr"])))
     news, we = res.get("news"), res.get("we")
@@ -200,7 +200,7 @@ def main():
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("mkt", "大盘"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]
