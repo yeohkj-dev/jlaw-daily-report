@@ -84,6 +84,17 @@ def body_of(path):
     return m.group(1) if m else doc
 
 
+def published_panel(key):
+    """从网站上一份报告（docs/index.html）取出某个分页的内容。"""
+    try:
+        with open(os.path.join(PUBLISH or os.path.join(OUT_DIR, "docs"), "index.html"), encoding="utf-8") as f:
+            doc = f.read()
+    except OSError:
+        return None
+    m = re.search(rf'<div class="panel[^"]*" id="p-{key}"[^>]*>(.*?)</div>(?:<div class="panel|\s*<script>)', doc, re.S)
+    return m.group(1) if m else None
+
+
 def error_box(name, err):
     return (f'<div style="max-width:900px;margin:16px auto;padding:16px;background:#FDECEA;border-left:6px solid #C62828;'
             f'border-radius:6px;font-size:14px;"><b>{name}运行失败</b><pre style="white-space:pre-wrap;font-size:12px;'
@@ -159,10 +170,6 @@ def main():
     tabs = []          # (id, 标题, 小字, 内容)
     mkt, scr = res.get("mkt"), res.get("scr")
     if weekend:
-        for key, label in (("mkt", "大盘报告"), ("scr", "每日选股")):
-            f = latest_file(label)
-            body = (note(f"这一页是 {os.path.basename(f)[:10]} 的{label}，周末不重跑，下个交易日更新。") + body_of(f)) if f else error_box(label, "还没有报告")
-            tabs.append((key, label, f"{os.path.basename(f)[5:10]} 版" if f else "没有", body))
         state, mkt_date = "未知", "—"
         hist = os.path.join(OUT_DIR, "大盘报告", "大盘历史.csv")
         if os.path.exists(hist):
@@ -170,6 +177,17 @@ def main():
                 rows = fh.read().strip().splitlines()
             if len(rows) > 1:
                 mkt_date, state = rows[-1].split(",")[:2]
+        for key, label in (("mkt", "大盘报告"), ("scr", "每日选股")):
+            f = latest_file(label)
+            old = published_panel(key) if not f else None      # GitHub 上没有这些 HTML，沿用网站上一份的内容
+            day = os.path.basename(f)[:10] if f else mkt_date
+            if f or old:
+                body = old or body_of(f)
+                if "周末不重跑" not in body:
+                    body = note(f"这一页是 {day} 的{label}，周末不重跑，下个交易日更新。") + body
+                tabs.append((key, label, f"{day[5:]} 版", body))
+            else:
+                tabs.append((key, label, "没有", error_box(label, "还没有报告")))
     else:
         state = mkt["state"] if mkt else (scr or {}).get("market_state", "未知")
         mkt_date = mkt["date"] if mkt else "—"
