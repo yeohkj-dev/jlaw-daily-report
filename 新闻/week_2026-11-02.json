@@ -1,0 +1,34 @@
+[
+ {
+  "title": "Congressional Elections",
+  "when": "2026-11-03T10:16:00-05:00",
+  "impact": "High",
+  "forecast": "",
+  "previous": "",
+  "actual": ""
+ },
+ {
+  "title": "Average Hourly Earnings m/m",
+  "when": "2026-11-06T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "0.3%",
+  "previous": "0.1%",
+  "actual": ""
+ },
+ {
+  "title": "Non-Farm Employment Change",
+  "when": "2026-11-06T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "65K",
+  "previous": "29K",
+  "actual": ""
+ },
+ {
+  "title": "Unemployment Rate",
+  "when": "2026-11-06T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "4.2%",
+  "previous": "4.2%",
+  "actual": ""
+ }
+]

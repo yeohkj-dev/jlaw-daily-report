@@ -987,5 +987,56 @@
 "Narrowing full year 2026 Adjusted (non-GAAP) operating earnings guidance range to $2.85-$2.91 per share and affirming operating EPS compounded annual growth near top end of 5-7% from 2025 to 2029",
 "With our performance for the year, we are narrowing our full-year 2026 guidance range to $2.85 to $2.91 per share, and affirming annualized earnings growth near the top end of 5% to 7% from 2025 through 2029."
 ]
+},
+"AAPL:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000024/a8-kex991q4202609262026.htm",
+"filed": "2026-11-02",
+"quotes": []
+},
+"PLTR:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000045/a2026q3ex991pressrelease.htm",
+"filed": "2026-11-02",
+"quotes": [
+"Comm Revenue Growth of 148% Y/Y and Revenue Growth of 96% Y/Y; Raises FY 2026 Revenue Guidance to 91% Y/Y Growth and U.S.",
+"Comm Revenue Guidance to 143% Y/Y, Crushing Consensus Expectations 11/2/2026 MIAMI — (BUSINESS WIRE) — Palantir Technologies Inc. (NASDAQ:PLTR) today announced financial results for the third quarter ended September 30, 2026.",
+"We are raising our revenue guidance to between $8.530 - $8.534 billion."
+]
+},
+"GOOGL:2026-10-28": {
+"url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+"filed": "2026-10-28",
+"quotes": []
+},
+"MAR:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000040/mar-2026q3xex99earningsrel.htm",
+"filed": "2026-11-02",
+"quotes": [
+"For full year 2026, given our strong third quarter performance and expectations for continued healthy demand, we are raising our global RevPAR outlook and now expect growth of 4.5 to 5 percent.",
+"The company also completed the refinancing of its credit facility, extending the maturity to September 2031 and increasing the facility size from $4.5 billion to $5.0 billion. 4 Company Outlook The company's updated outlook generally assumes the continuation of the current macroeconomic environment."
+]
+},
+"WMB:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000035/wmb_20260930xer.htm",
+"filed": "2026-11-02",
+"quotes": [
+"Tracking toward the upper half of 2026 Adjusted EBITDA guidance range of $8.3 billion to $8.5 billion Expanding growth runway and advancing key milestones",
+"Year-to-date Adjusted EBITDA increased 9% year over year to $6.2 billion, reflecting the strength of our natural gas transmission, storage and gathering businesses and keeping us on track toward the upper half of our 2026 guidance range.",
+"Both the gains on sale of the South Mansfield interests and the unrealized gains/losses on commodity derivatives are excluded from Adjusted EBITDA. 2026 Financial Guidance The company continues to expect 2026 Adjusted EBITDA of $8.3 billion to $8.5 billion and growth capex between $7.3 billion and $7.9 billion."
+]
+},
+"ETR:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/65984/000006598426000322/earningsrelease3q26_ex991.htm",
+"filed": "2026-11-02",
+"quotes": [
+"The LPSC approved Entergy Louisiana’s $1.2 billion Babel to Webre transmission project.",
+"Earnings per share guidance Entergy narrowed its 2026 adjusted earnings per share guidance to a range of $4.35 to $4.45."
+]
+},
+"O:2026-11-02": {
+"url": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000056/o-991q32026.htm",
+"filed": "2026-11-02",
+"quotes": [
+"“As a result, we are raising our 2026 AFFO per share guidance to $4.45–$4.46 while reaffirming our $10.0 billion investment volume target, which is supported by a well-funded balance sheet.” “We have deliberately expanded our sources of capital and global investment capabilities, positioning us to prudently allocate capital."
+]
 }
 }
