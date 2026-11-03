@@ -1038,5 +1038,47 @@
 "quotes": [
 "“As a result, we are raising our 2026 AFFO per share guidance to $4.45–$4.46 while reaffirming our $10.0 billion investment volume target, which is supported by a well-funded balance sheet.” “We have deliberately expanded our sources of capital and global investment capabilities, positioning us to prudently allocate capital."
 ]
+},
+"AMD:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000188/amdq32026earningsslidesf.htm",
+"filed": "2026-11-03",
+"quotes": []
+},
+"BKNG:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000044/q3-26bkngearningsrelease.htm",
+"filed": "2026-11-03",
+"quotes": []
+},
+"ETN:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000037/etn09302026exhibit99.htm",
+"filed": "2026-11-03",
+"quotes": [
+"Third quarter sales increased 28%, with organic sales growth of 19%, above the high end of guidance",
+"Record segment margins of 25.3%, above the high end of guidance, with Electrical Americas margins improving 230 basis points sequentially",
+"Segment margins were a record 25.3%, 30 basis points above both the high end of the guidance range and the third quarter of 2025, driven by higher sales and improved performance amid continued capacity investments to support growth."
+]
+},
+"AMGN:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000153/amgn-20260930earningsrelea.htm",
+"filed": "2026-11-03",
+"quotes": []
+},
+"PFE:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000125/pfe-9272026xex99.htm",
+"filed": "2026-11-03",
+"quotes": [
+"Raises Full-Year 2026 Revenue Guidance (2) by $1.5 billion at the Midpoint to a Range of $62.0 to $64.0 billion",
+"Raises and Narrows Full-Year 2026 Adjusted (3) Diluted EPS Guidance to a Range of $2.95 to $3.05",
+"Raises and narrows full-year 2026 Adjusted (3) diluted EPS guidance (2) to a range of $2.95 to $3.05 from $2.80 to $3.00 previously. – Includes a one-time $650 million Acquired In-Process R&D charge related to the in-licensing and collaboration agreement with Innovent Biologics, Inc. recorded in the third quarter of 2026 with an unfavorable impact of approximately $0.10."
+]
+},
+"MPC:2026-11-03": {
+"url": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000069/mpcq32026earningsrelease.htm",
+"filed": "2026-11-03",
+"quotes": [
+"MPC will receive $3.45 billion of the proceeds and intends to reinvest this capital prioritizing opportunities that meet the company’s return thresholds and advance its strategic priorities, primarily in the Gulf Coast.",
+"MPLX will receive $750 million of the proceeds, representing a 9x multiple on forecast 2027 adjusted EBITDA of the associated logistics assets.",
+"MPC’s 2026 capital spending outlook (excluding MPLX) is $1.5 billion."
+]
 }
 }
