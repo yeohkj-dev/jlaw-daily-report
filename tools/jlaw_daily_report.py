@@ -1,4 +1,4 @@
-"""J Law 每日报告 —— 一个脚本跑完所有报告，合并成一个多分页的 HTML。
+"""每日报告 —— 一个脚本跑完所有报告，合并成一个多分页的 HTML。
 
 平日（美东周一至周五）：大盘报告 → 每日选股 → 今日新闻 → 业绩与估值 → 本周重大事件（放在今日新闻分页最上面）；每周展望显示最近一个周日的版本
 周末（美东周六、周日）：周末新闻 → 业绩与估值 → 本周回顾 → 每周展望；大盘报告和每日选股显示周五的版本
@@ -51,9 +51,9 @@ def publish(page, today):
     items = "".join(f'<li><a href="{d}">{d[:10]}</a></li>' for d in days[:KEEP_DAYS])
     with open(os.path.join(arch, "index.html"), "w", encoding="utf-8") as f:
         f.write('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" '
-                'content="width=device-width,initial-scale=1"><title>J Law 历史报告</title></head>'
+                'content="width=device-width,initial-scale=1"><title>每日报告 · 历史</title></head>'
                 '<body style="font-family:Arial,\'Microsoft YaHei\',sans-serif;max-width:640px;margin:0 auto;padding:16px;'
-                'background:#f4f5f7;color:#222;"><h2>J Law 每日报告 · 历史</h2><p><a href="../">← 最新报告</a></p>'
+                'background:#f4f5f7;color:#222;"><h2>每日报告 · 历史</h2><p><a href="../">← 最新报告</a></p>'
                 f'<ul style="line-height:1.9;">{items}</ul><p style="color:#888;font-size:12px;">保留最近 {KEEP_DAYS} 份。'
                 '仅供学习，不构成投资建议。</p></body></html>')
 
@@ -137,7 +137,7 @@ def update_html(now):
             f' · 下次约 <b style="color:#fff;">{nxt_txt}</b></span>'
             '<details class="chk"><summary style="color:#555;">更新时间表</summary><ul>'
             '<li>📅 <b>平日版</b>：每周二至周六早上 <b>06:30</b>（GMT+8），即美股周一至周五收盘后约 1.5 小时。'
-            '包含大盘报告、每日选股、今日新闻、业绩与估值、本周重大事件。</li>'
+            '包含大盘报告、每日选股、Luk 选股、今日新闻、业绩与估值、本周重大事件。</li>'
             '<li>📅 <b>周末版</b>：每周一早上 <b>07:00</b>（GMT+8），即美东周日晚上。'
             '包含周末新闻、本周回顾、业绩与估值、每周展望。</li>'
             '<li>⏳ GitHub 的排程常会晚 10–60 分钟才开始，跑完约需 2–5 分钟。</li>'
@@ -156,7 +156,8 @@ def main():
     et = now.astimezone(dt.timezone(dt.timedelta(hours=-5)))
     weekend = FORCE == "weekend" or (FORCE is None and et.weekday() in (5, 6))
     news_mode = ["--mode", "weekend" if weekend else "daily"]
-    steps = ([] if weekend else [("mkt", "大盘报告", "market_regime.py", ()), ("scr", "每日选股", "jlaw_daily_screen.py", ())]) + [
+    steps = ([] if weekend else [("mkt", "大盘报告", "market_regime.py", ()), ("scr", "每日选股", "jlaw_daily_screen.py", ()),
+                            ("luk", "Luk 选股", "luk_screens.py", ())]) + [
         ("news", "周末新闻" if weekend else "今日新闻", "news_digest.py", news_mode),
         ("ev", "业绩与估值", "earnings_valuation.py", ()),
         ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else [])
@@ -177,8 +178,8 @@ def main():
                 rows = fh.read().strip().splitlines()
             if len(rows) > 1:
                 mkt_date, state = rows[-1].split(",")[:2]
-        for key, label in (("mkt", "大盘报告"), ("scr", "每日选股")):
-            f = latest_file(label)
+        for key, label, folder in (("mkt", "大盘报告", "大盘报告"), ("scr", "每日选股", "每日选股"), ("luk", "Luk 选股", "Luk选股")):
+            f = latest_file(folder)
             old = published_panel(key) if not f else None      # GitHub 上没有这些 HTML，沿用网站上一份的内容
             day = os.path.basename(f)[:10] if f else mkt_date
             if f or old:
@@ -195,6 +196,9 @@ def main():
         tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), body_of(mkt["html"]) if mkt else error_box("大盘报告", errs["mkt"])))
         tabs.append(("scr", "每日选股", f"META {n_ready[0]} · VCP {n_ready[1]}" if n_ready else "失败",
                      body_of(scr["html"]) if scr else error_box("每日选股", errs["scr"])))
+        luk = res.get("luk")
+        tabs.append(("luk", "Luk 选股", f"强势 {luk['totals']['strong']} · 跳空 {luk['totals']['gap']}" if luk else "失败",
+                     body_of(luk["html"]) if luk else error_box("Luk 选股", errs["luk"])))
     news, we = res.get("news"), res.get("we")
     we_body = body_of(we["html"]) if we else error_box("本周重大事件", errs["we"])
     tabs.append(("news", "周末新闻" if weekend else "今日新闻",
@@ -218,7 +222,7 @@ def main():
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("mkt", "大盘"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]
@@ -241,7 +245,7 @@ def main():
                      for i, (k, _, _, body) in enumerate(tabs))
     today = et.date()
     page = f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>J Law 每日报告 {today}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>每日报告 {today}</title>
 <style>
 body{{margin:0;background:#f4f5f7;font-family:Arial,'Microsoft YaHei',sans-serif;color:#222}}
 .bar{{position:sticky;top:0;z-index:10;background:#1F2937;color:#fff;padding:10px 16px 0}}
@@ -262,7 +266,7 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .panel{{display:none}}.panel.on{{display:block}}
 @media (max-width:600px){{.tab{{padding:8px 10px;font-size:13px}}}}
 </style></head><body>
-<div class="bar"><div class="top"><span class="title">J Law 每日报告 · {today}{"（周末版）" if weekend else ""}</span>
+<div class="bar"><div class="top"><span class="title">每日报告 · {today}{"（周末版）" if weekend else ""}</span>
 <span class="meta">大盘数据 {html.escape(mkt_date)} · 大盘状态 <b style="color:#fff;background:{color};padding:1px 6px;border-radius:4px;">{html.escape(state)}</b></span>
 {chk_html}{update_html(dt.datetime.now(dt.timezone.utc))}<!--NAV--></div>
 <div class="tabs" role="tablist">{btns}</div></div>

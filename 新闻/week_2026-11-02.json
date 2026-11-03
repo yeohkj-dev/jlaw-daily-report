@@ -1,10 +1,42 @@
 [
  {
+  "title": "ISM Manufacturing PMI",
+  "when": "2026-11-02T10:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "54.5",
+  "previous": "54.5",
+  "actual": ""
+ },
+ {
+  "title": "JOLTS Job Openings",
+  "when": "2026-11-03T10:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "7.15M",
+  "previous": "7.08M",
+  "actual": ""
+ },
+ {
   "title": "Congressional Elections",
   "when": "2026-11-03T10:16:00-05:00",
   "impact": "High",
   "forecast": "",
   "previous": "",
+  "actual": ""
+ },
+ {
+  "title": "ISM Services PMI",
+  "when": "2026-11-04T10:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "54.8",
+  "previous": "54.9",
+  "actual": ""
+ },
+ {
+  "title": "Unemployment Claims",
+  "when": "2026-11-05T08:30:00-05:00",
+  "impact": "Medium",
+  "forecast": "197K",
+  "previous": "194K",
   "actual": ""
  },
  {
@@ -29,6 +61,22 @@
   "impact": "High",
   "forecast": "4.2%",
   "previous": "4.2%",
+  "actual": ""
+ },
+ {
+  "title": "Prelim UoM Consumer Sentiment",
+  "when": "2026-11-06T10:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "48.1",
+  "previous": "46.3",
+  "actual": ""
+ },
+ {
+  "title": "Prelim UoM Inflation Expectations",
+  "when": "2026-11-06T10:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "",
+  "previous": "4.7%",
   "actual": ""
  }
 ]

@@ -156,9 +156,11 @@ def main():
             return f'<tr><td {TD}>{esc(name)}</td><td {TDN} colspan="5" style="color:#aaa;">没有取到数据</td></tr>'
         trend = ("—" if not x["ma10"] else ("10 周线上方" if x["close"] > x["ma10"] else "10 周线下方"))
         return (f'<tr><td {TD}><b>{esc(name)}</b> <span style="color:#999;font-size:11px;">{esc(sym)}</span>{extra}</td>'
-                f'<td {TDN}>{x["close"]:,.2f}</td><td {TDN}>{pct(x["w1"])}</td><td {TDN}>{pct(x["m1"])}</td><td {TDN}>{pct(x["m3"])}</td>'
+                f'<td {TDN}>{x["close"]:,.2f}</td><td {TDN}>{pct(x["m1"])}</td><td {TDN}>{pct(x["m3"])}</td>'
                 f'<td {TDN}>{trend}</td></tr>')
-    idx_tbl = table(("指数", "收盘", "1 周", "1 个月", "3 个月", "周线趋势"), "".join(prow(s, n) for s, n in INDEXES))
+    # 1 周涨跌在「本周回顾」，板块在「大盘报告」的行业追踪，VIX 在「大盘报告」的恐惧指数；这里只看中期（1–3 个月）和周线趋势
+    idx_tbl = table(("品种", "最新", "1 个月", "3 个月", "周线趋势"),
+                    "".join(prow(s, n) for s, n in INDEXES) + "".join(prow(s, n) for s, n in MACRO if s != "^VIX"))
     ranked = sorted([s for s in SECTORS if P.get(s[0]) and P[s[0]]["m1"] is not None], key=lambda s: -P[s[0]]["m1"])
     sec_tbl = table(("板块（按 1 个月排序）", "收盘", "1 周", "1 个月", "3 个月", "周线趋势"),
                     "".join(prow(s, n, f' <span style="color:#888;font-size:11px;">{k}</span>') for s, n, k in ranked))
@@ -187,9 +189,9 @@ def main():
             f'<div style="margin-top:8px;font-size:14px;line-height:1.6;"><b>按 J Law 规则的操作参考：</b>{esc(plan)}</div>'
             f'<div style="margin-top:4px;font-size:13px;color:#555;"><b>什么情况会改变判断：</b>{esc(turn)}</div>')
     body = (head + h3("9 个因素打分") + table(("因素", "分数", "数据"), frows)
-            + h3("主要指数") + idx_tbl + h3("板块轮动") + sec_tbl + h3("利率、美元、大宗、波动率") + mac_tbl
-            + h3("下周美国经济日历（中、高影响力）") + cal_html + h3("下周公布业绩的大公司") + er_html
-            + h3("数据核对", GREY) + check_list_html(checks)
+            + h3("指数与宏观 · 中期趋势") + idx_tbl
+            + '<p style="color:#555;font-size:12px;margin:8px 0 0;">本周涨跌、下周经济日历和下周公布业绩的公司在「周末新闻」的「本周回顾」；'
+              '板块排名在「大盘报告」的行业指数追踪；VIX 在「大盘报告」的恐惧指数；数据核对在页头。</p>'
             + '<p style="color:#888;font-size:11px;margin-top:14px;">方向判断完全按上面 9 个因素的规则打分，不是预测；'
               '市场可能因突发消息改变方向。数据来自 Yahoo Finance、TradingView 选股器与 Forex Factory 日历。仅供学习，不构成投资建议。</p>')
     sub = f'<div style="font-size:13px;color:#555;">每周市场展望 · 截至 {to_et(now):%Y-%m-%d}（美东）</div>'

@@ -30,8 +30,9 @@ NEWS_DIR = os.path.join(OUT_DIR, "新闻")
 KEEP_DAYS = 30
 WEEKDAY = "一二三四五六日"
 INDEXES = [("SPY", "标普 500"), ("QQQ", "纳斯达克 100"), ("IWM", "罗素 2000"), ("DIA", "道琼斯"),
-           ("^VIX", "VIX 恐慌指数"), ("^TNX", "10 年期美债利率")]
-TV = {"SPY": "AMEX:SPY", "QQQ": "NASDAQ:QQQ", "IWM": "AMEX:IWM", "DIA": "AMEX:DIA", "^VIX": "TVC:VIX", "^TNX": "TVC:TNX"}
+           ("^TNX", "10 年期美债利率"), ("DX-Y.NYB", "美元指数"), ("CL=F", "WTI 原油"), ("GC=F", "黄金")]
+TV = {"SPY": "AMEX:SPY", "QQQ": "NASDAQ:QQQ", "IWM": "AMEX:IWM", "DIA": "AMEX:DIA", "^TNX": "TVC:TNX", "DX-Y.NYB": "TVC:DXY",
+      "CL=F": "NYMEX:CL1!", "GC=F": "COMEX:GC1!"}
 # 经济数据 → 新闻标题关键词（用来找「结果」新闻）
 EVENT_NEWS = [(r"Core CPI|^CPI", r"\bCPI\b|consumer price|inflation"), (r"PPI", r"\bPPI\b|producer price"),
               (r"PCE", r"\bPCE\b|inflation"), (r"Non-Farm|Unemployment Rate|Average Hourly", r"payroll|jobs report|unemployment rate|hiring"),
@@ -130,7 +131,7 @@ def index_week(monday, last_day):
 
 
 def week_calendar(monday, weekend, et):
-    """本周高影响力美国数据。平日从 Forex Factory「本周」取，并存档；周末读存档（周日 FF 已换成下周）。"""
+    """本周中、高影响力美国数据。平日从 Forex Factory「本周」取，并存档；周末读存档（周日 FF 已换成下周）。"""
     path = os.path.join(NEWS_DIR, f"week_{monday}.json")
     cal = None
     if not weekend or et.weekday() == 5:
@@ -138,7 +139,7 @@ def week_calendar(monday, weekend, et):
         if cal and not any(monday <= nd.to_et(e["when"]).date() <= monday + dt.timedelta(days=6) for e in cal):
             cal = None                                    # 缓存不是这一周的
     if cal:
-        keep = [dict(e, when=e["when"].isoformat()) for e in cal if e["impact"] == "High"]
+        keep = [dict(e, when=e["when"].isoformat()) for e in cal]          # 中、高影响力
         with open(path, "w", encoding="utf-8") as f:
             json.dump(keep, f, ensure_ascii=False, indent=1)
     try:
@@ -157,6 +158,13 @@ RESULT = re.compile(r"\b(holds?|held|keeps?|leaves?|cuts?|raises?|hikes?|pauses?
 
 # 评论 / 假设类标题（某人说、如果、问句）排后面
 OPINION = re.compile(r"\?|\bif\b|\bsays?\b|\bcould\b|\bmight\b|\bmay\b|\bshould\b|\bmistake\b|\bopinion\b", re.I)
+
+
+def next_week(et, monday):
+    """周末版的「下周看点」：下周经济日历（周六取 FF 下周，周日 FF 的本周已是下周）。"""
+    nxt = monday + dt.timedelta(days=7)
+    cal = nd.calendar(et.weekday() == 5) or []
+    return [e for e in cal if nxt <= nd.to_et(e["when"]).date() <= nxt + dt.timedelta(days=6)]
 
 
 def match_news(e, stories):
@@ -206,7 +214,7 @@ def tv_a(sym, text=None):
             f'{esc(text or sym)} <span style="font-size:11px;">📈</span></a>')
 
 
-def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, ev_date, n_days, checks):
+def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, ev_date, n_days, checks, nxt_cal=(), nxt_er=()):
     title = (f"本周回顾 · {monday:%m-%d} 至 {friday:%m-%d}" if weekend else
              f"本周重大事件 · {monday:%m-%d} 至 {friday:%m-%d}（截至周{WEEKDAY[et.weekday()]}）")
     now_utc = dt.datetime.now(dt.timezone.utc)
@@ -259,38 +267,41 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
     idx_html = table(head, irows)
 
     # ---- 经济数据 ----
+    def imp(e):
+        return f'<span style="color:{RED};font-weight:700;">高</span>' if e["impact"] == "High" else f'<span style="color:{AMBER};">中</span>'
     if cal:
         crow = ""
         for e in cal:
             zh = nd.CAL_ZH.get(e["title"], "")
             is_past = e["when"] <= now_utc
             st = (f'<span style="color:{GREEN};">已公布</span>' if is_past else f'<span style="color:{AMBER};">待公布</span>')
-            hits = match_news(e, raw) if is_past else []
+            hits = match_news(e, raw) if is_past and e["impact"] == "High" else []
             res = ("<br>".join(f'<a href="{esc(h["link"])}" target="_blank" rel="noopener" style="color:#111;">{esc(h["title"])}</a>'
                                for h in hits)
-                   if hits else ('<span style="color:#aaa;">公布后的新闻里还没有找到相关标题</span>' if is_past else ""))
-            crow += (f'<tr><td {TDN}>{to_et_str(e["when"])}</td><td {TDN}>{st}</td>'
+                   if hits else ('<span style="color:#aaa;">公布后的新闻里还没有找到相关标题</span>' if is_past and e["impact"] == "High" else ""))
+            crow += (f'<tr><td {TDN}>{to_et_str(e["when"])}</td><td {TDN}>{imp(e)}</td><td {TDN}>{st}</td>'
                      f'<td {TD}><b>{esc(zh or e["title"])}</b>' + (f'<br><span style="color:#999;font-size:11px;">{esc(e["title"])}</span>' if zh else "")
                      + f'</td><td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{esc(e.get("previous") or "—")}</td>'
                      f'<td {TD} style="font-size:12px;">{res}</td></tr>')
-        cal_html = table(("时间（美东）", "状态", "数据", "预期", "前值", "结果相关新闻"), crow)
+        cal_html = table(("时间（美东）", "影响", "状态", "数据", "预期", "前值", "结果相关新闻（高影响力）"), crow)
     else:
         cal_html = '<p style="color:#888;">没有取到本周经济日历。</p>'
 
     # ---- 财报 ----
-    def er_row(r, is_done):
-        nm = f'{tv_a_ex(r)}<br><span style="color:#888;font-size:11px;">{esc((r.get("name") or "")[:26])}</span>'
-        if is_done:
-            f = lambda k: pct(float(r[k])) if r.get(k) not in (None, "") else pct(None)
-            return (f'<tr><td {TD}>{nm}</td><td {TDN}>{esc(r["sec"])}</td><td {TDN}>{r["release"][5:]}</td>'
-                    f'<td {TDN}>{f("eps_beat")}</td><td {TDN}>{f("rev_beat")}</td><td {TDN}>{f("rev_yoy")}</td><td {TDN}>{f("react")}</td></tr>')
-        return f'<tr><td {TD}>{nm}</td><td {TDN}>{esc(r["sec"])}</td><td {TDN}>{r["next_er"][5:]}</td></tr>'
-    er_html = (table(("公司", "板块", "公布日", "EPS 对比预期", "营收对比预期", "营收同比", "股价反应"), "".join(er_row(r, True) for r in done))
-               if done else '<p style="color:#888;">本周还没有各板块前 10 大公司公布业绩。</p>')
+    def fv(r, k):
+        return float(r[k]) if r.get(k) not in (None, "") else None
+
+    def chip_done(r):
+        eps, rc = fv(r, "eps_beat"), fv(r, "react")
+        tag = ("超预期" if eps is not None and eps > 0 else "低于预期" if eps is not None and eps < 0 else "")
+        return f'{tv_a_ex(r)} <span style="font-size:12px;color:#666;">{tag}{"，股价 " + pct(rc) if rc is not None else ""}</span>'
+    er_html = ('<p style="margin:0 0 6px;"><b>已公布：</b>' + "；".join(chip_done(r) for r in done) + "</p>"
+               if done else '<p style="color:#888;margin:0 0 6px;">本周还没有各板块前 10 大公司公布业绩。</p>')
     if todo and not weekend:
-        er_html += ('<p style="margin:10px 0 4px;"><b>本周还没公布：</b></p>'
-                    + table(("公司", "板块", "预计公布日"), "".join(er_row(r, False) for r in todo)))
-    er_html += f'<p style="color:#888;font-size:11px;">范围：各板块市值前 10 大（共 110 家），数据来自 {ev_date or "—"} 的业绩与估值分页，详细分析在那一页。</p>'
+        er_html += ('<p style="margin:0 0 6px;"><b>本周待公布：</b>'
+                    + "；".join(f'{tv_a_ex(r)} <span style="font-size:12px;color:#666;">{r["next_er"][5:]}</span>' for r in todo) + "</p>")
+    er_html += (f'<p style="color:#888;font-size:11px;">范围：各板块市值前 10 大（共 110 家）。EPS、营收、指引和两年估值的完整表格在'
+                f'「业绩与估值」分页（数据日期 {ev_date or "—"}）。</p>')
 
     # ---- 新闻 ----
     def li(s):
@@ -302,18 +313,32 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
         return (f'<li style="margin:0 0 9px;"><span style="color:{BLUE};font-size:12px;font-weight:600;">[{esc(s["topic"])}]</span> '
                 f'<a href="{esc(s["link"])}" target="_blank" rel="noopener" style="color:#111;font-weight:600;text-decoration:none;">'
                 f'{esc(s["title"])}</a> {badge}{more}<div style="color:#888;font-size:11px;">{dtxt} · {esc("、".join(s["sources"][:5]))}</div></li>')
-    news_html = ('<ol style="margin:0;padding-left:22px;">' + "".join(li(s) for s in stories[:10]) + "</ol>") if stories else \
-        '<p style="color:#888;">本周还没有新闻记录。</p>'
-    news_note = f'（合并本周 {n_days} 份每日新闻）' if n_days else ""
+    today = et.date()
+    earlier = [s for s in stories if weekend or set(s["days"]) != {today}]
+    news_html = ('<ol style="margin:0;padding-left:22px;">' + "".join(li(s) for s in earlier[:10]) + "</ol>") if earlier else \
+        '<p style="color:#888;">本周之前几天还没有新闻记录。</p>'
+    news_note = ("（合并本周每日新闻）" if weekend else "（本周之前几天的，今天的新闻在下面）") if n_days else ""
+
+    # ---- 周末：下周看点（原本在「每周展望」，搬来这里，免得重复）----
+    ahead_html = ""
+    if weekend:
+        nrow = "".join(f'<tr><td {TDN}>{to_et_str(e["when"])}</td><td {TDN}>{imp(e)}</td><td {TD}><b>{esc(nd.CAL_ZH.get(e["title"], e["title"]))}</b></td>'
+                       f'<td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{esc(e.get("previous") or "—")}</td></tr>' for e in nxt_cal)
+        ahead_html = (h3("下周看点 · 经济日历（中、高影响力）", BLUE)
+                      + (table(("时间（美东）", "影响", "数据", "预期", "前值"), nrow) if nrow else '<p style="color:#888;">没有取到下周经济日历。</p>')
+                      + h3("下周看点 · 公布业绩的大公司", BLUE)
+                      + ('<p style="margin:0;">' + "；".join(f'{tv_a_ex(r)} <span style="font-size:12px;color:#666;">{r["next_er"][5:]}</span>'
+                                                         for r in nxt_er) + "</p>" if nxt_er else
+                         '<p style="color:#888;">各板块前 10 大公司里，下周没有公布业绩的。</p>'))
 
     sub = (f'<div style="font-size:13px;color:#555;">{"周末更新：这一周的完整回顾" if weekend else "每个交易日收盘后更新，一周内的数据、财报和新闻会逐日累加"}</div>')
     body = (h3("一眼看懂", GREEN) + summary
             + h3("本周走势（对比上周五收盘）") + idx_html
-            + h3("重要经济数据（高影响力）") + cal_html
+            + h3("经济数据（中、高影响力）") + cal_html
             + h3("大公司财报") + er_html
             + h3("本周最重大的新闻" + news_note) + news_html
-            + h3("数据核对", GREY) + check_list_html(checks)
-            + '<p style="color:#888;font-size:11px;margin-top:14px;">规则自动整理，不用 AI。走势来自 Yahoo Finance；经济日历来自 Forex Factory'
+            + ahead_html
+            + '<p style="color:#888;font-size:11px;margin-top:14px;">规则自动整理，不用 AI。走势来自 Yahoo Finance（VIX 和恐惧指数在「大盘报告」）；数据核对在页头；经济日历来自 Forex Factory'
               '（免费数据没有实际值，「结果相关新闻」是本周新闻里关键词相符的标题，请点开确认）；新闻按重要性、可信媒体数量和连续报道天数排序。'
               '仅供学习，不构成投资建议。</p>')
     return card(esc(title), body, accent=AMBER, bg="#FFF8EC", sub=sub)
@@ -346,6 +371,11 @@ def main():
     idx = index_week(monday, last_day)
     cal, cal_ok = week_calendar(monday, weekend, et)
     done, todo, ev_date = week_earnings(monday, friday, today)
+    nxt_cal, nxt_er = [], []
+    if weekend:
+        nxt_cal = next_week(et, monday)
+        nm = monday + dt.timedelta(days=7)
+        nxt_er = week_earnings(nm, nm + dt.timedelta(days=4), nm)[1]
     prune()
 
     got = [r for r in idx if r["ok"]]
@@ -362,7 +392,7 @@ def main():
     checks = [tv_chk,
         dict(name="本周走势", ok=len(got) == len(idx) and not stale, critical=False,
              detail=f"{len(got)}/{len(idx)} 个品种取到数据" + (f"；数据偏旧：{'、'.join(stale)}" if stale else "")),
-        dict(name="本周经济日历", ok=cal_ok, critical=False, detail=f"{len(cal)} 项高影响力数据" if cal_ok else "没有取到"),
+        dict(name="本周经济日历", ok=cal_ok, critical=False, detail=f"{len(cal)} 项中、高影响力数据" if cal_ok else "没有取到"),
         dict(name="本周新闻累计", ok=n_days >= 1, critical=False,
              detail=f"{n_days} 份每日新闻，合并后 {len(stories)} 个事件"),
         dict(name="财报数据", ok=ev_date is not None, critical=False, detail=f"业绩估值 {ev_date}" if ev_date else "没有业绩估值数据"),
@@ -372,7 +402,9 @@ def main():
         if x["title"] not in seen and x.get("latest"):
             seen.add(x["title"])
             uniq.append(dict(x, latest=dt.datetime.fromisoformat(x["latest"]), sources=x.get("sources", [])))
-    frag = build_html(weekend, monday, friday, et, idx, cal, stories, uniq, done, todo, ev_date, n_days, checks)
+    if weekend:
+        checks.append(dict(name="下周经济日历", ok=bool(nxt_cal), critical=False, detail=f"{len(nxt_cal)} 项" if nxt_cal else "没有取到"))
+    frag = build_html(weekend, monday, friday, et, idx, cal, stories, uniq, done, todo, ev_date, n_days, checks, nxt_cal, nxt_er)
     base = os.path.join(NEWS_DIR, f"本周事件_{today}")
     with open(base + ".html", "w", encoding="utf-8") as f:
         f.write("<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"

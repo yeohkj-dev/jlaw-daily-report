@@ -211,7 +211,7 @@ def fear_html(fng, vix):
                 f'{"一致" if ok else "不一致，请以官方为准"}。</span>')
     stamp = f'CNN 数据时间 {fng["time"]:%m-%d %H:%M} UTC。' if fng else ""
     return f"""<h3 style="margin:18px 0 6px;">恐惧指数</h3><div style="display:flex;flex-wrap:wrap;gap:12px;">{left}{right}</div>
-<p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">恐惧指数只反映市场情绪，不是买卖信号：极度恐惧常在急跌时出现，但大盘可以继续下跌，仍要以上面的大盘状态和见底信号为准。{stamp} {note}</p>"""
+<p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">恐惧指数只反映市场情绪，不是买卖信号：极度恐惧常在急跌时出现，但大盘可以继续下跌，仍要以上面的大盘状态和见底信号为准。{stamp}</p>"""
 
 
 def ret(c, n):
@@ -345,7 +345,7 @@ def sector_html(sec, prev_rank, prev_date, check, check_ok):
 <p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">排名箭头 = 与 {prev_date or "上一个交易日"} 相比的排名变化。
 RS 1月 = 行业近 1 月涨幅相对 SPY 的超额表现；RS 线 = ETF ÷ SPY，向上代表跑赢大盘（J Law：领导股多出自 RS 领先的行业）。
 趋势：强势 = 收盘 &gt; 50 天线 &gt; 200 天线且 50 天线向上；整理 = 在 50 天线上但未全部满足；转弱 = 跌破 50 天线；弱势 = 跌破 200 天线。
-<span style="color:{"#2E7D32" if check_ok else "#C62828"};">数据核对：{check}</span></p>"""
+</p>"""
 
 
 def load_hist():
@@ -400,11 +400,11 @@ def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, pre
 {rows}</table>
 {fear}
 <p style="margin:14px 0 4px;"><b>市场宽度</b>（{n} 只市值 ≥100 亿美元的美股）：<b>{b50:.1f}%</b> 在 50 天线之上{delta(b50, "above50", ".1f")}，{b200:.1f}% 在 200 天线之上</p>
-<p style="margin:4px 0;"><b>JLaw Stage 2 筛出</b>：<b>{s2}</b> 只{delta(s2, "stage2", ".0f")}</p>
+<p style="margin:4px 0;"><b>JLaw Stage 2 筛出</b>：<b>{s2}</b> 只{delta(s2, "stage2", ".0f")} <span style="color:#777;font-size:12px;">（个股名单在「每日选股」的 C2）</span></p>
 {sig}
 {sec_html}
 <h3 style="margin:18px 0 6px;">见底 / 转强信号</h3><ul style="margin:0;padding-left:20px;list-style:none;">{bot}</ul>
-{('<h3 style="margin:18px 0 6px;">离 52 周高点 5% 以内的 Stage 2 股票</h3><table style="width:100%;border-collapse:collapse;font-size:13px;"><tr><th ' + th + '>股票</th><th ' + th + '>收盘</th><th ' + th + '>6个月涨幅</th><th ' + th + '>板块</th></tr>' + stocks + '</table>') if near else ''}
+
 <p style="margin:14px 0 0;font-size:12px;color:#555;">📈 点指数、行业 ETF 或股票代码会在新分页打开 TradingView 日线图；「RS 图」打开该行业 ÷ SPY 的相对强弱图。</p>
 </div>
 <div style="padding:12px 18px;background:#fafafa;border-top:1px solid #eee;font-size:11px;color:#888;line-height:1.5;">
@@ -530,7 +530,8 @@ def main():
                       "red": red, "yellow": yellow, "above50": round(b50, 1), "stage2": s2,
                       "sectors": [x["sym"] for x in sec], "sector_check": check,
                       "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,
-                      "checks": [dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
+                      "checks": [dict(name="行业 ETF 收盘价（Yahoo vs TradingView）", ok=check_ok, critical=False, detail=check),
+                                 dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
                                       detail=f'{fng["score"]:.0f}（{fng["time"]:%m-%d}）' if fng else "取不到，只显示 VIX"),
                                  dict(name="VIX", ok=bool(vix) and (not fng or abs(fng["vix"] / vix["close"] - 1) <= 0.03), critical=False,
                                       detail=(f'Yahoo {vix["close"]:.2f}' + (f' / CNN {fng["vix"]:.2f}' if fng else "")) if vix else "取不到")]}, ensure_ascii=False))

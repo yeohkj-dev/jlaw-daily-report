@@ -479,7 +479,6 @@ def build_html(groups, recent, upcoming, checks):
         body += (f'<details style="margin:14px 0;" {"open" if sec == "Technology" else ""}><summary style="cursor:pointer;font-size:16px;'
                  f'font-weight:700;color:{BLUE};">{esc(SECTOR_ZH.get(sec, sec))}（{esc(sec)}）· 前 {len(rs)} 大</summary>'
                  + company_rows(rs) + '<div style="margin-top:8px;">' + "".join(detail(r) for r in rs) + "</div></details>")
-    body += h3("数据核对", GREY) + check_list_html(checks)
     body += ('<p style="color:#888;font-size:11px;margin-top:14px;">综合 = 按 EPS / 营收是否超预期、分析师预期修正、业绩后股价反应打分（规则）。'
              '两年估值 = 两年后预估年度 EPS × 过去几年的市盈率（低 / 中位 / 高），只是情景估算，不是预测；EPS 预期会随时修正。'
              '公司展望为 SEC 8-K 新闻稿原文摘录。数据来自 Yahoo Finance、TradingView、SEC EDGAR。仅供学习，不构成投资建议。</p>')

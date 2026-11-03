@@ -203,7 +203,13 @@ def cluster(items):
     return sorted(out, key=lambda s: (-s["score"], -s["latest"].timestamp()))
 
 
+WEEKEND_SNAP = [("ES=F", "标普期货"), ("NQ=F", "纳指期货"), ("CL=F", "WTI 原油"), ("GC=F", "黄金"), ("BTC-USD", "比特币")]
+
+
 def snapshot(weekend):
+    """周末版才用：周日晚期货开盘后的走势（平日的价格都在「本周重大事件」的走势表里）。"""
+    if not weekend:
+        return []
     rows = []
 
     def one(x):
@@ -219,7 +225,7 @@ def snapshot(weekend):
         except Exception:
             return dict(sym=sym, name=name, price=None, chg=None, time=None)
     with ThreadPoolExecutor(6) as ex:
-        rows = list(ex.map(one, SNAPSHOT))
+        rows = list(ex.map(one, WEEKEND_SNAP))
     return rows
 
 
@@ -322,14 +328,12 @@ def build_html(mode, now, window_start, stories, snap, cal, cal_label, checks):
                      + f'</td><td {TDN}>{esc(e["actual"] or "—")}</td><td {TDN}>{esc(e["forecast"] or "—")}</td><td {TDN}>{esc(e["previous"] or "—")}</td></tr>')
         cal_html = table(("时间（美东）", "影响", "数据", "实际", "预期", "前值"), crow)
     sub = f'<div style="font-size:13px;color:#555;">新闻窗口：{win} · 共 {len(stories)} 条事件，其中 {len(multi)} 条有多家媒体报道</div>'
-    body = (h3("市场快照") + snap_html
+    body = ((h3("期货与加密货币（对比周五收盘）") + snap_html if weekend and snap else "")
             + h3("重点新闻（多家媒体报道的优先）", GREEN) + top_html
             + h3("按主题") + (by_topic or '<p style="color:#888;">没有其他新闻。</p>')
-            + h3(cal_label) + cal_html
-            + h3("数据核对", GREY) + check_list_html(checks)
             + '<p style="color:#888;font-size:11px;margin-top:14px;">新闻按关键词自动挑选和归类，只显示媒体原标题、来源和 RSS 自带的摘要，'
-              '点标题看原文。「N 家媒体报道」表示多家可信媒体在窗口内报道了相近标题。数据来自 Yahoo Finance 与 Forex Factory 日历。'
-              '仅供学习，不构成投资建议。</p>')
+              '点标题看原文。「N 家媒体报道」表示多家可信媒体在窗口内报道了相近标题。经济日历在上面的「本周重大事件 / 本周回顾」，'
+              '数据核对在页头。仅供学习，不构成投资建议。</p>')
     return card(esc(title), body, accent=BLUE, bg="#EEF4FA", sub=sub)
 
 
@@ -350,7 +354,7 @@ def main():
     snap = snapshot(mode == "weekend")
     et_now = to_et(now)
     next_week = mode == "weekend" and et_now.weekday() == 5        # 周六取下周；周日起 Forex Factory 的「本周」已是新一周
-    cal = calendar(next_week)
+    cal = []                     # 经济日历已移到「本周重大事件 / 本周回顾」
     cal_label = "下周美国经济日历（中、高影响力）" if mode == "weekend" else "本周美国经济日历（中、高影响力）"
 
     got = [r for r in snap if r["price"] is not None]
@@ -360,10 +364,10 @@ def main():
         dict(name="新闻数量", ok=len(stories) >= 8, critical=len(stories) == 0, detail=f"窗口内 {len(items)} 条标题，合并后 {len(stories)} 个事件"),
         dict(name="多来源确认", ok=sum(1 for s in stories if s["n_sources"] >= 2) >= 3, critical=False,
              detail=f"{sum(1 for s in stories if s['n_sources'] >= 2)} 个事件有 ≥2 家媒体报道"),
-        dict(name="市场快照", ok=len(got) == len(snap), critical=len(got) < len(snap) / 2, detail=f"{len(got)}/{len(snap)} 个品种取到数据"),
-        dict(name="快照数据新鲜度", ok=len(fresh) == len(got), critical=False, detail=f"{len(fresh)}/{len(got)} 个在 4 天内更新"),
-        dict(name="经济日历", ok=cal is not None, critical=False, detail="Forex Factory" if cal is not None else "没有取到"),
     ]
+    if snap:
+        checks += [dict(name="期货快照", ok=len(got) == len(snap), critical=False, detail=f"{len(got)}/{len(snap)} 个品种取到数据"),
+                   dict(name="快照数据新鲜度", ok=len(fresh) == len(got), critical=False, detail=f"{len(fresh)}/{len(got)} 个在 4 天内更新")]
     html_frag = build_html(mode, now, window_start, stories, snap, cal, cal_label, checks)
     day = et_now.date()
     base = os.path.join(NEWS_DIR, f"{day}_{mode}")
