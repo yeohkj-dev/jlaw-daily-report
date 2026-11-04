@@ -1080,5 +1080,17 @@
 "MPLX will receive $750 million of the proceeds, representing a 9x multiple on forecast 2027 adjusted EBITDA of the associated logistics assets.",
 "MPC’s 2026 capital spending outlook (excluding MPLX) is $1.5 billion."
 ]
+},
+"APP:2026-11-04": {
+"url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+"filed": "2026-11-04",
+"quotes": [
+"Fourth Quarter 2026 Financial Guidance Summary 2 4Q26 (In millions, except percentages) Low High Revenue $2,365 $2,395 Adjusted EBITDA $1,995 $2,025 Adjusted EBITDA Margin 84 % 85 % 1 Includes repurchased shares as well as withholdings upon net share settlement of vested equity awards."
+]
+},
+"MCD:2026-11-04": {
+"url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000080/exhibit991-9302026.htm",
+"filed": "2026-11-04",
+"quotes": []
 }
 }
