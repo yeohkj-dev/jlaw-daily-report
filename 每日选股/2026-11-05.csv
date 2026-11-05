@@ -53,7 +53,7 @@ BNS,Bank of Nova Scotia,Finance,Major Banks,96.43,107,True,0.81,5.9,23.0,,,,Fals
 BNY,Bank of New York Mellon Corp,Finance,Investment Banks/Brokers,152.72,549,False,0.4,4.9,16.3,,,,False,,,,,,,165.23,-7.6,142.3,16.1,4,离突破点远,71,
 BOX,"Box, Inc. Class A",Technology Services,Information Technology Services,44.05,113,True,1.74,27.7,74.1,,,,False,,,,,,,44.61,-1.3,41.39,7.8,5,等突破,26,
 BR,Broadridge Financial Solutions,Technology Services,Information Technology Services,189.29,162,True,1.94,20.8,24.2,,,,False,,,,,,,193.67,-2.3,173.93,11.4,2,等突破,91,
-BRK.B,Berkshire Hathaway Inc. Class ,Finance,Property/Casualty Insurance,579.09,2528,True,1.48,15.3,22.0,,,,False,,,,,,,580.65,-0.3,536.53,8.2,4,等突破,109,
+BRK.B,Berkshire Hathaway Inc. Class ,Finance,Property/Casualty Insurance,579.09,2528,True,1.48,15.3,22.0,,,,False,,,,,,,580.65,-0.3,536.53,8.2,4,等突破,0,
 BRKR,Bruker Corporation,Health Technology,Medical Specialties,63.79,145,True,-1.76,1.1,46.3,,,,False,,,,,,,66.98,-4.8,54.87,22.1,3,等突破,103,
 BRO,"Brown & Brown, Inc.",Finance,Insurance Brokers/Services,73.89,191,False,2.78,23.7,27.5,,,,False,,,,,,,74.89,-1.3,64.55,16.0,2,等突破,81,
 BRZE,"Braze, Inc. Class A",Technology Services,Internet Software/Services,46.1,378,True,0.1,78.9,109.1,2026-10-22,52.7,2.2,False,-0.1,45.82,38.76,18.9,0.0,5,46.15,-0.1,45.38,1.7,5,等突破,33,

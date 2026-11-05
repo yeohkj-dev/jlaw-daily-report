@@ -110,6 +110,24 @@ def latest_file(folder, pattern=r"\d{4}-\d{2}-\d{2}\.html$"):
 
 
 MY_TZ = dt.timezone(dt.timedelta(hours=8))          # 马来西亚 / 新加坡时间
+RISK_URL = os.environ.get("RISK_URL", "https://yeohkj-dev.github.io/risk-calculator/")   # 用户自己的仓位风险计算器
+RISK_LIGHT = {"🟢": ("green", "绿灯", "0.5%"), "🟡": ("yellow", "黄灯", "0.35%"), "🔴": ("red", "红灯", "0.25%")}
+
+
+def risk_tab(state):
+    """「风险计算」分页：嵌入仓位风险计算器，按今天的大盘状态预选灯号。数值只存在用户自己的浏览器里。"""
+    light = RISK_LIGHT.get(state[:1])
+    url = RISK_URL + (f"?light={light[0]}" if light else "")
+    head = (f"今天大盘：<b>{html.escape(state)}</b> → 计算器已预选 <b>{light[1]}</b>（每笔风险 {light[2]}），可以在下面改。"
+            if light else "今天的大盘状态未知，请在计算器里自己选灯号。")
+    body = (f'<div style="max-width:1080px;margin:12px auto 0;padding:8px 16px;font-size:13px;color:#444;line-height:1.6;">{head} '
+            f'账户金额等数值只存在你自己的浏览器里，不会上传。'
+            f'<a href="{html.escape(url)}" target="_blank" rel="noopener" style="color:#1565C0;">在新分页打开 ↗</a></div>'
+            f'<iframe id="riskfr" src="{html.escape(url)}" title="仓位风险计算器" '
+            f'style="display:block;width:100%;max-width:1080px;margin:0 auto;border:0;height:1500px;background:transparent;"></iframe>'
+            '<script>(function(){var f=document.getElementById("riskfr");function fit(){try{var h=Math.ceil(f.contentDocument.body.getBoundingClientRect().height);'
+            'if(h>200&&Math.abs(h+40-f.offsetHeight)>4)f.style.height=(h+40)+"px";}catch(e){}}f.addEventListener("load",fit);setInterval(fit,1500);})();</script>')
+    return ("risk", "风险计算", f"{light[1]} {light[2]}" if light else "仓位计算器", body)
 WEEK_ZH = "一二三四五六日"
 
 
@@ -220,6 +238,8 @@ def main():
                 v = json.load(fh)
             tabs.append(("wk", "每周展望", f"{v.get('verdict', '')} · {os.path.basename(f)[5:10]} 版",
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
+
+    tabs.append(risk_tab(state))
 
     # ---- 数据核对汇总 ----
     checks = [dict(c, module=lab) for key, lab in (("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
