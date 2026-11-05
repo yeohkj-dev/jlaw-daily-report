@@ -1092,5 +1092,62 @@
 "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000080/exhibit991-9302026.htm",
 "filed": "2026-11-04",
 "quotes": []
+},
+"ABNB:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/1559720/000119312526449727/d437988dex991.htm",
+"filed": "2026-11-05",
+"quotes": [
+"This new funding model will help provide $500 million to Airbnb.org over the next five years, putting it on a path to provide 1 million nights of free housing annually.",
+"We expect to generate revenue of $3.22 billion to $3.28 billion, representing year-over-year growth of 16% to 18%, inclusive of an approximate two percentage point FX tailwind after factoring in our hedging program.",
+"Adjusted EBITDA Margin in Q3 2026 was 52%, compared to 50% in Q3 2025.5 For the full-year 2026, we expect our effective tax rate to be in the mid-teens."
+]
+},
+"MNST:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123387/tm2629095d1_ex99-1.htm",
+"filed": "2026-11-05",
+"quotes": []
+},
+"COP:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000043/cop-20261105x8kexx991.htm",
+"filed": "2026-11-05",
+"quotes": [
+"Outlook Fourth-quarter 2026 production is expected to be 2.32 to 2.36 million barrels of oil equivalent per day."
+]
+},
+"EOG:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000226/exh99-1110526.htm",
+"filed": "2026-11-05",
+"quotes": []
+},
+"APD:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000043/exhibit99130sep26.htm",
+"filed": "2026-11-05",
+"quotes": [
+"Fiscal 2027 full-year adjusted EPS guidance * of $14.15 to $14.50; fiscal 2027 first quarter adjusted EPS guidance * of $3.35 to $3.45",
+"Outlook Air Products expects full-year fiscal 2027 adjusted EPS guidance * in the range of $14.15 to $14.50.",
+"We expect capital expenditures in the range of $3.0 billion to $3.5 billion for fiscal year 2027. -more- Page 12 of 12 Adjusted EPS Outlook (Non-GAAP) The adjusted EPS guidance below is provided on a diluted basis from continuing operations attributable to Air Products and is compared to historical adjusted EPS."
+]
+},
+"DUK:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/1326160/000132616026000048/er-20260930xearningsreleas.htm",
+"filed": "2026-11-05",
+"quotes": [
+"Company narrows 2026 adjusted EPS guidance range to $6.70 to $6.80; strong year-to-date performance positions company to deliver results near the top end",
+"The company is narrowing its 2026 adjusted EPS guidance range to $6.70 to $6.80 and reaffirming its long-term adjusted EPS growth rate of 5% to 7% through 2030 off the 2025 guidance range midpoint of $6.30, with confidence to earn in the top half of the range beginning in 2028."
+]
+},
+"SRE:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/1032208/000103220826000051/ex99_1x20260930xearningsta.htm",
+"filed": "2026-11-05",
+"quotes": [
+"Oncor Electric Delivery Company LLC (Oncor) currently projects its 2027-2031 base capital plan to increase by approximately 20% relative to its 2026-2030 base capital plan.",
+"Earnings Guidance Sempra is updating its full-year 2026 GAAP earnings-per-common share (EPS) guidance range to $7.41 to $8.41, reflecting strong results through the third quarter, guiding to the high end of its 2026 adjusted EPS guidance range of $4.80 to $5.30 and affirming its 2027 EPS guidance range of $5.10 to $5.70.",
+"$16 million net unrealized gains on interest rate swaps related to the initial phase of the Port Arthur LNG liquefaction project (PA LNG Phase 1 project)"
+]
+},
+"SPG:2026-11-05": {
+"url": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926123325/tm2627777d2_ex99-1.htm",
+"filed": "2026-11-05",
+"quotes": []
 }
 }
