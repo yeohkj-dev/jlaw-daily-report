@@ -214,6 +214,196 @@ def fear_html(fng, vix):
 <p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">恐惧指数只反映市场情绪，不是买卖信号：极度恐惧常在急跌时出现，但大盘可以继续下跌，仍要以上面的大盘状态和见底信号为准。{stamp}</p>"""
 
 
+# ---------------- 信用市场：科技 / AI 公司债券 ----------------
+CREDIT_HIST = os.path.join(REPORT_DIR, "信用历史.csv")
+# (代码, 中文名, TradingView 债券名称关键字, 目标到期年份范围)
+ISSUERS = [("MSFT", "微软", "Microsoft Corporation", (2034, 2037)), ("AAPL", "苹果", "Apple Inc.", (2034, 2037)),
+           ("GOOGL", "Alphabet", "Alphabet Inc.", (2034, 2037)), ("AMZN", "亚马逊", "Amazon.com, Inc.", (2034, 2037)),
+           ("META", "Meta", "Meta Platforms, Inc.", (2034, 2037)), ("NVDA", "英伟达", "NVIDIA Corporation", (2034, 2037)),
+           ("ORCL", "甲骨文", "Oracle Corporation", (2034, 2037)), ("CRWV", "CoreWeave", "CoreWeave, Inc.", (2030, 2033))]
+UST = [("US02Y", 2), ("US05Y", 5), ("US10Y", 10), ("US30Y", 30)]
+FRED = [("BAMLC0A0CM", "投资级公司债利差"), ("BAMLH0A0HYM2", "高收益（垃圾）债利差")]
+
+
+def tv_post(market, body):
+    req = urllib.request.Request(f"https://scanner.tradingview.com/{market}/scan", data=json.dumps(body).encode(),
+                                 headers={"User-Agent": "Mozilla/5.0", "Content-Type": "application/json"})
+    return json.load(urllib.request.urlopen(req, timeout=60))["data"]
+
+
+def ust_curve():
+    d = tv_post("global", {"symbols": {"tickers": [f"TVC:{x}" for x, _ in UST]}, "columns": ["name", "close"]})
+    got = {r["d"][0]: r["d"][1] for r in d}
+    return [(yrs, got[k]) for k, yrs in UST if got.get(k)]
+
+
+def ust_at(curve, yrs):
+    """美债收益率曲线按年期线性插值。"""
+    if yrs <= curve[0][0]:
+        return curve[0][1]
+    for (a, ya), (b, yb) in zip(curve, curve[1:]):
+        if a <= yrs <= b:
+            return ya + (yb - ya) * (yrs - a) / (b - a)
+    return curve[-1][1]
+
+
+def pick_bond(name, window, today, prefer=None):
+    """同一只债券在多个交易所报价：按名称合并取中位数；优先有美国 FINRA 报价、到期在目标范围内、离 10 年最近的。"""
+    rows = tv_post("bond", {"filter": [{"left": "description", "operation": "match", "right": name.split(",")[0]},
+                                       {"left": "maturity_date", "operation": "in_range",
+                                        "right": [window[0] * 10000 + 101, window[1] * 10000 + 1231]}],
+                            "columns": ["description", "yield_to_maturity", "maturity_date", "close"], "range": [0, 300]})
+    bonds = {}
+    for r in rows:
+        desc, y, mat, px = r["d"]
+        if not desc.startswith(name) or not y or y <= 0 or not px or "Conv" in desc:
+            continue
+        b = bonds.setdefault(desc, dict(desc=desc, mat=mat, ys=[], px=[], finra=None))
+        b["ys"].append(y)
+        b["px"].append(px)
+        if r["s"].startswith("FINRA:"):
+            b["finra"] = (y, px)
+    if not bonds:
+        return None
+    target = today.year + 10
+
+    def key(b):
+        return (b["finra"] is None, abs(b["mat"] // 10000 - target), -len(b["ys"]))
+    # 上次用的那只还有报价就继续用，利差一周变化才是同一只债券比较
+    b = bonds[prefer] if prefer in bonds else sorted(bonds.values(), key=lambda b: (key(b), b["desc"]))[0]
+    med = lambda xs: sorted(xs)[len(xs) // 2]
+    y, px = b["finra"] if b["finra"] else (med(b["ys"]), med(b["px"]))
+    mat = dt.date(b["mat"] // 10000, b["mat"] // 100 % 100, b["mat"] % 100)
+    return dict(desc=b["desc"], mat=mat, y=y, px=px, venues=len(b["ys"]), finra=bool(b["finra"]),
+                spread_q=(max(b["ys"]) - min(b["ys"])) * 100)
+
+
+def fred_last(sid):
+    """FRED（圣路易斯联储）的 ICE BofA 利差，最近值和约一个月前的值。取不到返回 None。"""
+    try:
+        req = urllib.request.Request(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}", headers={"User-Agent": "Mozilla/5.0"})
+        lines = urllib.request.urlopen(req, timeout=40).read().decode().strip().splitlines()[1:]
+        vals = [(a, float(b)) for a, b in (x.split(",") for x in lines) if b not in (".", "")]
+        return dict(date=vals[-1][0], v=vals[-1][1], m1=vals[-22][1], y1=vals[-253][1] if len(vals) > 253 else None,
+                    lo=min(v for _, v in vals[-1260:]), hi=max(v for _, v in vals[-1260:]))
+    except Exception as e:
+        print("FRED 取不到：", sid, type(e).__name__, file=sys.stderr)
+        return None
+
+
+def etf_credit():
+    """备用：高收益债 ETF（HYG）相对国债 ETF（IEF）近 1 个月的表现，跑输 = 市场开始担心违约。"""
+    out = {}
+    for sym in ("HYG", "LQD", "IEF"):
+        c = [r["c"] for r in daily(sym)]
+        out[sym] = dict(close=c[-1], m1=(c[-1] / c[-22] - 1) * 100, above50=c[-1] > sma(c, 50))
+    return out
+
+
+def load_credit_hist():
+    if not os.path.exists(CREDIT_HIST):
+        return []
+    with open(CREDIT_HIST, encoding="utf-8-sig") as f:
+        return list(csv.DictReader(f))
+
+
+def credit(today, hist=()):
+    last_bond = {h["sym"]: h["bond"] for h in hist}            # 历史按日期排，后面的覆盖前面的
+    curve = ust_curve()
+    rows = []
+    for sym, zh, name, window in ISSUERS:
+        try:
+            b = pick_bond(name, window, today, last_bond.get(sym))
+        except Exception:
+            b = None
+        if b:
+            yrs = (b["mat"] - today).days / 365.25
+            b.update(sym=sym, zh=zh, yrs=yrs, ust=ust_at(curve, yrs), spread=(b["y"] - ust_at(curve, yrs)) * 100,
+                     short=b["desc"][len(name):].strip())
+        rows.append(b or dict(sym=sym, zh=zh))
+    fred = {sid: fred_last(sid) for sid, _ in FRED}
+    try:
+        etf = etf_credit()
+    except Exception:
+        etf = None
+    return dict(curve=curve, rows=rows, fred=fred, etf=etf)
+
+
+def save_credit_hist(today, cr, hist):
+    if any(h["date"] == str(today) for h in hist):
+        return
+    new = not os.path.exists(CREDIT_HIST)
+    with open(CREDIT_HIST, "a", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f)
+        if new:
+            w.writerow(["date", "sym", "bond", "yield", "spread_bp"])
+        for r in cr["rows"]:
+            if r.get("y"):
+                w.writerow([today, r["sym"], r["desc"], round(r["y"], 3), round(r["spread"])])
+
+
+def credit_html(cr, hist, today):
+    td = 'style="padding:5px 6px;border-bottom:1px solid #eee;white-space:nowrap;"'
+    th = 'style="padding:5px 6px;background:#f5f5f5;text-align:left;font-weight:600;border-bottom:1px solid #ddd;white-space:nowrap;"'
+    # 约一周前（5 个记录日之前）的利差，同一只债券才比较
+    dates = sorted({h["date"] for h in hist if h["date"] != str(today)})
+    ref = dates[-5] if len(dates) >= 5 else (dates[0] if dates else None)
+    old = {(h["sym"], h["bond"]): float(h["spread_bp"]) for h in hist if h["date"] == ref}
+    body = ""
+    for r in cr["rows"]:
+        if not r.get("y"):
+            body += f'<tr><td {td}>{tv_link(r["sym"], None, r["sym"])} {r["zh"]}</td><td {td} colspan="6" style="color:#aaa;">今天取不到债券报价</td></tr>'
+            continue
+        sp = r["spread"]
+        lvl = ("#2E7D32", "很低") if sp < 80 else ("#555", "正常") if sp < 150 else ("#E65100", "偏高") if sp < 400 else ("#C62828", "高（高收益级）")
+        o = old.get((r["sym"], r["desc"]))
+        chg = ""
+        if o is not None:
+            d = sp - o
+            chg = f'<span style="color:{"#C62828" if d > 0 else "#2E7D32" if d < 0 else "#555"};">{d:+.0f}</span>'
+            if d >= 25:
+                chg += ' <b style="color:#C62828;">扩大</b>'
+        body += (f'<tr><td {td}>{tv_link(r["sym"], None, r["sym"])} {r["zh"]}</td>'
+                 f'<td {td}>{r["short"]}</td>'
+                 f'<td {td}>{r["px"]:.1f}</td><td {td}><b>{r["y"]:.2f}%</b></td><td {td}>{r["ust"]:.2f}%</td>'
+                 f'<td {td}><b style="color:{lvl[0]};">{sp:.0f} 基点</b> <span style="color:#888;font-size:11px;">{lvl[1]}</span></td>'
+                 f'<td {td}>{chg or "—"}</td></tr>')
+    tbl = (f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;">'
+           f'<tr><th {th}>公司</th><th {th}>债券（约 10 年期）</th><th {th}>价格</th><th {th}>收益率</th><th {th}>同期美债</th>'
+           f'<th {th}>信用利差</th><th {th}>利差一周变化（基点）</th></tr>{body}</table></div>')
+    ig = [r for r in cr["rows"] if r.get("y") and r["sym"] not in ("ORCL", "CRWV")]
+    lines = []
+    if ig:
+        avg = sum(r["spread"] for r in ig) / len(ig)
+        lines.append(f"六家评级 AAA 至 AA 级的科技巨头（微软、苹果、Alphabet、亚马逊、Meta、英伟达）平均利差 <b>{avg:.0f} 基点</b>。")
+    o = next((r for r in cr["rows"] if r["sym"] == "ORCL" and r.get("y")), None)
+    c = next((r for r in cr["rows"] if r["sym"] == "CRWV" and r.get("y")), None)
+    if o:
+        lines.append(f"甲骨文为 AI 数据中心大量借债，利差 <b>{o['spread']:.0f} 基点</b>" + (f"，比科技巨头平均高 {o['spread'] - avg:.0f} 基点" if ig else "") + "。")
+    if c:
+        lines.append(f"CoreWeave（AI 算力租赁，高收益级）债券价格 {c['px']:.0f}、收益率 <b>{c['y']:.1f}%</b>，利差 {c['spread']:.0f} 基点。"
+                     "价格远低于 100 代表市场担心它的还款能力。")
+    # 整体信用市场
+    mk = []
+    for sid, zh in FRED:
+        f = cr["fred"].get(sid)
+        if f:
+            mk.append(f'<li>{zh}（ICE BofA）：<b>{f["v"] * 100:.0f} 基点</b>（{f["date"]}），1 个月前 {f["m1"] * 100:.0f}，'
+                      f'过去 5 年范围 {f["lo"] * 100:.0f}–{f["hi"] * 100:.0f}</li>')
+    e = cr["etf"]
+    if e:
+        rel = e["HYG"]["m1"] - e["IEF"]["m1"]
+        mk.append(f'<li>高收益债 ETF（HYG）近 1 个月 {e["HYG"]["m1"]:+.1f}%，国债 ETF（IEF）{e["IEF"]["m1"]:+.1f}%，差 <b style="color:{"#C62828" if rel < -1 else "#2E7D32" if rel > 0 else "#555"};">{rel:+.1f} 点</b>'
+                  f'（明显跑输代表市场在避开违约风险）；投资级债 ETF（LQD）{e["LQD"]["m1"]:+.1f}%。</li>')
+    curve = "、".join(f"{y} 年 {v:.2f}%" for y, v in cr["curve"])
+    return f"""<h3 style="margin:22px 0 6px;">信用市场 · 科技与 AI 公司债券</h3>
+<p style="margin:0 0 6px;font-size:13px;line-height:1.6;">{"<br>".join(lines)}</p>{tbl}
+<ul style="margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.6;">{"".join(mk)}</ul>
+<p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">信用利差 = 公司债收益率 − 同年期美国国债收益率（美债曲线：{curve}），越高代表市场要求的违约补偿越多；
+利差在短时间内明显扩大，往往比股价更早反映公司的债务压力。债券报价来自 TradingView（优先用美国 FINRA 成交价），每只公司选一只约 10 年期的普通债（CoreWeave 选 2030–2033 年到期的）。
+<b>违约率</b>：Moody's、S&amp;P 等的违约率是付费数据，这里没有，改用利差反映市场对违约风险的看法。</p>"""
+
+
 def ret(c, n):
     return c[-1] / c[-1 - n] - 1 if len(c) > n else None
 
@@ -355,7 +545,7 @@ def load_hist():
         return list(csv.DictReader(f))
 
 
-def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html="", fear=""):
+def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html="", fear="", credit_part=""):
     """邮件友好的 HTML（全部内联样式，浅色背景）。"""
     col = {"🔴": ("#C62828", "#FDECEA"), "🟡": ("#B26A00", "#FFF4E0"), "🟢": ("#2E7D32", "#E8F5E9")}[state[0]]
     td = 'style="padding:6px 8px;border-bottom:1px solid #eee;"'
@@ -403,6 +593,7 @@ def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, pre
 <p style="margin:4px 0;"><b>JLaw Stage 2 筛出</b>：<b>{s2}</b> 只{delta(s2, "stage2", ".0f")} <span style="color:#777;font-size:12px;">（个股名单在「每日选股」的 C2）</span></p>
 {sig}
 {sec_html}
+{credit_part}
 <h3 style="margin:18px 0 6px;">见底 / 转强信号</h3><ul style="margin:0;padding-left:20px;list-style:none;">{bot}</ul>
 
 <p style="margin:14px 0 0;font-size:12px;color:#555;">📈 点指数、行业 ETF 或股票代码会在新分页打开 TradingView 日线图；「RS 图」打开该行业 ÷ SPY 的相对强弱图。</p>
@@ -420,6 +611,12 @@ def main():
     s2, near = stage2_count()
     sec = sectors(spy)
     fng = fear_greed()
+    chist = load_credit_hist()
+    try:
+        cr = credit(spy["date"], chist)
+    except Exception as e:
+        print("信用市场取不到：", type(e).__name__, e, file=sys.stderr)
+        cr = None
     try:
         vix = vix_stats()
     except Exception:
@@ -515,7 +712,10 @@ def main():
     html_path = os.path.join(REPORT_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, changed and prev["state"], advice, spy, qqq, n, b50, b200, s2, prev,
-                           red, yellow, bottom, near, sector_html(sec, prev_rank, prev_rdate, check, check_ok), fear_html(fng, vix)))
+                           red, yellow, bottom, near, sector_html(sec, prev_rank, prev_rdate, check, check_ok), fear_html(fng, vix),
+                           credit_html(cr, chist, spy["date"]) if cr else ""))
+    if cr:
+        save_credit_hist(spy["date"], cr, chist)
     save_sector_hist(sec, shist)
 
     new = not os.path.exists(HIST)
@@ -531,6 +731,12 @@ def main():
                       "sectors": [x["sym"] for x in sec], "sector_check": check,
                       "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,
                       "checks": [dict(name="行业 ETF 收盘价（Yahoo vs TradingView）", ok=check_ok, critical=False, detail=check),
+                                 dict(name="科技 / AI 债券报价", ok=bool(cr) and all(r.get("y") for r in cr["rows"]), critical=False,
+                                      detail=(f'{sum(1 for r in cr["rows"] if r.get("y"))}/{len(cr["rows"])} 家取到；'
+                                              + "、".join(f'{r["sym"]} {r["venues"]} 个报价' + ("" if r["finra"] else "（无 FINRA）")
+                                                         for r in cr["rows"] if r.get("y"))) if cr else "取不到"),
+                                 dict(name="整体信用利差（FRED）", ok=bool(cr) and all(cr["fred"].values()), critical=False,
+                                      detail=("取到" if cr and all(cr["fred"].values()) else "FRED 取不到，改用 HYG / IEF 走势")),
                                  dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
                                       detail=f'{fng["score"]:.0f}（{fng["time"]:%m-%d}）' if fng else "取不到，只显示 VIX"),
                                  dict(name="VIX", ok=bool(vix) and (not fng or abs(fng["vix"] / vix["close"] - 1) <= 0.03), critical=False,

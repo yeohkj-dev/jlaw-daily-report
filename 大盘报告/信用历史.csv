@@ -1,0 +1,9 @@
+﻿date,sym,bond,yield,spread_bp
+2026-11-04,MSFT,Microsoft Corporation 3.45% 08-AUG-2036,5.307,47
+2026-11-04,AAPL,Apple Inc. 4.5% 23-FEB-2036,5.032,22
+2026-11-04,GOOGL,Alphabet Inc. 4.8% 15-FEB-2036,5.704,89
+2026-11-04,AMZN,"Amazon.com, Inc. 4.875% 13-MAR-2036",5.855,104
+2026-11-04,META,"Meta Platforms, Inc. 5.25% 15-MAY-2036",6.116,129
+2026-11-04,NVDA,NVIDIA Corporation 4.95% 15-JUN-2036,5.778,95
+2026-11-04,ORCL,Oracle Corporation 5.7% 04-FEB-2036,7.707,289
+2026-11-04,CRWV,"CoreWeave, Inc. 8.5% 15-JUL-2032 RegS",15.0,1033
