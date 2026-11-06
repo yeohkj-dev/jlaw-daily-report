@@ -19,3 +19,6 @@ __pycache__/
 回测/tmp/
 回测/K线形态/*.pkl
 回测/K线形态/baseline_all.csv
+
+# 量化系统：数据和生成的报告（GitHub 上用 actions/cache 保存）
+量化/data/

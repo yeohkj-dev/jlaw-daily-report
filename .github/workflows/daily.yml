@@ -18,7 +18,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +34,22 @@ jobs:
             https://github.com/notofonts/noto-cjk/raw/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
           pip install -q matplotlib
           rm -rf ~/.cache/matplotlib
+
+      # 量化系统：市场状态分 + 进出场信号 + 完整回测报告（docs/quant.html）
+      # 个股数据（约 2,250 只 × 5 年）用 actions/cache 保存，平常每天只补最近几天
+      - name: 恢复量化数据缓存
+        uses: actions/cache@v4
+        with:
+          path: 量化/data
+          key: quant-data-${{ github.run_id }}
+          restore-keys: quant-data-
+
+      - name: 量化系统（失败不影响其他报告，网站沿用上一份）
+        continue-on-error: true
+        timeout-minutes: 25
+        run: |
+          pip install -q yfinance pandas numpy
+          python 量化/run.py
 
       # --strict：数据核对有严重问题时，这一步会失败、网站保留上一份报告，GitHub 会发邮件通知
       - name: 生成报告（大盘 / 选股 / 新闻 / 业绩估值 / 每周展望）

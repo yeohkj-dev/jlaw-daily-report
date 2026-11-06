@@ -16,6 +16,7 @@ import html
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -40,6 +41,9 @@ def publish(page, today):
     nav = '<a href="archive/" style="color:#93c5fd;font-size:12px;">历史报告</a>'
     with open(os.path.join(PUBLISH, "index.html"), "w", encoding="utf-8") as f:
         f.write(page.replace("<!--NAV-->", nav))
+    q = os.path.join(OUT_DIR, "量化", "data", "量化系统.html")       # 完整量化报告（公开版，没有持仓）
+    if os.path.exists(q) and time.time() - os.path.getmtime(q) < 36 * 3600:
+        shutil.copyfile(q, os.path.join(PUBLISH, "quant.html"))
     # 历史版不存「业绩与估值」（每天变化不大、体积最大），让仓库不会越来越大
     slim = re.sub(r"<!--EV-START-->.*?<!--EV-END-->", '<div style="max-width:1080px;margin:16px auto;padding:16px;font-size:14px;">'
                   '历史报告不保存这一页，请看<a href="../">最新报告</a>。</div>', page, flags=re.S)
@@ -128,6 +132,62 @@ def risk_tab(state):
             '<script>(function(){var f=document.getElementById("riskfr");function fit(){try{var h=Math.ceil(f.contentDocument.body.getBoundingClientRect().height);'
             'if(h>200&&Math.abs(h+40-f.offsetHeight)>4)f.style.height=(h+40)+"px";}catch(e){}}f.addEventListener("load",fit);setInterval(fit,1500);})();</script>')
     return ("risk", "风险计算", f"{light[1]} {light[2]}" if light else "仓位计算器", body)
+# 4 大类分页（顺序 = 显示顺序；每类第一个是默认小分页）
+GROUPS = [("today", "今天怎么做", ["combo", "brief", "risk"]),
+          ("mkt", "大盘", ["mkt", "quant", "wk"]),
+          ("pick", "选股", ["scr", "luk"]),
+          ("news", "新闻·业绩", ["news", "ev"])]
+QUANT = os.path.join(OUT_DIR, "量化", "data")      # 量化/run.py 的输出（GitHub 上由 daily.yml 在本程序之前运行）
+
+
+def quant_tab():
+    """「量化系统」分页：市场状态分、个股交易开关、今天的买点；完整报告在 docs/quant.html。"""
+    f = os.path.join(QUANT, "tab.html")
+    if os.path.exists(f) and time.time() - os.path.getmtime(f) < 36 * 3600:
+        with open(os.path.join(QUANT, "summary.json"), encoding="utf-8") as fh:
+            s = json.load(fh)
+        with open(f, encoding="utf-8") as fh:
+            return ("quant", "量化系统", f"{s['score']:.0f} 分 · {s['gate']}", fh.read())
+    old = published_panel("quant")
+    if old:
+        if "这次没有更新" not in old:
+            old = note("量化系统这次没有更新（数据下载或计算失败），这是上一份。") + old
+        return ("quant", "量化系统", "上一份", old)
+    return ("quant", "量化系统", "失败", error_box("量化系统", "还没有结果"))
+
+
+def combined_tab():
+    """「综合名单」分页：量化红绿灯 + J Law + Luk + 回测有效的K线形态（量化/combined.py）。
+    要在每日选股、Luk 选股跑完之后才运行，才会用到当天的名单。量化数据超过 36 小时就不跑，改用上一份。"""
+    res_json = os.path.join(QUANT, "results.json")
+    if os.path.exists(res_json) and time.time() - os.path.getmtime(res_json) < 36 * 3600:
+        try:
+            p = subprocess.run([sys.executable, os.path.join(OUT_DIR, "量化", "combined.py")], capture_output=True, text=True,
+                               encoding="utf-8", errors="replace", timeout=600, env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+            lines = [x for x in p.stdout.strip().splitlines() if x.strip()]
+            if p.returncode == 0 and lines:
+                s = json.loads(lines[-1])
+                with open(os.path.join(QUANT, "combined.html"), encoding="utf-8") as fh:
+                    return ("combo", "综合名单", (f"买点 {len(s['A'])} · 红灯先观察" if s["gate"] == "现金" else f"可买 {len(s['A'])} · 等 {len(s['B'])}"), fh.read())
+            print("综合名单失败：", (p.stderr or p.stdout)[-800:], flush=True)
+        except (subprocess.TimeoutExpired, ValueError, OSError) as e:
+            print("综合名单失败：", e, flush=True)
+    old = published_panel("combo")
+    if old:
+        if "这次没有更新" not in old:
+            old = note("综合名单这次没有更新（量化数据或计算失败），这是上一份。") + old
+        return ("combo", "综合名单", "上一份", old)
+    return ("combo", "综合名单", "失败", error_box("综合名单", "还没有结果"))
+
+
+def quant_checks():
+    try:
+        with open(os.path.join(QUANT, "checks.json"), encoding="utf-8") as fh:
+            return [dict(c, module="量化", critical=False) for c in json.load(fh)]   # 量化出问题不阻止整份报告发布
+    except (OSError, ValueError):
+        return []
+
+
 WEEK_ZH = "一二三四五六日"
 
 
@@ -240,6 +300,8 @@ def main():
             tabs.append(("wk", "每周展望", f"{v.get('verdict', '')} · {os.path.basename(f)[5:10]} 版",
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
+    tabs.append(combined_tab())
+    tabs.append(quant_tab())
     tabs.append(risk_tab(state))
 
     # ---- 早报：放在第一个分页（周末沿用最近一个交易日的）----
@@ -259,7 +321,7 @@ def main():
 
     # ---- 数据核对汇总 ----
     checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
-              for c in ((res.get(key) or {}).get("checks") or [])]
+              for c in ((res.get(key) or {}).get("checks") or [])] + quant_checks()
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]
     failed = [lab for key, lab, _, _ in steps if not res.get(key)]
@@ -275,10 +337,19 @@ def main():
     chk_html = (f'<details class="chk"><summary style="color:{chk_color};">{chk_txt}</summary>'
                 f'<ul>{chk_items}{ok_items}</ul></details>')
 
-    btns = "".join(f'<button class="tab" role="tab" id="t-{k}" aria-controls="p-{k}" aria-selected="{"true" if i == 0 else "false"}">'
-                   f'{html.escape(t)}<small>{sub}</small></button>' for i, (k, t, sub, _) in enumerate(tabs))
-    panels = "".join(f'<div class="panel{" on" if i == 0 else ""}" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">{body}</div>'
-                     for i, (k, _, _, body) in enumerate(tabs))
+    # 分页分成 4 大类，每类下面有小分页；面板本身仍是平的 p-<key>（published_panel 靠这个取上一份）
+    by_key = {k: (t, sub) for k, t, sub, _ in tabs}
+    groups = [(g, name, [k for k in keys if k in by_key]) for g, name, keys in GROUPS]
+    groups = [x for x in groups if x[2]]
+    first = groups[0][2][0]
+    btns = "".join(f'<button class="tab" role="tab" id="g-{g}" data-first="{keys[0]}" aria-selected="{"true" if i == 0 else "false"}">'
+                   f'{html.escape(name)}<small>{by_key[keys[0]][1]}</small></button>' for i, (g, name, keys) in enumerate(groups))
+    subs = "".join(f'<div class="subs{" on" if i == 0 else ""}{" one" if len(keys) == 1 else ""}" id="s-{g}">' + "".join(
+                   f'<button class="stab" id="t-{k}" data-group="{g}" aria-controls="p-{k}" aria-selected="{"true" if k == first else "false"}">'
+                   f'{html.escape(by_key[k][0])}<small>{by_key[k][1]}</small></button>' for k in keys) + "</div>"
+                   for i, (g, name, keys) in enumerate(groups))
+    panels = "".join(f'<div class="panel{" on" if k == first else ""}" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">{body}</div>'
+                     for k, _, _, body in tabs)
     today = et.date()
     page = f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>每日报告 {today}</title>
@@ -300,25 +371,34 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .tab[aria-selected=true]{{background:#f4f5f7;color:#111;font-weight:700}}
 .tab[aria-selected=true] small{{color:#555}}
 .panel{{display:none}}.panel.on{{display:block}}
+.subs{{display:none;max-width:1080px;margin:0 auto;padding:8px 16px 0;gap:6px;overflow-x:auto;scrollbar-width:none}}.subs.on{{display:flex}}.subs.one{{display:none!important}}
+.stab{{flex:0 0 auto;border:1px solid #d6d9de;background:#fff;color:#333;border-radius:99px;padding:5px 12px;cursor:pointer;font:inherit;font-size:13px;line-height:1.25;text-align:left}}
+.stab small{{display:block;font-size:10.5px;color:#777}}
+.stab[aria-selected=true]{{background:#1F2937;border-color:#1F2937;color:#fff;font-weight:700}}.stab[aria-selected=true] small{{color:#cbd5e1}}
 @media (max-width:600px){{.tab{{padding:8px 10px;font-size:13px}}}}
 </style></head><body>
 <div class="bar"><div class="top"><span class="title">每日报告 · {today}{"（周末版）" if weekend else ""}</span>
 <span class="meta">大盘数据 {html.escape(mkt_date)} · 大盘状态 <b style="color:#fff;background:{color};padding:1px 6px;border-radius:4px;">{html.escape(state)}</b></span>
 {chk_html}{update_html(dt.datetime.now(dt.timezone.utc))}<!--NAV--></div>
 <div class="tabs" role="tablist">{btns}</div></div>
+{subs}
 {panels}
 <script>
-var tabs=document.querySelectorAll('.tab');
-function show(id){{tabs.forEach(function(t){{var on=t.id===id;t.setAttribute('aria-selected',on);
-document.getElementById(t.getAttribute('aria-controls')).classList.toggle('on',on);}});
-try{{localStorage.setItem('jlaw-tab',id);}}catch(e){{}}window.scrollTo(0,0);}}
-tabs.forEach(function(t){{t.addEventListener('click',function(){{show(t.id);}});}});
+var tabs=document.querySelectorAll('.tab'),subs=document.querySelectorAll('.stab'),last={{}};
+function show(id){{var b=document.getElementById(id);if(!b)return;var g=b.dataset.group||'';
+document.querySelectorAll('.panel').forEach(function(p){{p.classList.toggle('on',p.id===b.getAttribute('aria-controls'));}});
+subs.forEach(function(x){{if(x.dataset.group===g)x.setAttribute('aria-selected',x.id===id);}});
+tabs.forEach(function(t){{t.setAttribute('aria-selected',t.id==='g-'+g);}});
+document.querySelectorAll('.subs').forEach(function(x){{x.classList.toggle('on',x.id==='s-'+g);}});
+last[g]=id;try{{localStorage.setItem('jlaw-tab2',id);}}catch(e){{}}window.scrollTo(0,0);}}
+tabs.forEach(function(t){{t.addEventListener('click',function(){{show(last[t.id.slice(2)]||'t-'+t.dataset.first);}});}});
+subs.forEach(function(x){{x.addEventListener('click',function(){{show(x.id);}});}});
 (function(){{var u=document.getElementById('upd');if(!u)return;var g=+u.dataset.gen,st=+u.dataset.stale,n=Date.now();
 var m=Math.round((n-g)/60000),txt=m<60?m+' 分钟前':m<2880?Math.round(m/60)+' 小时前':Math.round(m/1440)+' 天前';
 document.getElementById('ago').textContent='，'+txt;
 if(st&&n>st&&location.pathname.indexOf("/archive/")<0){{var w=document.createElement('b');w.style.cssText='color:#fff;background:#C62828;padding:1px 6px;border-radius:4px;margin-left:6px;';
 w.textContent='⚠ 已过预定更新时间，可能更新失败';u.appendChild(w);}}}})();
-try{{var s=localStorage.getItem('jlaw-tab');if(s&&document.getElementById(s))show(s);}}catch(e){{}}
+try{{var s=localStorage.getItem('jlaw-tab2');if(s&&document.getElementById(s))show(s);}}catch(e){{}}
 </script></body></html>"""
 
     dated = os.path.join(REPORT_DIR, f"{today}.html")
