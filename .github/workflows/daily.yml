@@ -39,11 +39,19 @@ jobs:
       - name: 生成报告（大盘 / 选股 / 新闻 / 业绩估值 / 每周展望）
         run: python tools/jlaw_daily_report.py . --no-open --publish docs --strict
 
+      # 早报发到 Telegram（只在报告成功发布后；同一份只发一次；发送失败不影响网站）
+      - name: 发送早报到 Telegram
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/telegram_send.py .
+
       - name: 保存结果
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add -A docs 大盘报告 每日选股 每周展望 业绩估值/cache 新闻 Luk选股
+          git add -A docs 大盘报告 每日选股 每周展望 业绩估值/cache 新闻 Luk选股 早报
           if git diff --cached --quiet; then
             echo "没有变化"
           else

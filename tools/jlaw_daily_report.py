@@ -155,7 +155,7 @@ def update_html(now):
             f' · 下次约 <b style="color:#fff;">{nxt_txt}</b></span>'
             '<details class="chk"><summary style="color:#555;">更新时间表</summary><ul>'
             '<li>📅 <b>平日版</b>：每周二至周六早上 <b>06:30</b>（GMT+8），即美股周一至周五收盘后约 1.5 小时。'
-            '包含大盘报告、每日选股、Luk 选股、今日新闻、业绩与估值、本周重大事件。</li>'
+            '包含早报、大盘报告、每日选股、Luk 选股、今日新闻、业绩与估值、本周重大事件。</li>'
             '<li>📅 <b>周末版</b>：每周一早上 <b>07:00</b>（GMT+8），即美东周日晚上。'
             '包含周末新闻、本周回顾、业绩与估值、每周展望。</li>'
             '<li>⏳ GitHub 的排程常会晚 10–60 分钟才开始，跑完约需 2–5 分钟。</li>'
@@ -178,7 +178,8 @@ def main():
                             ("luk", "Luk 选股", "luk_screens.py", ())]) + [
         ("news", "周末新闻" if weekend else "今日新闻", "news_digest.py", news_mode),
         ("ev", "业绩与估值", "earnings_valuation.py", ()),
-        ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else [])
+        ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else
+                                                                                      [("brief", "早报", "morning_brief.py", ())])
     res, errs = {}, {}
     for i, (key, label, script, extra) in enumerate(steps, 1):
         print(f"{i}/{len(steps)} {label} 运行中……", flush=True)
@@ -241,8 +242,23 @@ def main():
 
     tabs.append(risk_tab(state))
 
+    # ---- 早报：放在第一个分页（周末沿用最近一个交易日的）----
+    brief = res.get("brief")
+    if brief:
+        tabs.insert(0, ("brief", "早报", f"标普 {brief['spy']:+.1f}% · 纳指 {brief['qqq']:+.1f}%" if brief.get("spy") is not None else "昨晚美股",
+                        body_of(brief["html"])))
+    elif not weekend:
+        tabs.insert(0, ("brief", "早报", "失败", error_box("早报", errs.get("brief"))))
+    else:
+        f = latest_file("早报")
+        old = published_panel("brief") if not f else None
+        if f or old:
+            day = os.path.basename(f)[:10] if f else ""
+            tabs.insert(0, ("brief", "早报", f"{day[5:]} 版" if day else "上一个交易日",
+                            (note(f"这是上一个交易日（{day}）的早报，周末不更新。") if day else "") + (old or body_of(f))))
+
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]

@@ -4,6 +4,7 @@ GitHub Actions 自动运行，生成一个多分页的网页：
 
 | 分页 | 内容 | 更新 |
 |---|---|---|
+| 早报 | 昨晚美股发生什么、相关新闻（为什么）、领涨领跌行业、大公司异动、今晚要看的数据和业绩；规则整理，不用 AI | 每个交易日 |
 | 大盘报告 | J Law 大盘体温计（躺赚 / 警戒 / 血汗钱）：出货日、突兀走势、市场宽度、见底信号 | 每个交易日 |
 | 每日选股 | 第二阶段股票池里的「META 回调」和「VCP 突破」候选股，附买点、止损和业绩日期 | 每个交易日 |
 | Luk 选股 | Martin Luk 的三个 TradingView 选股器：Leaders、Strong Day、Gappers，附 EMA 分类（Lead / Mediocre / Lag）、ADR%、主题和新上榜 | 每个交易日 |
@@ -34,6 +35,7 @@ python tools/jlaw_daily_report.py
 | `tools/market_regime.py` | 大盘报告 |
 | `tools/jlaw_daily_screen.py` | 每日选股 |
 | `tools/luk_screens.py` | Luk 选股（TradingView 选股器，名单存于 `Luk选股/`） |
+| `tools/morning_brief.py` | 早报（同一份内容也可用于 Telegram 推送） |
 | `tools/news_digest.py` | 新闻整理（RSS + 规则，不用 AI） |
 | `tools/weekly_events.py` | 本周重大事件 / 本周回顾（合并本周每天的新闻 JSON，存放在 `新闻/`） |
 | `tools/earnings_valuation.py` | 业绩与两年估值 |
