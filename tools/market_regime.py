@@ -555,7 +555,7 @@ def bt_note(spy, qqq):
         head = "SPY、QQQ 都在 200 天线上（回测里的「牛市环境」）"
         body = ("个股上升趋势 + 放量（≥1.5 倍）的光头光脚大阳线、向上跳空缺口，60 天平均跑赢全市场约 +1.3% 到 +2%；"
                 "单根反转K线（吞没、锤子、孕线、平底）几乎没有优势，要配合趋势、成交量和止损。")
-    common = "另外，43 种形态里有 40 种「等下一根K线确认后才买」，60 天收益反而较差（入场价变差）。"
+    common = "另外，70 种有方向的形态里有 63 种「等下一根K线确认后才买」，60 天收益反而较差（入场价变差）。"
     html = (f'<div style="margin-top:8px;font-size:13px;line-height:1.6;background:#fff;border:1px dashed #bbb;border-radius:6px;padding:8px 10px;">'
             f'📊 <b>K线形态回测提示：</b>{head}。{body}{common}'
             f'<span style="color:#888;font-size:11px;">（2,250 只美股 2022–2026 的统计平均，不是个股预测；详见仓库 回测/K线形态。）</span></div>')

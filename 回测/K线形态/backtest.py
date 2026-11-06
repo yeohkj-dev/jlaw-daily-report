@@ -10,12 +10,19 @@
 import glob, json, os
 import numpy as np
 import pandas as pd
+import sys
 from patterns import detect, META
+SET2 = len(sys.argv) > 1 and sys.argv[1] == "2"
+if SET2:      # 第二批形态
+    from patterns2 import detect2 as detect, META2 as META
+SUF = "2" if SET2 else ""
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(HERE, "..", "cache")
 H = (5, 10, 20, 60)
 PLEN = {k: 1 for k in META}
+PLEN.update({"kicker_bull": 2, "kicker_bear": 2, "matching_low": 2, "on_neck": 2, "oops_bull": 2, "oops_bear": 2, "luk_id": 2,
+             "tasuki_up": 3, "two_black_gap": 3, "advance_block": 3, "tls_bear": 4, "tls_bull": 4})
 PLEN.update({k: 2 for k in ["bull_engulf", "bear_engulf", "piercing", "dark_cloud", "bull_harami", "bear_harami",
                             "tweezer_bottom", "tweezer_top", "bull_kr", "bear_kr", "inside_bar_up"]})
 PLEN.update({k: 3 for k in ["morning_star", "evening_star", "three_soldiers", "three_crows", "three_inside_up", "three_inside_down"]})
@@ -84,9 +91,10 @@ def main():
     ev = ev.join(bl.add_prefix("b"), on="d")
     for k in H:
         ev[f"x{k}"] = ev[f"r{k}"] - ev[f"br{k}"]
-    ev.to_pickle(os.path.join(HERE, "events.pkl"))
-    bl.to_pickle(os.path.join(HERE, "baseline.pkl"))
-    b[[f"r{k}" for k in H]].describe().to_csv(os.path.join(HERE, "baseline_all.csv"))
+    ev.to_pickle(os.path.join(HERE, f"events{SUF}.pkl"))
+    if not SET2:
+        bl.to_pickle(os.path.join(HERE, "baseline.pkl"))
+        b[[f"r{k}" for k in H]].describe().to_csv(os.path.join(HERE, "baseline_all.csv"))
     print("events", len(ev), "base bars", len(b))
 
 

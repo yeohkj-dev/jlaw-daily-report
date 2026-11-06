@@ -6,11 +6,15 @@
 import json, os
 import numpy as np
 import pandas as pd
+import sys
 from patterns import META
+SUF = "2" if len(sys.argv) > 1 and sys.argv[1] == "2" else ""
+if SUF:
+    from patterns2 import META2 as META
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HS = (5, 10, 20, 60)
-ev = pd.read_pickle(os.path.join(HERE, "events.pkl"))
+ev = pd.read_pickle(os.path.join(HERE, f"events{SUF}.pkl"))
 for k in HS:
     cap = 0.8 if k == 60 else 0.5
     ev[f"x{k}"] = ev[f"x{k}"].clip(-cap, cap)
@@ -71,7 +75,7 @@ for p, (cn, dirn, cat) in META.items():
 bl = pd.read_pickle(os.path.join(HERE, "baseline.pkl"))
 info = {"n_events": int(len(ev)), "n_stocks": int(ev.sym.nunique()), "start": str(ev.d.min()), "end": str(ev.d.max()),
         "base": {k: round(float(bl[f"r{k}"].mean()) * 100, 2) for k in HS}}
-json.dump({"info": info, "res": res}, open(os.path.join(HERE, "stats.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump({"info": info, "res": res}, open(os.path.join(HERE, f"stats{SUF}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 rows = []
 for p, r in res.items():

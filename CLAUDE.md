@@ -86,7 +86,7 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - `backtest.py`：直接调用 `tools/jlaw_daily_screen.py` 的 `analyse()`（和网站同一份代码），逐日重跑并模拟交易；Stage、Luk 名单算上榜后 5 / 10 / 20 天报酬
 - `report.py` + `conclusions.json`：生成 `回测报告.html`
 - 运行：`python 回测/download.py` → `python 回测/backtest.py` → `python 回测/report.py`（全部约 15 分钟）
-- **K线形态回测（`回测/K线形态/`，2026-11-06）**：43 种K线 / 量价形态在约 2,250 只美股、约 96 万次信号上的超额收益。说明和完整结果表在 `回测/K线形态/README.md`。`tools/market_regime.py` 的 `bt_note()` 按 SPY / QQQ 是否在 200 天线下，在大盘报告「建议」下面显示「K线形态回测提示」（固定文字，数字来自 `stats.json` 和 `crash.json`；重跑回测后要人工同步这些数字）。用户的持仓清单不放进这个公开仓库。
+- **K线形态回测（`回测/K线形态/`，2026-11-06）**：43 种K线 / 量价形态在约 2,250 只美股、约 96 万次信号上的超额收益。说明和完整结果表在 `回测/K线形态/README.md`。`tools/market_regime.py` 的 `bt_note()` 按 SPY / QQQ 是否在 200 天线下，在大盘报告「建议」下面显示「K线形态回测提示」（固定文字，数字来自 `stats.json` 和 `crash.json`；重跑回测后要人工同步这些数字）。用户的持仓清单不放进这个公开仓库。同日补了第二批 28 种（`patterns2.py`，`backtest.py 2` / `stats.py 2` → `stats2.json`）和数据挖掘（`mine_feats.py` + `mine.py` → `mine.json`，2022–2024 找、2025–2026 验证），结果也在 README。
 - 2026-11 的结论：J Law META / VCP 只有约 +0.1R 的薄优势（只在 5R 目标卖法下），均线移动止损略亏，2026 年转负；Stage 名单没有优势；Luk 名单平均跑赢 SPY 约 0.5%（20 天）但靠少数大赢家；有幸存者偏差。
 
 ## 7. 待办 / 还没验证
