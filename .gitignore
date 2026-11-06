@@ -17,3 +17,5 @@ __pycache__/
 回测/stats.json
 回测/回测报告.html
 回测/tmp/
+回测/K线形态/*.pkl
+回测/K线形态/baseline_all.csv

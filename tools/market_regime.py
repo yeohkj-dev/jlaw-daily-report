@@ -538,6 +538,31 @@ RS 1月 = 行业近 1 月涨幅相对 SPY 的超额表现；RS 线 = ETF ÷ SPY�
 </p>"""
 
 
+def bt_note(spy, qqq):
+    """K线形态回测（回测/K线形态，2,250 只美股 2022-08 → 2026-10）给出的环境提示。固定文字，数字来自回测，不用 AI。
+    回测里的"大盘熊市" = SPY 收盘在 200 天线下。"""
+    below = [x["sym"] for x in (spy, qqq) if x["close"] < x["sma"][200]]
+    if "SPY" in below:
+        head = "SPY 在 200 天线下（回测里的「熊市环境」）"
+        body = ("这种环境下，买突破 50 日高点、回踩 20 天线、上升趋势内包线 / NR7，60 天平均<b>落后全市场约 3–4%</b>；"
+                "高位看跌K线（平顶、看跌关键反转日、上吊线、射击之星）60 天有约 <b>+2%</b> 的优势。"
+                "低位放量长下影是少数在熊市仍有效的看涨信号（60 天约 +4%），但要等跟进阳线。")
+    elif below:
+        head = f"{'、'.join(below)} 在 200 天线下，SPY 仍在线上"
+        body = ("回测只用 SPY 分环境，所以统计上还不算「熊市环境」（这和上面体温计的灯号是两回事，体温计也看 QQQ）；但科技股已转弱，买突破 / 回踩时只做个股趋势完好、相对强度高的；"
+                "前领涨股 5 天跌超 30% 后，60 天中位数 −2.5%、只有 48% 会上涨，不要把「跌很多」当买入理由。")
+    else:
+        head = "SPY、QQQ 都在 200 天线上（回测里的「牛市环境」）"
+        body = ("个股上升趋势 + 放量（≥1.5 倍）的光头光脚大阳线、向上跳空缺口，60 天平均跑赢全市场约 +1.3% 到 +2%；"
+                "单根反转K线（吞没、锤子、孕线、平底）几乎没有优势，要配合趋势、成交量和止损。")
+    common = "另外，43 种形态里有 40 种「等下一根K线确认后才买」，60 天收益反而较差（入场价变差）。"
+    html = (f'<div style="margin-top:8px;font-size:13px;line-height:1.6;background:#fff;border:1px dashed #bbb;border-radius:6px;padding:8px 10px;">'
+            f'📊 <b>K线形态回测提示：</b>{head}。{body}{common}'
+            f'<span style="color:#888;font-size:11px;">（2,250 只美股 2022–2026 的统计平均，不是个股预测；详见仓库 回测/K线形态。）</span></div>')
+    md = f"**K线形态回测提示**：{head}。{body.replace('<b>', '').replace('</b>', '')}{common}（统计平均，详见 回测/K线形态）"
+    return html, md
+
+
 def load_hist():
     if not os.path.exists(HIST):
         return []
@@ -545,7 +570,7 @@ def load_hist():
         return list(csv.DictReader(f))
 
 
-def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html="", fear="", credit_part=""):
+def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, prev, red, yellow, bottom, near, sec_html="", fear="", credit_part="", bt_html=""):
     """邮件友好的 HTML（全部内联样式，浅色背景）。"""
     col = {"🔴": ("#C62828", "#FDECEA"), "🟡": ("#B26A00", "#FFF4E0"), "🟢": ("#2E7D32", "#E8F5E9")}[state[0]]
     td = 'style="padding:6px 8px;border-bottom:1px solid #eee;"'
@@ -583,7 +608,7 @@ def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, pre
 <div style="background:{col[1]};border-left:6px solid {col[0]};padding:16px 18px;">
 <div style="font-size:13px;color:#555;">J Law 大盘体温计 · 美股收盘 {today}</div>
 <div style="font-size:26px;font-weight:700;color:{col[0]};margin-top:4px;">{state}</div>{change}
-<div style="margin-top:8px;font-size:14px;line-height:1.6;"><b>建议：</b>{advice}</div></div>
+<div style="margin-top:8px;font-size:14px;line-height:1.6;"><b>建议：</b>{advice}</div>{bt_html}</div>
 <div style="padding:16px 18px;font-size:14px;line-height:1.6;">
 <table style="width:100%;border-collapse:collapse;font-size:13px;">
 <tr><th {th}>指数</th><th {th}>收盘</th><th {th}>当日</th><th {th}>近1月</th><th {th}>20天</th><th {th}>50天</th><th {th}>200天</th><th {th}>50线</th><th {th}>出货日</th></tr>
@@ -670,11 +695,12 @@ def main():
               ("≥ 70% 大型股在 50 天线之上（广泛参与）", b50 >= 70),
               ("JLaw Stage 2 筛出 ≥ 150 只（大量个股出现买点）", s2 >= 150)]
 
+    bt_html, bt_md = bt_note(spy, qqq)
     today = spy["date"]
     changed = prev and prev["state"] != state
     lines = [f"# 大盘体温计 {today}", "",
              f"## 状态：{state}" + ("（⚠ 状态改变：上次是 " + prev["state"] + "）" if changed else ""), "",
-             f"**建议**：{advice}", "",
+             f"**建议**：{advice}", "", bt_md, "",
              "| 指数 | 收盘 | 当日 | 近1月 | 20天线 | 50天线 | 200天线 | 50线方向 | 出货日(20日) |",
              "|---|---|---|---|---|---|---|---|---|"]
     for x in (spy, qqq):
@@ -713,7 +739,7 @@ def main():
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, changed and prev["state"], advice, spy, qqq, n, b50, b200, s2, prev,
                            red, yellow, bottom, near, sector_html(sec, prev_rank, prev_rdate, check, check_ok), fear_html(fng, vix),
-                           credit_html(cr, chist, spy["date"]) if cr else ""))
+                           credit_html(cr, chist, spy["date"]) if cr else "", bt_html))
     if cr:
         save_credit_hist(spy["date"], cr, chist)
     save_sector_hist(sec, shist)
