@@ -2,7 +2,7 @@
 
 内容：期货走向（标普 / 纳指 / 罗素期货、美债、原油、美元）、昨晚选股名单的盘前表现
 （J Law 就绪、Luk Leaders）、Luk 的 Premarket 跳空股（实时）、今天的经济数据和业绩、大盘状态。
-GitHub 的排程可能晚 10–60 分钟，所以一天排两次，只有美东 08:00–09:29 之间才发，同一天只发一次。
+GitHub 的排程可能会晚，所以每 20 分钟检查一次，只有美东 08:50–09:29 之间才发，同一天只发一次。
 用法：python premarket_brief.py [输出目录] [--force]
 输出：<输出目录>/早报/盘前_YYYY-MM-DD.json（telegram_html）
 仅供学习，不构成投资建议。
@@ -190,9 +190,9 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     now = dt.datetime.now(dt.timezone.utc)
     et = nd.to_et(now)
-    in_window = et.weekday() < 5 and (8, 0) <= (et.hour, et.minute) <= (9, 29)
+    in_window = et.weekday() < 5 and (8, 50) <= (et.hour, et.minute) <= (9, 29)
     if not (in_window or FORCE):
-        print(f"美东现在 {et:%a %H:%M}，不在 08:00–09:29 的发送时间，跳过")
+        print(f"美东现在 {et:%a %H:%M}，不在 08:50–09:29 的发送时间，跳过")
         return
     text, today = build(et)
     os.makedirs(os.path.join(OUT_DIR, "早报"), exist_ok=True)

@@ -1,5 +1,7 @@
 # 每日报告
 
+> **接手维护请先看 [CLAUDE.md](CLAUDE.md)**：系统怎么自动运行、用户的规则、怎么修改和预览、已知的坑。
+
 GitHub Actions 自动运行，生成一个多分页的网页：
 
 | 分页 | 内容 | 更新 |
@@ -10,12 +12,15 @@ GitHub Actions 自动运行，生成一个多分页的网页：
 | Luk 选股 | Martin Luk 的三个 TradingView 选股器：Leaders、Strong Day、Gappers，附 EMA 分类（Lead / Mediocre / Lag）、ADR%、主题和新上榜 | 每个交易日 |
 | 今日新闻 / 周末新闻 | 最上面是「本周重大事件」（本周走势、重要经济数据、大公司财报、本周最重大新闻，逐日累加；周末变成本周回顾），下面是当天影响市场的新闻（按主题归类、多家媒体报道的优先）、市场快照、美国经济日历 | 每个交易日；周日晚上出周末版 |
 | 业绩与估值 | 11 个板块各前 10 大公司：最新季度业绩 vs 预期、公司展望原文（SEC 8-K）、分析师预期修正、两年估值情景 | 每天 |
-| 每周展望 | 9 个因素打分判断下周方向（偏多 / 中性 / 偏空）、板块轮动、下周经济日历和大公司业绩 | 每周日晚上 |
+| 每周展望 | 9 个因素打分判断下周方向（偏多 / 中性 / 偏空）、指数与宏观的中期趋势 | 每周日晚上 |
+| 风险计算 | 嵌入仓位风险计算器，按大盘状态预选灯号 | 跟大盘状态 |
 
 顶部的「数据核对」汇总各模块的检查结果（来源数量、数据新鲜度、Yahoo 与 TradingView 两源对照等）。
 有严重问题时，这次运行会失败、网站保留上一份报告，GitHub 会发邮件通知。
 
-网页：`https://<你的用户名>.github.io/jlaw-daily-report/`；历史报告在 `archive/`（保留最近 30 份）。
+网页：https://yeohkj-dev.github.io/jlaw-daily-report/ ；历史报告在 `archive/`（保留最近 30 份）。
+
+Telegram：每个交易日早上发「早报」，开市前约 30 分钟发「盘前提醒」（需要 Secrets `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID`）。
 
 ## 运行时间
 - 平日版：周一至周五 UTC 22:30（马来西亚/香港时间次日早上 6:30）
@@ -43,6 +48,8 @@ python tools/jlaw_daily_report.py
 | `tools/weekly_outlook.py` | 每周展望 |
 | `tools/common.py` | 共用的数据下载和网页小部件 |
 | `tools/jlaw_daily_report.py` | 依次运行上面各模块，合并成多分页网页 |
+| `tools/telegram_send.py` | 把早报 / 盘前提醒发到 Telegram（同一份只发一次） |
+| `回测/` | 选股回测脚本（数据缓存不进仓库） |
 | `docs/` | 网站（GitHub Pages 从这里发布） |
 
 数据来自 Yahoo Finance、TradingView 公开选股器、SEC EDGAR、CNBC / MarketWatch / Yahoo Finance / Google News 的 RSS、Forex Factory 经济日历。
