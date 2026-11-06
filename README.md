@@ -36,6 +36,7 @@ python tools/jlaw_daily_report.py
 | `tools/jlaw_daily_screen.py` | 每日选股 |
 | `tools/luk_screens.py` | Luk 选股（TradingView 选股器，名单存于 `Luk选股/`） |
 | `tools/morning_brief.py` | 早报（同一份内容也可用于 Telegram 推送） |
+| `tools/premarket_brief.py` | 盘前提醒（开市前约 30 分钟发到 Telegram：期货走向、选股名单盘前表现、Luk 盘前跳空股） |
 | `tools/news_digest.py` | 新闻整理（RSS + 规则，不用 AI） |
 | `tools/weekly_events.py` | 本周重大事件 / 本周回顾（合并本周每天的新闻 JSON，存放在 `新闻/`） |
 | `tools/earnings_valuation.py` | 业绩与两年估值 |

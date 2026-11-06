@@ -1,0 +1,46 @@
+name: 盘前提醒
+
+# 美股开市前约 30 分钟发到 Telegram：期货走向 + 选股名单盘前表现。
+# UTC 12:15 和 13:15 各排一次（GitHub 排程常晚 10–60 分钟；夏令时 / 冬令时也不同），
+# 程序只在美东 08:00–09:29 之间才发，同一天只发一次。手动运行会强制发送（测试用）。
+on:
+  schedule:
+    - cron: "15 12,13 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: premarket
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 整理盘前提醒
+        run: python tools/premarket_brief.py . ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+
+      - name: 发送到 Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/telegram_send.py . --premarket ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+
+      - name: 记录已发送（同一天不重复发）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add 早报
+          if ! git diff --cached --quiet; then
+            git commit -q -m "盘前提醒 $(date -u +%Y-%m-%d)"
+            git pull -q --rebase && git push
+          fi
