@@ -20,6 +20,9 @@ DATA = os.path.join(HERE, "data")
 sys.path.insert(0, os.path.join(ROOT, "回测", "K线形态"))
 from patterns import detect          # noqa: E402
 from patterns2 import detect2        # noqa: E402
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale   # noqa: E402
+RS = rs_load()
 
 # 回测「有效」的形态（回测/K线形态/README.md）
 BULL = {"stopping_vol": "低位放量长下影", "three_soldiers": "红三兵", "gap_up": "向上跳空",
@@ -150,7 +153,7 @@ def table(rs, action):
     body = ""
     for r in rs:
         stop = f'{r["stop"]:.2f}<small>（−{1 - r["stop"] / r["close"]:.0%}）</small>' if r["stop"] and r["stop"] < r["close"] else "—"
-        body += (f'<tr><td><b>{r["t"]}</b><div class="sub">{html.escape(str(r["name"])[:22])}</div></td>'
+        body += (f'<tr><td><b>{r["t"]}</b>{rs_badge(RS, r["t"])}<div class="sub">{html.escape(str(r["name"])[:22])}</div></td>'
                  f'<td>{chips(r)}<div class="sub">{html.escape(r["why"])}</div></td>'
                  f'<td class="num">{r["close"]:.2f}</td><td class="num">{stop}</td><td>{action(r)}</td></tr>')
     return ('<div class="tw"><table><tr><th>股票</th><th>哪些系统看好 / 原因</th><th class="num">收盘</th>'
@@ -178,7 +181,7 @@ TAB = f"""<style>
 <div style="font-size:22px;font-weight:800;color:{fg}">{light} · {"今天不买新股票，只观察" if gate == "现金" else "今天买入用" + size}</div>
 <div style="margin-top:2px;font-size:13px">量化红绿灯：<b>{LIGHT[qgate][1]}</b> · J Law 大盘：<b>{html.escape(jstate or "未知")}</b> → 两个取较严的</div>
 <div style="margin-top:4px">可以买 <b>{len(A)}</b> 只 · 等买点 <b>{len(B)}</b> 只 · 要小心 <b>{len(C)}</b> 只</div>
-<div class="sub" style="margin-top:4px">怎么排出来的：① 先看量化红绿灯决定买多少 → ② J Law / 量化动量 / Luk 名单选股，越多系统同时看好排越前 → ③ 只用回测有效的K线形态：看涨的加分，看跌的直接放进「要小心」。</div>
+{rs_stale(RS)}<div class="sub" style="margin-top:4px">怎么排出来的：① 先看量化红绿灯决定买多少 → ② J Law / 量化动量 / Luk 名单选股，越多系统同时看好排越前 → ③ 只用回测有效的K线形态：看涨的加分，看跌的直接放进「要小心」。</div>
 </div>
 <div class="card"><h3 style="color:#2E7D32">🟢 买点已经出现{"（今天红灯：先观察，不买）" if gate == "现金" else ""}</h3>
 <div class="sub">J Law 就绪名单或量化买点（52 周新高放量 / 收窄突破 / 回踩 20 日线），在 50 日线上，最近 3 天没有看跌K线。</div>

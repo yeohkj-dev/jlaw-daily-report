@@ -495,6 +495,8 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
     """单文件 HTML（内联样式，图表以 base64 内嵌）。"""
     import base64
     import html as h
+    from rs_rating import load as rs_load, badge as rs_badge, top_table as rs_top, stale_note as rs_stale
+    rs = rs_load()
     key = state[0] if state and state[0] in "🔴🟡🟢" else None
     col = {"🔴": ("#C62828", "#FDECEA"), "🟡": ("#B26A00", "#FFF4E0"), "🟢": ("#2E7D32", "#E8F5E9")}.get(key, ("#555", "#f0f0f0"))
     advice = {"🔴": "以现金为主、冬眠：名单只作观察，留意谁在逆市走强，不建议新开大仓。",
@@ -514,7 +516,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
                 f'style="color:#1565C0;text-decoration:none;font-weight:700;">{h.escape(sym)} <span style="font-size:11px;">📈</span></a>')
 
     def name(r):
-        return f'{link(r["sym"])}<br><span style="color:#888;font-size:11px;">{h.escape(r["name"][:22])}</span>'
+        return f'{link(r["sym"])}{rs_badge(rs, r["sym"])}<br><span style="color:#888;font-size:11px;">{h.escape(r["name"][:22])}</span>'
 
     def wrap(head, body):
         hd = "".join(f"<th {th}>{x}</th>" for x in head)
@@ -554,7 +556,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
               ".st small{color:#888;font-size:11px}.st u{text-decoration:none;color:#2E7D32}.st s{text-decoration:none;color:#C62828}</style>")
 
     def sname(r):
-        return (f'<a href="{h.escape(tv_url(r["sym"]))}" target="_blank" rel="noopener">{h.escape(r["sym"])} 📈</a>'
+        return (f'<a href="{h.escape(tv_url(r["sym"]))}" target="_blank" rel="noopener">{h.escape(r["sym"])} 📈</a>{rs_badge(rs, r["sym"])}'
                 f'<br><small>{h.escape(r["name"][:22])}</small>')
 
     def spc(x):
@@ -623,7 +625,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 <div style="margin-top:6px;font-size:14px;line-height:1.6;"><b>建议：</b>{advice}</div></div>
 <div style="padding:16px 18px;font-size:14px;line-height:1.6;">
 <p style="margin:0;"><b>股票池：</b>第二阶段 + 日均成交额 ≥ 1 亿美元 <b>{n_univ}</b> 只 · 有动能事件 <b>{n_mom}</b> 只 · VCP 相对强度层 <b>{n_vcp}</b> 只
-<span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}
+<span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
 {sec("B. 观察名单 · META（优势 ≥3）", "#B26A00")}{meta_tbl(meta_watch[:10])}
@@ -634,6 +636,9 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 {sec(f"C2. Stage 2 名单（{len(stage2)} 只，按 6 个月 RS 排序）", "#6A1B9A")}
 <p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">已确认的上升阶段：收盘 &gt; 50 天线 &gt; 200 天线，50 和 200 天线都向上，距 52 周高 25% 以内，比 52 周低点高 ≥25%。阶段按 50 天线上穿 200 天线后的天数：早期 ≤60、中段 ≤180、后段 &gt;180。距 50 天线 &gt;25% 标「远离」，不宜追高。这是强势股名单，不是买点，买点仍看上面的 META / VCP。</p>
 {more(stage2, s2_tbl)}
+{sec(f"D. RS Rating 前 30（{rs['date'] if rs else '—'}，共 {rs['n'] if rs else 0} 只美股排名）", "#1B5E20")}
+<p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">RS Rating（1–99，IBD 式）= 过去一年涨幅（最近一季权重加倍）在约 2,250 只美股里的排名，99 = 赢过 99% 的股票。各名单股票代码旁的 <b>RS</b> 标记是同一个数字：<b style="color:#1B5E20;">≥90</b> 最强、<b style="color:#2E7D32;">≥80</b> 强（Minervini / O'Neil 的门槛）、<b style="color:#C62828;">&lt;50</b> 弱。股票池只含市值 ≥3 亿、日成交额 ≥1,000 万美元的股票，比 IBD 全市场严格，数字可能比 IBD 低几分。这是强势排名，不是买点。</p>
+{rs_stale(rs)}{rs_top(rs, 30)}
 <div style="display:flex;flex-wrap:wrap;gap:16px;">
 <div style="flex:1 1 360px;">{sec(f"热门产业组（同一行业 ≥{HOT_GROUP_MIN} 只）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{hot_html}</ul></div>
 <div style="flex:1 1 360px;">{sec("近 5 日新的动能事件（等低量回调）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{fresh_html}</ul></div></div>

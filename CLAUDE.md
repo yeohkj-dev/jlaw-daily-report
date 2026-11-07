@@ -36,6 +36,13 @@
 | 量化系统 | `量化/run.py`（分页内容 `量化/data/tab.html`，完整报告发布成 `docs/quant.html`） | 8 信号市场状态分、个股交易开关（进攻 / 谨慎 / 现金）、今天出现买点的动量股、链接到完整量化报告（研究、23 年回测、进出场规则） |
 | 风险计算 | `tools/jlaw_daily_report.py` 里的 `risk_tab()` | 用 iframe 嵌入风险计算器，网址带 `?light=green|yellow|red`（按大盘状态预选灯号） |
 
+### RS Rating（2026-11-07 加入）
+- `tools/rs_rating.py`：IBD 式 1–99。分数 = `2×c/c[63] + c/c[126] + c/c[189] + c/c[252]`，在量化系统的股票池（`量化/data/stocks/`，约 2,250 只）里排百分位。`jlaw_daily_report.py` 的 `main()` 一开始就算（每日选股、Luk、综合名单要读），写 `量化/data/rs_rating.json`，发布时把 1–99 门槛表写成 `docs/rs_table.json`。
+- 显示：每日选股、Luk 选股、综合名单的股票代码旁有「RS 92」小标记（`badge()`）；每日选股最后有「D. RS Rating 前 30」（`top_table()`）。
+- 排名日 = 最近一个 ≥90% 股票有收盘的交易日（Yahoo 收盘后一段时间只有部分股票更新）。如果不是最新交易日（个股和 SPY 取较新的），三个名单上方显示红字提示、RS 标记带「*」（`stale_note()`），用户要求「RS 是前天的要让我知道」。
+- 数据核对：前 40 名收盘价逐只对 TradingView 选股器 `close`（差 ≤0.5%）；3 个月涨幅对 `Perf.3M` 看差距中位数 ≤5 个百分点（日历月 vs 63 根K线，只用来抓拆股之类的大错）。排名日不是最新交易日时这项跳过并提醒。
+- TradingView 指标「RS 线（相对 SPY）」（用户私人脚本，源码在用户本机 `tradingview/RS线.pine`）里的 RS Rating 用同一个公式和 `rs_table.json` 的门槛表；门槛表写死在 Pine 里，要定期手动更新。
+
 `tools/jlaw_daily_report.py` 依次运行各模块，合并成一个多分页网页，写到 `docs/`（GitHub Pages 从 `main` 分支的 `docs/` 发布）。页头有更新时间、下次更新时间和「数据核对」汇总。
 
 ## 2. 自动运行（GitHub Actions）

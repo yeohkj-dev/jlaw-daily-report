@@ -44,6 +44,12 @@ def publish(page, today):
     q = os.path.join(OUT_DIR, "量化", "data", "量化系统.html")       # 完整量化报告（公开版，没有持仓）
     if os.path.exists(q) and time.time() - os.path.getmtime(q) < 36 * 3600:
         shutil.copyfile(q, os.path.join(PUBLISH, "quant.html"))
+    rsj = os.path.join(OUT_DIR, "量化", "data", "rs_rating.json")      # RS Rating 门槛表（TradingView「RS 线」指标用）
+    if os.path.exists(rsj) and time.time() - os.path.getmtime(rsj) < 36 * 3600:
+        with open(rsj, encoding="utf-8") as fh:
+            d = json.load(fh)
+        with open(os.path.join(PUBLISH, "rs_table.json"), "w", encoding="utf-8") as fh:
+            json.dump({k: d[k] for k in ("date", "n", "formula", "thresholds")}, fh)
     # 历史版不存「业绩与估值」（每天变化不大、体积最大），让仓库不会越来越大
     slim = re.sub(r"<!--EV-START-->.*?<!--EV-END-->", '<div style="max-width:1080px;margin:16px auto;padding:16px;font-size:14px;">'
                   '历史报告不保存这一页，请看<a href="../">最新报告</a>。</div>', page, flags=re.S)
@@ -231,6 +237,15 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     os.makedirs(REPORT_DIR, exist_ok=True)
     now = dt.datetime.now(dt.timezone.utc)
+    rs_checks = []
+    try:            # RS Rating（tools/rs_rating.py）：要在每日选股、Luk、综合名单之前算好，它们会读
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import rs_rating
+        rso = rs_rating.compute(OUT_DIR)
+        rs_checks = rso["checks"]
+        print(f"RS Rating：{rso['date']} 共 {rso['n']} 只", flush=True)
+    except Exception as e:
+        rs_checks = [dict(name="RS Rating", ok=False, detail=f"计算失败：{e}", critical=False)]
     et = now.astimezone(dt.timezone(dt.timedelta(hours=-5)))
     weekend = FORCE == "weekend" or (FORCE is None and et.weekday() in (5, 6))
     news_mode = ["--mode", "weekend" if weekend else "daily"]
@@ -321,7 +336,7 @@ def main():
 
     # ---- 数据核对汇总 ----
     checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
-              for c in ((res.get(key) or {}).get("checks") or [])] + quant_checks()
+              for c in ((res.get(key) or {}).get("checks") or [])] + quant_checks() + [dict(c, module="RS Rating") for c in rs_checks]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]
     failed = [lab for key, lab, _, _ in steps if not res.get(key)]

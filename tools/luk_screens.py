@@ -21,6 +21,8 @@ from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import AMBER, BLUE, GREEN, GREY, RED, card, check_list_html, h3, tv_scan, yahoo_chart
+from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale
+RS = rs_load()
 
 OUT_DIR = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LUK_DIR = os.path.join(OUT_DIR, "Luk选股")
@@ -111,7 +113,7 @@ def table_html(key, rows, prev, today):
         lst = ema_list(r)
         mid = (f"<td>{pc(r['gap'])}</td><td>{pc(r['premarket_change'])}</td>" if key == "gap" else f"<td>{pc(r['Perf.W'])}</td>")
         vt = r["Value.Traded"] or 0
-        body += (f'<tr><td>{i}</td><td><a href="{h.escape(url)}" target="_blank" rel="noopener">{h.escape(r["name"])} 📈</a>{new}'
+        body += (f'<tr><td>{i}</td><td><a href="{h.escape(url)}" target="_blank" rel="noopener">{h.escape(r["name"])} 📈</a>{rs_badge(RS, r["name"])}{new}'
                  f'<br><small>{h.escape((r["description"] or "")[:24])}</small></td><td>{h.escape((r["industry"] or "")[:22])}</td>'
                  f'<td>{r["close"]:.2f}</td><td>{pc(r["change"])}</td>{mid}<td>{pc(r["Perf.1M"])}</td><td>{adr_txt}</td>'
                  f'<td>{(r["relative_volume_10d_calc"] or 0):.1f}x</td><td>{vt / 1e6:,.0f}M</td>'
@@ -192,7 +194,7 @@ def main():
                      + (table_html(key, rows, prev.get(key) if prev_date else None, today) if rows else '<p style="color:#888;">今天取不到数据。</p>'))
     theme_html = ("".join(f"<li><b>{h.escape(k)}</b>（{len(v)}）：{h.escape('、'.join(v[:12]))}</li>" for k, v in th)
                   if th else "<li>今天没有同一行业 ≥3 只的主题。</li>")
-    body = (css + h3("一眼看懂", GREEN) + summary + method + sections
+    body = (css + h3("一眼看懂", GREEN) + summary + rs_stale(RS) + method + sections
             + h3("主题（同一行业在三个名单里 ≥3 只）") + f'<ul style="margin:0;padding-left:20px;">{theme_html}</ul>'
             + '<p style="color:#888;font-size:11px;margin-top:14px;">数据来自 TradingView 选股器（与你在 TradingView 里看到的同一来源），收盘后的数据。'
               'ADR% = 14 日平均日波幅 ÷ 股价。相对成交量 = 当日量 ÷ 10 日均量。「本周成交额」是 TradingView 的周线数据，周一、周二时数值偏小，Leaders 名单会较短。'
