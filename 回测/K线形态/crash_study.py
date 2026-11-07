@@ -4,8 +4,8 @@ import numpy as np, pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tools"))
 from common import fetch_json
 import urllib.parse
-HERE=os.path.dirname(os.path.abspath(__file__)); CACHE=os.path.join(HERE,"..","cache")
-bl=pd.read_pickle(os.path.join(HERE,"baseline.pkl"))
+HERE=os.path.dirname(os.path.abspath(__file__)); TAG=os.environ.get("BT_TAG",""); CACHE=os.path.join(HERE,"..","cache"+TAG)
+bl=pd.read_pickle(os.path.join(HERE,f"baseline{TAG}.pkl"))
 out={}
 rows=[]
 for f in glob.glob(os.path.join(CACHE,"*.json")):
@@ -48,4 +48,4 @@ for sym in ("QQQ","^GSPC"):
     def s2(g): return {"n":len(g),**{f"r{k}":round(g[f"r{k}"].median()*100,1) for k in (5,20,60,250)},**{f"up{k}":round((g[f"r{k}"].dropna()>0).mean()*100,1) for k in (20,60,250)},"mdd60":round(g.mdd.median()*100,1)}
     out[sym]={"th":th,"all":s2(e),"above200":s2(e[e.above200]),"below200":s2(e[~e.above200]),
               "recent":e[e.d>="2018-01-01"][["d","r1","r20","r60"]].round(3).values.tolist()}
-json.dump(out,open(os.path.join(HERE,"crash.json"),"w"),indent=1,default=str); print(json.dumps(out,indent=1,default=str)[:3500])
+json.dump(out,open(os.path.join(HERE,f"crash{TAG}.json"),"w"),indent=1,default=str); print(json.dumps(out,indent=1,default=str)[:3500])

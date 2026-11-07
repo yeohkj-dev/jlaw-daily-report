@@ -15,10 +15,17 @@ from patterns import detect, META
 SET2 = len(sys.argv) > 1 and sys.argv[1] == "2"
 if SET2:      # 第二批形态
     from patterns2 import detect2 as detect, META2 as META
-SUF = "2" if SET2 else ""
+SET3 = len(sys.argv) > 1 and sys.argv[1] == "3"
+if SET3:      # 第三批：经典图形
+    from patterns3 import detect3 as detect, META3 as META
+SET4 = len(sys.argv) > 1 and sys.argv[1] == "4"
+if SET4:      # 第四批：Smart Money Order Block
+    from patterns_ob import detect_ob as detect, META_OB as META
+SUF = "2" if SET2 else ("3" if SET3 else ("4" if SET4 else ""))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(HERE, "..", "cache")
+TAG = os.environ.get("BT_TAG", "")   # "20" = 用 cache20（2005 起 20 年数据），输出文件名加 20
+CACHE = os.path.join(HERE, "..", "cache" + TAG)
 H = (5, 10, 20, 60)
 PLEN = {k: 1 for k in META}
 PLEN.update({"kicker_bull": 2, "kicker_bear": 2, "matching_low": 2, "on_neck": 2, "oops_bull": 2, "oops_bear": 2, "luk_id": 2,
@@ -40,7 +47,10 @@ def main():
     spy = load(os.path.join(CACHE, "SPY.json"))
     spy["above200"] = spy.c > spy.c.rolling(200).mean()
     regime = dict(zip(spy.d, spy.above200))
-    ev_rows, base = [], []
+    # 省内存版（20 年数据约 300 万次信号）：每只股票先做成紧凑 DataFrame；全市场基准用按日期累加，不存每一根K线
+    cal = pd.Index(spy.d.values)
+    bsum = {k: np.zeros(len(cal)) for k in H}; bcnt = np.zeros(len(cal)); ball = {k: [0.0, 0.0, 0] for k in H}
+    chunks, n_ev = [], 0
     files = sorted(glob.glob(os.path.join(CACHE, "*.json")))
     for n, f in enumerate(files):
         sym = os.path.basename(f)[:-5]
@@ -59,7 +69,12 @@ def main():
             fwd[k] = ex / ent - 1
         liquid = (c >= 5) & ((df.v * df.c).rolling(20).mean().values >= 5e6)
         valid = liquid & ~np.isnan(fwd[20]) & (np.arange(N) >= 200)
-        base.append(pd.DataFrame({"d": df.d.values[valid], **{f"r{k}": fwd[k][valid] for k in H}}))
+        ci = cal.get_indexer(df.d.values[valid]); okc = ci >= 0
+        for k in H:
+            v = fwd[k][valid]; m = okc & ~np.isnan(v)
+            np.add.at(bsum[k], ci[m], v[m]); ball[k][0] += float(v[m].sum()); ball[k][1] += float((v[m] ** 2).sum()); ball[k][2] += int(m.sum())
+        np.add.at(bcnt, ci[okc], 1)
+        rows = []
         for name, sig in P.items():
             idx = np.where(sig.values & valid)[0]
             if not len(idx):
@@ -74,28 +89,39 @@ def main():
                 brk = 1 if u < dd else (-1 if dd < u else 0)
                 # 确认版
                 conf = (c[i + 1] > ph) if dirn > 0 else ((c[i + 1] < pl) if dirn < 0 else False)
-                row = {"sym": sym, "d": df.d.values[i], "p": name, "i": i, "brk": brk, "conf": bool(conf),
-                       "vrel": ctx.vrel.values[i], "uptrend": bool(ctx.uptrend.values[i]), "above200": bool(ctx.above200.values[i]),
-                       "mkt": bool(regime.get(df.d.values[i], True)),
-                       "near50": bool(abs(l[i] / ctx.sma50.values[i] - 1) < 0.03 or (l[i] <= ctx.sma50.values[i] <= c[i])),
-                       "stop_pct": (c[i] / pl - 1) if dirn >= 0 else (ph / c[i] - 1)}
-                for k in H:
-                    row[f"r{k}"] = fwd[k][i]
-                    row[f"c{k}"] = (c[i + 1 + k] / c[i + 1] - 1) if (conf and i + 1 + k < N) else np.nan
-                ev_rows.append(row)
+                rows.append((df.d.values[i], name, i, brk, bool(conf), ctx.vrel.values[i], bool(ctx.uptrend.values[i]), bool(ctx.above200.values[i]),
+                             bool(regime.get(df.d.values[i], True)),
+                             bool(abs(l[i] / ctx.sma50.values[i] - 1) < 0.03 or (l[i] <= ctx.sma50.values[i] <= c[i])),
+                             (c[i] / pl - 1) if dirn >= 0 else (ph / c[i] - 1),
+                             *[fwd[k][i] for k in H],
+                             *[((c[i + 1 + k] / c[i + 1] - 1) if (conf and i + 1 + k < N) else np.nan) for k in H]))
+        if rows:
+            cols = ["d", "p", "i", "brk", "conf", "vrel", "uptrend", "above200", "mkt", "near50", "stop_pct"] + [f"r{k}" for k in H] + [f"c{k}" for k in H]
+            x = pd.DataFrame(rows, columns=cols)
+            for col in ["vrel", "stop_pct"] + [f"r{k}" for k in H] + [f"c{k}" for k in H]:
+                x[col] = x[col].astype("float32")
+            x["i"] = x["i"].astype("int32"); x["brk"] = x["brk"].astype("int8")
+            x.insert(0, "sym", sym)
+            chunks.append(x); n_ev += len(x)
         if n % 300 == 0:
-            print(n, sym, len(ev_rows), flush=True)
-    ev = pd.DataFrame(ev_rows)
-    b = pd.concat(base)
-    bl = b.groupby("d")[[f"r{k}" for k in H]].mean()
+            print(n, sym, n_ev, flush=True)
+    ev = pd.concat(chunks, ignore_index=True); del chunks
+    for col in ("sym", "p", "d"):
+        ev[col] = ev[col].astype("category")
+    m = bcnt > 0
+    bl = pd.DataFrame({f"r{k}": bsum[k][m] / bcnt[m] for k in H}, index=pd.Index(cal[m], name="d"))
     ev = ev.join(bl.add_prefix("b"), on="d")
     for k in H:
-        ev[f"x{k}"] = ev[f"r{k}"] - ev[f"br{k}"]
-    ev.to_pickle(os.path.join(HERE, f"events{SUF}.pkl"))
-    if not SET2:
-        bl.to_pickle(os.path.join(HERE, "baseline.pkl"))
-        b[[f"r{k}" for k in H]].describe().to_csv(os.path.join(HERE, "baseline_all.csv"))
-    print("events", len(ev), "base bars", len(b))
+        ev[f"x{k}"] = (ev[f"r{k}"] - ev[f"br{k}"]).astype("float32")
+    for col in ("sym", "p", "d"):
+        ev[col] = ev[col].astype(str)
+    ev.to_pickle(os.path.join(HERE, f"events{SUF}{TAG}.pkl"))
+    if not SET2 and not SET3 and not SET4:
+        bl.to_pickle(os.path.join(HERE, f"baseline{TAG}.pkl"))
+        pd.DataFrame({f"r{k}": {"count": ball[k][2], "mean": ball[k][0] / ball[k][2],
+                                 "std": (ball[k][1] / ball[k][2] - (ball[k][0] / ball[k][2]) ** 2) ** 0.5} for k in H}).to_csv(os.path.join(HERE, f"baseline_all{TAG}.csv"))
+    b = bcnt
+    print("events", len(ev), "base bars", int(bcnt.sum()))
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(HERE, "cache")
+CACHE = os.path.join(HERE, "cache" + os.environ.get("BT_TAG", ""))   # BT_TAG=20 → cache20（2005 起）
 TOOLS = os.path.join(os.path.dirname(HERE), "tools")
 WARMUP = 300                      # 前 300 个交易日只用来算指标
 HORIZONS = (5, 10, 20)
@@ -145,7 +145,7 @@ def jlaw_signals(meta, spy_df, P):
     spy_rows = _rows(spy_df)
     last = P["c"].ffill().iloc[-1]
     jobs = [(s, meta[s], meta[s].get("market_cap_basic")) for s in meta if s not in ("SPY", "QQQ")]
-    with Pool(max(1, os.cpu_count() - 1), initializer=_init, initargs=(spy_rows,)) as pool:
+    with Pool(int(os.environ.get("BT_POOL", max(1, os.cpu_count() - 1))), initializer=_init, initargs=(spy_rows,)) as pool:
         res = {}
         for i, (s, recs) in enumerate(pool.imap_unordered(jlaw_worker, jobs, chunksize=4), 1):
             res[s] = recs

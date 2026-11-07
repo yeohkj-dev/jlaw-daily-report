@@ -1,8 +1,8 @@
 """条件基准：不看K线形态，只看"位置/趋势"本身，60 天超额收益（相对同日全市场平均）。"""
 import glob, json, os
 import numpy as np, pandas as pd
-HERE=os.path.dirname(os.path.abspath(__file__)); CACHE=os.path.join(HERE,"..","cache")
-bl=pd.read_pickle(os.path.join(HERE,"baseline.pkl"))
+HERE=os.path.dirname(os.path.abspath(__file__)); TAG=os.environ.get("BT_TAG",""); CACHE=os.path.join(HERE,"..","cache"+TAG)
+bl=pd.read_pickle(os.path.join(HERE,f"baseline{TAG}.pkl"))
 spy=pd.DataFrame(json.load(open(os.path.join(CACHE,"SPY.json")))); spy["bull"]=spy.c>spy.c.rolling(200).mean(); reg=dict(zip(spy.d,spy.bull))
 acc={}
 def add(name,mask,x,bull):
@@ -41,6 +41,6 @@ rows=[]
 for (n,t),(cnt,sm,pos) in acc.items():
     nm,k=n.split("|"); rows.append([nm,int(k),t,cnt,round(sm/cnt*100,2) if cnt else None,round(pos/cnt*100,1) if cnt else None])
 df=pd.DataFrame(rows,columns=["条件","天","大盘","n","超额%","跑赢%"])
-df.to_csv(os.path.join(HERE,"cond_base.csv"),index=False,encoding="utf-8-sig")
+df.to_csv(os.path.join(HERE,f"cond_base{TAG}.csv"),index=False,encoding="utf-8-sig")
 pd.set_option("display.width",200)
 print(df.pivot_table(index="条件",columns=["天","大盘"],values="超额%").round(2).to_string())

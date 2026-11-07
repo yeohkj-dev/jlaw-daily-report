@@ -8,20 +8,25 @@ import numpy as np
 import pandas as pd
 import sys
 from patterns import META
-SUF = "2" if len(sys.argv) > 1 and sys.argv[1] == "2" else ""
-if SUF:
+SUF = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in ("2", "3", "4") else ""
+if SUF == "2":
     from patterns2 import META2 as META
+if SUF == "3":
+    from patterns3 import META3 as META
+if SUF == "4":
+    from patterns_ob import META_OB as META
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HS = (5, 10, 20, 60)
-ev = pd.read_pickle(os.path.join(HERE, f"events{SUF}.pkl"))
+TAG = os.environ.get("BT_TAG", "")
+ev = pd.read_pickle(os.path.join(HERE, f"events{SUF}{TAG}.pkl"))
 for k in HS:
     cap = 0.8 if k == 60 else 0.5
     ev[f"x{k}"] = ev[f"x{k}"].clip(-cap, cap)
     ev[f"cx{k}"] = (ev[f"c{k}"] - ev[f"br{k}"]).clip(-cap, cap)
 
 
-BIAS = json.load(open(os.path.join(HERE, "bias.json")))
+BIAS = json.load(open(os.path.join(HERE, f"bias{TAG}.json")))
 
 
 def summ(g, dirn, col="x", reg="all"):
@@ -72,10 +77,10 @@ for p, (cn, dirn, cat) in META.items():
     r["by_year"] = {y: summ(gg, dirn).get("ex20") for y, gg in g.groupby("y")}
     res[p] = r
 
-bl = pd.read_pickle(os.path.join(HERE, "baseline.pkl"))
+bl = pd.read_pickle(os.path.join(HERE, f"baseline{TAG}.pkl"))
 info = {"n_events": int(len(ev)), "n_stocks": int(ev.sym.nunique()), "start": str(ev.d.min()), "end": str(ev.d.max()),
         "base": {k: round(float(bl[f"r{k}"].mean()) * 100, 2) for k in HS}}
-json.dump({"info": info, "res": res}, open(os.path.join(HERE, f"stats{SUF}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump({"info": info, "res": res}, open(os.path.join(HERE, f"stats{SUF}{TAG}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 rows = []
 for p, r in res.items():

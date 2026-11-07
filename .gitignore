@@ -12,6 +12,9 @@ Luk选股/*.html
 __pycache__/
 *.pyc
 回测/cache/
+回测/cache20/
+回测/jlaw_sig*.pkl
+回测/meta_trades*.pkl
 回测/results.pkl
 回测/universe.json
 回测/stats.json

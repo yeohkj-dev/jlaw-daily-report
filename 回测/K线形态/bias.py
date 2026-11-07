@@ -1,8 +1,8 @@
 """全体股票在相同截断规则下的平均超额（理论应为 0，偏差来自截断）。按大盘牛/熊分开。"""
 import glob, json, os
 import numpy as np, pandas as pd
-HERE=os.path.dirname(os.path.abspath(__file__)); CACHE=os.path.join(HERE,"..","cache")
-bl=pd.read_pickle(os.path.join(HERE,"baseline.pkl"))
+HERE=os.path.dirname(os.path.abspath(__file__)); TAG=os.environ.get("BT_TAG",""); CACHE=os.path.join(HERE,"..","cache"+TAG)
+bl=pd.read_pickle(os.path.join(HERE,f"baseline{TAG}.pkl"))
 spy=pd.DataFrame(json.load(open(os.path.join(CACHE,"SPY.json")))); spy["bull"]=spy.c>spy.c.rolling(200).mean(); reg=dict(zip(spy.d,spy.bull))
 acc={}
 for f in glob.glob(os.path.join(CACHE,"*.json")):
@@ -19,4 +19,4 @@ for f in glob.glob(os.path.join(CACHE,"*.json")):
         for t,mm in (("all",m),("bull",m&bull),("bear",m&~bull)):
             v_=x[mm]; v_=v_[~np.isnan(v_)]; a=acc.setdefault(f"{k}_{t}",[0,0.0]); a[0]+=len(v_); a[1]+=v_.sum()
 out={k:round(s/n*100,3) for k,(n,s) in acc.items()}
-json.dump(out,open(os.path.join(HERE,"bias.json"),"w")); print(out)
+json.dump(out,open(os.path.join(HERE,f"bias{TAG}.json"),"w")); print(out)

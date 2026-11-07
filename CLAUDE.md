@@ -41,7 +41,7 @@
 - 显示：每日选股、Luk 选股、综合名单的股票代码旁有「RS 92」小标记（`badge()`）；每日选股最后有「D. RS Rating 前 30」（`top_table()`）。
 - 排名日 = 最近一个 ≥90% 股票有收盘的交易日（Yahoo 收盘后一段时间只有部分股票更新）。如果不是最新交易日（个股和 SPY 取较新的），三个名单上方显示红字提示、RS 标记带「*」（`stale_note()`），用户要求「RS 是前天的要让我知道」。
 - 数据核对：前 40 名收盘价逐只对 TradingView 选股器 `close`（差 ≤0.5%）；3 个月涨幅对 `Perf.3M` 看差距中位数 ≤5 个百分点（日历月 vs 63 根K线，只用来抓拆股之类的大错）。排名日不是最新交易日时这项跳过并提醒。
-- TradingView 指标「RS 线（相对 SPY）」（用户私人脚本，源码在用户本机 `tradingview/RS线.pine`）里的 RS Rating 用同一个公式和 `rs_table.json` 的门槛表；门槛表写死在 Pine 里，要定期手动更新。
+- 2026-11-07 用户决定 TradingView 的 Pine 指标**不放 RS Rating**（TradingView 读不到每天的门槛表），RS Rating 只在这个网站。`docs/rs_table.json` 仍照常发布，目前没有程序读它。
 
 `tools/jlaw_daily_report.py` 依次运行各模块，合并成一个多分页网页，写到 `docs/`（GitHub Pages 从 `main` 分支的 `docs/` 发布）。页头有更新时间、下次更新时间和「数据核对」汇总。
 
@@ -110,7 +110,9 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - `backtest.py`：直接调用 `tools/jlaw_daily_screen.py` 的 `analyse()`（和网站同一份代码），逐日重跑并模拟交易；Stage、Luk 名单算上榜后 5 / 10 / 20 天报酬
 - `report.py` + `conclusions.json`：生成 `回测报告.html`
 - 运行：`python 回测/download.py` → `python 回测/backtest.py` → `python 回测/report.py`（全部约 15 分钟）
-- **K线形态回测（`回测/K线形态/`，2026-11-06）**：43 种K线 / 量价形态在约 2,250 只美股、约 96 万次信号上的超额收益。说明和完整结果表在 `回测/K线形态/README.md`。`tools/market_regime.py` 的 `bt_note()` 按 SPY / QQQ 是否在 200 天线下，在大盘报告「建议」下面显示「K线形态回测提示」（固定文字，数字来自 `stats.json` 和 `crash.json`；重跑回测后要人工同步这些数字）。用户的持仓清单不放进这个公开仓库。同日补了第二批 28 种（`patterns2.py`，`backtest.py 2` / `stats.py 2` → `stats2.json`）和数据挖掘（`mine_feats.py` + `mine.py` → `mine.json`，2022–2024 找、2025–2026 验证），结果也在 README。
+- **K线形态回测（`回测/K线形态/`）**：2026-11-06 先用 5 年数据（`回测/cache`），**2026-11-07 改用 20 年数据**（`回测/download20.py` → `回测/cache20`，2005 起，不进仓库；`cd 回测/K线形态 && bash run20.sh`，环境变量 `BT_TAG=20`，输出文件名都带 20，例如 `stats20.json`、`stats220.json`（第二批）、`stats320.json`（经典图形）、`stats420.json`（Order Block））。说明和完整结果表在 `回测/K线形态/README.md`（由用户本机 `回测/K线形态/gen_readme.py` 生成）。**20 年里没有一个形态过「有效」**（评级规则：20 天超额 ≥0.25、60 天 ≥0.4、t ≥2、≥70% 年份方向对），5 年版的「有效」都是那几年的运气。`tools/market_regime.py` 的 `bt_note()` 显示「K线形态回测提示」（固定文字，已改成 20 年数字；重跑回测后要人工同步）。`量化/combined.py` 的 `BULL`/`BEAR` 仍是 5 年版的有效形态，改不改等用户决定。用户的持仓清单不放进这个公开仓库。
+- **进场 / 止损 / 离场回测（`回测/K线形态/exit_bt.py`，BT_TAG=20 → `exit_bt20.json`）**：逐笔模拟。20 年结论：最稳 = 放量突破 50 日高点（个股升势 + SPY 在 200 天线上）+ 收盘跌 15% 才卖 + 拿 60 天（逐笔比 SPY 多 +0.55%，账户回测 2006–2015、2016–2026 两段都赢 SPY）；紧止损、20 日线跟踪、2R 卖 1/3、拿 20 天都较差；长下影只在几次大恐慌后有效。J Law META 回调（`回测/meta_sig.py` + `meta_exit.py`）用原版卖法 ≈ SPY，改 8% 止损逐笔略好但放进账户输给 SPY。账户回测 `system_bt.py` 和总结页在用户本机（`交易系统总结.html`）。
+- **写给用户的 % 一定要说清楚是跟什么比**（同一天全部股票平均？同期 SPY？还是股价本身涨跌？），并附「每投入 $1 万约多少钱」。用户 2026-11-07 反映看不懂没说明的 %。
 - 2026-11 的结论：J Law META / VCP 只有约 +0.1R 的薄优势（只在 5R 目标卖法下），均线移动止损略亏，2026 年转负；Stage 名单没有优势；Luk 名单平均跑赢 SPY 约 0.5%（20 天）但靠少数大赢家；有幸存者偏差。
 
 ## 6b. 量化系统（`量化/`，2026-11-06 加入）
