@@ -28,6 +28,7 @@ RISK = "https://yeohkj-dev.github.io/risk-calculator/"
 WEEKDAY = "一二三四五六日"
 FUTURES = [("ES=F", "标普期货"), ("NQ=F", "纳指期货"), ("RTY=F", "罗素期货")]
 MACRO = [("^TNX", "10 年美债"), ("CL=F", "原油"), ("DX-Y.NYB", "美元"), ("GC=F", "黄金"), ("BTC-USD", "比特币")]
+CHECKS = []                 # 交叉核对结果，存进盘前 JSON
 LIGHT = {"🟢": ("绿灯", "0.5%", "green"), "🟡": ("黄灯", "0.35%", "yellow"), "🔴": ("红灯", "0.25%", "red")}
 e = lambda s: html.escape(str(s), quote=False)
 
@@ -46,7 +47,14 @@ def premarket(syms):
     if not syms:
         return {}
     rows = tv_scan({"symbols": {"tickers": syms}, "columns": ["name", "premarket_change", "premarket_close", "close"]})
-    return {r["d"][0]: dict(pm=r["d"][1], pm_px=r["d"][2], close=r["d"][3]) for r in rows}
+    return {r["d"][0]: dict(pm=r["d"][1], pm_px=r["d"][2], close=r["d"][3], ex=r["s"].split(":")[0]) for r in rows}
+
+
+def link(sym, ex=None):
+    """股票代码 → TradingView 日线图链接。"""
+    url = "https://www.tradingview.com/chart/?symbol=" + (f"{ex}:{sym}" if ex else sym)
+    return '<a href="' + html.escape(url) + '"><b>' + html.escape(sym) + '</b></a>'
+
 
 
 def latest(pattern):
@@ -80,7 +88,7 @@ def luk_gappers(n=8):
                        {"left": "Value.Traded", "operation": "greater", "right": 5e7},
                        {"left": "premarket_change", "operation": "egreater", "right": 3}],
             "columns": cols, "sort": {"sortBy": "premarket_change", "sortOrder": "desc"}, "range": [0, n]}
-    return [dict(zip(cols, r["d"])) for r in tv_scan(body)]
+    return [dict(zip(cols, r["d"]), ex=r["s"].split(":")[0]) for r in tv_scan(body)]
 
 
 def today_events(today):
@@ -95,7 +103,7 @@ def today_earnings(today):
     if not f:
         return []
     data = json.load(open(f, encoding="utf-8"))
-    return [r["sym"] for rs in data.values() for r in rs if r.get("next_er") == str(today)]
+    return [(r["sym"], r.get("exchange") or "") for rs in data.values() for r in rs if r.get("next_er") == str(today)]
 
 
 def market_state():
@@ -121,6 +129,19 @@ def build(et):
     tone = ("📈 期货偏强，预计高开" if lead >= 0.5 else "📉 期货偏弱，预计低开" if lead <= -0.5 else "➖ 期货平稳，预计平开")
     L = [f"<b>⏰ 盘前提醒 · {today:%m-%d}（周{WEEKDAY[today.weekday()]}）美东 {et:%H:%M}</b>", "", f"<b>{tone}</b>"]
     L.append(" · ".join(f"{n} {fut[s]['chg']:+.2f}%" for s, n in FUTURES if fut.get(s) and fut[s]["chg"] is not None))
+    # 交叉核对：Yahoo 的期货价格和 TradingView 比（两边差 >0.3% 就在信息里提醒，不硬算方向）
+    try:
+        import urllib.request
+        tvf = {"ES=F": "CME_MINI:ES1!", "NQ=F": "CME_MINI:NQ1!", "RTY=F": "CME_MINI:RTY1!"}
+        req = urllib.request.Request("https://scanner.tradingview.com/global/scan", data=json.dumps(
+            {"symbols": {"tickers": list(tvf.values())}, "columns": ["name", "close"]}).encode(), headers={"User-Agent": "Mozilla/5.0"})
+        tvp = {r["s"]: r["d"][1] for r in json.load(urllib.request.urlopen(req, timeout=30))["data"]}
+        diff = [n for s, n in FUTURES if fut.get(s) and tvp.get(tvf[s]) and abs(fut[s]["price"] / tvp[tvf[s]] - 1) * 100 > 0.3]
+        if diff:
+            L.append(f"⚠ {'、'.join(diff)}：Yahoo 和 TradingView 的价格相差超过 0.3%，请以 TradingView 为准")
+        CHECKS.append(dict(name="期货价格（Yahoo vs TradingView）", ok=not diff, detail=f"{len(tvp)}/{len(tvf)} 个对得上" if not diff else "不一致：" + "、".join(diff)))
+    except Exception as ex:
+        CHECKS.append(dict(name="期货价格（Yahoo vs TradingView）", ok=None, detail=f"TradingView 取不到（{type(ex).__name__}）"))
     parts = []
     for s, n in MACRO:
         q = mac.get(s)
@@ -149,14 +170,15 @@ def build(et):
                 pv = float(r["VCP突破点"] or 0)
                 px = q.get("pm_px") or q.get("close")
                 tag = (" ⚠ 盘前已高于突破点 5%，不追" if px and pv and px > pv * 1.05 else " 盘前已过突破点" if px and pv and px >= pv else "")
-                L.append(f"• <b>{e(s)}</b> VCP 突破点 {pv:.2f}，止损 {r['VCP止损']} · {pmtxt(q.get('pm'))}{tag}")
+                L.append(f"• {link(s, q.get('ex'))} VCP 突破点 {pv:.2f}，止损 {r['VCP止损']} · {pmtxt(q.get('pm'))}{tag}")
             else:
-                L.append(f"• <b>{e(s)}</b> META 回调，止损 {r['META止损']}（{r['META止损%']}%） · {pmtxt(q.get('pm'))}")
+                L.append(f"• {link(s, q.get('ex'))} META 回调，止损 {r['META止损']}（{r['META止损%']}%） · {pmtxt(q.get('pm'))}")
     else:
         L.append("• 没有就绪的股票")
 
     L += ["", f"<b>🏆 Luk Leaders 前 10（{ldate or '—'}）</b>"]
-    L.append(" · ".join(f"{e(s)} {pm.get(s, {}).get('pm'):+.1f}%" if pm.get(s, {}).get("pm") is not None else f"{e(s)} —"
+    L.append(" · ".join(f"{link(s, pm.get(s, {}).get('ex'))} {pm[s]['pm']:+.1f}%" if pm.get(s, {}).get("pm") is not None
+                        else f"{link(s, pm.get(s, {}).get('ex'))} —"
                         for s in leaders) or "没有数据")
 
     try:
@@ -164,7 +186,7 @@ def build(et):
     except Exception:
         gaps = []
     L += ["", "<b>🚀 Luk 盘前跳空股（实时，盘前涨 ≥3%）</b>"]
-    L.append(" · ".join(f"{e(g['name'])} {g['premarket_change']:+.1f}%" for g in gaps) or "目前没有")
+    L.append(" · ".join(f"{link(g['name'], g['ex'])} {g['premarket_change']:+.1f}%" for g in gaps) or "目前没有")
 
     evs, ers = today_events(today), today_earnings(today)
     L += ["", "<b>📅 今天</b>"]
@@ -173,8 +195,9 @@ def build(et):
         done = "已公布" if t <= et else "待公布"
         L.append(f"• {t:%H:%M} {e(nd.CAL_ZH.get(x['title'], x['title']))}（预期 {e(x.get('forecast') or '—')}）{done}")
     if ers:
-        pe = premarket(ers)
-        L.append("• 业绩：" + "、".join(f"{e(s)} {pe[s]['pm']:+.1f}%" if pe.get(s, {}).get("pm") is not None else e(s) for s in ers[:10]))
+        pe = premarket([f"{ex}:{s}" if ex else s for s, ex in ers])
+        L.append("• 业绩：" + "、".join(f"{link(s, ex)} {pe[s]['pm']:+.1f}%" if pe.get(s, {}).get("pm") is not None else link(s, ex)
+                                        for s, ex in ers[:10]))
     if not evs and not ers:
         L.append("• 没有高影响力数据或大公司业绩")
 
@@ -197,7 +220,7 @@ def main():
     text, today = build(et)
     os.makedirs(os.path.join(OUT_DIR, "早报"), exist_ok=True)
     with open(os.path.join(OUT_DIR, "早报", f"盘前_{today}.json"), "w", encoding="utf-8") as f:
-        json.dump(dict(date=str(today), telegram_html=text), f, ensure_ascii=False, indent=1)
+        json.dump(dict(date=str(today), telegram_html=text, checks=CHECKS), f, ensure_ascii=False, indent=1)
     print(text)
 
 

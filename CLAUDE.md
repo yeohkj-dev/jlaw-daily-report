@@ -85,6 +85,11 @@ python tools/<模块>.py .                                    # 单独跑一个�
 ## 5. 已知的坑
 
 - **Yahoo 收盘后一段时间，日线可能还没有当天那一根**，但 `meta.regularMarketPrice` 已是当天收盘 → `morning_brief.daily_moves()` 已处理；新模块也要注意。
+- **早报的数字用 TradingView**（指数、行业 ETF、`TVC:US10Y` / `TVC:VIX` / `TVC:DXY` / `NYMEX:CL1!` / `COMEX:GC1!`，期货按结算价），Yahoo 只用来核对指数（相差 >0.15 个百分点会在数据核对提醒）。用户在 TradingView 看到的是同一个数字。
+- **早报「为什么」只能用当天的新闻**（上一个交易日美东 16:00 之后发布的）；以前连前一天的新闻也读，大涨日会出现前一天「大跌」的标题。个股异动的新闻可以多看一天（公司常在前一天收盘后公布业绩）。
+- **经济数据的实际值**：Forex Factory 免费日历只有预期和前值。非农、失业率、平均时薪、CPI、PPI 的实际值来自 `tools/bls.py`（美国劳工统计局免费 API v1，一次请求、缓存 6 小时，每天限 25 次），早报和本周重大事件都会显示「实际 / 预期 / 高于或低于预期」。**不要把预期值写得像实际值**（用户曾以为 65K 是非农实际值，其实是预期；实际是 +165K）。
+- **早报逐项交叉核对**：`tools/brief_check.py` 每天把早报的每个数字用第二来源再算一次（TradingView ↔ Yahoo、BLS ↔ 新闻、业绩日期），结果存在 `早报/<日期>.json` 的 `crosscheck`，摘要在页头「数据核对」。期货（油、金）TradingView 用结算价、Yahoo 用最后成交价，所以核对的是前一天结算价是否一致。
+- **所有股票代码都要链接到 TradingView 图表**（`https://www.tradingview.com/chart/?symbol=交易所:代码`），网站和 Telegram 都一样；交易所从 TradingView 选股器结果的 `s` 字段（如 `NASDAQ:AMD`）或业绩估值 JSON 的 `exchange` 取。
 - **FRED（ICE BofA 利差）在本机和 GitHub 都连不上**，大盘报告的信用市场改用 HYG / IEF 走势；数据核对会显示这项提醒。
 - **CNN 恐惧贪婪指数**是 CNN 网页用的接口，不是公开 API；GitHub 上目前取得到。
 - **Forex Factory 日历**有调用次数限制，缓存 3 小时（`新闻/_calendar_*.json`，不进仓库）。周六取「下周」、周日起「本周」已是新一周。

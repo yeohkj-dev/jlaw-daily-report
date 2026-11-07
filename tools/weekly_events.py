@@ -21,6 +21,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import AMBER, BLUE, GREEN, GREY, RED, TD, TDN, card, check_list_html, esc, h3, pct, table, tv_scan, yahoo_chart
 import news_digest as nd
+import bls
 
 argv = sys.argv[1:]
 MODE = argv[argv.index("--mode") + 1] if "--mode" in argv else None
@@ -276,14 +277,17 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
             is_past = e["when"] <= now_utc
             st = (f'<span style="color:{GREEN};">已公布</span>' if is_past else f'<span style="color:{AMBER};">待公布</span>')
             hits = match_news(e, raw) if is_past and e["impact"] == "High" else []
+            act = bls.actual(e["title"], e["when"], NEWS_DIR) if is_past else None       # BLS 官方实际值
+            act_html = (f'<b>{act["actual"]}</b><br><span style="color:#888;font-size:11px;">{bls.versus(act, e.get("forecast"))}</span>'
+                        if act else "—")
             res = ("<br>".join(f'<a href="{esc(h["link"])}" target="_blank" rel="noopener" style="color:#111;">{esc(h["title"])}</a>'
                                for h in hits)
                    if hits else ('<span style="color:#aaa;">公布后的新闻里还没有找到相关标题</span>' if is_past and e["impact"] == "High" else ""))
             crow += (f'<tr><td {TDN}>{to_et_str(e["when"])}</td><td {TDN}>{imp(e)}</td><td {TDN}>{st}</td>'
                      f'<td {TD}><b>{esc(zh or e["title"])}</b>' + (f'<br><span style="color:#999;font-size:11px;">{esc(e["title"])}</span>' if zh else "")
-                     + f'</td><td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{esc(e.get("previous") or "—")}</td>'
+                     + f'</td><td {TDN}>{act_html}</td><td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{esc(e.get("previous") or "—")}</td>'
                      f'<td {TD} style="font-size:12px;">{res}</td></tr>')
-        cal_html = table(("时间（美东）", "影响", "状态", "数据", "预期", "前值", "结果相关新闻（高影响力）"), crow)
+        cal_html = table(("时间（美东）", "影响", "状态", "数据", "实际（BLS）", "预期", "前值", "结果相关新闻（高影响力）"), crow)
     else:
         cal_html = '<p style="color:#888;">没有取到本周经济日历。</p>'
 
@@ -339,7 +343,7 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
             + h3("本周最重大的新闻" + news_note) + news_html
             + ahead_html
             + '<p style="color:#888;font-size:11px;margin-top:14px;">规则自动整理，不用 AI。走势来自 Yahoo Finance（VIX 和恐惧指数在「大盘报告」）；数据核对在页头；经济日历来自 Forex Factory'
-              '（免费数据没有实际值，「结果相关新闻」是本周新闻里关键词相符的标题，请点开确认）；新闻按重要性、可信媒体数量和连续报道天数排序。'
+              '（只有预期和前值；非农、失业率、时薪、CPI、PPI 的实际值来自美国劳工统计局 BLS 官方数据；「结果相关新闻」是本周新闻里关键词相符的标题，请点开确认）；新闻按重要性、可信媒体数量和连续报道天数排序。'
               '仅供学习，不构成投资建议。</p>')
     return card(esc(title), body, accent=AMBER, bg="#FFF8EC", sub=sub)
 

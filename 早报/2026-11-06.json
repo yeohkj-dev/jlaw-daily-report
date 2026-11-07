@@ -1,4 +1,251 @@
 {
  "date": "2026-11-06",
- "telegram_html": "<b>☀️ 早报 · 美股 11-06（周五）收盘</b>\n\n<b>📈 昨晚：美股上涨</b>\n标普 +0.3% · 纳指 +1.4% · 小型股 +1.0%\n10 年美债 4.86%（+2 基点） · VIX 25.6（-2.5） · 油 -0.2% · 美元 +0.7% · 金 -0.8%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxPVVFVWVUwWmVwQXRLMTV2ZFBIV3dpR1VBUTU4dnhfUW5SN3BwcGZraXF1YTFDMmx2TjZFOTVBTWNqc09zTV9VbE1faDJ5Y294THA0YlFkTlZmX3AzWDJacm96Um1YQ0htd2FLRmJFTlpvLWVhQ0pXdUtyLVh0ZTRESzBJNW1fZ2lrTVBkUEIzejF2VUVLeGdyQWxDazczTmNWQWdOMXIybTR2T0x5OWFGNWMyU256bUhRME54eXBlTQ?oc=5\">Investors wipe $2.5 trillion off Nasdaq as blue tsunami prompts AI fears</a>（6 家媒体）\n• <a href=\"https://www.cnbc.com/2026/11/06/robert-garcia-trump-congress-oversight-investigations.html\">Top House Oversight Democrat warns Trump family to &#x27;lawyer up&#x27;</a>（9 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOWEd4MDlaNjAwRjlYdFp0aDhKVDFsVHZNUnBCWXU1aHhPWGMtQ2hmTVJnZmpoMWo3cnJNbEZwRWJHRVp0UjI1SU9ELURwYjctRnRUS19MUVhrdVlvTWswem9xR0dRT2V0ZHJxUm5pZFE5cnpxTmR5Wm1lR1pYRk9xYXh4dGtiVWQtNWJfcVBzQmVSS1VRR1F6UDRpWnhjVlJsSF9iazlCRUrSAa4BQVVfeXFMTXFRWnBSVk1BYjJrMzR4N0VZOXZIa2U2MXZnWFZVS0t3amRvOTdSVC1PaEpLQ3NMS08wamNTeFlmRk5PUWNRZWp6VTZnUHozNVNvWXpLTko3UHNOOUhCQWhpS2xqQmdEd08zVkRDTHBCUU9Gc1drd2NwWWlNMlc1SHVUeUVSZUVwNEhNRDU2d0xCMERmWkdXbWI4QW1UaWhRR3U3MHhQSWlFR1ptT0Fn?oc=5\">10-year Treasury yield is little changed after stronger-than-expected October jobs report</a>（7 家媒体）\n• <a href=\"https://www.cnn.com/2026/11/05/investing/tech-heavy-nasdaq-plunges?.tsrc=rss\">Massive tech sell-off wipes $2.5 trillion from the stock market</a>（3 家媒体）\n• 数据：平均时薪 预期 0.3%，前值 0.1%\n• 数据：非农就业人数 预期 65K，前值 29K\n• 数据：失业率 预期 4.2%，前值 4.2%\n• 数据：密歇根消费者信心初值 预期 48.1，前值 46.3\n• 数据：Prelim UoM Inflation Expectations 预期 —，前值 4.7%\n\n<b>🏭 行业</b>\n领涨：科技 +1.5%、通讯 +0.4%　领跌：必需消费 -1.3%、原材料 -0.7%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <b>ABNB</b> +11.7% — <a href=\"https://finance.yahoo.com/m/259a2432-7041-3624-978f-9a7336f10b31/stock-market-today%3A-nasdaq.html?.tsrc=rss\">Stock Market Today: Nasdaq Rallies In Tech Turnaround; Airbnb Rockets </a>\n🟢 <b>AMD</b> +11.0% — <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/06/stock-market-today-nov-6-amd-surges-11-on-record-quarterly-revenue-and-stronger-growth-outlook/?.tsrc=rss\">Stock Market Today, Nov. 6: AMD Surges 11% on Record Quarterly Revenue</a>\n🟢 <b>NET</b> +9.9% — <a href=\"https://www.marketwatch.com/story/cloudflares-stock-mounts-a-big-comeback-after-fastest-sales-surge-in-nearly-4-years-d80d994d?mod=mw_rss_topstories\">Cloudflare’s stock mounts a big comeback after fastest sales surge in </a>\n🔴 <b>BKNG</b> -4.8% — 没有找到相关新闻\n🔴 <b>ALL</b> -4.5% — 没有找到相关新闻\n🔴 <b>MNST</b> -4.4% — 没有找到相关新闻\n\n<b>👀 今晚要看</b>\n• 业绩：CEG\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-06）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>"
+ "telegram_html": "<b>☀️ 早报 · 美股 11-06（周五）收盘</b>\n\n<b>📈 昨晚：美股上涨</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> +0.3% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> +1.4% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> +1.0%\n10 年美债 4.86%（+2 基点） · VIX 25.6（-2.5） · 油（结算价） +0.3% · 美元 +0.7% · 金（结算价） -0.9%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://finance.yahoo.com/markets/stocks/articles/tech-heavy-nasdaq-rebounds-end-214820374.html?.tsrc=rss\">Update: Tech-Heavy Nasdaq Rebounds at End of Bruising Week For Wall Street</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxQang5czlMS1c0LVRiTWdNdXItcDlKcTgyOXplSVVGRHljMGVrVG1KVGJTclR0TmtjWjFob0t1QWh6OTdkNzltaDJhTi1fdUdkM2tOb01JaVVlaVRWcWVTdkZFbmdBYlgxY2ktWVh6eFdZRVczekVTdFRCSWtOSzBGVnNCWHpFNFFXWFE2WDVQUjFCa19tbUhzNzdlNksyNFBqek4tcXdrcjVIVTQxMkE?oc=5\">Nasdaq rebounds but posts fourth straight weekly decline</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxPdVM5RWx2cGx4U3R0Z3pJMzRzQ1NWaURpbkhvRnRXbzhPU3dVcVRmbVBuT05DOUJ4aXduWGhWYXBzQVZSbVhpU3FHVkQxdnBIWEFLSHBzNGJuc2VWR0Exb3F4dkFSazFNM0ZvQkhrYm1jMzlQcDVGVGQ0RUlYWW5ZVUIzRng1Z3YxZFZmaC1TbWUzSVhoTUJfY3Nn?oc=5\">Stock Market Outlook: Nvidia Earnings, Anthropic’s IPO, and the Fed Rate Decision</a>\n• <a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWS1CUGRkOWhJQ3NnaUlpS3ktVElZaTNQb1ZGTDRVY0pycGtPZUhCTV8wd1lxanNYUk5JOFpfcXRNNnhmVHJadmtfQUhfUW5ZVDlwaDZUdGNDYVNEVTlEcUxSQUxOSVlmY3Nkal9rSnJ3T1REcEoxMWV1T2R2dTUwS2VTSFRqZHl2WnhpZFdvNlQ4VXJkVEtYU0hBb3p4dFlKd2JZTUNZNzhZOHVsODNCbU5lY3VPTXVzVFNtRnZQZHc?oc=5\">Stock Market Up, Still Suffers Stiff Weekly Loss; Inflation Data, CoreWeave Earnings Due</a>\n• 数据：平均时薪 实际 <b>0.4%</b>（预期 0.3%，高于预期；上月修正为 0.3%（原 0.1%））、非农就业人数 实际 <b>+165K</b>（预期 65K，高于预期；上月修正为 +60K（原 29K））、失业率 实际 <b>4.1%</b>（预期 4.2%，低于预期；上月 4.2%） → <a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxQMF93ekZ4N2wtdW4zX1llS2FoZWpNVlhMLTRNOGVJTUktZmpLQUNBSzY2bW16Mm9mb3lrZERqNFZ6WkRmYkhBTG00Z2k2NFYyNTVLcmVBSkV5eVJRU1RwZFc5blM4MkRmcUxYU2hadXRWbVh0VXpjektqM1BGS3ZlZlNMeW43VWxmeE5TQm13d0E3bTVwUnp5dzFFNA?oc=5\">Fed policymakers consider rate hike after strong jobs report</a>\n• 数据：密歇根消费者信心初值（预期 48.1，前值 46.3）\n• 数据：密歇根通胀预期初值（预期 —，前值 4.7%）\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLK\"><b>科技</b></a> +1.5%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLC\"><b>通讯</b></a> +0.4%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLP\"><b>必需消费</b></a> -1.3%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLB\"><b>原材料</b></a> -0.7%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:ABNB\"><b>ABNB</b></a> +11.7% — <a href=\"https://finance.yahoo.com/m/259a2432-7041-3624-978f-9a7336f10b31/stock-market-today%3A-nasdaq.html?.tsrc=rss\">Stock Market Today: Nasdaq Rallies In Tech Turnaround; Airbnb Rockets </a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AMD\"><b>AMD</b></a> +11.0% — <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/06/stock-market-today-nov-6-amd-surges-11-on-record-quarterly-revenue-and-stronger-growth-outlook/?.tsrc=rss\">Stock Market Today, Nov. 6: AMD Surges 11% on Record Quarterly Revenue</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:NET\"><b>NET</b></a> +9.9% — <a href=\"https://www.marketwatch.com/story/cloudflares-stock-mounts-a-big-comeback-after-fastest-sales-surge-in-nearly-4-years-d80d994d?mod=mw_rss_topstories\">Cloudflare’s stock mounts a big comeback after fastest sales surge in </a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:BKNG\"><b>BKNG</b></a> -4.8% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:ALL\"><b>ALL</b></a> -4.5% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MNST\"><b>MNST</b></a> -4.4% — 没有找到相关新闻\n\n<b>👀 下个交易日（周一 11-09）要看</b>\n• 业绩：<a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:CEG\"><b>CEG</b></a>\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-06）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": 0.31,
+   "check": 0.31,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": 1.4,
+   "check": 1.4,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": 0.99,
+   "check": 0.99,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 4.86,
+   "check": 4.86,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 25.63,
+   "check": 25.64,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": 0.34,
+   "check": "前一天结算 90.52 vs 90.52；Yahoo 最后成交价 -0.20%",
+   "source": "Yahoo CL=F",
+   "ok": true
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": 0.7,
+   "check": 0.72,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": -0.94,
+   "check": "前一天结算 4113.50 vs 4113.50；Yahoo 最后成交价 -0.83%",
+   "source": "Yahoo GC=F",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": 1.45,
+   "check": 1.45,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": -0.05,
+   "check": -0.05,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": 0.43,
+   "check": 0.43,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": -0.59,
+   "check": -0.59,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": 0.12,
+   "check": 0.12,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": -0.73,
+   "check": -0.73,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": -0.02,
+   "check": -0.02,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": -0.06,
+   "check": -0.06,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": -1.28,
+   "check": -1.28,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": -0.39,
+   "check": -0.39,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": -0.68,
+   "check": -0.68,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "ABNB",
+   "brief": 11.67,
+   "check": 11.67,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "ABNB 市值 ≥500 亿",
+   "brief": 114,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AMD",
+   "brief": 11.04,
+   "check": 11.04,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AMD 市值 ≥500 亿",
+   "brief": 733,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NET",
+   "brief": 9.91,
+   "check": 9.91,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NET 市值 ≥500 亿",
+   "brief": 96,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "BKNG",
+   "brief": -4.77,
+   "check": -4.77,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "BKNG 市值 ≥500 亿",
+   "brief": 119,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "ALL",
+   "brief": -4.47,
+   "check": -4.47,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "ALL 市值 ≥500 亿",
+   "brief": 64,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MNST",
+   "brief": -4.41,
+   "check": -4.41,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MNST 市值 ≥500 亿",
+   "brief": 90,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "Average Hourly Earnings m/m",
+   "brief": "0.4%",
+   "check": "新闻里没有找到这个数字",
+   "source": "BLS 官方 vs 当天新闻",
+   "ok": null
+  },
+  {
+   "item": "Non-Farm Employment Change",
+   "brief": "+165K",
+   "check": "新闻方向一致",
+   "source": "BLS 官方 vs 当天新闻",
+   "ok": true
+  },
+  {
+   "item": "Unemployment Rate",
+   "brief": "4.1%",
+   "check": "新闻方向一致",
+   "source": "BLS 官方 vs 当天新闻",
+   "ok": true
+  },
+  {
+   "item": "CEG 业绩日期",
+   "brief": "下个交易日",
+   "check": "2026-11-09",
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
 }
