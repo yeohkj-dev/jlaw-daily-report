@@ -148,6 +148,15 @@ def color(r):
     return "#1B5E20" if r >= 90 else "#2E7D32" if r >= 80 else "#666" if r >= 50 else "#C62828"
 
 
+def tv_link(sym, rs=None, ex=None, bold=True):
+    """股票代码 → TradingView 图表链接（交易所先用传进来的，其次 RS 档里的，都没有就只用代码，TradingView 也认得）。"""
+    ex = ex or ((rs or {}).get("stocks") or {}).get(sym, {}).get("exchange") or ""
+    url = "https://www.tradingview.com/chart/?symbol=" + (f"{ex}:{sym}" if ex else sym)
+    t = html.escape(sym)
+    return (f'<a href="{html.escape(url)}" target="_blank" rel="noopener" title="在 TradingView 打开 {t} 的图表" '
+            f'style="color:#1565C0;text-decoration:none;{"font-weight:700;" if bold else ""}">{t} <span style="font-size:11px;">📈</span></a>')
+
+
 def badge(rs, sym):
     """股票代码下面的小标记，例：RS 92。"""
     r = (rs.get("stocks") or {}).get(sym, {}).get("rating") if rs else None

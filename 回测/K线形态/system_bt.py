@@ -53,8 +53,16 @@ def closes(sym):
     return CLOSES[sym]
 
 
-def run(use=("A", "B"), risk=0.01, maxpos=10, priority="gap", b_setup="B", seed=0, start=None, cash_spy=False, a_first=True, a_exit="E19", excl=(), fixed=None, b_exit="E11", a_mkt="all", end=None, trades=None, capital=1.0, fee=0.0, min_pos=0.0):
-    """capital = 起始本金（美元）；fee = 每张单固定手续费（美元）；SPY 为底时买卖个股要先卖 / 再买 SPY，多付两张单；min_pos = 最小下单金额"""
+def timed(sym):
+    """sym 只在 SPY 收盘站上 200 天线时持有，否则拿现金（不算利息）；收盘决定、当天收盘换。返回像 load() 一样有 c 栏的表。"""
+    x = SPY if sym == "SPY" else load(sym)
+    on = (SPY.c > SPY.c.rolling(200).mean()).reindex(x.index).ffill().fillna(False)
+    ret = x.c.pct_change().fillna(0)
+    return pd.DataFrame({"c": (1 + ret.where(on.shift(1, fill_value=False), 0.0)).cumprod()})
+
+
+def run(use=("A", "B"), risk=0.01, maxpos=10, priority="gap", b_setup="B", seed=0, start=None, cash_spy=False, a_first=True, a_exit="E19", excl=(), fixed=None, b_exit="E11", a_mkt="all", end=None, trades=None, capital=1.0, fee=0.0, min_pos=0.0, base="SPY"):
+    """base = 没持股的钱放哪只 ETF、也是拿来比的基准（SPY 或 QQQ）；capital = 起始本金（美元）；fee = 每张单固定手续费（美元）；SPY 为底时买卖个股要先卖 / 再买 SPY，多付两张单；min_pos = 最小下单金额"""
     tr = trades.copy() if trades is not None else build_trades(use, b_setup, a_exit, excl, b_exit, a_mkt)
     start = start or str(T.ed.min())
     tr = tr[tr.ed >= start]
@@ -63,6 +71,8 @@ def run(use=("A", "B"), risk=0.01, maxpos=10, priority="gap", b_setup="B", seed=
     by_day = {d: g for d, g in tr.groupby("ed")}
     days = [d for d in SPY.index if d >= start and (end is None or d <= end)]
     tr = tr[tr.ed <= days[-1]]
+    BX = SPY if base == "SPY" else (timed(base[:-2]) if base.endswith("_T") else load(base))
+    bxc = BX.c.reindex(days).ffill()
     cash, eq0 = float(capital), float(capital)
     nfee = fee * (2 if cash_spy else 1)          # 每次买或卖要付几张单的手续费
     pos = []            # dict(sym, mod, alloc, entry, xd, r)
@@ -70,7 +80,7 @@ def run(use=("A", "B"), risk=0.01, maxpos=10, priority="gap", b_setup="B", seed=
     prev_t = None
     for t in days:
         if cash_spy and prev_t is not None:
-            cash *= SPY.c[t] / SPY.c[prev_t]
+            cash *= bxc[t] / bxc[prev_t]
         prev_t = t
         # 1) 今天到期 / 止损的先卖
         keep = []
@@ -109,7 +119,7 @@ def run(use=("A", "B"), risk=0.01, maxpos=10, priority="gap", b_setup="B", seed=
         eq0 = cash + mv
         curve.append(eq0); expo.append(mv / eq0 if eq0 else 0)
     eq = pd.Series(curve, index=days) / capital
-    spy = SPY.c.loc[days] / SPY.c.loc[days].iloc[0]
+    spy = bxc / bxc.iloc[0]
     D = pd.DataFrame(done)
     yrs = (pd.Timestamp(days[-1]) - pd.Timestamp(days[0])).days / 365.25
 

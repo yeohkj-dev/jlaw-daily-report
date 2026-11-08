@@ -1,5 +1,8 @@
 """生成报告里的「选股 · 买 · 卖 · 拿现金」部分（读 signals.json + oversold.json）。"""
 import json, os, html
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+from rs_rating import tv_link  # noqa: E402  股票代码 → TradingView 链接
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data")
@@ -72,14 +75,14 @@ def build():
         b20 = h.get("br20")
         trig20 = (f'{b20["date"][5:]} 收 {b20["px"]:.2f}' if b20 else "–")
         col = {1: "good", 2: "mid", 3: "bad"}[h["lvl"]]
-        hrows += (f'<tr><td><b>{h["t"]}</b><div class="desc">{via}</div></td><td class="{col}"><b>{h["exit"]}</b></td>'
+        hrows += (f'<tr><td>{tv_link(h["t"])}<div class="desc">{via}</div></td><td class="{col}"><b>{h["exit"]}</b></td>'
                   f'<td class="num">{h["close"]:.2f}</td><td class="num {cls(h["ext"])}">{pct(h["ext"],0,True)}</td>'
                   f'<td class="num">{trig20}</td><td class="num">{trig}</td><td class="num">{h["ma50"]:.2f}</td></tr>')
 
     crows = ""
     for c in now["cands"][:30]:
         ok = any("✓" in s for s in c["setup"])
-        crows += (f'<tr><td>{c["rank"]}</td><td><b>{c["t"]}</b></td><td class="{"good" if ok else ""}">{html.escape(" / ".join(c["setup"]))}</td>'
+        crows += (f'<tr><td>{c["rank"]}</td><td>{tv_link(c["t"])}</td><td class="{"good" if ok else ""}">{html.escape(" / ".join(c["setup"]))}</td>'
                   f'<td class="num">{c["close"]:.2f}</td><td class="num {cls(c["ext"])}">{pct(c["ext"],0,True)}</td>'
                   f'<td class="num">{c["stop"]:.2f}<div class="desc">−{(c["close"]-c["stop"])/c["close"]*100:.0f}%</div></td><td class="num">{c["ma50"]:.2f}</td></tr>')
     n_setups = sum(any("✓" in s for s in c["setup"]) for c in now["cands"][:30])

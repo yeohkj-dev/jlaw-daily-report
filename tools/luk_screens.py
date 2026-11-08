@@ -21,7 +21,7 @@ from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import AMBER, BLUE, GREEN, GREY, RED, card, check_list_html, h3, tv_scan, yahoo_chart
-from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale
+from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale, tv_link
 RS = rs_load()
 
 OUT_DIR = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -160,9 +160,9 @@ def main():
     new_cnt = {k: sum(1 for r in results[k][0] if prev and r["name"] not in prev.get(k, set())) for k in results}
     bullets = [
         f"Strong Day 今天有 <b>{results['strong'][1]}</b> 只符合，前 3 名："
-        + "、".join(f"{h.escape(r['name'])}（{r['change']:+.1f}%）" for r in results["strong"][0][:3]) + "。",
+        + "、".join(f"{tv_link(r['name'], ex=r['exchange'])}（{r['change']:+.1f}%）" for r in results["strong"][0][:3]) + "。",
         f"Gappers 今天有 <b>{results['gap'][1]}</b> 只跳空 ≥3%，最大的："
-        + "、".join(f"{h.escape(r['name'])}（{r['gap']:+.1f}%）" for r in results["gap"][0][:3]) + "。",
+        + "、".join(f"{tv_link(r['name'], ex=r['exchange'])}（{r['gap']:+.1f}%）" for r in results["gap"][0][:3]) + "。",
         f"Leaders 前 50 名里，EMA 分类 Lead <b>{lead.get('Lead', 0)}</b> 只、Mediocre {lead.get('Mediocre', 0)} 只、Lag {lead.get('Lag', 0)} 只。",
     ]
     if th:

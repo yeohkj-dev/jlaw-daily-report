@@ -1,6 +1,10 @@
 """白话版「今天怎么做」：每日报告的量化分页和完整报告最上面都用这一块。
 只用 results.json / signals.json 的数据，不含任何持仓。"""
 import html
+import os
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+from rs_rating import load as _rs_load, tv_link  # noqa: E402
 
 PLAIN = {   # 8 个信号的白话说法
     "趋势：SPY 在 200 日线上": "大盘长期趋势向上",
@@ -38,10 +42,11 @@ def build(o, S, site=None):
         f'<li style="margin:2px 0">{"✅" if v else "❌"} {html.escape(PLAIN.get(k, k))}</li>'
         for k, v in now["signals"].items())
 
+    _RS = _rs_load()
     buys = [c for c in sn["cands"] if any("✓" in s for s in c["setup"])] if gate != "现金" else []
     if buys:
         rows = "".join(
-            f'<tr><td style="padding:6px 8px"><b>{c["t"]}</b></td>'
+            f'<tr><td style="padding:6px 8px">{tv_link(c["t"], _RS)}</td>'
             f'<td style="padding:6px 8px">{html.escape("、".join(s.replace(" ✓", "") for s in c["setup"] if "✓" in s))}</td>'
             f'<td style="padding:6px 8px;text-align:right">{c["close"]:.2f}</td>'
             f'<td style="padding:6px 8px;text-align:right">{c["stop"]:.2f}（−{1 - c["stop"] / c["close"]:.0%}）</td></tr>'

@@ -3,6 +3,9 @@ import json, os, html
 from trade_section import build as trade_build
 TRADE = trade_build()
 from simple import build as simple_build
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+from rs_rating import tv_link  # noqa: E402  股票代码 → TradingView 链接
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data")
@@ -35,7 +38,7 @@ lev_txt = ("可以持有 2 倍杠杆 ETF（状态 ≥75 且纳指波动 <25%）"
 if not now["qqq_above200"]:
     lev_txt = "纳指在 200 日线下：杠杆 ETF 应全部换现金"
 sec_rows = "".join(
-    f'<tr class="{"pick" if s["t"] in now["rot_picks"] else ""}"><td>{i+1}</td><td><b>{s["t"]}</b></td><td>{pct(s["mom"])}</td>'
+    f'<tr class="{"pick" if s["t"] in now["rot_picks"] else ""}"><td>{i+1}</td><td>{tv_link(s["t"])}</td><td>{pct(s["mom"])}</td>'
     f'<td class="{cls(s["r1m"])}">{pct(s["r1m"], sign=True)}</td><td>{"✓" if s["above200"] else "✗"}</td></tr>'
     for i, s in enumerate(now["sectors"]))
 SECN = {"XLK": "科技", "XLF": "金融", "XLE": "能源", "XLV": "医疗", "XLY": "可选消费", "XLP": "必需消费", "XLI": "工业", "XLU": "公用事业", "XLB": "原材料"}
@@ -43,7 +46,7 @@ sec_rows = sec_rows
 for t, n in SECN.items():
     sec_rows = sec_rows.replace(f"<b>{t}</b>", f"<b>{t}</b> <small>{n}</small>")
 stk_rows = "".join(
-    f'<tr><td>{i+1}</td><td><b>{s["t"]}</b></td><td class="ind">{html.escape(s["industry"] or s["sector"])}</td>'
+    f'<tr><td>{i+1}</td><td>{tv_link(s["t"])}</td><td class="ind">{html.escape(s["industry"] or s["sector"])}</td>'
     f'<td>{pct(s["mom"],0)}</td><td>{pct(s["vol"],0)}</td><td>{pct(s["near_high"],0)}</td><td class="{cls(s["r1m"])}">{pct(s["r1m"],0,True)}</td></tr>'
     for i, s in enumerate(now["stocks"][:25]))
 

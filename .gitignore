@@ -25,3 +25,6 @@ __pycache__/
 
 # 量化系统：数据和生成的报告（GitHub 上用 actions/cache 保存）
 量化/data/
+回测/meta_more*.pkl
+回测/earn_trades*.pkl
+回测/earnings_dates.json

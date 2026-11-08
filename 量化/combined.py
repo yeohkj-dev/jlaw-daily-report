@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(ROOT, "回测", "K线形态"))
 from patterns import detect          # noqa: E402
 from patterns2 import detect2        # noqa: E402
 sys.path.insert(0, os.path.join(ROOT, "tools"))
-from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale   # noqa: E402
+from rs_rating import load as rs_load, badge as rs_badge, stale_note as rs_stale, tv_link   # noqa: E402
 RS = rs_load()
 
 # 回测「有效」的形态（回测/K线形态/README.md）
@@ -153,7 +153,7 @@ def table(rs, action):
     body = ""
     for r in rs:
         stop = f'{r["stop"]:.2f}<small>（−{1 - r["stop"] / r["close"]:.0%}）</small>' if r["stop"] and r["stop"] < r["close"] else "—"
-        body += (f'<tr><td><b>{r["t"]}</b>{rs_badge(RS, r["t"])}<div class="sub">{html.escape(str(r["name"])[:22])}</div></td>'
+        body += (f'<tr><td>{tv_link(r["t"], RS)}{rs_badge(RS, r["t"])}<div class="sub">{html.escape(str(r["name"])[:22])}</div></td>'
                  f'<td>{chips(r)}<div class="sub">{html.escape(r["why"])}</div></td>'
                  f'<td class="num">{r["close"]:.2f}</td><td class="num">{stop}</td><td>{action(r)}</td></tr>')
     return ('<div class="tw"><table><tr><th>股票</th><th>哪些系统看好 / 原因</th><th class="num">收盘</th>'

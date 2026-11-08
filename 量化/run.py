@@ -14,6 +14,9 @@ import os
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+from rs_rating import tv_link  # noqa: E402  股票代码 → TradingView 链接
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data")
 env = dict(os.environ, PYTHONIOENCODING="utf-8")
@@ -48,10 +51,10 @@ SECN = {"XLK": "科技", "XLF": "金融", "XLE": "能源", "XLV": "医疗", "XLY
 secs = "、".join(f"{t} {SECN.get(t, '')}" for t in now["rot_picks"])
 buys = [c for c in sn["cands"] if any("✓" in s for s in c["setup"])]
 buy_rows = "".join(
-    f'<tr><td><b>{c["t"]}</b></td><td>{c["rank"]}</td><td>{html.escape(" / ".join(s for s in c["setup"] if "✓" in s))}</td>'
+    f'<tr><td>{tv_link(c["t"])}</td><td>{c["rank"]}</td><td>{html.escape(" / ".join(s for s in c["setup"] if "✓" in s))}</td>'
     f'<td style="text-align:right">{c["close"]:.2f}</td><td style="text-align:right">{c["stop"]:.2f}</td><td style="text-align:right">{c["ma50"]:.2f}</td></tr>'
     for c in buys) or '<tr><td colspan="6" style="color:#666">今天动量 Top 30 里没有出现回测过的买点 —— 没有买点就拿现金等。</td></tr>'
-watch = "、".join(f'{c["t"]}' for c in sn["cands"][:12])
+watch = "、".join(tv_link(c["t"], bold=False) for c in sn["cands"][:12])
 best = S["grid"]["E3|X2|动量名单"]
 card = 'style="background:#fff;border-radius:8px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.06)"'
 sys.path.insert(0, HERE)

@@ -461,7 +461,7 @@ def detail(r):
     tg = (f'分析师 {r["n_analysts"]} 人，评级 {esc(r["rec"] or "—")}，目标价 {r["target_lo"] or 0:.0f}–{r["target_hi"] or 0:.0f}（平均 {r["target"]:.0f}）'
           if r["target"] else "")
     return (f'<details class="ev-d">'
-            f'<summary><b>{esc(r["sym"])}</b> {esc(r["name"][:30])} — {esc(summary_zh(r))}</summary>'
+            f'<summary>{tv_link(r)} {esc(r["name"][:30])} — {esc(summary_zh(r))}</summary>'
             f'<div class="ev-m">业绩日 {esc(r["release"] or "—")} · 行业 {esc(r["industry"])} · {tg}</div>'
             f'{quotes}<div style="margin-top:8px;">{rev_tbl}</div>{calc}{flags}</details>')
 

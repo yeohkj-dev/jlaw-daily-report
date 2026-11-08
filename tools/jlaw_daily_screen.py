@@ -47,6 +47,13 @@ BIG_DOLLAR_VOL = 1e9        # 机构大量参与
 RISK_PER_TRADE = 0.0035     # J Law：单笔风险约账户 0.35%
 META_MAX_RISK = 5.0         # META 回调止损上限 %
 VCP_MAX_RISK = 8.0          # VCP 止损上限 %
+# A0「回测最佳」名单：META 就绪 + RS ≥ 90，收盘跌 8% 卖（再预挂 −12% 保护单），否则拿 60 个交易日。
+# 下面的数字来自 20 年回测（回测/meta_trades20_rs.pkl、回测/K线形态/rs_sys20.json，2006-03 至 2026-08），重跑回测后要人工同步。
+BEST_RS_MIN = 90
+BEST_CLOSE_STOP, BEST_HARD_STOP, BEST_HOLD = 0.08, 0.12, 60
+BEST_BT = dict(n=1024, per_year=50, win=38, ex=2.10, ex_hard=2.00, cagr=13.8, spy_cagr=9.0, h1=6.9, h1_spy=5.4, h2=20.1, h2_spy=12.7,
+               maxdd=-56, spy_maxdd=-56, rs80_h2_beat=0,
+               up_n=827, up_ex=2.61, dn_n=197, dn_ex=0.00)      # 信号日 SPY 在 200 天线上 / 下
 HOT_GROUP_MIN = 3           # 同一细分行业 ≥3 只 = 热门组
 
 
@@ -273,6 +280,16 @@ def market_state():
     return rows[-1] if rows else None
 
 
+def best_exit_date(today, hold=BEST_HOLD):
+    """A0 名单最迟卖出日（约）：明天开盘买，买入那天算第 1 天，第 hold 个交易日收盘卖。只跳过周末，美股假期会让它再晚几天。"""
+    d, n = today, 0
+    while n < hold:
+        d += dt.timedelta(days=1)
+        if d.weekday() < 5:
+            n += 1
+    return f"{d:%Y-%m-%d}"
+
+
 def shares_per_100k(entry, stop):
     return int(100000 * RISK_PER_TRADE / (entry - stop)) if entry > stop else 0
 
@@ -368,6 +385,14 @@ def main():
                   and r["meta"]["risk"] <= META_MAX_RISK and r["meta"]["n_edges"] >= 4]
     meta_watch = [r for r in meta_all if r not in meta_ready and r["meta"]["n_edges"] >= 3 and r["meta"]["risk"] <= VCP_MAX_RISK]
     meta_ready.sort(key=lambda r: (-r["meta"]["n_edges"], r["meta"]["risk"]))
+    # ---- A0. 回测最佳：META 就绪 + RS Rating ≥ 90（20 年回测，见 回测/K线形态/README.md 和 CLAUDE.md 第 6 节）----
+    from rs_rating import load as rs_load
+    rs_now = rs_load()
+    for r in res:
+        r["rs"] = ((rs_now.get("stocks") or {}).get(r["sym"]) or {}).get("rating") if rs_now else None
+    best = sorted([r for r in meta_ready if (r["rs"] or 0) >= BEST_RS_MIN], key=lambda r: (-r["rs"], -r["meta"]["n_edges"]))
+    spy_c = [x["c"] for x in spy] if spy else []
+    spy200 = (spy_c[-1], sma(spy_c, 200)) if len(spy_c) >= 200 else None     # 回测里 SPY 在 200 天线下面时这个系统不赚
     meta_watch.sort(key=lambda r: (-r["meta"]["n_edges"], r["meta"]["risk"]))
     vcp_pool = [r for r in res if r["sym"] in rs_layer]
     vcp_ready = [r for r in vcp_pool if r["vcp"]["score"] >= 6 and r["vcp"]["status"] in ("等突破", "刚突破") and r["vcp"]["risk"] <= VCP_MAX_RISK]
@@ -423,6 +448,18 @@ def main():
         lines += ["> 🔴 血汗钱：以现金为主、冬眠。名单只作观察，留意谁在逆市走强。", ""]
     elif "警戒" in state:
         lines += ["> 🟡 警戒：只做优势最多、止损最窄的形态，单笔风险减半。", ""]
+    lines += [f"## A0. 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}：{len(best)} 只", ""]
+    if not rs_now:
+        lines += ["今天没有 RS Rating 数据，这个名单无法计算。"]
+    elif best:
+        lines += ["| 股票 | RS | 收盘 | 收盘跌破就卖（≈收盘 −8%） | 预挂保护单（≈收盘 −12%） | 最迟卖出（约） | 业绩 |", "|---|---|---|---|---|---|---|"]
+        lines += [f"| {r['sym']} | {r['rs']} | {r['close']} | {r['close'] * (1 - BEST_CLOSE_STOP):.2f} | {r['close'] * (1 - BEST_HARD_STOP):.2f} | "
+                  f"{best_exit_date(today)} | {er_txt(r)} |" for r in best]
+    else:
+        lines += ["今天没有符合条件的股票（META 就绪里没有 RS ≥ 90 的）。"]
+    lines += ["", f"做法：明天开盘买；以后收盘比买价跌 8% 就第二天开盘卖，同时预挂买价 −12% 的止损单防大跌；没卖的话拿 {BEST_HOLD} 个交易日后卖。"
+              f"20 年回测 {BEST_BT['n']:,} 笔，平均每笔比同期买 SPY 多赚 {BEST_BT['ex']:+.2f}%（每 $1 万约 ${BEST_BT['ex'] * 100:.0f}），胜率约 {BEST_BT['win']}%。"
+              + (f"今天 SPY {'在' if spy200[0] > spy200[1] else '跌破'} 200 天线{'上面' if spy200[0] > spy200[1] else '（回测里这时没有优势：不开新仓，已买的照规则卖）'}。" if spy200 else ""), ""]
     lines += [f"## A1. META 回调就绪（动能后低量回调到均线/突破位，止损 ≤5%，优势 ≥4）：{len(meta_ready)} 只", ""]
     lines += meta_md(meta_ready[:15]) if meta_ready else ["今天没有符合条件的股票。"]
     lines += ["", f"## A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）：{len(vcp_ready)} 只", ""]
@@ -479,11 +516,12 @@ def main():
     html_path = os.path.join(SCREEN_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, ms, s, len(res), sum(1 for r in res if r["mom"]), len(vcp_pool), meta_ready, vcp_ready,
-                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2))
+                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200))
 
     print(json.dumps({"html": html_path, "date": str(today), "market_state": state, "universe": len(res),
                       "meta_ready": [(r["sym"], r["meta"]["n_edges"], r["meta"]["risk"], r["er_days"]) for r in meta_ready[:10]],
                       "vcp_ready": [(r["sym"], r["vcp"]["score"], r["vcp"]["risk"], r["er_days"]) for r in vcp_ready[:10]],
+                      "best": [(r["sym"], r["rs"], r["close"], r["er_days"]) for r in best],
                       "watch": [r["sym"] for r in (meta_watch + vcp_watch)[:12]],
                       "hot_groups": {k: len(v) for k, v in sorted(hot.items(), key=lambda x: -len(x[1]))[:6]},
                       "fresh_momentum": [r["sym"] for r in fresh_mom[:10]], "new_ready": new_names[:10],
@@ -491,7 +529,7 @@ def main():
                       "report": md, "chart": png if has_png else None}, ensure_ascii=False))
 
 
-def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=()):
+def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=(), best=(), spy200=None):
     """单文件 HTML（内联样式，图表以 base64 内嵌）。"""
     import base64
     import html as h
@@ -537,6 +575,49 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
                      f'<td {td}><b>{m["n_edges"]}/8</b></td><td {td}>{shares_per_100k(r["close"], m["stop"])}</td><td {td}>{er(r)}</td>'
                      f'<td {tdw}>{h.escape(ok)}</td></tr>')
         return wrap(("股票", "行业", "收盘", "动能日", "回调", "突破位", "建议止损", "止损", "到前高", "优势", "每10万股数", "业绩", "优势明细"), body)
+
+    def best_tbl(rows):
+        if not rs:
+            return '<p style="color:#C62828;">今天没有 RS Rating 数据，这个名单无法计算。</p>'
+        if not rows:
+            return f'<p style="color:#777;">今天没有符合条件的股票（META 就绪名单里没有 RS ≥ {BEST_RS_MIN} 的）。没有就不买，不要放宽到 RS 80。</p>'
+        body = ""
+        for r in rows:
+            c = r["close"]
+            body += (f'<tr><td {td}>{name(r)}</td><td {td}>{h.escape(r["industry"][:20])}</td><td {td}><b>{c}</b></td>'
+                     f'<td {td}><b style="color:#C62828;">{c * (1 - BEST_CLOSE_STOP):.2f}</b></td><td {td}>{c * (1 - BEST_HARD_STOP):.2f}</td>'
+                     f'<td {td}>{best_exit_date(today)}</td><td {td}>{er(r)}</td>'
+                     f'<td {tdw}>META 优势 {r["meta"]["n_edges"]}/8，J Law 原止损 {r["meta"]["stop"]}（{r["meta"]["risk"]}%）</td></tr>')
+        return wrap(("股票", "行业", "今天收盘", "收盘跌破就卖<br>（≈收盘 −8%）", "预挂保护单<br>（≈收盘 −12%）", "最迟卖出（约）", "业绩", "参考"), body)
+
+    b = BEST_BT
+    if spy200:
+        up = spy200[0] > spy200[1]
+        spy_line = (f'<div style="margin:0 0 8px;padding:8px 12px;border-left:4px solid {"#2E7D32" if up else "#C62828"};background:{"#E8F5E9" if up else "#FDECEA"};font-size:13px;line-height:1.6;">'
+                    f'<b>今天 SPY {spy200[0]:.2f}，{"在" if up else "跌破"} 200 天线（{spy200[1]:.2f}）{"上面" if up else ""}。</b>'
+                    f'回测里信号那天 SPY 在 200 天线上：{b["up_n"]} 笔，每笔比 SPY 多 {b["up_ex"]:+.2f}%；在 200 天线下：{b["dn_n"]} 笔，{b["dn_ex"]:+.2f}%（等于白做）。'
+                    + ("" if up else "<b style=\"color:#C62828;\">现在不开新仓（已买的照规则卖）：账户回测里「SPY 跌破 200 天线就不买」比照买好（没持股的钱放 QQQ：每年 +19.3% vs +15.2%）。</b>") + "</div>")
+    else:
+        spy_line = ""
+    best_rules = spy_line + f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
+<b>怎么做（不用盯盘）：</b>
+<ol style="margin:4px 0 6px;padding-left:20px;">
+<li><b>买：</b>名单出来的第二天开盘买（开盘价就是你的「买价」）。</li>
+<li><b>马上挂一张止损单：</b>买价 × 0.88（−12%）。这张单是防大跌的保险，平时不会碰到。</li>
+<li><b>每天收盘后看一次：</b>收盘价比买价低 8% 以上 → 第二天开盘卖掉。盘中跌超过 8% 但收盘回到 −8% 以内，不用卖。</li>
+<li><b>没被止损的话：</b>拿满 {BEST_HOLD} 个交易日（约 3 个月），第 {BEST_HOLD} 天收盘卖。中途涨很多也不提早卖。</li>
+<li><b>买多少：</b>每只约账户的 12.5%（= 每笔最多亏账户 1% ÷ 8%），最多同时 10 只；没持股的钱放 QQQ（或 SPY）。</li>
+<li><b>SPY 跌破 200 天线时不开新仓</b>（名单照样显示，只看不买）。</li>
+<li><b>持有期间有财报：照拿，不用提前卖</b>（回测：财报前一天全卖，账户每年少赚约 3 个百分点，最大回落也没变小）。还没买、几天后有财报也照样可以买。</li></ol>
+表里的 −8% / −12% 价位按<b>今天收盘</b>估算，明天开盘买了之后请用<b>你的买价</b>重算。
+<div style="margin-top:6px;color:#555;font-size:12px;">
+<b>20 年回测（{b['n']:,} 笔，2006–2026，全市场平均每年约 {b['per_year']} 笔）：</b>
+每笔平均比同期买 SPY 多赚 <b>{b['ex']:+.2f}%</b>（每投入 $1 万约多 ${b['ex'] * 100:.0f}；加了 −12% 保护单是 {b['ex_hard']:+.2f}%）。
+胜率只有约 {b['win']}%：大部分笔小亏，靠少数大涨赚钱，所以一定要守规则、不挑。
+放进账户：每年平均 <b>{b['cagr']:+.1f}%</b>，一直拿 SPY {b['spy_cagr']:+.1f}%；2006–2015 {b['h1']:+.1f}%（SPY {b['h1_spy']:+.1f}%）、2016–2026 {b['h2']:+.1f}%（SPY {b['h2_spy']:+.1f}%），两段随机挑 10 次都赢。
+最大回落 {b['maxdd']}%（SPY {b['spy_maxdd']}%），一样会跌一半。
+RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BEST_RS_MIN}。
+回测只有今天还在交易的股票（幸存者偏差），真实结果会差一些；小账户每张单 $1 手续费会吃掉不少（$2,000 账户要注意）。</div></div>"""
 
     def vcp_tbl(rows):
         if not rows:
@@ -610,7 +691,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
     fresh_html = "".join(f'<li>{link(r["sym"])}（{h.escape(r["industry"][:20])}）{r["mom"]["date"]:%m-%d} '
                          f'<span style="color:#2E7D32;">+{r["mom"]["size"]*100:.0f}%</span>，量 {r["mom"]["vr"]:.1f}x{"，业绩催化" if r["catalyst"] else ""}</li>'
                          for r in fresh_mom[:15]) or "<li>无</li>"
-    new_line = (f'<p style="margin:10px 0 0;"><b>新进入就绪名单：</b>{h.escape("、".join(new_names[:20]))}</p>' if new_names else "")
+    new_line = (f'<p style="margin:10px 0 0;"><b>新进入就绪名单：</b>{"、".join(link(x) for x in new_names[:20])}</p>' if new_names else "")
     ms_date = f'（大盘报告日期 {ms["date"]}）' if ms else ""
     sec = lambda t, c: f'<h3 style="margin:22px 0 8px;color:{c};">{t}</h3>'
     return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -626,6 +707,7 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 <div style="padding:16px 18px;font-size:14px;line-height:1.6;">
 <p style="margin:0;"><b>股票池：</b>第二阶段 + 日均成交额 ≥ 1 亿美元 <b>{n_univ}</b> 只 · 有动能事件 <b>{n_mom}</b> 只 · VCP 相对强度层 <b>{n_vcp}</b> 只
 <span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}
+{sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_rules}{best_tbl(best)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
 {sec("B. 观察名单 · META（优势 ≥3）", "#B26A00")}{meta_tbl(meta_watch[:10])}
