@@ -1,0 +1,882 @@
+{
+ "mode": "weekend",
+ "generated": "2026-11-08T23:31:13.217043+00:00",
+ "window_start": "2026-11-06T16:00:00-05:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "Dow Jones Futures Steady as Nasdaq Futures Fall on Microsoft-Oracle News",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdkdMaWljeldFX0doY25BVnVwWUhfVDgxR0Q2YllMN3VQRE44VThYejczNjdEanltZlJxYjVOU0FYVmxKT0lxNWsyNzZCcUExUF9GWUxhR0xBaEUtekx5MHJSSmVmNU82MFU3MHk0azc3VS1GSmZKWnFxU1I0R2RZY1U3cUxfZFdxbFR4ZHhpN3B2eHM3ZVMza19jajFNNFpuYWI1UHhZM1dpYUFBVldaXzBnTHJRZw?oc=5",
+   "source": "FXLeaders",
+   "sources": [
+    "Investor's Business Daily"
+   ],
+   "when": "2026-11-07T00:00:53+00:00",
+   "latest": "2026-11-08T23:14:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 27
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "A new setback for the AI trade: Nvidia’s board is probing CEO Huang’s relationship with alleged spy",
+   "link": "https://www.marketwatch.com/story/nvidias-board-will-probe-ceo-jensen-huangs-relationship-with-an-alleged-spy-heres-what-to-know-86656cd9?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "CNBC",
+    "Investor's Business Daily",
+    "MarketWatch",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:57:00+00:00",
+   "latest": "2026-11-08T23:17:26+00:00",
+   "desc": "The stock market is damaged but Apple, Amazon and Microsoft are holding up. Nvidia is probing CEO Jensen Huang's spy case.",
+   "n_sources": 4,
+   "score": 24
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "World's largest economy slaps $20m bounty on Iran's nuclear secrets despite Trump's U.S. 'obliteration' claim as Africa faces price shocks",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNUDNfT0o5R0ZRTExlRTRqTklka1BNbFJsWVkwdElLZDJDVlRudkpZWnQtYy1sOEFzZFc5MUZfTkJEX0Z3Wm13N2k3b1pHSFFjQUxIYjZhdFgtVGdXMzlFbUdHN2dmSllCcV9yRWdWeHFDYWNKeDFGNWwzRmJlR3I4QnVESHFIOW9lQ1NkbEtwTTQ1QU1LUUlnNk1tb0xOVElyOHVFV014NWlhR3JYOVE4QmV6dnNtZGpUcGM2TEk5MUprX2tUa1hlOFhxWlZOV2tRdTV4cGVJdw?oc=5",
+   "source": "Business Insider Africa",
+   "sources": [
+    "Business Insider Africa"
+   ],
+   "when": "2026-11-08T18:47:27+00:00",
+   "latest": "2026-11-08T18:47:27+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 22
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "COMMENTARY: Why Taiwan’s AI moat trumps South Korea's memory bet",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMG9ZSF95MkFYS3QybktRMUpCSUhTQlhqa1otQWpTRWg4YWpaWFNnbDV0SDZ5bTY4SHh1cXN4cF9xdTl6R05iV0p3OFBxSi1ONHBpU010d3g0ZlpwZlUyRzZPT0Jac3FrTXVZU1RoZHlNZ1g5azZ3ZGE3TDBJVWdmMHJ3blN5UEo1U3hxeHRmUGoxdkg5UEphOWJpcFVXVnNmcHhDcHYyOVdpZFo5dmp0aUVrZ0ZEMjFpbk1BbkdCVnEwd0FZQm1HSHZIYlV0TzBMUjJJQ190cw?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-08T23:06:56+00:00",
+   "latest": "2026-11-08T23:06:56+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "通胀",
+   "title": "Here are the 2 big things we're watching in the stock market in the week ahead",
+   "link": "https://www.cnbc.com/investingclub/2026/11/08/here-are-the-2-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-08T17:40:15+00:00",
+   "latest": "2026-11-08T17:40:15+00:00",
+   "desc": "CoreWeave earnings and inflation data will take center stage.",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "通胀",
+   "title": "Devon Energy Stock And Other Oil Producers Facing Inflation Pressure",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOQWFqNXdwQUJnT1Qxa3hMVWZjSWZOUzVYanRxeGsyUUF1TFk1Q0ZVV1p5RUx1OHM3WGUzSGwzYUxCbnBNTFVtNW1Qa3c3OGxRYWI4ckt2ZHp0T0dqVVgxRTc0SEtJaWh6VGhOZ004d2MxWG5hVFVhcHdGX3Q5ZVRtZzdHOHpvT045RnVLU1BR?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-07T22:14:13+00:00",
+   "latest": "2026-11-07T22:14:13+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil Futures Slide As Market Holds Out Hopes for Middle East Diplomacy",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdXo3c0pXbll5VVJ6eUlRbTJQZ0xLSnFISGlnVGRReWlBTnJYT2d5RVd5cTZmTnFkS0VoZ3h1cVNGOEhOMHUtMUlRU0hPMDhhTmtINTNHdC1JeVRlTExaSklrRWNvaHpMSERXOF9VRlRZTGh4YmZ4aWg3a2ctdlI1bkVsdUY4X0RDMElsTHpaOFN4VVE4YzBwRzVHRk0yamVxM2dJMmdVYlNSdVZoaGR6akhlUGU5WTlx?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-08T22:16:47+00:00",
+   "latest": "2026-11-08T22:16:47+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "For Trump’s Fed Ambitions, a Democratic Senate Poses the Biggest Hurdle Yet",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOEN2SVIzQmppcXREV0sxNE0tejFxYkt4VGpxemtVbVV4R0ZPTVFyVWV0azNTLUxCSkxUQWxxN1plZEpfZ1ZCRHUwNGhJV0k3c2owTWVRaEpfb3JMN09jV01jTkNJcmNidl9FTFhid1JsUmw4ZnVXSjVDRXZzWlM0NnRmRnEybjc5MG1Hb09KQXRsM1lFR0FVUThGVUZjdTZLd2lUZDl2WTB0UQ?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-08T10:30:00+00:00",
+   "latest": "2026-11-08T10:30:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Five9 (FIVN): Evercore ISI Downgraded the Stock Despite AI Revenue Growth Rate of 91%",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/five9-fivn-evercore-isi-downgraded-202815705.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:28:15+00:00",
+   "latest": "2026-11-08T20:28:15+00:00",
+   "desc": "We just published a list of the 10 High-Profile Stocks Just Dumped by Top Analysts and Five9 (NASDAQ:FIVN) ranked 8th on this list. Wall Street had one of its roughest sessions of the year this week. The Nasdaq Composite fell 5.52% on November 5, its deepest o",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump says renewed Iran strikes ‘highly unlikely’ if talks progress but warns he could still strike",
+   "link": "https://www.cnbc.com/2026/11/08/trump-iran-strikes-unlikely-talks-hormuz.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-08T21:28:12+00:00",
+   "latest": "2026-11-08T21:53:02+00:00",
+   "desc": "Trump tied avoiding renewed U.S. strikes to progress in talks over Iran’s nuclear program and the Strait of Hormuz.",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "通胀",
+   "title": "Inflation Data, Constellation Energy, Skydance, Applied Materials, and More to Watch This Week",
+   "link": "https://finance.yahoo.com/m/826f68d8-6715-357e-b04d-885d04102528/inflation-data%2C-constellation.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T19:00:00+00:00",
+   "latest": "2026-11-08T19:00:00+00:00",
+   "desc": "This week will bring the consumer and producer price indexes, as well as earnings from Rocket Lab, Occidental, CoreWeave, and more.",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Gulf markets retreat as traders await Trump's next move on Iran",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNEhqejQxdWF5MFpVWjduZHVuY1l1VmxKYm9CN3F4aC1qWkFIWFJqZDJEZ1VoWmthUW1NaWdWQUY4UUprUGsyWFA2a0trUE5HUjEtUHpPNFV1UnBpMHRrR2RlQWo1c2xvY1J2QnprNnNkbHNpY3ZtUWxMQkRzTVpKcktuZjhJdW5zSHdsZUhxYmxBVy00UWVnbndnOEc2WWplMEEwREVib0VyZ3BzZWlR?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-08T13:14:08+00:00",
+   "latest": "2026-11-08T13:14:08+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Real estate stocks gain as the Blue Wave sends Treasury yields lower (XLRE:NYSEARCA)",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVWp6aHpUUmJmZmEtYUo2bTdsMk50ZGttVFhoS0VSWEM5R05ld3hPemxKbmE2ckZGcUVBdnRZOUhvcWpGTnN0TFczX2U4Q0FMSGFkS01KX3duZ2cya0hXOGZ4ZFo4djk4MTdid21jclE5RUxnd0VVT0NuTGo4VHhZMlNlUmw2X1MxM01XdWlQSjhOQVlnSVU2RUMtZ0ZnZ0xGWGlnZ2lBS0xJQQ?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-07T17:00:00+00:00",
+   "latest": "2026-11-07T17:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "经济数据",
+   "title": "Like Canada, Africa’s largest car producer faces 2027 job and export losses as world’s $32 trillion economy ends duty-free access, with China and Europe offering hope",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNb1hhTEM1dkNvMlhUWWRNRFQ5Um5CX3BqcWYyYk02TjJyLV8teDZPMk82bGZUM3NqUjBtSFZ5VXlyRXJBN3lhYVRaemYtMTdSTjBEM2hmcGxFN2FUTkhLTnYwV3VxXzBtcHZOSjRabVZmUlplRnViMjNBMFV0eXQyQXJpalVOY3VRdTZRNzJYVjF1Q2gta3RmRUlkSVdiMlRyN21HYVg2Z1Z1RzQtV1hoTGgxQmNTSEl3azk0WDR1Y3N6WXE0MWZYa3hwY092WkN5M1NuSlR5NA?oc=5",
+   "source": "Business Insider Africa",
+   "sources": [
+    "Business Insider Africa"
+   ],
+   "when": "2026-11-08T13:00:23+00:00",
+   "latest": "2026-11-08T13:00:23+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 14
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Why the prognosis for healthcare stocks is uncertain ahead of Congress’ new makeup",
+   "link": "https://www.cnbc.com/2026/11/07/healthcare-stocks-may-face-trouble-due-to-midterm-results.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-07T16:02:33+00:00",
+   "latest": "2026-11-07T16:02:33+00:00",
+   "desc": "Healthcare stocks may struggle to find momentum as the Democrats get ready to take over Congress.",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "经济数据",
+   "title": "Ceconomy (XTRA:CEC) Stock Looks Fully Priced On Current Cash Flow",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZ1FTMk1uTXZremJId1RTRzBIanhpZ3FjdVlDUVBwLTU2aUFfb2hUQS1Ea3dKUDR6THVrbHZCSkFkbk1tX3FydWhUQUhuY3F1X1kwZjJfYnFIaE9VZzdiX3Y4MkpEM1JXek9mcG13SnpydEw0Zm9rQmN3STEwQXhtRE1vNUhJbDI3MzhKd3NpNEgybHdWb3VKUEFB?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T22:09:41+00:00",
+   "latest": "2026-11-08T22:09:41+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Taiwan Activates Market-Stabilization Measures to Stem AI Bleeding",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNQmRQc05FTEtYbm9hLUhzOHFESHo4UHlMX2Fwd2l3eTNscTdsTHp1SnF6RGNuMENybV93Z1BZeE03NTVobVF3OG9YUVlhNjI5SElLODdkSXBxNUwtOWlJczdNdmhtQ1N1cnhqcGpaNmlVdS1lNm12RXA3YXNUbDBETzk0UENTUExibVpUa3V5dWFNVGswNEJwaERZSkJodzI2c20wV3hTd2hELW1OOHFvU0JKaHRFYjFWMDEtOFg1WHI?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-08T21:47:55+00:00",
+   "latest": "2026-11-08T21:47:55+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "A Popular New Bet Hailing From Cryptoland Sets Off a Wall Street Turf War",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcnd3TzZDN1pPNVZHQzNVa044OG9iaHVuSWRwRTZhWTlYSG9qVXVCU09jYkFOXzVWcFhyOHVKOXBjTUNlM1JzTGhqT2J2QzZtNTczSjU2QlFiVkJYYV8tOXBOUFdQanRhQnhJX3BuXy0wU0llcXM5ZHJlOUktUXZ6MXdhZU8yenlDdzdtNWl3ZWZTOV9DM1F3Z0RZOEFTTWlnZnNwWFpRVWh3ekZDSWU5Rmx6OV9NMC00WWExbW1R?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-08T20:00:00+00:00",
+   "latest": "2026-11-08T20:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Don’t Miss Out: 5 Stocks Getting Major Upgrades From Top Analysts",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/don-t-miss-5-stocks-230746266.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T23:07:46+00:00",
+   "latest": "2026-11-08T23:07:46+00:00",
+   "desc": "Wall Street ended a punishing week on Friday with a partial recovery. The Nasdaq Composite rose 1.09% to 24,579.42 and the S&P 500 gained 0.31% to 7,376.86, while the Dow Jones Industrial Average slipped 0.46% on November 6. The S&P 500 was still on track for ",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Gildan (GIL): Here’s Why UBS Downgraded the Stock",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/gildan-gil-why-ubs-downgraded-202908949.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:25:11+00:00",
+   "latest": "2026-11-08T20:29:08+00:00",
+   "desc": "We just published a list of the 10 High-Profile Stocks Just Dumped by Top Analysts and Gildan Activewear (NYSE:GIL) ranked 9th on this list. Wall Street had one of its roughest sessions of the year this week. The Nasdaq Composite fell 5.52% on November 5, its ",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Corporate America’s profit numbers are just barely beating Wall Street’s expectations",
+   "link": "https://www.marketwatch.com/story/corporate-americas-profit-numbers-are-just-barely-beating-wall-streets-expectations-eaa67fe2?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-08T15:00:00+00:00",
+   "latest": "2026-11-08T15:00:00+00:00",
+   "desc": "S&P 500 companies’ earnings are mostly topping analysts’ estimates — but by the narrowest margin in roughly four years.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Anthropic's IPO dilemma after the AI sell-off: 'Damned if you do, damned if you don't'",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNaVlpNjBPSk5CcWpIVmc4RnVtUmsxT00wUFVZTXNrYzJqU2w1VGFoUUlUVS02TXVDODhpanJQSUlrNEUzLUo5c0czMXRaYVdSUzdubzBSTG5lVnVEUUE4bW9HSmVHZGV0ZVhYazJsOWw1WDdLMzYxRU1BaEVfbWpWTWtkTDZhakdWd1l5aU1DZk1abDJKY1JRM1VHQnU2Snl5X2xCMHQwaXJ5bWJxYzZPMFFybnlXOWhGSlByeGFDRXZGY291RzJkeW01dHN2a3Fsd0Jn?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T23:12:28+00:00",
+   "latest": "2026-11-08T23:12:28+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "How Democrats will try to end Trump's tariffs",
+   "link": "https://www.cnbc.com/2026/11/08/trump-tariffs-democrats-congress-canada.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-07T23:20:28+00:00",
+   "latest": "2026-11-08T22:02:00+00:00",
+   "desc": "Rep. Hakeem Jeffries, D-N.Y., who is likely the next House speaker, has made clear that ending President Trump's tariffs is one of Democrats' top priorities.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "3 Great Australian Dividend Stocks To Own In November 2026",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPblN4dUlZNE1ZMU1IcXhSOFBhOHV0VlFPSTB0RTYteF9QUW55blJMNFVaZG40ZUZ2TkZuTVhyVW5pNTlFSlVWd2hxTlFpRUJUWjhncDNVOFFFUlFGQUh1MVltMTJtc09aREVfR0d4OEJmSXhjMGwzcU02a2pYa0JwaFJtcnlHLVFDbUgyejJra2VlWWpQY1prN3laMG95N3o1?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:07:56+00:00",
+   "latest": "2026-11-08T20:09:37+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump offers UFC chief Dana White press secretary job",
+   "link": "https://www.cnbc.com/2026/11/07/trump-ufc-dana-white-press-secretary-offer.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-07T18:57:57+00:00",
+   "latest": "2026-11-08T19:39:14+00:00",
+   "desc": "President Donald Trump offered the job of press secretary to UFC president and CEO Dana White on Saturday.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Wall Street's Biggest Bubble Looks Ready to Burst, and I Don't Mean AI or Quantum Computing",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNM1U4U3ZRY09jWXdYZzUwUk11LW42RG8yRk9Rb0NQSzdRa2VRU1FJM2dUTmhzakZvRlhVSzVHemlHTnpaczd2NFk4U0hmcTltNHpPbTAzSjFwclBKdHozSW5CMGM3bEJOdTE4QUtOLVNfamNydmVuanRUelVLU250WlRQNl9GbUpROVhuR1RJSm9jZGxkNzlJZmxORXVMa0E?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T11:56:02+00:00",
+   "latest": "2026-11-08T11:56:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "通胀",
+   "title": "Where Does CPI FIM (BDL:ORCL) Value Sit After A 58% Rise?",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQby1ObXFUZXc5cXlhdTdYTzdCRWFtcUlIWk9DRUtmOHQxT2NWSWVOd0xIYjhid0VhQXNLNmE4Z29GQU14aWszYmx3U3YzZmUyX3RxdkdXTGVwR2ZXUjJPRFNWLUlPb3NodGFfZ2M1TWI2NkxfaTlJVFJNakVWOHhGUkVPV2h2cGp6MDJxcVZpZEU?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:12:58+00:00",
+   "latest": "2026-11-08T21:12:58+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "通胀",
+   "title": "US Inflation Set to Simmer Down Some After Recent Pickup",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMHB3c0hUZDUwNkFjQmh3VW9PTGE3dmpzRkUwRWI2d25MZWhOcmRPOHhmaVdBNGp0YTF3WU9IaVQ0NVNtVG1nZDZTbXlYRVNWdmdpcUJ3cVdVcE5mMUltMWdwZE10Q3lmcFdHR2RINEtlcW54RW56ZkY1MnNsell5b3VLanVoTnh1Y0FKUVhZampkZ2xWUHJPOWxhSWVxa0VFRWhPbzdITTdjRzA?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-08T17:00:46+00:00",
+   "latest": "2026-11-08T17:00:46+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "就业",
+   "title": "Amazon's Astro home robot has fans but looks destined for the 'trash heap.' Why it's trying again",
+   "link": "https://www.cnbc.com/2026/11/08/amazon-home-robot-fauna-sprout.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-08T13:00:01+00:00",
+   "latest": "2026-11-08T13:00:01+00:00",
+   "desc": "Amazon has formed a new home robotics team and is hiring for a “new-to-world robot product,” according to CNBC’s analysis of job posts.",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Democrats amp up Trump investigation threats, Blanche counters he may probe lawmakers",
+   "link": "https://www.cnbc.com/2026/11/08/democrats-trump-oversight-blanche-doj-investigations.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-08T18:57:56+00:00",
+   "latest": "2026-11-08T18:57:56+00:00",
+   "desc": "Democrats have vowed to investigate both President Donald Trump's White House and businesses that have worked with the administration.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump targets Slotkin in call for DOJ probe of alleged Democratic threats to Republicans",
+   "link": "https://www.cnbc.com/2026/11/07/trump-doj-democrats-alleged-threats-slotkin.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-08T14:15:00+00:00",
+   "latest": "2026-11-08T14:15:00+00:00",
+   "desc": "Trump ordered DOJ to examine alleged threats against Republicans while singling out Slotkin.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "ConocoPhillips: A Crude Awakening Is Coming (Rating Downgrade) (NYSE:COP)",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdkVybFRjc083bjVEQ0tFMUlDX1Zhc0poWnNmUDA4RHRuYm9rZnNreE42NTVGbDFLY1RZM1ZLQXB2TEc2eHRMLUJSX0hlR2UtY0laLU5UYURJT3VMUFpSZWIyQ0Q4SnVfVzhQbmU5ZUl0VldIb3oyYVJ3U1VUTUNvejNGZHh2clliZ3dnZjZzc3VHaDBoNVIyZkJ4VVEwMlhEWEE?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-08T13:00:00+00:00",
+   "latest": "2026-11-08T13:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Palomar Holdings (PLMR) Stock Could Be 47% Undervalued Following Strong Q3 Results",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZUZWcmxZS3EtMGViX09nalpNTkYwY1d1RDM1eXVxcXU5RXV5aGItVkJyeU9OOWN2NHlQM0NvVXlVVFRIakZJTFNKRG5ZcjZsdS04eEhBdVBYV1Y0cS1PTjhFdjNZQnNGRlh2ZlZENjVocnZycS10U2F4TmJscGo4N1JZY1ZyY01iRVVfZlYtZUh4eDg4ckpHcnlZTHNsR1U?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T22:07:08+00:00",
+   "latest": "2026-11-08T22:07:08+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Mach Natural Resources (MNR) Stock Could Be A Value Play On Earnings",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPYjR5LXpkVkh3azU3MTA2ZHE1N0tMQUwtMVJiRi1adDJrV2l2X0NSVVVSS3Z2SE5yT1ZJcWpQRk1KTzNaTXR3eFROTW9mcWdfMVNfRk1zSFN6VWg5Mm5JbGpMZzFkam5BLWtTZWgtMFVpWWluUjlkRHdhYkZ6S21VRHhiSWdFa05IakpieTF6WGJreDJuZTJDRDVQdU9VQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:09:53+00:00",
+   "latest": "2026-11-08T21:09:53+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Rigetti Gained 19% Friday. Its $100 Million CHIPS Award Hasn’t Reached Revenue Yet",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQS2xkaV9SN1Y0Z0xlZmZIR1gxSGRNMVVfenpYUmFxTUVzbzI2bHlrX0JydHpTUUFIQ0M1NjhpWGZJYV82dFZ4dVJyelZKMko5MmVzX2F0akQ4YWYtUm9uVllJMll6VTRpRTFRakI3VzhxLU1aY3YyVjNhRGw0NC1kMnVjSUozZXlyRWVJVDNMRjJQN1BIVTBRNQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:50:55+00:00",
+   "latest": "2026-11-08T20:50:55+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "AppLovin Shares Surge as Revenue Continues to Soar. Is It Too Late to Buy the Stock?",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUE5MYTJMX3NicHNCT2tCejV5VzY3eV94RVJxVGV1YTFyMk1tQmRhMDExQ3hOWWVzZ290SjQwUl85ZVBub2o0STFyejZsb2dreWp3MG9PWlhuQ3ZSY0dUdG5oSmVGMzBReGtzcFJWM2l4cXpzLU8yQlh0RS02OS0tV2JQcElHWXo4c3NOcU1LcUtkWUhmTEV6MkpTVnZ2S293aUJqSzY2NA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:55:00+00:00",
+   "latest": "2026-11-08T18:55:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Why the Iran War Has Spurred Both Clean Energy and Fossil Fuels",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9LTWpLTkZ0UWxqZ2NwbFhhMDlnRG0ycHlxdmdzYWNMOTJDUndtM0lQUFIyTWR1OTBleXVlQTlpcTBvVlpvM0dZNlZ2UVhkaEJJQlZuMmt3TUdPcHRjVElsNXVBVVNFaHhUQ2NVWGZXM1hJbGtsYm5F?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-11-08T15:39:13+00:00",
+   "latest": "2026-11-08T15:39:13+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "MSFT Stock Quote Price and Forecast",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBQX3dUSG5UYjhqVm1nRmNzS2pFY0VvMjFRVlQ0WWk0RzFlM2NQZ1lnR2M0b1JKOUlFRU1KZTllYnJfODBUd0RKQ0FzT2o2SmFJ?oc=5",
+   "source": "CNN",
+   "sources": [
+    "CNN"
+   ],
+   "when": "2026-11-07T22:51:25+00:00",
+   "latest": "2026-11-07T22:51:25+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Stagwell (STGW) Reiterated Guidance After Mixed Results, Is The Stock Fully Valued?",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQengzU2F1OUdWNFpTSmhFMkVlMU1NaTB4Z1dpZHNHWGxyRUhpNTlsaDNCOWpHdlc4eWx3TmQwRXNCOW0wS3liVC11OEpsM2NiQW1MRzVEX3ZpUndua3pfT01kZ0hTbFp3NW5XbEZFazg0ekRiU3U4MHF6Y05IUWgtRVZrMGFzVzRhcmI5emJTUW9obHhtVVBtQkFSYkNsWkxwdkpNU0tvcw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-07T15:14:38+00:00",
+   "latest": "2026-11-07T15:14:38+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Berkshire Hathaway more than doubles buybacks in third quarter as earnings decline",
+   "link": "https://www.cnbc.com/2026/11/07/berkshire-hathaway-q3-2026-earnings-buybacks.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-07T15:23:46+00:00",
+   "latest": "2026-11-07T15:23:46+00:00",
+   "desc": "Berkshire Hathaway said Saturday it accelerated its share repurchases during the third quarter, as operating and overall profits took a hit.",
+   "n_sources": 1,
+   "score": 6
+  },
+  {
+   "topic": "市场动态",
+   "title": "You follow the rules for smart stock trading. But are they the right rules?",
+   "link": "https://www.marketwatch.com/story/you-follow-the-rules-for-smart-stock-trading-but-are-they-the-right-rules-9bfe5846?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-08T23:15:00+00:00",
+   "latest": "2026-11-08T23:15:00+00:00",
+   "desc": "Apply the wisdom of investment pros to develop your own consistent methodology.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Asian Markets at Risk of Pressure on Nvidia Probe: Markets Wrap",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQR1JWME4tcFN3Vlh6UlhVeEN3c2FlRUFkUWRrczJ6OUZ1QWRkRndtMy1nZFhBaU5Lc0dzaXU2ZjJnNUtwN2RSa3dyLXlwUV9QanZmaC1Wb2xhbUVZekZhaXdXZkpSazFDVnJqZWIweWtvdGczQi0xTnB1aEhiSy00aVFsMWdYaE1sRkN3NlU2YmVJdzhv?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-08T22:20:51+00:00",
+   "latest": "2026-11-08T22:20:51+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Crash Warnings Are Piling Up on Wall Street. Jack Bogle Had a 6-Word Rule for Exactly This.",
+   "link": "https://247wallst.com/investing/2026/11/08/crash-warnings-are-piling-up-on-wall-street-jack-bogle-had-a-6-word-rule-for-exactly-this/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T22:07:00+00:00",
+   "latest": "2026-11-08T22:07:00+00:00",
+   "desc": "Four crash warnings in one weekend, a 4.4% drop and the worst week since April. Jack Bogle's rule for moments like this was six words long, and his second rule, your age in bonds with Social Security counted, tells a 70-year-old widow with $1.5 million exactly",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "ABNB Q3 2026 deep dive: AI-driven product expansion accelerates growth and margin gains",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTUw3OExWN0FMYjlUSHV4dWhPOWlBQkMwWkJBRC1EaDBJVThfWllFTGUwZkx5eUI5Qm5ETnA0LWFsTkh0VGk0ZzFVcGJvTU81TUg4MTNlQmQwRXRRUUlVRFVMZ3JmR29fRG1jLXFRVG13bXN1TXJwQ0wxTXQ3RVI4aEl2TUlMLTdlcW5SNTdsU1U?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:33:36+00:00",
+   "latest": "2026-11-08T21:33:36+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Warren Buffett Has 1 Simple Rule for Surviving a Stock Market Crash, and History Says It's Never Once Failed",
+   "link": "https://www.fool.com/investing/2026/11/08/warren-buffett-has-1-crucial-rule-for-surviving-a/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:00:00+00:00",
+   "latest": "2026-11-08T21:20:00+00:00",
+   "desc": "If a bear market is coming, Warren Buffett's advice is more important than ever.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "CSX Stock And Rail Peers Facing A New Intermodal Volume Test",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMTE4RHVzTERCR1RRa0laaHNCckhmb0FITkdqMk9zU3VxdER1eHhMSkFMUEJFQlAyZHlndGpmdnZtYzdqTHZDOWVFR05KNURBWFVtZzhxLVd3djl6bVdtOTJ3TEtoVnlVNk4tbm1pdXNLaXZyQlBNVEwyTUowTkNHTjJPbkV4dHVWelA3T0RPT3VHS0VVRHBv?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:09:35+00:00",
+   "latest": "2026-11-08T21:09:35+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia's Jensen Huang admits to affair after allegations of romance with Chinese spy: Report",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNYU5fTUZfS2drVGlTTk43X0NHYU9EMWZJQ0pmN1IyMDlWRFJLUjdpamR6QmlYN2pLR2FYaGw2RHJPbHl6VTdXOTRDaTlMSEJEWUZLYXlSNkw0VWlRSmlTNGl6WjFmVU5rRkRVeng2alFRSjdRR2lVTEpvSWM3THFmc1dQNk5SVG9pcm93WW1IQjFLV0xSOTBZd0RoQnU4SWJJRWhMcHZWMFpWcHRvSU1TQWVsTXR6NzdBcFFRRURMdUlCZ0hnSnNzZkV6eGZ6clp6dGVhcEZUMTkwRHpwSGhibg?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T21:02:55+00:00",
+   "latest": "2026-11-08T21:02:55+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Sell Alert: 5 High-Profile Stocks Just Dumped by Top Analysts",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/sell-alert-5-high-profile-203124084.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T12:17:00+00:00",
+   "latest": "2026-11-08T20:31:24+00:00",
+   "desc": "Wall Street had one of its roughest sessions of the year this week. The Nasdaq Composite fell 5.52% on November 5, its deepest one-day drop in 19 months, Reuters reported that day. The index closed more than 10% below its October 6 record, which confirmed a te",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Here’s Why BofA Cut International Flavors & Fragrances (IFF) to Underperform",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/why-bofa-cut-international-flavors-202614886.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:26:14+00:00",
+   "latest": "2026-11-08T20:26:14+00:00",
+   "desc": "We just published a list of the 10 High-Profile Stocks Just Dumped by Top Analysts and International Flavors & Fragrances (NYSE:IFF) ranked 7th on this list. Wall Street had one of its roughest sessions of the year this week. The Nasdaq Composite fell 5.52% on",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Barclays Cut Gartner (IT) Despite a 27% Rally in Its Shares",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/why-barclays-cut-gartner-despite-202403354.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:24:03+00:00",
+   "latest": "2026-11-08T20:24:03+00:00",
+   "desc": "We just published a list of the 10 High-Profile Stocks Just Dumped by Top Analysts and Gartner (NYSE:IT) ranked 6th on this list. Wall Street had one of its roughest sessions of the year this week. The Nasdaq Composite fell 5.52% on November 5, its deepest one",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Mivtach Shamir Holdings (TASE:MISH) Stock Trades At A Premium Following Its 329% Run",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQR2dxUVNRY243NnJBWjlQRk9GTzBIMlh6NkNDWjYtRUQwUFRTemVhcTkyc1ZUVEt3cnBTQUt4X0JWTWxVaUY2SW00V3AwcF8xTEpYRGxDdzlVUVZKTTJEV1p2c3Fxd3ZnN0poajZUMEV2N0JlcXFTVEVWUzJtQVRQS0dBTnVDd2l0UkpyRmFtOGVDa09pLWw1MlF5ckhUVDA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:10:58+00:00",
+   "latest": "2026-11-08T20:10:58+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Exosens (ENXTPA:EXENS) Stock Still Looks Cheap Despite Its 12% Slide",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTzJUU2hWOUVKbnNEYUJ6MjJRRTNxdzVJd2tTRklOR01tRkc0QUQ3WTdmdVFKaXBBMGtOQ0E1dUVQbUMzY09xWWhYQUNVcDBDb1dUcGk2N1ZuX1kwS090M1lmWGhOenNLNmhuaXBKSE1PbS1aUGNuY3lSN0hIV05mb1ExN2xsdXRiYmFFQ3hRaEd6cXJGZ0p4XzB1MUktdw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T20:10:48+00:00",
+   "latest": "2026-11-08T20:10:48+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "A Once-in-a-Decade Opportunity: 1 Super Growth Stock Down 58% to Buy and Hold for a Decade",
+   "link": "https://www.fool.com/investing/2026/11/08/once-in-a-decade-opportunity-super-growth-stock/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T19:45:00+00:00",
+   "latest": "2026-11-08T20:05:00+00:00",
+   "desc": "This stock just got crushed, and it's a great opportunity to buy on the dip.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Centrus Energy Stock Crashed 26% in October",
+   "link": "https://www.fool.com/investing/2026/11/08/why-centrus-energy-stock-crashed-26-in-october/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T19:26:12+00:00",
+   "latest": "2026-11-08T19:26:12+00:00",
+   "desc": "Centrus went shopping, and Wall Street isn't happy with its purchase.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Here's How Much $10,000 in Altria Stock Pays You Each Year",
+   "link": "https://www.fool.com/investing/2026/11/08/how-much-10k-altria-stock-pays-you-each-year/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T19:16:00+00:00",
+   "latest": "2026-11-08T19:16:00+00:00",
+   "desc": "Changing smoking habits may not necessarily strip Altria of its dividend stalwart status.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Stock Market Today: Dow Soars 500 Points Amid Rate-Hike Bets; Apple Advances",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORzJRNTdMeWZaNzgybTBpVlVuaGJfT0ozeHVzXy13Sm1XVGVJcmxvbUxyT20xeVVaeThJRTd0ZGVPdW5wMUhoVzZpZjFyTmhMSjFjOFVucW9WQmY5c0pJOXkyQWNzbUdwVUVYT2FmMW9TRV9YQmdDcjhaQnFkblpvcGh2a21YdkQybnN1YTBQRjF1cDF3U1BlOVg3OFBQRl93NnBPS2RsMHNMNU5SSFpiSjl5N1hzRHZRTzdoVQ?oc=5",
+   "source": "Investor's Business Daily",
+   "sources": [
+    "Investor's Business Daily"
+   ],
+   "when": "2026-11-08T18:45:50+00:00",
+   "latest": "2026-11-08T18:45:50+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "A 68-Year-Old Swapped His Bond Funds for DIVO and GPIX in a $1.1 Million Portfolio. Here’s What Happened to His $6,700 Monthly Paycheck",
+   "link": "https://247wallst.com/personal-finance/2026/11/08/a-68-year-old-swapped-his-bond-funds-for-divo-and-gpix-in-a-1-1-million-portfolio-heres-what-happened-to-his-6700-monthly-paycheck/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:37:43+00:00",
+   "latest": "2026-11-08T18:37:43+00:00",
+   "desc": "A retiree dumps his safe bond funds to close a small income gap, and his paycheck climbs. But the swap quietly trades away the cushion that protects him when stocks fall, and a dividend cut is already on the way.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Neinor Homes (BME:HOME) Stock Looks Fairly Valued On Future Cash Flow",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQWV8wZkpnX3d0REstbmdHdm1MNjBHNk5TRElqOFpFdEdPZWlvWHU4UGI4WUpzZ01IRTE5SnU4RGVtRFlxUXUwUnRLOWdMWVdIUG1JVWs4NklkdmlEWExIMmJpMWl2MmhxZDlSdGVNaG1pSFpTX3FWbXdlR0x4MHVTSTJCWGJ0MXpURE9YTHB2c3gzYVp0SDdj?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:10:28+00:00",
+   "latest": "2026-11-08T18:10:28+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Cementir Holding (BIT:CEM) Stock Looks About Right After Its 94% Run",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdXpxZldDd0hoaGtSMEhHQ0R1WXVsTGtxVy1UbU1NZl91MG9zb0UwNWpCRTlrOU10UDBZd3UwN0FINUtSQjdhYlU5WDNob1d6LXBXZWtFUDlhOG5FQnB6ZTBLeE4tWnE5ck81QWZKd0EwcGR5dVlkRFFrOVFoSTBORlNWUUdpQ1djcks4THlYN1BaU0VqeU05Z0M0NA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:10:02+00:00",
+   "latest": "2026-11-08T18:10:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Ayalon Insurance (TASE:AYAL) Stock Could Be Undervalued Despite Its Huge 3 Year Run",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxONTRpRVJVdUZCejVXU2tZV3pBVzRyUlhkZkhRSGxqV2VHeTdvV2kzNHJFR0dMeWN5STMwYXlhOEhJMkZYUXJtd2E0OUxGZnQySEdyQ3ppMV83T0NZME5zYUZEY1ppd3JyWjk3ZzN2VVRWTW5malZSQ0VzTW10OVhMdXBVSHExOUpxNktIUy1wN05TYTYzLW0wRG14QWtWUQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-08T18:09:56+00:00",
+   "latest": "2026-11-08T18:09:56+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 510 条标题，合并后 87 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": false,
+   "critical": false,
+   "detail": "1 个事件有 ≥2 家媒体报道"
+  },
+  {
+   "name": "期货快照",
+   "ok": true,
+   "critical": false,
+   "detail": "5/5 个品种取到数据"
+  },
+  {
+   "name": "快照数据新鲜度",
+   "ok": true,
+   "critical": false,
+   "detail": "5/5 个在 4 天内更新"
+  }
+ ]
+}
