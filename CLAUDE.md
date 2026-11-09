@@ -50,7 +50,7 @@
 
 | 工作流 | 时间（UTC） | 马来西亚时间 | 做什么 |
 |---|---|---|---|
-| `.github/workflows/daily.yml`「每日报告」 | 周一至五 22:30；周日 23:00 | 周二至六 06:30；周一 07:00 | 生成报告 → 发布网站 → 发 Telegram 早报 → 把数据提交回仓库 |
+| `.github/workflows/daily.yml`「每日报告」 | 周一至五 22:30；周日 23:30 | 周二至六 06:30；周一 07:30 | 生成报告 → 发布网站 → 发 Telegram 早报（周一发周末版） → 把数据提交回仓库 |
 | `.github/workflows/premarket.yml`「盘前提醒」 | 周一至五 12:00–14:40 每 20 分钟 | 美国冬令时约晚上 10:00，夏令时约 9:00 | 只在美东 08:50–09:29 之间（开市前约 30 分钟）发 Telegram 盘前提醒，一天只发一次 |
 | `.github/workflows/telegram-test.yml`「Telegram 测试」 | 只能手动 | — | 把最新早报再发一次，测试 Telegram 设置 |
 
@@ -97,6 +97,9 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - **早报「为什么」只能用当天的新闻**（上一个交易日美东 16:00 之后发布的）；以前连前一天的新闻也读，大涨日会出现前一天「大跌」的标题。个股异动的新闻可以多看一天（公司常在前一天收盘后公布业绩）。
 - **经济数据的实际值**：Forex Factory 免费日历只有预期和前值。非农、失业率、平均时薪、CPI、PPI 的实际值来自 `tools/bls.py`（美国劳工统计局免费 API v1，一次请求、缓存 6 小时，每天限 25 次），早报和本周重大事件都会显示「实际 / 预期 / 高于或低于预期」。**不要把预期值写得像实际值**（用户曾以为 65K 是非农实际值，其实是预期；实际是 +165K）。
 - **早报逐项交叉核对**：`tools/brief_check.py` 每天把早报的每个数字用第二来源再算一次（TradingView ↔ Yahoo、BLS ↔ 新闻、业绩日期），结果存在 `早报/<日期>.json` 的 `crosscheck`，摘要在页头「数据核对」。期货（油、金）TradingView 用结算价、Yahoo 用最后成交价，所以核对的是前一天结算价是否一致。
+- **周末版**（`tools/weekend_brief.py`，2026-11-09 加入）：周日 UTC 23:30 的周末运行里产生（期货美东周日 18:00 开盘后），内容是周末新闻（周五收盘后）、周日晚期货、上周涨跌（周五对周五）、下周经济日历和大公司业绩；网站「早报」分页周末换成这份，Telegram 用 `telegram_send.py --weekend` 发（记录在 `早报/_weekend_sent.txt`）。本机测试：`python tools/weekend_brief.py . --force --asof <某个周日>`。TradingView 的 `Perf.W` 是最近 7 天、不一定是周五对周五，不要拿来当「上周」。
+- 新闻挑选会排除纯政治新闻（`POLITICS_RX`：调查、选举、议员…），除非标题同时讲到关税、利率、油价、战争等（`POLICY_RX`）。
+- Telegram 一则信息最多 4,096 字，`telegram_send.split()` 会在段落之间切成几则。
 - **所有股票代码都要链接到 TradingView 图表**（`https://www.tradingview.com/chart/?symbol=交易所:代码`），网站和 Telegram 都一样；交易所从 TradingView 选股器结果的 `s` 字段（如 `NASDAQ:AMD`）或业绩估值 JSON 的 `exchange` 取。共用的 `tools/rs_rating.py` `tv_link(sym, rs=None, ex=None)`（交易所查不到就只用代码，TradingView 也认得）；2026-11-08 已把综合名单、量化分页 / 完整报告、Luk「一眼看懂」、每日选股「新进入就绪名单」、业绩与估值的摘要都改成链接。新加名单一律用它。
 - **FRED（ICE BofA 利差）在本机和 GitHub 都连不上**，大盘报告的信用市场改用 HYG / IEF 走势；数据核对会显示这项提醒。
 - **CNN 恐惧贪婪指数**是 CNN 网页用的接口，不是公开 API；GitHub 上目前取得到。

@@ -26,7 +26,7 @@ Telegram：每个交易日早上发「早报」，开市前约 30 分钟发「�
 
 ## 运行时间
 - 平日版：周一至周五 UTC 22:30（马来西亚/香港时间次日早上 6:30）
-- 周末版：周日 UTC 23:00（马来西亚/香港时间周一早上 7:00）
+- 周末版：周日 UTC 23:30（马来西亚/香港时间周一早上 7:30）
 
 也可以在 **Actions → 每日报告 → Run workflow** 手动运行。
 
@@ -44,6 +44,7 @@ python tools/jlaw_daily_report.py
 | `tools/luk_screens.py` | Luk 选股（TradingView 选股器，名单存于 `Luk选股/`） |
 | `tools/morning_brief.py` | 早报（同一份内容也可用于 Telegram 推送） |
 | `tools/premarket_brief.py` | 盘前提醒（开市前约 30 分钟发到 Telegram：期货走向、选股名单盘前表现、Luk 盘前跳空股） |
+| `tools/weekend_brief.py` | 周末版早报（周末新闻、周日晚期货、上周回顾、下周要看什么；周一早上发 Telegram） |
 | `tools/news_digest.py` | 新闻整理（RSS + 规则，不用 AI） |
 | `tools/weekly_events.py` | 本周重大事件 / 本周回顾（合并本周每天的新闻 JSON，存放在 `新闻/`） |
 | `tools/earnings_valuation.py` | 业绩与两年估值 |

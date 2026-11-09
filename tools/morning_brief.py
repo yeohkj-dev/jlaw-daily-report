@@ -132,6 +132,9 @@ MARKET_RX = re.compile(r"\b(stocks?|nasdaq|s&p|dow|wall street|sell-?off|rout|tu
 # 政策 / 地缘新闻只在和市场有关时才算（关税、利率、油价、战争…），一般政治新闻不算
 POLICY_RX = re.compile(r"\b(tariffs?|trade|tax|sanctions?|shutdown|budget|debt|fed|treasury|yields?|oil|opec|china|war|iran|israel|"
                        r"russia|ukraine|taiwan|chips?|export)\b", re.I)
+# 纯政治新闻（调查、选举、议员…）不算，除非标题同时讲到市场或政策（关税、利率、油价、战争…）
+POLITICS_RX = re.compile(r"\b(democrats?|republicans?|gop|investigations?|lawmakers?|elections?|senate|impeach\w*|probes?|"
+                         r"indict\w*|lawsuits?|scandal|campaign)\b", re.I)
 
 
 EARN_RX = re.compile(r"\b(dividend|earnings|estimates|beats?|misses|revenue|guidance|quarter|profit)\b", re.I)   # 个股消息
@@ -144,6 +147,8 @@ def macro_news(stories):
         t = s["title"]
         if MARKET_RX.search(t):
             return True
+        if POLITICS_RX.search(t) and not POLICY_RX.search(t):
+            return False
         if EARN_RX.search(t):
             return False
         return s.get("topic") in macro or (s.get("topic") in ("政策 / 关税", "地缘政治") and POLICY_RX.search(t))

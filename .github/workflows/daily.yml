@@ -4,8 +4,8 @@ on:
   schedule:
     # 平日版：美股收盘后 UTC 22:30，周一至周五（= 马来西亚/香港时间次日早上 6:30）
     - cron: "30 22 * * 1-5"
-    # 周末版：周日 UTC 23:00（= 马来西亚/香港时间周一早上 7:00）：周末新闻 + 每周展望
-    - cron: "0 23 * * 0"
+    # 周末版：周日 UTC 23:30（= 马来西亚/香港时间周一早上 7:30；美东周日晚期货已开盘）：周末新闻 + 每周展望 + Telegram 周末版
+    - cron: "30 23 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -62,6 +62,14 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python tools/telegram_send.py .
+
+      # 周末版（只有周日晚的周末运行才会产生新的一份；同一份只发一次）
+      - name: 发送周末版到 Telegram
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/telegram_send.py . --weekend
 
       - name: 保存结果
         run: |

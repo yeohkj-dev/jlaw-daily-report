@@ -253,7 +253,7 @@ def main():
                             ("luk", "Luk 选股", "luk_screens.py", ())]) + [
         ("news", "周末新闻" if weekend else "今日新闻", "news_digest.py", news_mode),
         ("ev", "业绩与估值", "earnings_valuation.py", ()),
-        ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ())] if weekend else
+        ("we", "本周回顾" if weekend else "本周重大事件", "weekly_events.py", news_mode)] + ([("wk", "每周展望", "weekly_outlook.py", ()), ("wbrief", "周末版早报", "weekend_brief.py", ("--force",) if FORCE == "weekend" else ())] if weekend else
                                                                                       [("brief", "早报", "morning_brief.py", ())])
     res, errs = {}, {}
     for i, (key, label, script, extra) in enumerate(steps, 1):
@@ -320,8 +320,11 @@ def main():
     tabs.append(risk_tab(state))
 
     # ---- 早报：放在第一个分页（周末沿用最近一个交易日的）----
-    brief = res.get("brief")
-    if brief:
+    brief, wbrief = res.get("brief"), res.get("wbrief")
+    if weekend and wbrief and wbrief.get("html"):
+        # 周末：换成周末版（周末新闻、周日晚期货、上周回顾、下周要看什么）
+        tabs.insert(0, ("brief", "早报", f"周末版 · 周一 {wbrief['next_monday'][5:]}", body_of(wbrief["html"])))
+    elif brief:
         tabs.insert(0, ("brief", "早报", f"标普 {brief['spy']:+.1f}% · 纳指 {brief['qqq']:+.1f}%" if brief.get("spy") is not None else "昨晚美股",
                         body_of(brief["html"])))
     elif not weekend:
@@ -335,7 +338,7 @@ def main():
                             (note(f"这是上一个交易日（{day}）的早报，周末不更新。") if day else "") + (old or body_of(f))))
 
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("wbrief", "周末版"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])] + quant_checks() + [dict(c, module="RS Rating") for c in rs_checks]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]

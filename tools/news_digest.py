@@ -261,7 +261,9 @@ def calendar(next_week):
     return sorted(out, key=lambda x: x["when"])
 
 
-CAL_ZH = {"CPI": "消费者物价指数", "Core CPI": "核心 CPI", "PPI": "生产者物价指数", "Core PPI": "核心 PPI",
+CAL_ZH = {"CPI m/m": "CPI（月增）", "Core CPI m/m": "核心 CPI（月增）", "CPI y/y": "CPI（年增）", "Core CPI y/y": "核心 CPI（年增）",
+          "PPI m/m": "PPI（月增）", "Core PPI m/m": "核心 PPI（月增）", "Prelim UoM Inflation Expectations": "密歇根通胀预期初值",
+          "CPI": "消费者物价指数", "Core CPI": "核心 CPI", "PPI": "生产者物价指数", "Core PPI": "核心 PPI",
           "Non-Farm Employment Change": "非农就业人数", "Unemployment Rate": "失业率", "Unemployment Claims": "首次申领失业金",
           "Federal Funds Rate": "联邦基金利率（议息）", "FOMC Statement": "FOMC 声明", "FOMC Press Conference": "FOMC 记者会",
           "FOMC Meeting Minutes": "FOMC 会议纪要", "Advance GDP q/q": "GDP 初值", "Prelim GDP q/q": "GDP 修正值",
