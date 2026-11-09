@@ -1,0 +1,223 @@
+{
+ "date": "2026-11-09",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-09（周一）收盘</b>\n\n<b>📈 昨晚：美股大涨</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> +2.4% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> +3.5% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> +3.2%\n10 年美债 4.88%（+3 基点） · VIX 19.9（-5.7） · 油（结算价） -0.7% · 美元 -0.6% · 金（结算价） +0.7%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://www.marketwatch.com/story/how-wall-street-is-reacting-to-the-news-of-nvidias-jensen-huang-investigation-into-spy-claims-d8c839ab?mod=mw_rss_topstories\">As Nvidia’s stock falls, here’s what Wall Street has to say about the Jensen Huang scandal</a>（20 家媒体）\n• <a href=\"https://finance.yahoo.com/m/db2f6d95-b7a5-3274-8193-c767d2b681c1/dow-jones-soars-1%2C132-points.html?.tsrc=rss\">Dow Jones Soars 1,132 Points As Amazon, Tesla Rally, But Nvidia Dives; CPI Inflation Report Next</a>（2 家媒体）\n• <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/09/crypto-market-today-nov-9-bitcoin-and-ethereum-lag-as-nasdaq-surges-nearly-3/?.tsrc=rss\">Crypto Market Today, Nov. 9: Bitcoin and Ethereum Lag as Nasdaq Surges Nearly 3%</a>（2 家媒体）\n• <a href=\"https://www.marketwatch.com/story/the-stock-market-rally-keeps-spreading-beyond-big-tech-october-inflation-data-could-put-it-to-the-test-c1b87dcd?mod=mw_rss_topstories\">The stock-market rally keeps spreading beyond Big Tech. October inflation data could put it to the test.</a>\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLI\"><b>工业</b></a> +3.8%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLK\"><b>科技</b></a> +3.7%　涨最少：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> +0.5%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLP\"><b>必需消费</b></a> +0.9%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MPWR\"><b>MPWR</b></a> +16.6% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AMD\"><b>AMD</b></a> +13.3% — <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/06/stock-market-today-nov-6-amd-surges-11-on-record-quarterly-revenue-and-stronger-growth-outlook/?.tsrc=rss\">Stock Market Today, Nov. 6: AMD Surges 11% on Record Quarterly Revenue</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:BE\"><b>BE</b></a> +11.9% — <a href=\"https://www.cnbc.com/2026/11/09/this-beaten-down-data-center-stock-could-be-worth-a-look-says-mike-khouw.html\">This beaten-down data center stock could be worth a look, says Mike Kh</a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:NVDA\"><b>NVDA</b></a> -4.3% — <a href=\"https://www.marketwatch.com/story/how-wall-street-is-reacting-to-the-news-of-nvidias-jensen-huang-investigation-into-spy-claims-d8c839ab?mod=mw_rss_topstories\">As Nvidia’s stock falls, here’s what Wall Street has to say about the </a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MSTR\"><b>MSTR</b></a> -2.6% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:HUM\"><b>HUM</b></a> -2.4% — 没有找到相关新闻\n\n<b>👀 今晚要看</b>\n• 08:30 美东（马来西亚 21:30）核心 CPI（月增）（预期 0.2%，前值 0.3%）\n• 08:30 美东（马来西亚 21:30）CPI（月增）（预期 0.3%，前值 0.6%）\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-09）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": 2.37,
+   "check": 2.37,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": 3.54,
+   "check": 3.54,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": 3.23,
+   "check": 3.23,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 4.88,
+   "check": 4.86,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 19.93,
+   "check": 19.92,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": -0.68,
+   "check": "前一天结算 86.85 vs 90.83；Yahoo 最后成交价 -5.01%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": -0.59,
+   "check": -0.61,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": 0.74,
+   "check": "前一天结算 4114.50 vs 4074.90；Yahoo 最后成交价 +1.73%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": 3.73,
+   "check": 3.73,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": 2.92,
+   "check": 2.92,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": 2.45,
+   "check": 2.45,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": 1.45,
+   "check": 1.45,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": 3.82,
+   "check": 3.82,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": 1.91,
+   "check": 1.91,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": 0.52,
+   "check": 0.52,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": 1.91,
+   "check": 1.91,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": 0.9,
+   "check": 0.9,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": 1.53,
+   "check": 1.53,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": 1.45,
+   "check": 1.45,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "MPWR",
+   "brief": 16.6,
+   "check": 16.6,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MPWR 市值 ≥500 亿",
+   "brief": 68,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AMD",
+   "brief": 13.26,
+   "check": 13.26,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AMD 市值 ≥500 亿",
+   "brief": 834,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "BE",
+   "brief": 11.91,
+   "check": 11.91,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "BE 市值 ≥500 亿",
+   "brief": 57,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NVDA",
+   "brief": -4.27,
+   "check": -4.27,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NVDA 市值 ≥500 亿",
+   "brief": 4306,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MSTR",
+   "brief": -2.59,
+   "check": -2.59,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MSTR 市值 ≥500 亿",
+   "brief": 53,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "HUM",
+   "brief": -2.43,
+   "check": -2.43,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "HUM 市值 ≥500 亿",
+   "brief": 51,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
+}

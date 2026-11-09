@@ -1,0 +1,50 @@
+[
+ {
+  "title": "FOMC Member Waller Speaks",
+  "when": "2026-11-10T04:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "",
+  "previous": "",
+  "actual": ""
+ },
+ {
+  "title": "Core CPI m/m",
+  "when": "2026-11-10T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "0.2%",
+  "previous": "0.3%",
+  "actual": ""
+ },
+ {
+  "title": "CPI m/m",
+  "when": "2026-11-10T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "0.3%",
+  "previous": "0.6%",
+  "actual": ""
+ },
+ {
+  "title": "Unemployment Claims",
+  "when": "2026-11-12T08:30:00-05:00",
+  "impact": "Medium",
+  "forecast": "194K",
+  "previous": "189K",
+  "actual": ""
+ },
+ {
+  "title": "Core PPI m/m",
+  "when": "2026-11-13T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "0.3%",
+  "previous": "0.7%",
+  "actual": ""
+ },
+ {
+  "title": "PPI m/m",
+  "when": "2026-11-13T08:30:00-05:00",
+  "impact": "High",
+  "forecast": "0.4%",
+  "previous": "1.3%",
+  "actual": ""
+ }
+]

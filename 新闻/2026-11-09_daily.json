@@ -1,0 +1,894 @@
+{
+ "mode": "daily",
+ "generated": "2026-11-09T23:17:49.682579+00:00",
+ "window_start": "2026-11-08T23:17:49.682579+00:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "As Nvidia’s stock falls, here’s what Wall Street has to say about the Jensen Huang scandal",
+   "link": "https://www.marketwatch.com/story/how-wall-street-is-reacting-to-the-news-of-nvidias-jensen-huang-investigation-into-spy-claims-d8c839ab?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "AP News",
+    "Axios",
+    "BNN Bloomberg",
+    "Barron's",
+    "Bloomberg.com",
+    "Business Insider",
+    "CNBC",
+    "Financial Times",
+    "Forbes",
+    "Investopedia",
+    "Investor's Business Daily",
+    "MarketWatch",
+    "Morningstar",
+    "Reuters",
+    "Seeking Alpha",
+    "WSJ",
+    "Yahoo Finance",
+    "Yahoo Finance Australia",
+    "Yahoo Finance Singapore",
+    "Yahoo Finance UK"
+   ],
+   "when": "2026-11-09T00:00:15+00:00",
+   "latest": "2026-11-09T22:21:14+00:00",
+   "desc": "The fallout from the board’s new investigation could become “a longer-lasting problem for the company,” analysts say.",
+   "n_sources": 20,
+   "score": 106
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Canada says it is extending tariff relief on some US imports",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTTNFR2s2cS00RWNNUlZMWU9kY1hXajNGazNhdFZjeEFabGF0bFJlY0dMaUhOM1hLYmNtcWI3dFNuNzd3Um9OSTFINUVkUl9sajNUSUNfUW83LWdtamJBUUItLXhWQkYxb21NRkptVUVJT3U3dE1ibTJ3X0lHTk1NOEdsLXhRVkNIb0RZTGlGRjY4X2F0RUFVTXJDZWxRbUFVN18yTA?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Bloomberg Law News",
+    "Bloomberg Tax",
+    "Bloomberg.com",
+    "Reuters",
+    "Yahoo Finance",
+    "Yahoo Finance Singapore"
+   ],
+   "when": "2026-11-09T02:42:34+00:00",
+   "latest": "2026-11-09T22:54:45+00:00",
+   "desc": "",
+   "n_sources": 6,
+   "score": 37
+  },
+  {
+   "topic": "通胀",
+   "title": "Gold climbs more than 1% as inflation fears ease on lower crude prices",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbEdIVXlJc2RaUEw2RmFrR2FZcXYzYlBKUG9Cdl9WUVFfalVxT0hGcGFCdW1DS3JMT2daanhDYktBeXVGNGt5TGlsOGZJVWVSMFpnT3ZVa2RBUjZYakRlVlQ3SXd1ZkpTQVNXVkpoNUZoemdycWY0MG02dVk0cWRuWG4taG5VMm9kbEluSHctTVZVMXJwWXNWSWdVcmxQeWtRSW1EWDQ2dTJ6QVV2TzhoeQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-09T03:01:00+00:00",
+   "latest": "2026-11-09T22:40:03+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 24
+  },
+  {
+   "topic": "就业",
+   "title": "3 unexpected reasons the October jobs report was so strong",
+   "link": "https://www.cnbc.com/2026/11/09/october-jobs-report-hiring-by-sector.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T16:54:00+00:00",
+   "latest": "2026-11-09T22:23:56+00:00",
+   "desc": "October's jobs report blew past economist forecasts. Here are three reasons.",
+   "n_sources": 1,
+   "score": 24
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "The stock-market rally keeps spreading beyond Big Tech. October inflation data could put it to the test.",
+   "link": "https://www.marketwatch.com/story/the-stock-market-rally-keeps-spreading-beyond-big-tech-october-inflation-data-could-put-it-to-the-test-c1b87dcd?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:24:00+00:00",
+   "latest": "2026-11-09T21:24:00+00:00",
+   "desc": "Tuesday’s CPI inflation report and a heavy lineup of Federal Reserve speakers could test the rotation trade’s resilience",
+   "n_sources": 1,
+   "score": 24
+  },
+  {
+   "topic": "通胀",
+   "title": "Dow Jones Soars 1,132 Points As Amazon, Tesla Rally, But Nvidia Dives; CPI Inflation Report Next",
+   "link": "https://finance.yahoo.com/m/db2f6d95-b7a5-3274-8193-c767d2b681c1/dow-jones-soars-1%2C132-points.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Investor's Business Daily",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:00:00+00:00",
+   "latest": "2026-11-09T22:00:15+00:00",
+   "desc": "Dow Jones futures were in focus after soaring 1,132 points ahead of the CPI inflation report. Amazon and Tesla rallied, but Nvidia dived.",
+   "n_sources": 2,
+   "score": 23
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "COMMENTARY: Fund sellers, China buyers squeeze copper's tariff trade",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWlpXV0JiLWp6alEyWjJXejVxdE95VFBrMzVVcDJiOGtWc2NFcUtNN0R1cXl2cmlQdmhlMjI1ZDA3U2pzcko1UjYtc013SDNfNlZ2TUJlbUlIQnhDMXNxZmtDVHE5VUdwQWxER19oSjNLN052bnVrYlQ0QVNzallzOVU1bXdxNFlHSy1idC0zTGlNTnBscUNDdTNjdDBpb3BtUjJqMnpIRE1MQzVIVVRPeUMxUnE0LU1mb2h4T3hJVno?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-09T23:05:11+00:00",
+   "latest": "2026-11-09T23:05:11+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 21
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Stock Market Today, Nov. 9: Markets Rally as Semiconductor Gains Lift Nasdaq",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/09/stock-market-today-nov-9-markets-rally-as-semiconductor-gains-lift-nasdaq/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:16:26+00:00",
+   "latest": "2026-11-09T22:23:39+00:00",
+   "desc": "On Nov. 9, 2026, chipmakers powered a broad rebound that pulled major indexes back from recent losses, with Treasury yields edging higher.",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "CPI Inflation Data: How the October Report Affects the Fed’s Next Rate Decision",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQb0dpUnNRSjlyNnVNVFJOSjlnLXBPOWFjdGVVNlVuZnM4ckJzRllBSEVPWkdxWTV5Ujl5MHMwa3piNmQtU3lta0xaTE1xNVJfdmdrVzFuS3MxRnBSbWZjSGNoMnA2THJ2NVBHUmVDM2s4UFJnNVNFb3pxcjRmMl9CdFMwRzVYc2l5RTJxSHpwLU8?oc=5",
+   "source": "Barron's",
+   "sources": [
+    "Barron's"
+   ],
+   "when": "2026-11-09T22:10:00+00:00",
+   "latest": "2026-11-09T22:10:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "通胀",
+   "title": "A key report for where inflation stood in October comes out Tuesday. Here's what to expect",
+   "link": "https://www.cnbc.com/2026/11/09/october-cpi-report-2026-inflation.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Investopedia"
+   ],
+   "when": "2026-11-09T20:53:23+00:00",
+   "latest": "2026-11-09T21:03:55+00:00",
+   "desc": "The CPI headline reading is expected to show an increase of 0.3% while the core is forecast to increase 0.2%.",
+   "n_sources": 2,
+   "score": 19
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Hot U.S. inflation hasn’t cooled off. Rising consumer prices to keep Fed rate hike on track.",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNdUItcWJEaWRyZlZ5anZHQUJVWVozUWhQOUswVng4ZTVHTmhBT2pibTF1Q2p0TnJXc2xBWEd2SUQ2VURTVmF4RmgwR0ZFeW01eks3YnhyVkNpY3FIVnBFd0dKNmtWSTkwNzRuTHFINEVUeUpmV09MZ29HMWZmWWh5bmw4djY0bmNEOVdtRlVRYlUyRHcyZlg5aEdhQWg1Wi0tRm5uWW1NUHNZRUxTRHJwR0p5NGhPT0E3Vnp6anhPY3NTU0FGNDhRdmhqVQ?oc=5",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:01:00+00:00",
+   "latest": "2026-11-09T21:01:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed’s Goolsbee Says Officials Must Address Inflation Failure",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNR0Q1dF91TjRsdE8tTy0wZ3hOSEtjYUxwVHJzd2N5YmUxcmFMbG9YMEp2UHZJbUZERUh3cGFrcEthM25rNHF6U0pJTnNuUXJYeGdWRWNvbEJ4TC1yNTNPUGZfT3NRM3JNRjlVOXBhaHRCNDAydEQxQW5hTXFTcXo1NjQ2aXdkRjFhdHNmZDBxUnhjZi11azgwLWJxV2wxTUZPY3dwWmROaE9aX2NJVGlwbw?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-09T16:46:07+00:00",
+   "latest": "2026-11-09T18:46:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Stock Market Today, Nov. 9: Grab Holdings Jumps on Record Adjusted EBITDA and Q3 Revenue Beat",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/09/stock-market-today-nov-9-grab-holdings-jumps-on-record-adjusted-ebitda-and-q3-revenue-beat/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:21:26+00:00",
+   "latest": "2026-11-09T22:41:09+00:00",
+   "desc": "On Nov. 9, 2026, Southeast Asian super-app Grab drew investor attention after a Taiwan deal rejection and fresh AI-infrastructure partnership plans.",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "For Trump’s Fed Ambitions, a Democratic Senate Poses the Biggest Hurdle Yet",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOEN2SVIzQmppcXREV0sxNE0tejFxYkt4VGpxemtVbVV4R0ZPTVFyVWV0azNTLUxCSkxUQWxxN1plZEpfZ1ZCRHUwNGhJV0k3c2owTWVRaEpfb3JMN09jV01jTkNJcmNidl9FTFhid1JsUmw4ZnVXSjVDRXZzWlM0NnRmRnEybjc5MG1Hb09KQXRsM1lFR0FVUThGVUZjdTZLd2lUZDl2WTB0UQ?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-09T20:26:19+00:00",
+   "latest": "2026-11-09T20:26:19+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "就业",
+   "title": "Trump administration proposes stricter work-search rules for unemployment benefits",
+   "link": "https://www.cnbc.com/2026/11/09/trump-unemployment-work-search-rule.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T19:59:55+00:00",
+   "latest": "2026-11-09T19:59:55+00:00",
+   "desc": "A Labor Department proposal would require unemployment claimants to report at least five qualifying work-search activities each week.",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Crypto Market Today, Nov. 9: Bitcoin and Ethereum Lag as Nasdaq Surges Nearly 3%",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/09/crypto-market-today-nov-9-bitcoin-and-ethereum-lag-as-nasdaq-surges-nearly-3/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "The New York Times",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T13:28:56+00:00",
+   "latest": "2026-11-09T22:40:02+00:00",
+   "desc": "Stocks staged a powerful recovery on Monday, but cryptocurrencies failed to follow as persistent ETF outflows and weakening investor confidence cast doubt on across the asset class.",
+   "n_sources": 2,
+   "score": 16
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Goldman CEO Solomon says AI financing remains strong despite market jitters",
+   "link": "https://www.cnbc.com/2026/11/09/goldman-ceo-ai-financing-market.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T18:14:47+00:00",
+   "latest": "2026-11-09T18:14:47+00:00",
+   "desc": "Goldman CEO David Solomon says investor appetite for AI infrastructure remains strong despite a reset in AI stocks and political uncertainty around data centers.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Nvidia’s Trump ties draw scrutiny after reports Huang was targeted by Chinese intelligence",
+   "link": "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-china-spy-trump-lobbying.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T22:40:04+00:00",
+   "latest": "2026-11-09T22:40:04+00:00",
+   "desc": "Nvidia CEO Jensen Huang's extramarital affair with an alleged Chinese spy comes as the company is already about to face heightened scrutiny.",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Snap Inc. stock rises Monday, still underperforms market",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNN0gzMTVaWDNOaC0tTkswLTBZWTBtMVd6NVJ5THo3V3VZWmpTOEpEbnJrS0ZZbXgycDNSdk5vdFZaY2lFT1ZUb2VlQng5cVllV3NTWC1kMW5Tc2pMSGQ5dWYyYUx1el9qX1VqZjlOSGw0bFlWTE1wNjc5bVcyMFlTMUljTFIzU1RGejBUd1RGa1Q3dW5Ja3luaUtvS0hMX1BlV0dUQ0JLbldsRl9qQnFEb2JaWlZvb2kzcXp3RDBmbmFpOV9MTDNfV3E1TlU?oc=5",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:32:00+00:00",
+   "latest": "2026-11-09T22:31:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Symbotic Inc. (SYM) Outperforms Broader Market: What You Need to Know",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/symbotic-inc-sym-outperforms-broader-220002197.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:45:02+00:00",
+   "latest": "2026-11-09T22:00:02+00:00",
+   "desc": "The latest trading day saw Symbotic Inc. (SYM) settling at $37.78, representing a +2.61% change from its previous close.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stock Market Races Higher; Nasdaq Jumps Nearly 3% As Chip Stocks Fly, Leave Nvidia In The Dust",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcU5yX0hzLVNad3F4amstSHBfY2F2emtoeGtoU0MtbW5VN0I5eGw5dU5KSXhURFJpZTh0U0RhRTdpMF9wMEVWNFE0NWw4QkRTamFQbjJiWnppc19IZzE2azJxOTFVZy1tbGwwR1BEdll6VDMzRnpReE52YzZ4WHE4S1hKMXlSWFdLTGhsU2VnaHYtblBOU1ZUQnBxMml4aGJMNko2eTEtWnJ0X29MdDNyZTRR?oc=5",
+   "source": "Investor's Business Daily",
+   "sources": [
+    "Investor's Business Daily"
+   ],
+   "when": "2026-11-09T23:07:00+00:00",
+   "latest": "2026-11-09T23:07:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia is about 6% of the S&P 500. If Jensen Huang is ousted, there’s no clear successor — could chaos hit portfolios?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-6-p-500-jensen-230000817.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T23:00:00+00:00",
+   "latest": "2026-11-09T23:00:00+00:00",
+   "desc": "An Nvidia leadership shake-up could send shockwaves through the market — and analysts are looking ahead to glean how much investor portfolios could be at risk.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Zymeworks Reports Quarterly Results, Raises 2026 Guidance",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMVpKX0poQzVYZzJXblJoRjVQaVVWTzEwYVE0dE5KSERFVVhiaktzQ0dJeXNtYnF1TS12MWJ0UnN3Q3lkQjQ1TnczbG9IVVE1SThNY3l6dUVfRDRVaHUteFZCT3dKTVdZVF9HcTdDT2JWZG5mdkxmTm5RaDVna25DN3MyYm1VU0Y3TDRkZ2k5QmMwWGk4ZVpaTDhwQXhmVDZuLXpLVEZwb2ZSZ0F5?oc=5",
+   "source": "TipRanks",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T11:32:44+00:00",
+   "latest": "2026-11-09T22:21:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Dow sees its third 1,000-point swing in four days. Why the volatility isn’t over yet.",
+   "link": "https://www.marketwatch.com/story/dow-sees-its-third-1-000-point-swing-in-four-days-why-volatility-isnt-over-yet-5380567b?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:52:00+00:00",
+   "latest": "2026-11-09T21:52:00+00:00",
+   "desc": "“It took one election and a poor Nvidia headline to go from D.C. being a tailwind to D.C. as a potential headwind,” says strategist.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia Sees Historic Split From S&P as Stock Sinks, Market Soars",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSmRRUEE2YVdpM2Y3QkRQS0RPdnpLc3J1VzE5NjBRM09xM3E4aHZsVnBoU3RnSlVITXNCeWU5ZnlhNjlkSUZMcmQ1MUo1VlJTbmYyc1FrOFUzVEFnSndqRjkyVTNka3JfWWFSWFZNNDZfTWN3VzZIUU8yN2x2a3AzemFCUzFFeHVIVHRvWjZLZ3pRbTV0VUhGMlNfRTBNbWFUT29CX2dNNzE1WktrOWYtWVRSeGI?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-09T21:41:16+00:00",
+   "latest": "2026-11-09T21:41:16+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia Stock’s (NVDA) Sell-Off Looks Overdone Ahead of Q3",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPeWN5Z2x5X2JDbzByamwwRjJCM0pLMmJ3bTdLaVRCVTFPTEg2bWhSelJZRW5qcVk0eVY1QnB4RlFFbTJFNXZMOVB4cUhuelY4UlNDOHJlUjdSUlh1UWxHanZFSzFhTG9lTXZVNHZjVjVKR0k2eGVHcGNNdTNoOGJmcjY5UlI5R1VqdzhfSHlwbVVrZ18tQ3c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:17:00+00:00",
+   "latest": "2026-11-09T21:17:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Dow Adds 1,104 Points Even as Nvidia Stock Sinks: Stock Market Today",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNd3d1VmU3TWExN0FDMG55c28tOVd6cm5Fclc4SHM0YUREOHlQV082SnlGM1FBNTE4VDFEWmZQN1VuOWpfZjdhcngya293c29vQmIxTTlzM3o3a01ndWdfRFgzR3JyWDZsM25CZVE2ZmoyZE5DLThjQjB6OEFLOENjcFo2MGRBYXdMcFRvd25BUjZSSWduTEREa1VjQlgxVWFYQlZ4XzU3QUM4elBfNjhJ?oc=5",
+   "source": "Kiplinger",
+   "sources": [
+    "Kiplinger"
+   ],
+   "when": "2026-11-09T20:02:36+00:00",
+   "latest": "2026-11-09T21:11:23+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "This beaten-down data center stock could be worth a look, says Mike Khouw",
+   "link": "https://www.cnbc.com/2026/11/09/this-beaten-down-data-center-stock-could-be-worth-a-look-says-mike-khouw.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T19:23:57+00:00",
+   "latest": "2026-11-09T19:23:57+00:00",
+   "desc": "United Rentals is trading at a below-market forward multiple. Effectively, one can buy superior, market-beating growth at a discounted market multiple.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Private Credit’s Rapid Growth Draws Regional Fed Banks’ Scrutiny",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNRUtNWVlPVy1UcEpxQzlVbVNEYlcxZ2tiZmFQbnY4RkdsS1lJQVFQdW9MTEtqSnJ2Yl9tWjItLWlMX1JXVVJGVmxTeEtoZVR2LVozM2NqY1ZHUkJsV0dzZGVXV1JOUHhLSi1meUVyU2w1eWFZVHItNHpjR1V0M3c5OXlkMUpnMFY3dFp3ZTA4XzBIb1Y1MWtTdW05Vmx2M09FM3ZZeldBQ0dYZlMzbkFHWGw2WDM?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-09T17:36:30+00:00",
+   "latest": "2026-11-09T17:36:30+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Why This Fidelity Fund Manager Is Shorting AI Stocks",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZWlYc25IVGpKT2pHTkNzNGYtSjUyRXQyRjZRd29nVUNSMWRIUW02LUt3c0t0YTdzRmJxX0d2YmVwUE8tTTJaWm9DMGdRR2pmQWY5ZHVLUWYxbVZGOFJwb2x5RDRVTzVfd0pIV3dLVWxFUkw1UkFjVXo3QjNYTW8yZlZfWWoteTE5Mkw0RkNnQ2NsNFRkUjhyd3Vqaw?oc=5",
+   "source": "Morningstar",
+   "sources": [
+    "Morningstar"
+   ],
+   "when": "2026-11-09T16:05:59+00:00",
+   "latest": "2026-11-09T16:05:59+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nasdaq Stock Market Correction: 3 AI Stocks You Can Buy Right Now and Hold Forever",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPU1p5N0Nxa0IxWjhCRG9FX2hVREp6N3NJRkNXU3Bwdk9EM29rVzBMTmR5TEN5a2tiNnViMjA0bUlNN2l0QXRaVkRxZklVSjVqcEt5NmtnWWlBSC1OTzVBSGYtdlE0UlVKaFFMVEtMdzA3dzdkRm5RZGhSV1k1cUhzMXNxbG1md2FRMEU0RWsyeXdoaDFIVy1QckItYVJmQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T14:03:46+00:00",
+   "latest": "2026-11-09T14:03:46+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "通胀",
+   "title": "Inflation expected to remain stubborn in CPI's October reading (DXY:)",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeUZQcW5hSHZrMDhkdnNfNXRCX3R0NTdTSUk2N3pHc2I4TnVFaGNVUWYxSW5YVV9VeVJNOGZJWlZWTWFTejdDRlNhbnlXT3BsNHNTd2VmWFJhajcwSjlDY1FfUWR6SGtHOGxDc3M0Tk1xMXBUQVpEZkF1dmpEMElEQVZpelpVcmszM0pyaXdWWEpiN2ZSRjJYNldXRlNiVFNV?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-09T20:07:00+00:00",
+   "latest": "2026-11-09T20:07:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Elizabeth Warren set to take over the Senate banking committee. Here's what she plans to do",
+   "link": "https://www.cnbc.com/2026/11/09/elizabeth-warren-senate-banking-agenda.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T19:34:43+00:00",
+   "latest": "2026-11-09T19:34:43+00:00",
+   "desc": "Sen. Elizabeth Warren telegraphed her agenda for the Senate banking committee as Congress transfers to Democratic control",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "The issues a 'really frustrated' Trump may actually work with Democrats on, according to former Speaker Paul Ryan",
+   "link": "https://www.cnbc.com/2026/11/09/the-issues-a-really-frustrated-trump-may-actually-work-with-democrats-on-according-to-former-speaker-paul-ryan.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T17:52:52+00:00",
+   "latest": "2026-11-09T17:52:52+00:00",
+   "desc": "Former House Speaker Paul Ryan said President Donald Trump is likely to become frustrated governing with a Democratic-controlled Congress.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "The Democrats’ partial return to tariff sanity",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQa0lzWFdXYktkcGQ3eWRIdEI1MXpmMWpaM1hIYW53OTNWaFVlYmw5eTZmOURJRFJDNUJnem5OQjNmWDhIWmFsTURNSE0taFpzanQ2XzFjam5Qcjg4ZGw3RE9tVHctakxsSW0xVVhrXzM4X2FGQnVMZzdOZW5HOTE3SVlHY3k?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-11-09T12:31:02+00:00",
+   "latest": "2026-11-09T12:31:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Lucid misses Wall Street’s earnings expectations, expands loan from Saudi Arabia fund",
+   "link": "https://www.cnbc.com/2026/11/09/lucid-group-lcid-earnings-q3-2026.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T23:05:53+00:00",
+   "latest": "2026-11-09T23:05:53+00:00",
+   "desc": "The quarterly results are the first since Lucid CEO Silvio Napoli, who started leading the company in June, announced a restructuring plan.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "GTA VI Launches in 10 Days, and Take-Two's Forecast Might Be Too Low. Is the Stock a Buy Before Nov. 19?",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc2ZoejU2eG5vNHJkbk5pTjF2NVZVbC1ReTFpR1RKdFliSWN4eUR6elFlemhyUUlDa2otakU3aVBDRE1seDNhcjZCRHJ4VVdhTVl6Q1gtN0hjblJwZGw1ZXRGZktwS1BKZ0ZxX2ZvdUlBbmJXNUMtSXBHcnAzR1hNeW1XOHpiV0psdUFBTldOTENWdw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:37:43+00:00",
+   "latest": "2026-11-09T22:37:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Stock Market Today, Nov. 9: Plug Power Rises 3.45% on Positioning Ahead of Q3 Report",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/09/stock-market-today-nov-9-plug-power-rises-3-45-on-positioning-ahead-of-q3-report/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:24:10+00:00",
+   "latest": "2026-11-09T22:24:10+00:00",
+   "desc": "Today, Nov. 9, 2026, traders weighed Plug Power's upcoming results against a backdrop of tight margins and steady cash use.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Intuitive Machines Stock (LUNR): What Options Traders and Financial Analysts Expect Ahead of Q3 Earnings",
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUlBab185U1pUYkZOWXFKUWl5eEJaZ2RkeThBQTY4R2tka2ZnLTRiVkotY01ZeDBPcFJoajRld3ZPdmhseEpFbUZLWGFuSldjc1V0ZG05STN0WGM0OVY4dlNoeUkzUGZ2UjNVMVNnVlZJeGNhVVZ5c3VxSlh6d3FZUHBpOGRDZ3ExLXJKR3NlbnhyYXF6Rzdmel9qT3ZBVm1mNVVqVlVn?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:30:00+00:00",
+   "latest": "2026-11-09T21:30:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Jensen Huang affair puts Nvidia's future at risk, with no clear successor to the renowned CEO",
+   "link": "https://www.cnbc.com/2026/11/09/jensen-huang-affair-nvidia-succession.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T22:56:39+00:00",
+   "latest": "2026-11-09T22:56:39+00:00",
+   "desc": "Jensen Huang is practically synonymous with Nvidia, the chipmaker he co-founded in 1993 and turned into one of the most valuable companies on the planet.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Universal Technical Institute Stock Zoomed 10% Higher Today",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNRVNyTkhoQThad25EZnA2d0JjTlpva2steWg2dWJsZWZZQk40RXNObV9Vd0lGa21JUldXWDhsaGN1dVlrUFdwcTVfQnNRbkZjMlAyTW9YUVpnN1dndTZSNjc2VXJDT1ByRjBWQ251N29wTXpDRXFyeS1MVVQwZzE4dFZwemJjelVTbkJ6NGN0N1QyeVNoYWxQelJlYllsMkptcVpaT3lQOA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:33:48+00:00",
+   "latest": "2026-11-09T22:33:48+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Micron Technology: Is the Stock a No-Brainer Buy at Less Than $740?",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQclpDRmFidWw5WWEzVlpXR2dQemtxVUR4aUFUUU8wXzZDSnNaU1NpYm1ka1J3c3E2a0hyMmRVYzBzOExyNFhTcC1YMVI1bkVycWRodkZCbWV5WFhBQW5XMUFzLUw5NEVBb0dKM09OUFFDTDBuaGdHLURIWGwxRHJsYUsxWjZuX2ctN1dqbXBwYTl3Yl9jcTZWcDhrbTJMNFRa?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:20:02+00:00",
+   "latest": "2026-11-09T22:20:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Lucid Stock Fell 25% in October",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPYlpQQ3hrd0FCUDdCVWtyV0ZZTkhmeld4T3hHVEVTaEJUV2h6Mjk4ODQxakw1N3cyczBDbm8zT1BxVXdKaVBDQUM3WFpLakVPMEd2b01BWURfRW9iWkZOY2d5Q3VTNkMza1ZqbEY0WFVHaEEyMnM1dWdqTmlkU18zN3NWTTlQLVV5cFQ1QkxBQmVWQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T20:17:12+00:00",
+   "latest": "2026-11-09T22:14:54+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "QXO (QXO) Stock May Still Look Like A Bargain After $1 Billion Platform Launch",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPckFpTk9ZRmJfd3lYQ2ZtZXI1bXFWMFI2cXUtU3lJWjg3TmdVMkVBeGlTX0FPaE90d0thM0txT3pER2FlaWRSS1VDM2JMSU96YllHT0c1LXF2a195MVVtbWFJTnpHMEU2TElzYzJYQVRDN3Z4dFFmNG5uSUlxYndibkxWOF9YRUJqMnB6RU5vclFWUQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:10:00+00:00",
+   "latest": "2026-11-09T22:10:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Canadian Pacific Kansas City (TSX:CP) Stock Could Be 20% Overvalued As Grain Records Build",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNWpHcUpiZ1M5Q2Q3R3RucFlFQVpwWFdJaVFhUUxfU183ZGlBYXRxWnExZlFzUDliU1ZqM3RTbEM3MjVUdXlvU0t1NXFFMlNKdDNuNUxhMUN3d0RfZFNJcjBlaHBGeU9WV0U5Z1JzX0VSWGRZZGc0X0FVWVVZYnR2TG51UGExQUVKSS1VcUI0Snc5TTRQbzFzZm4tYkZjdw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T22:09:23+00:00",
+   "latest": "2026-11-09T22:09:23+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Via Transportation Stock Rocked the Market Today",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTzZXSF83eFEzbGs3WlBZUW8tUFFKWmJXRjFrTUs2X0R6LW5ENzBYdF92T09DemtlUGlyaFNIeGwxRjdFZllJWFNweHd4V3lVX05LSURIWFpHMlRpbUEzMWtqUmtHb3Exb056NGU3WHJ1WXYyUlVlUlZRaG1jcXRQeXNpQjZyTHA4cjAzMXRQOWVKQm9yZ3BTMzB3bmhxNFlUdVE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:38:00+00:00",
+   "latest": "2026-11-09T21:58:45+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "MINISO Group Holding Limited Unsponsored ADR (MNSO) Stock Sinks As Market Gains: Here's Why",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/miniso-group-holding-limited-unsponsored-215001787.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:45:02+00:00",
+   "latest": "2026-11-09T21:50:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "AAON (NASDAQ:AAON) reports upbeat Q3 2026, stock jumps 14.6%",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQM25vcDBUZmpJWHVkYTB4cWNyVFpveUU2WDBwOXozRGJGc0E4OWdvbWZBd01hem1qYUExNU1tNFpkeVYySXZ5MEJib2dicnhZczByclpQYXhMZHo5ejFRS2ZpX0VZejhWY3hiUFdMdHVWdk5wTGd5Yk1QYkJpUWF0eTZzUWtGYk9hZWpCTzIxaFN2NGZKU2RSX01UR3c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:44:17+00:00",
+   "latest": "2026-11-09T21:44:17+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Are AMD and Broadcom the real winners of the Nvidia spy scandal?",
+   "link": "https://www.marketwatch.com/story/are-amd-and-broadcom-the-real-winners-of-the-nvidia-spy-scandal-d2343072?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:43:00+00:00",
+   "latest": "2026-11-09T21:43:00+00:00",
+   "desc": "The chip makers’ shares were posting big gains Monday — but those companies could also be subject to greater scrutiny over their sales practices, analysts say.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "A failed trial for a heart drug casts shadow over rivals developing similar therapies",
+   "link": "https://www.marketwatch.com/story/a-failed-trial-for-a-heart-drug-casts-shadow-over-rivals-developing-similar-therapies-2d9bd79f?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-09T21:21:00+00:00",
+   "latest": "2026-11-09T21:21:00+00:00",
+   "desc": "The full data from the closely watched clinical trial showed that the drug had no cardiovascular benefit even though it reduced Lp(a) levels.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Citigroup Announces Full Redemption of Series Y Preferred Stock",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTi1RbmFTX3JZQlJRWm1xNGEwSEhSRFlpM1Z0b3RicnR4RzFhWXhPeEVIS2tvSXNBX0E5anZVME9uSkIzQncxN05wX2o3ZTNIVEZxNnhHYWUzUS1qRzIyOUtrdW9KcjltcDBsU1JpZllnNF9rckxMZ1JDVzl4dk05eU93MVd3NE9FWUI3allURk9wR0JzYkExcl92dEpyeV83RjIzdkoyZ2o4am8?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:15:00+00:00",
+   "latest": "2026-11-09T21:15:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Pfizer (PFE) Stock Looks Overvalued On Its 29% One Year Gain",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeGFIdkFCbTJ4ZjMxak5HTk5oVU5qcWFSRjRRZldJZDFnYlhrRzU1RzM1dXE1S2hzNW55LXZoN1U2QkNVM0czTnM0ZWp1a0tNR0FLUTh5U3JxSS1OWnBmTWNQeUhIZHV1LXA3bFRFcFFrWU04ck9kT0psLWl6NklmekdLM2VicmdUdlFJZnloZ0llOWVjamtGNE1ZQWdKUGM?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:09:22+00:00",
+   "latest": "2026-11-09T21:09:22+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "monday.com (MNDY) Stock Dropped, So What Is Behind The Latest Move?",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPSm9veVdEbWthc0V5aG56RjFwUXlwQ0Q1T3phaC1CYlZ5eXBGckJNVEFCWGlhdEdsbGFLUk13ZFJUd1Y2SW52a2xXY1R3aERGTkhTWEcxSkJFYUNJN2IwWndDUEQ5VWRSemNwUndGclZXN2VmX3NtSDNyeW5pLVRqZlpZN1RySHBqTWxHRVYtclFxSjVEQ0hjcGRR?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T21:07:55+00:00",
+   "latest": "2026-11-09T21:07:55+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Meta Platforms Stock: Is it a Steal of a Deal at $650?",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWl90bVRBbmtwUVN2aEJ6enF6M0o4Yml4SlA2YVRvR3hCbkFFS1pVTnEweHlGMHd3UFgzQjBsY2ZIOEhpS1ZQbHY5U19jSk0xTF9yRHYzV0RmUGNNNmNCUW43a0wzUmxxVUtIaG9EV19xVU43a1ljcDFTTW5EYmxJNzJranVJbURuNUdJUU53OHJ1VXgzdS1md04xVzM?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T20:58:01+00:00",
+   "latest": "2026-11-09T20:58:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia's CEO turmoil gives newly empowered Democrats fresh ammunition in pursuit of oversight",
+   "link": "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-affair-congress-scrutiny.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T20:29:36+00:00",
+   "latest": "2026-11-09T20:29:36+00:00",
+   "desc": "Nvidia CEO Jensen Huang's extramarital affair with an alleged Chinese spy comes as the company is already about to face heightened scrutiny.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Voyager Technologies Stock Went to the Moon on Monday",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNU1FNOXFqaWsyMGJtR2Z6SEhmUVBFUmx5a1FkVGRGanp2Yk42QkVFUWFUMGxabllDdW1TSk1TMUFLeWE0eFBvYWFLTVhCaFFOaXpGVXVxN3ByY05qUm9XTzJQV2VQMXB5NGkwa0xhNENFSjI0MTJidFVJamU2WXhyc0NxV2UxOGcyOXFMVVRiX3hCdFoyMzI0SldhY2xiRGxaM3c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T19:45:43+00:00",
+   "latest": "2026-11-09T19:45:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why Meta Platforms Stock Rallied on Monday",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQRUdMOElZOWFLR1FCQzMxbE5XN0tJeElzdUdrUksySzktUlN3U2QyTGhLbmc0LVZ0b0RadmtCNzkzamlnV2d3dGZoU1Nveks4UHgwMmk4MU93b0owRHNtMjVTWEM4NDJPTDhlM2wyZ0hnbTl2djJ5eFZ4azRrdVN2T05TNWNXaTBHSWtQaG05NnNxV1NlTDdZS0IyQlNCZw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-09T18:23:39+00:00",
+   "latest": "2026-11-09T18:23:39+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Stock Market Today: Stock Market News And Analysis",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE8zdGl1MmxTM2JJa2pLNlFSWVhuZUd1ekRIeVpDcGVqckVJcloxaWlnRHJ3b0hqb291NXk4dlo0SmRQNlhDaGpubDh6ZWNTUHZiYVhjOVJINUxSYXE0NHRiNVE2OW51R2h4N1daaXRIdzVBR1UxT0g4?oc=5",
+   "source": "Investor's Business Daily",
+   "sources": [
+    "Investor's Business Daily"
+   ],
+   "when": "2026-11-09T18:05:00+00:00",
+   "latest": "2026-11-09T18:05:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Book Review: ‘Department of Fate,’ by Rachel Maddow",
+   "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNdzNDR0h2NjgyenlfQjV3Q1hEMWlqek13cVpMUXUwNEdpWlR5SDlMOXBvOHpxMWVYR00zT0x1eFl1andBQ2dTZGE4ak9mYXY1X1lTZ1VkMmlPS3BGY1hNU29BYmtNZkVvOFBmazJTQ01tRHh2anVJaHlPSU9wM21WaWRpUXVhbXZQdHpVZzln?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-11-09T10:00:50+00:00",
+   "latest": "2026-11-09T10:00:50+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Skydance outlines its $6 billion in planned cost savings. Here's the breakdown",
+   "link": "https://www.cnbc.com/2026/11/09/skydance-cost-savings-breakdown.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-09T23:14:38+00:00",
+   "latest": "2026-11-09T23:14:38+00:00",
+   "desc": "The updates came alongside a third-quarter earnings report for the legacy Paramount Skydance.",
+   "n_sources": 1,
+   "score": 2
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 571 条标题，合并后 68 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "5 个事件有 ≥2 家媒体报道"
+  }
+ ]
+}
