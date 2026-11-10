@@ -14,12 +14,12 @@
   "sym": "RXO",
   "ex": "NYSE",
   "kind": "A0",
-  "sig": "2026-11-09",
-  "close": 27.92,
-  "high": 28.08,
+  "sig": "2026-11-10",
+  "close": 27.93,
+  "high": 28.0,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
-  "rs": 92
+  "rs": 95
  },
  {
   "sym": "SGRY",
@@ -33,5 +33,18 @@
   "hard_pct": null,
   "wup": true,
   "rs": 94
+ },
+ {
+  "sym": "TGTX",
+  "ex": "NASDAQ",
+  "kind": "BRK",
+  "sig": "2026-11-10",
+  "close": 64.26,
+  "high": 68.03,
+  "level": 63.6,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "wup": true,
+  "rs": 96
  }
 ]

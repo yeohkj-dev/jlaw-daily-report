@@ -1,0 +1,237 @@
+{
+ "date": "2026-11-10",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-10（周二）收盘</b>\n\n<b>📉 昨晚：美股下跌</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> -0.4% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> -0.7% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> -0.7%\n10 年美债 5.00%（+12 基点） · VIX 19.4（-0.5） · 油（结算价） +0.4% · 美元 +0.5% · 金（结算价） +0.3%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://www.cnbc.com/2026/11/10/fed-governor-waller-sees-december-hike-likely.html\">Fed Governor Waller sees December hike likely, opens door to possible half-point increase</a>（15 家媒体）\n• <a href=\"https://www.marketwatch.com/story/why-stocks-are-falling-and-10-year-yields-are-climbing-back-near-5-after-tuesdays-inflation-report-389b8392?mod=mw_rss_topstories\">Stocks fall as the 10-year Treasury yield nears 5% mark</a>（2 家媒体）\n• <a href=\"https://finance.yahoo.com/m/656fca57-9896-3dfb-96e8-e0af2bc227df/dow-jones-futures%3A-stock.html?.tsrc=rss\">Dow Jones Futures: Stock Market Falls On Surging Treasury Yields, Nvidia Sell-Off; CoreWeave Rises Late</a>（2 家媒体）\n• <a href=\"https://www.cnbc.com/investingclub/2026/11/10/ge-vernova-sellers-have-it-all-wrong-plus-why-fed-rate-hike-odds-are-soaring.html\">GE Vernova sellers have it all wrong — plus, why Fed rate hike odds are soaring</a>（2 家媒体）\n• 数据：FOMC Member Waller Speaks（预期 —，前值 —）\n• 数据：核心 CPI（月增） 实际 <b>0.3%</b>（预期 0.2%，高于预期；上月 0.3%）、CPI（月增） 实际 <b>0.4%</b>（预期 0.3%，高于预期；上月 0.6%） → <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/10/stock-market-today-nov-10-wall-street-s-rally-hits-a-roadblock-as-hot-inflation-raises-the-stakes-for-the-fed/?.tsrc=rss\">Stock Market Today, Nov. 10: Wall Street's Rally Hits a Roadblock as Hot Inflation Raises the Stakes for the Fed</a>\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLF\"><b>金融</b></a> +0.5%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> +0.4%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLK\"><b>科技</b></a> -1.2%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLB\"><b>原材料</b></a> -0.2%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:CVS\"><b>CVS</b></a> +4.4% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:NET\"><b>NET</b></a> +4.1% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AVGO\"><b>AVGO</b></a> +3.9% — <a href=\"https://www.marketwatch.com/story/are-amd-and-broadcom-the-real-winners-of-the-nvidia-spy-scandal-d2343072?mod=mw_rss_topstories\">Are AMD and Broadcom the real winners of the Nvidia spy scandal?</a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MRNA\"><b>MRNA</b></a> -6.8% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:B\"><b>B</b></a> -6.1% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:NVDA\"><b>NVDA</b></a> -5.5% — <a href=\"https://www.marketwatch.com/story/how-wall-street-is-reacting-to-the-news-of-nvidias-jensen-huang-investigation-into-spy-claims-d8c839ab?mod=mw_rss_topstories\">As Nvidia’s stock falls, here’s what Wall Street has to say about the </a>\n\n<b>👀 今晚要看</b>\n• 没有高影响力数据或大公司业绩\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-10）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": -0.37,
+   "check": -0.37,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": -0.68,
+   "check": -0.68,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": -0.68,
+   "check": -0.68,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 5,
+   "check": 4.98,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 19.45,
+   "check": 19.46,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": 0.37,
+   "check": "前一天结算 86.04 vs 86.85；Yahoo 最后成交价 -0.64%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": 0.53,
+   "check": 0.56,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": 0.31,
+   "check": "前一天结算 4030.20 vs 4114.50；Yahoo 最后成交价 -1.77%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": -1.15,
+   "check": -1.15,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": 0.03,
+   "check": 0.03,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": 0.37,
+   "check": 0.37,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": 0.52,
+   "check": 0.52,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": -0.09,
+   "check": -0.09,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": -0.17,
+   "check": -0.17,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": 0.44,
+   "check": 0.44,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": 0.29,
+   "check": 0.29,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": 0.15,
+   "check": 0.15,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": -0.14,
+   "check": -0.14,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": -0.13,
+   "check": -0.13,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "CVS",
+   "brief": 4.41,
+   "check": 4.41,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "CVS 市值 ≥500 亿",
+   "brief": 114,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NET",
+   "brief": 4.1,
+   "check": 4.1,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NET 市值 ≥500 亿",
+   "brief": 109,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AVGO",
+   "brief": 3.91,
+   "check": 3.91,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AVGO 市值 ≥500 亿",
+   "brief": 1585,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MRNA",
+   "brief": -6.75,
+   "check": -6.75,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MRNA 市值 ≥500 亿",
+   "brief": 101,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "B",
+   "brief": -6.1,
+   "check": -6.1,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "B 市值 ≥500 亿",
+   "brief": 65,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NVDA",
+   "brief": -5.47,
+   "check": -5.47,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NVDA 市值 ≥500 亿",
+   "brief": 4070,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "Core CPI m/m",
+   "brief": "0.3%",
+   "check": "新闻里没有找到这个数字",
+   "source": "BLS 官方 vs 当天新闻",
+   "ok": null
+  },
+  {
+   "item": "CPI m/m",
+   "brief": "0.4%",
+   "check": "新闻里没有找到这个数字",
+   "source": "BLS 官方 vs 当天新闻",
+   "ok": null
+  }
+ ]
+}
