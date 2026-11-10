@@ -176,6 +176,19 @@ def build(et):
     else:
         L.append("• 没有就绪的股票")
 
+    # 等 2 小时买点（多时间框架：日线信号后 5 天内，盘中会再发「盘中买点提醒」）
+    try:
+        pend = json.load(open(os.path.join(OUT_DIR, "每日选股", "pending.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        pend = []
+    if pend:
+        pp = premarket([f"{p['ex']}:{p['sym']}" if p["ex"] else p["sym"] for p in pend])
+        L += ["", "<b>⏳ 今天等 2 小时买点（盘中触发会另外提醒）</b>"]
+        for p in pend:
+            rule = ("第一根 2 小时K线（09:30–11:30）高点被收盘突破" if p["kind"] == "BRK" else "2 小时收盘重新站上 2 小时 20 EMA")
+            name = "放量突破" if p["kind"] == "BRK" else "A0"
+            L.append(f"• {link(p['sym'], p['ex'])} {name}（信号 {p['sig'][5:]}）：{rule} · {pmtxt(pp.get(p['sym'], {}).get('pm'))}")
+
     L += ["", f"<b>🏆 Luk Leaders 前 10（{ldate or '—'}）</b>"]
     L.append(" · ".join(f"{link(s, pm.get(s, {}).get('ex'))} {pm[s]['pm']:+.1f}%" if pm.get(s, {}).get("pm") is not None
                         else f"{link(s, pm.get(s, {}).get('ex'))} —"

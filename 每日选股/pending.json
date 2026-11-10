@@ -1,0 +1,37 @@
+[
+ {
+  "sym": "ETSY",
+  "ex": "NYSE",
+  "kind": "A0",
+  "sig": "2026-11-09",
+  "close": 88.44,
+  "high": 91.65,
+  "stop_pct": 0.08,
+  "hard_pct": 0.12,
+  "rs": 91
+ },
+ {
+  "sym": "RXO",
+  "ex": "NYSE",
+  "kind": "A0",
+  "sig": "2026-11-09",
+  "close": 27.92,
+  "high": 28.08,
+  "stop_pct": 0.08,
+  "hard_pct": 0.12,
+  "rs": 92
+ },
+ {
+  "sym": "SGRY",
+  "ex": "NASDAQ",
+  "kind": "BRK",
+  "sig": "2026-11-09",
+  "close": 26.45,
+  "high": 27.23,
+  "level": 23.37,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "wup": true,
+  "rs": 94
+ }
+]

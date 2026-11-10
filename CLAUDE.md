@@ -52,6 +52,7 @@
 |---|---|---|---|
 | `.github/workflows/daily.yml`「每日报告」 | 周一至五 22:30；周日 23:30 | 周二至六 06:30；周一 07:30 | 生成报告 → 发布网站 → 发 Telegram 早报（周一发周末版） → 把数据提交回仓库 |
 | `.github/workflows/premarket.yml`「盘前提醒」 | 周一至五 12:00–14:40 每 20 分钟 | 美国冬令时约晚上 10:00，夏令时约 9:00 | 只在美东 08:50–09:29 之间（开市前约 30 分钟）发 Telegram 盘前提醒，一天只发一次 |
+| `.github/workflows/intraday.yml`「盘中买点提醒」 | 周一至五 13:05–21:35 每 30 分钟 | 晚上 9:30 至早上 5:30 | 读 `每日选股/pending.json`，2 小时K线出现买点就发 Telegram（同一只同一天一次，记录在 `早报/_intraday_sent.json`） |
 | `.github/workflows/telegram-test.yml`「Telegram 测试」 | 只能手动 | — | 把最新早报再发一次，测试 Telegram 设置 |
 
 - **Secrets**（仓库 Settings → Secrets and variables → Actions）：`TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID`。由用户自己填，**不要让用户把 token 贴给你，也不要代填**。
@@ -130,9 +131,17 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - `combined.py` 用 `回测/K线形态/patterns.py`、`patterns2.py` 的 `detect()`/`detect2()` 判断形态；形态名单 `BULL` / `BEAR` 要和 `回测/K线形态/README.md` 里评为「有效」的一致。
 - 本机运行要 `pip install yfinance pandas numpy`；第一次没有 `量化/data/stocks/` 会下载约 2,250 只（约 5–10 分钟）。
 
+## 6c. 多时间框架买卖点（`回测/mtf/`，2026-11-10）
+
+- 研究：`research21.py`（21 年日线 / 周线：A0、META、放量突破 50 日高 BRK、C9 × 买进 D0/D1/D2/+周线 × 卖出 X0/20 天线/50 天线/10 周线）、`mtf_bt.py` + `mtf_exit_bt.py`（3 年 1 / 2 / 4 小时，Yahoo 60 分钟线只有约 3 年，2 / 4 小时由 60 分钟合成）、`c9_rules.py`（C9 课程规则的程序版）、`report_mtf.py` → `多时间框架研究报告.html`、`make_charts.py` → 图例 `docs/img/mtf/*.png`。数据缓存（`cache60/`、pkl）不进仓库；日线缓存和信号读仓库旁边的 `回测/`（`cache20`、`jlaw_sig20.pkl`、`meta_trades20_rs.pkl`）。
+- **结论**：小周期用来「买」、不要用来「卖」。最好的是 **2 小时**：BRK 用「当天第一根 2 小时K线高点被收盘突破」（3 年每笔比 SPY +1.27% vs 次日开盘 +0.91%）；A0 用「2 小时收盘重新站上 20 EMA」（+4.82% vs +3.78%，样本小、不显著）。等确认其实是过滤器：同一批信号买得更贵约 1–2%，但避开一半以上会亏的信号。小周期移动止损会砍掉赢家（全部系统变差）；日线 20 天线也太紧。META（全部）和 C9 程序版 21 年都没赢 SPY。
+- **数据坑**：Yahoo 有些股票的 60 分钟数据是别的证券（BNY、B、MOD、RGR、SUPN），所以回测只用「60 分钟最后一根收盘和日线收盘差 ≤2%」的日子。
+- **网站 / Telegram**：每日选股 A0 的买法改成「5 天内等 2 小时收盘站上 20 EMA」（不方便看盘照旧次日开盘买）；新增「A3. 放量突破 50 日高 · 等 2 小时买点」（`brk_signal()`，SPY 在 200 天线上才出）；`save_pending()` 把 A0（SPY 在 200 天线上时）和 A3 写进 `每日选股/pending.json`（5 个交易日后移除）；`tools/intraday_alerts.py` 盘中检查并发提醒（`--dry-run --force-date --force-time --pending` 可重播过去某天测试）；盘前提醒列出「今天等 2 小时买点」。回测数字在 `jlaw_daily_screen.py` 的 `MTF_BT`。
+
 ## 7. 待办 / 还没验证
 
 - 周末版「下周看点」的经济日历只在周六测过（取不到），周日的真实运行还要看结果。
+- 盘中买点提醒（2026-11-10 加入）只用过去的日子重播测试过，第一次真正在交易时段运行后要检查 Actions 记录。
 - FRED 利差取不到，可考虑其他免费来源。
 - 回测建议的改进还没测：分批止盈（2–3R 先卖一半）、只做 RS 最强的前几名、要求热门产业组。
 

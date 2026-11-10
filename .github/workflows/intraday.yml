@@ -1,0 +1,43 @@
+name: 盘中买点提醒
+
+# 多时间框架：日线出信号（每日选股的 A0、放量突破 50 日高 → 每日选股/pending.json），
+# 美股交易时段每 30 分钟检查 2 小时K线，出现买点就发 Telegram（同一只同一天只发一次）。
+# UTC 13:35–20:35（夏令时 / 冬令时都涵盖美东 09:30–16:00）；2 小时K线在美东 11:30、13:30、15:30、16:00 收。
+on:
+  schedule:
+    - cron: "5,35 13-21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: intraday
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 检查 2 小时买点并发 Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/intraday_alerts.py .
+
+      - name: 记录已提醒（同一天不重复）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add 早报/_intraday_sent.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -q -m "盘中买点提醒 $(date -u +%Y-%m-%d)"
+            git pull -q --rebase && git push
+          fi

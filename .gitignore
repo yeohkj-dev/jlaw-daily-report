@@ -28,3 +28,7 @@ __pycache__/
 回测/meta_more*.pkl
 回测/earn_trades*.pkl
 回测/earnings_dates.json
+回测/mtf/cache60/
+回测/mtf/*.pkl
+回测/mtf/*.html
+回测/mtf/charts/

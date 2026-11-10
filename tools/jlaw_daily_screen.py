@@ -280,6 +280,56 @@ def market_state():
     return rows[-1] if rows else None
 
 
+# ---- 多时间框架（2026-11-10 研究，见 回测/mtf/）：日线出信号，之后 5 个交易日内在 2 小时图上找买点 ----
+MTF_WAIT = 5                 # 信号后最多等几个交易日
+BRK_CLOSE_STOP, BRK_HOLD = 0.15, 60
+PENDING = os.path.join(SCREEN_DIR, "pending.json")     # 等 2 小时买点的名单（盘中提醒 tools/intraday_alerts.py 读）
+MTF_BT = dict(brk_d0=0.91, brk_2h=1.27, brk_21y=0.62, brk_21y_w=0.75, a0_d0=3.78, a0_2h=4.82, a0_n=254, brk_n=4182)
+
+
+def brk_signal(px):
+    """放量突破 50 日高：今天收盘突破前 50 天最高价（昨天还没突破）、量 ≥ 20 日均量 2 倍、
+    收盘 > 50 天线 > 200 天线且 50 天线向上；另外标出周线升势（上一周：周收盘 > 10 周线 > 40 周线、10 周线向上）。"""
+    if not px or len(px) < 260:
+        return None
+    c = [x["c"] for x in px]; h = [x["h"] for x in px]; v = [x["v"] for x in px]
+    hh50, hh50_y = max(h[-51:-1]), max(h[-52:-2])
+    avgv = sum(v[-21:-1]) / 20
+    m50, m200, m50_10 = sma(c, 50), sma(c, 200), sma(c, 50, 10)
+    if not (c[-1] > hh50 and c[-2] <= hh50_y and avgv and v[-1] >= 2 * avgv and c[-1] > m50 > m200 and m50 > m50_10):
+        return None
+    wk = {}
+    for x in px[:-1]:                                    # 不含今天这一周之前的周收盘
+        y, w, _ = x["d"].isocalendar()
+        wk[(y, w)] = x["c"]
+    wc = list(wk.values())[:-1] if px[-1]["d"].isocalendar()[:2] == list(wk)[-1] else list(wk.values())
+    wup = len(wc) >= 42 and wc[-1] > sum(wc[-10:]) / 10 > sum(wc[-40:]) / 40 and sum(wc[-10:]) / 10 > sum(wc[-12:-2]) / 10
+    return dict(level=round(hh50, 2), vrel=round(v[-1] / avgv, 1), high=round(h[-1], 2), wup=wup)
+
+
+def save_pending(best, brk, spy):
+    """今天的 A0 和放量突破信号加进「等 2 小时买点」名单；超过 5 个交易日没触发的移除。"""
+    try:
+        old = json.load(open(PENDING, encoding="utf-8"))
+    except (OSError, ValueError):
+        old = []
+    dates = [x["d"] for x in spy][-(MTF_WAIT + 1):]
+    keep_from = str(dates[0]) if dates else "0000"
+    new = [dict(sym=r["sym"], ex=EXCH.get(r["sym"], ""), kind="A0", sig=str(r["px"][-1]["d"]), close=r["close"], high=round(r["px"][-1]["h"], 2),
+                stop_pct=BEST_CLOSE_STOP, hard_pct=BEST_HARD_STOP, rs=r.get("rs")) for r in best]
+    new += [dict(sym=r["sym"], ex=EXCH.get(r["sym"], ""), kind="BRK", sig=str(r["px"][-1]["d"]), close=r["close"], high=r["brk"]["high"],
+                 level=r["brk"]["level"], stop_pct=BRK_CLOSE_STOP, hard_pct=None, wup=r["brk"]["wup"], rs=r.get("rs")) for r in brk]
+    seen, out = set(), []
+    for x in new + old:                                  # 同一只同一种只留最新的信号
+        k = (x["sym"], x["kind"])
+        if k in seen or x["sig"] <= keep_from:
+            continue
+        seen.add(k)
+        out.append(x)
+    json.dump(sorted(out, key=lambda x: (x["kind"], x["sym"])), open(PENDING, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return out
+
+
 def best_exit_date(today, hold=BEST_HOLD):
     """A0 名单最迟卖出日（约）：明天开盘买，买入那天算第 1 天，第 hold 个交易日收盘卖。只跳过周末，美股假期会让它再晚几天。"""
     d, n = today, 0
@@ -393,6 +443,16 @@ def main():
     best = sorted([r for r in meta_ready if (r["rs"] or 0) >= BEST_RS_MIN], key=lambda r: (-r["rs"], -r["meta"]["n_edges"]))
     spy_c = [x["c"] for x in spy] if spy else []
     spy200 = (spy_c[-1], sma(spy_c, 200)) if len(spy_c) >= 200 else None     # 回测里 SPY 在 200 天线下面时这个系统不赚
+    # ---- 放量突破 50 日高（多时间框架研究里最适合「2 小时买点」的系统）：SPY 要在 200 天线上 ----
+    brk = []
+    if spy200 and spy200[0] > spy200[1]:
+        for r in res:
+            b_ = brk_signal(r["px"])
+            if b_:
+                r["brk"] = b_
+                brk.append(r)
+        brk.sort(key=lambda r: (not r["brk"]["wup"], -(r.get("rs") or 0)))
+    pending = save_pending(best if spy200 and spy200[0] > spy200[1] else [], brk, spy)   # SPY 跌破 200 天线时 A0 不开新仓
     meta_watch.sort(key=lambda r: (-r["meta"]["n_edges"], r["meta"]["risk"]))
     vcp_pool = [r for r in res if r["sym"] in rs_layer]
     vcp_ready = [r for r in vcp_pool if r["vcp"]["score"] >= 6 and r["vcp"]["status"] in ("等突破", "刚突破") and r["vcp"]["risk"] <= VCP_MAX_RISK]
@@ -457,9 +517,13 @@ def main():
                   f"{best_exit_date(today)} | {er_txt(r)} |" for r in best]
     else:
         lines += ["今天没有符合条件的股票（META 就绪里没有 RS ≥ 90 的）。"]
-    lines += ["", f"做法：明天开盘买；以后收盘比买价跌 8% 就第二天开盘卖，同时预挂买价 −12% 的止损单防大跌；没卖的话拿 {BEST_HOLD} 个交易日后卖。"
+    lines += ["", f"做法：5 个交易日内等 2 小时K线收盘重新站上 2 小时 20 EMA 才买（Telegram 盘中提醒；不方便看盘就明天开盘买）；以后收盘比买价跌 8% 就第二天开盘卖，同时预挂买价 −12% 的止损单防大跌；没卖的话拿 {BEST_HOLD} 个交易日后卖。"
               f"20 年回测 {BEST_BT['n']:,} 笔，平均每笔比同期买 SPY 多赚 {BEST_BT['ex']:+.2f}%（每 $1 万约 ${BEST_BT['ex'] * 100:.0f}），胜率约 {BEST_BT['win']}%。"
               + (f"今天 SPY {'在' if spy200[0] > spy200[1] else '跌破'} 200 天线{'上面' if spy200[0] > spy200[1] else '（回测里这时没有优势：不开新仓，已买的照规则卖）'}。" if spy200 else ""), ""]
+    lines += ["", f"## A3. 放量突破 50 日高 · 等 2 小时买点：{len(brk)} 只", "",
+              "信号后 5 个交易日内，第一根 2 小时K线（09:30–11:30）的高点被之后的 2 小时收盘突破就买；收盘跌 15% 卖，否则拿 60 天。", ""]
+    lines += [f"- {r['sym']}（{r['industry'][:18]}）收盘 {r['close']}，突破 50 日高 {r['brk']['level']}，量 {r['brk']['vrel']}x"
+              + ("，周线升势" if r["brk"]["wup"] else "") for r in brk] or ["今天没有。"]
     lines += [f"## A1. META 回调就绪（动能后低量回调到均线/突破位，止损 ≤5%，优势 ≥4）：{len(meta_ready)} 只", ""]
     lines += meta_md(meta_ready[:15]) if meta_ready else ["今天没有符合条件的股票。"]
     lines += ["", f"## A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）：{len(vcp_ready)} 只", ""]
@@ -516,12 +580,13 @@ def main():
     html_path = os.path.join(SCREEN_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, ms, s, len(res), sum(1 for r in res if r["mom"]), len(vcp_pool), meta_ready, vcp_ready,
-                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200))
+                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200, brk))
 
     print(json.dumps({"html": html_path, "date": str(today), "market_state": state, "universe": len(res),
                       "meta_ready": [(r["sym"], r["meta"]["n_edges"], r["meta"]["risk"], r["er_days"]) for r in meta_ready[:10]],
                       "vcp_ready": [(r["sym"], r["vcp"]["score"], r["vcp"]["risk"], r["er_days"]) for r in vcp_ready[:10]],
                       "best": [(r["sym"], r["rs"], r["close"], r["er_days"]) for r in best],
+                      "brk": [(r["sym"], r["brk"]["wup"]) for r in brk], "pending": len(pending),
                       "watch": [r["sym"] for r in (meta_watch + vcp_watch)[:12]],
                       "hot_groups": {k: len(v) for k, v in sorted(hot.items(), key=lambda x: -len(x[1]))[:6]},
                       "fresh_momentum": [r["sym"] for r in fresh_mom[:10]], "new_ready": new_names[:10],
@@ -529,7 +594,7 @@ def main():
                       "report": md, "chart": png if has_png else None}, ensure_ascii=False))
 
 
-def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=(), best=(), spy200=None):
+def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=(), best=(), spy200=None, brk=()):
     """单文件 HTML（内联样式，图表以 base64 内嵌）。"""
     import base64
     import html as h
@@ -600,9 +665,12 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
     else:
         spy_line = ""
     best_rules = spy_line + f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
-<b>怎么做（不用盯盘）：</b>
+<b>怎么做：</b>
 <ol style="margin:4px 0 6px;padding-left:20px;">
-<li><b>买：</b>名单出来的第二天开盘买（开盘价就是你的「买价」）。</li>
+<li><b>买（新，推荐）：</b>名单出来后 5 个交易日内，等 <b>2 小时K线收盘重新站上 2 小时 20 EMA</b>（前一根在 20 EMA 下面）才买，收盘价就是你的「买价」；
+5 天内一直没出现就不买。Telegram 会在盘中提醒（「盘中买点提醒」）。3 年回测（{MTF_BT['a0_n']} 笔）每笔比 SPY 多赚 {MTF_BT['a0_2h']:+.2f}%（次日开盘买 {MTF_BT['a0_d0']:+.2f}%），
+少买约 20%（多数是会亏的），但笔数少、统计上还不算可靠。<a href="img/mtf/a0_lite.png" target="_blank">看图例</a> · <a href="img/mtf/a0_coin.png" target="_blank">没出现就不买的例子</a><br>
+<span style="color:#666;">不方便看盘：照旧做法，名单出来的第二天开盘买（开盘价就是买价），20 年回测有效。</span></li>
 <li><b>马上挂一张止损单：</b>买价 × 0.88（−12%）。这张单是防大跌的保险，平时不会碰到。</li>
 <li><b>每天收盘后看一次：</b>收盘价比买价低 8% 以上 → 第二天开盘卖掉。盘中跌超过 8% 但收盘回到 −8% 以内，不用卖。</li>
 <li><b>没被止损的话：</b>拿满 {BEST_HOLD} 个交易日（约 3 个月），第 {BEST_HOLD} 天收盘卖。中途涨很多也不提早卖。</li>
@@ -618,6 +686,33 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 最大回落 {b['maxdd']}%（SPY {b['spy_maxdd']}%），一样会跌一半。
 RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BEST_RS_MIN}。
 回测只有今天还在交易的股票（幸存者偏差），真实结果会差一些；小账户每张单 $1 手续费会吃掉不少（$2,000 账户要注意）。</div></div>"""
+
+    def brk_tbl(rows):
+        if not spy200 or spy200[0] <= spy200[1]:
+            return '<p style="color:#C62828;">今天 SPY 不在 200 天线上：这个系统不开新仓（回测里只在 SPY 站上 200 天线时有优势）。</p>'
+        if not rows:
+            return '<p style="color:#777;">今天没有放量突破 50 日高的股票。</p>'
+        body = ""
+        for r in rows:
+            b_ = r["brk"]
+            wup = '<b style="color:#2E7D32;">✔ 升势</b>' if b_["wup"] else '<span style="color:#888;">否</span>'
+            body += (f'<tr><td {td}>{name(r)}</td><td {td}>{h.escape(r["industry"][:20])}</td><td {td}><b>{r["close"]}</b></td>'
+                     f'<td {td}>{b_["level"]}</td><td {td}>{b_["vrel"]}x</td>'
+                     f'<td {td}>{wup}</td>'
+                     f'<td {td}>{r.get("rs") or "—"}</td><td {td}>{er(r)}</td></tr>')
+        return wrap(("股票", "行业", "今天收盘", "突破的 50 日高", "量 / 20 日均量", "周线升势", "RS", "业绩"), body)
+
+    brk_rules = f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
+<b>大周期（日线）找信号，小周期（2 小时）找买点：</b>
+<ol style="margin:4px 0 6px;padding-left:20px;">
+<li><b>信号（日线）：</b>今天收盘突破前 50 天最高价、成交量 ≥ 20 日均量 2 倍，股票在升势（收盘 &gt; 50 天线 &gt; 200 天线、50 天线向上），SPY 在 200 天线上。周线也在升势的优先（表里排前面）。</li>
+<li><b>买点（2 小时图）：</b>之后 5 个交易日内，某一天第一根 2 小时K线（美东 09:30–11:30）的最高价，被之后的 2 小时K线<b>收盘突破</b>就买（收盘价 = 买价）。5 天内没出现就不买。Telegram 盘中会提醒。</li>
+<li><b>卖：</b>收盘比买价跌 15% → 第二天开盘卖；否则拿满 {BRK_HOLD} 个交易日。<b>不要</b>用 1 / 2 / 4 小时的移动止损（回测会把赚钱的股票提早卖掉，结果变亏）。</li></ol>
+<a href="img/mtf/brk_rklb.png" target="_blank">看图例（RKLB）</a> · <a href="img/mtf/brk_gehc.png" target="_blank">没出现就不买的例子（GEHC）</a>
+<div style="margin-top:6px;color:#555;font-size:12px;">
+<b>回测：</b>3 年（2023-12 起，{MTF_BT['brk_n']:,} 个信号）每笔比同期 SPY 多赚 <b>{MTF_BT['brk_2h']:+.2f}%</b>（次日开盘买 {MTF_BT['brk_d0']:+.2f}%），少买约 25%、合计赚得更多；
+21 年日线版（2005–2026）次日开盘买 {MTF_BT['brk_21y']:+.2f}%、加周线升势 {MTF_BT['brk_21y_w']:+.2f}%。每投入 $1 万，+1% ≈ 多 $100。
+胜率约一半，靠少数大涨赚钱；回测只有今天还在交易的股票，真实结果会差一些。这里的股票池是网站的选股池（市值 ≥ 30 亿、股价 ≥ 10），比回测窄。</div></div>"""
 
     def vcp_tbl(rows):
         if not rows:
@@ -708,6 +803,7 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 <p style="margin:0;"><b>股票池：</b>第二阶段 + 日均成交额 ≥ 1 亿美元 <b>{n_univ}</b> 只 · 有动能事件 <b>{n_mom}</b> 只 · VCP 相对强度层 <b>{n_vcp}</b> 只
 <span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}
 {sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_rules}{best_tbl(best)}
+{sec(f"A3. 放量突破 50 日高 · 等 2 小时买点（{len(brk)} 只）", "#1B5E20")}{brk_rules}{brk_tbl(brk)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
 {sec("B. 观察名单 · META（优势 ≥3）", "#B26A00")}{meta_tbl(meta_watch[:10])}
