@@ -26,11 +26,11 @@
 | 分页 | 程序 | 内容 |
 |---|---|---|
 | 早报 | `tools/morning_brief.py` | 昨晚美股发生什么、相关新闻（为什么）、行业、大公司异动、今晚要看什么 |
-| 大盘报告 | `tools/market_regime.py` | J Law 大盘体温计（躺赚 / 警戒 / 血汗钱）、恐惧指数（CNN + VIX）、行业 ETF 追踪、信用市场（科技 / AI 公司债利差）、见底信号 |
+| 大盘报告 | `tools/market_regime.py` + `tools/positioning.py` | J Law 大盘体温计（躺赚 / 警戒 / 血汗钱）、恐惧指数（CNN + VIX）、行业 ETF 追踪、信用市场（科技 / AI 公司债利差）、见底信号；最后是「大资金在哪里买卖」（只在平日跑，周末沿用上一份） |
 | 每日选股 | `tools/jlaw_daily_screen.py` | J Law META 回调、VCP 突破、观察名单、Stage 1→2 候选、Stage 2 名单 |
 | Luk 选股 | `tools/luk_screens.py` | Martin Luk 的 Leaders / Strong Day / Gappers（条件来自 Luk 本人公布的 TradingView 设置） |
 | 今日新闻 | `tools/news_digest.py` + `tools/weekly_events.py` | 上面是本周重大事件（周末是本周回顾 + 下周看点），下面是当天新闻 |
-| 业绩与估值 | `tools/earnings_valuation.py` | 11 个板块各前 10 大公司的业绩、指引原文（SEC 8-K）、两年估值情景 |
+| 业绩与估值 | `tools/earnings_options.py` + `tools/earnings_valuation.py` | 最上面「财报前的期权」；下面是 11 个板块各前 10 大公司的业绩、指引原文（SEC 8-K）、两年估值情景 |
 | 每周展望 | `tools/weekly_outlook.py` | 9 个因素打分判断下周方向（周日更新） |
 | 综合名单 | `量化/combined.py`（由 `combined_tab()` 在每日选股、Luk 选股之后运行，写 `量化/data/combined.html`） | 量化红绿灯和 J Law 大盘灯取较严的；J Law 就绪/观察、量化动量前 40、Luk 名单合并；只用回测「有效」的K线形态（看涨加分，看跌放进「要小心」）。分三组：买点已出现 / 等买点（≥2 个系统看好）/ 要小心（J Law 或量化名单里跌破 50 日线或出现有效看跌K线，最多 15 只） |
 | 量化系统 | `量化/run.py`（分页内容 `量化/data/tab.html`，完整报告发布成 `docs/quant.html`） | 8 信号市场状态分、个股交易开关（进攻 / 谨慎 / 现金）、今天出现买点的动量股、链接到完整量化报告（研究、23 年回测、进出场规则） |
@@ -45,6 +45,13 @@
 - 2026-11-07 用户决定 TradingView 的 Pine 指标**不放 RS Rating**（TradingView 读不到每天的门槛表），RS Rating 只在这个网站。`docs/rs_table.json` 仍照常发布，目前没有程序读它。
 
 `tools/jlaw_daily_report.py` 依次运行各模块，合并成一个多分页网页，写到 `docs/`（GitHub Pages 从 `main` 分支的 `docs/` 发布）。页头有更新时间、下次更新时间和「数据核对」汇总。
+
+### 被收购股票排除、RS 排序、大资金、财报期权（2026-11-11 加入）
+- **被收购股票**：`jlaw_daily_screen.find_deals()` 每天写 `每日选股/deals.json`。规则：近 60 个交易日有一天涨 ≥15%，之后最近 10 天最高最低差 ≤3%、平均每天振幅 ≤1%（股价被钉在收购价）；或近 30 天新闻标题说被收购、股价几乎不动。每日选股所有名单、RS 前 30、Luk（另外排除「月涨 >15% 但周波动 <0.6%」）、综合名单都排除这些股票，每日选股页面列出排除了哪些。第一次运行抓到 BRZE（Salesforce $47.50）、OPCH、PTC（Schneider Electric $205，2026-10-05 宣布），都已人工确认是真的收购。
+- **RS 沿用旧排名**：`rs_rating.load()` 会读上一次存的 `rs_rating.json`（最多 7 天前），并用 Yahoo SPY 找真正最新的已收盘交易日（`market_session()`）；排名不是最新时名单上方红字提示、RS 标记带「*」。今天算不出来（例如股票数据下载失败）也会这样沿用（用户 2026-11-11 要求）。
+- **按 RS 排序**：每日选股、Luk、综合名单的名单都按 RS Rating 由高到低排（Luk 先按原条件取前 N 只，再按 RS 排）。
+- **大资金（`tools/positioning.py`）**：① CFTC Traders in Financial Futures（Socrata 数据集 `gpe5-46if`，免费、不用登录）的标普 / 纳指 / 罗素迷你期货：杠杆基金（对冲基金、CTA）和资产管理人的净持仓、按期货价换成美元、比上周、3 年百分位；② CTA 趋势模型（**估算**，不是真实数据）：标普 20/60/120/250 天趋势信号平均 × min(1, 15% ÷ 20 天波动)，假设最大仓位 $150B（`CTA_MAX`），算出明天每个信号的翻转价、跌破 / 站上会卖 / 买多少。页面已写明这是模型、金额只是数量级。输出 `大盘报告/资金持仓_<日期>.json`（不进仓库）。**核对**（都进页头「数据核对」）：CFTC 数据库 vs CFTC 官网文字版周报 `financial_lf.htm`（净持仓、比上周要完全一样）；Yahoo 期货价 vs TradingView `CME_MINI:ES1!` 等（global 选股器，差 ≤0.3%）；CTA 用的 Yahoo `^GSPC` 收盘 vs CBOE 官方日线 `cdn.cboe.com/.../_SPX.json`（260 天逐日 ≤0.05%，4 个翻转价重算）。2026-11-11 人工核对全部一致。
+- **财报期权（`tools/earnings_options.py`）**：业绩估值 JSON 里 14 天内要公布业绩的公司 + `pending.json` 的股票，取财报后第一个到期日的 Yahoo 期权链（要 crumb，`common.yahoo_crumb`）：平值跨式 ÷ 现价 = 预期波动（有买卖价用中间价，没有用最后成交价），用隐含波动率再算一次核对（只在 IV > 5% 时，收盘后 Yahoo 的 IV 常是 0）；最后成交超过 3 天会提醒；上方看涨未平仓最多、下方看跌未平仓最多、最大痛点、看跌 / 看涨未平仓比；财报日对业绩估值的日期。两个模块的核对都进页头「数据核对」。
 
 ## 2. 自动运行（GitHub Actions）
 
@@ -143,6 +150,8 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - 周末版「下周看点」的经济日历只在周六测过（取不到），周日的真实运行还要看结果。
 - 盘中买点提醒（2026-11-10 加入）只用过去的日子重播测试过，第一次真正在交易时段运行后要检查 Actions 记录。
 - FRED 利差取不到，可考虑其他免费来源。
+- 「大资金在哪里买卖」「财报前的期权」（2026-11-11 加入）只在本机跑过；第一次 GitHub 运行后要看页头数据核对，确认 CFTC 官网、CBOE、Yahoo 期权链在 GitHub 上取得到。这两部分目前只在网站，没有放进 Telegram（用户要求再加）。
+- 被收购股票的判断是规则（跳涨后股价钉住），偶尔可能误判；新出现的名字最好上网确认一次。
 - 回测建议的改进还没测：分批止盈（2–3R 先卖一半）、只做 RS 最强的前几名、要求热门产业组。
 
 **仅供学习，不构成投资建议。**

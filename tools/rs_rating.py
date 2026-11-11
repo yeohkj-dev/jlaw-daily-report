@@ -124,12 +124,39 @@ def tv_crosscheck(rows, k=40):
         return dict(name="RS Rating vs TradingView", ok=False, detail=f"TradingView 取不到：{e}", critical=False)
 
 
-def load(max_age_days=5):
-    """读今天的 RS Rating；太旧或没有就返回 {}（各名单就不显示 RS）。"""
+_SESSION = []
+
+
+def market_session():
+    """美股最近一个已收盘的交易日（Yahoo SPY；取不到返回 None）。用来判断 RS 排名是不是旧的。"""
+    if _SESSION:
+        return _SESSION[0]
+    out = None
+    try:
+        from common import yahoo_chart
+        bars, meta = yahoo_chart("SPY", rng="10d")
+        et = dt.timezone(dt.timedelta(hours=-5))
+        days = [dt.datetime.fromtimestamp(b["t"], et).date() for b in bars]
+        now = dt.datetime.now(et)
+        # 当天还没收盘（美东 16:15 前）就不算当天
+        done = [d for d in days if d < now.date() or now.hour * 60 + now.minute >= 16 * 60 + 15]
+        out = str(max(done)) if done else None
+    except Exception:
+        pass
+    _SESSION.append(out)
+    return out
+
+
+def load(max_age_days=7):
+    """读 RS Rating。今天算不出来时沿用上一次存的排名（最多 7 天前），并把 latest 设成真正最新的交易日，
+    名单上方就会出现红字提示、RS 标记带「*」；超过 7 天或没有文件就返回 {}（各名单不显示 RS）。"""
     try:
         d = json.load(open(OUT, encoding="utf-8"))
         if (dt.date.today() - dt.date.fromisoformat(d["date"])).days > max_age_days:
             return {}
+        sess = market_session()
+        if sess and sess > d.get("latest", d["date"]):
+            d["latest"] = sess
         return d
     except (OSError, ValueError, KeyError):
         return {}
@@ -141,7 +168,7 @@ def stale_note(rs):
         return ""
     return (f'<div style="margin:8px 0;padding:8px 12px;background:#FDECEA;border-left:4px solid #C62828;color:#C62828;font-size:13px;font-weight:600;">'
             f'⚠ 注意：股票旁的 RS 标记（带 *）是 {rs["date"]} 收盘的排名，不是最新交易日 {rs["latest"]}。'
-            f'原因：Yahoo 当时还没有足够股票更新到 {rs["latest"]}，下次报告会更新。</div>')
+            f'原因：最新的股价数据还没齐（或今天的排名没算成功），先沿用上一次的排名，下次报告会更新。</div>')
 
 
 def color(r):
@@ -168,12 +195,12 @@ def badge(rs, sym):
             f'style="display:inline-block;font-size:11px;font-weight:700;color:#fff;background:{color(r)};border-radius:3px;padding:0 4px;">RS {r}{"*" if old else ""}</span>')
 
 
-def top_table(rs, n=30, url=None):
-    """「RS Rating 前 n 名」表格。"""
+def top_table(rs, n=30, url=None, exclude=()):
+    """「RS Rating 前 n 名」表格。exclude = 不放进表的代码（例如被收购、股价被钉住的股票）。"""
     if not rs:
         return '<p style="color:#777;">RS Rating 今天没有数据。</p>'
     st = rs["stocks"]
-    top = sorted(st, key=lambda s: -st[s]["score"])[:n]
+    top = sorted((s for s in st if s not in exclude), key=lambda s: -st[s]["score"])[:n]
     td = 'style="padding:6px 8px;border-bottom:1px solid #eee;white-space:nowrap;"'
     th = 'style="padding:6px 8px;background:#f5f5f5;text-align:left;font-weight:600;border-bottom:1px solid #ddd;white-space:nowrap;"'
     pc = lambda x: f'<span style="color:{"#2E7D32" if x >= 0 else "#C62828"};">{x*100:+.0f}%</span>'

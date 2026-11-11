@@ -50,6 +50,8 @@ python tools/jlaw_daily_report.py
 | `tools/news_digest.py` | 新闻整理（RSS + 规则，不用 AI） |
 | `tools/weekly_events.py` | 本周重大事件 / 本周回顾（合并本周每天的新闻 JSON，存放在 `新闻/`） |
 | `tools/earnings_valuation.py` | 业绩与两年估值 |
+| `tools/earnings_options.py` | 财报前的期权（预期涨跌、看涨/看跌未平仓最多的价位、最大痛点），放在业绩与估值分页最上面 |
+| `tools/positioning.py` | 大资金在哪里买卖（CFTC 期货持仓 + CTA 趋势模型估算的买卖价位和金额），接在大盘报告后面 |
 | `tools/weekly_outlook.py` | 每周展望 |
 | `tools/common.py` | 共用的数据下载和网页小部件 |
 | `tools/jlaw_daily_report.py` | 依次运行上面各模块，合并成多分页网页 |
@@ -57,7 +59,7 @@ python tools/jlaw_daily_report.py
 | `回测/` | 选股回测脚本（数据缓存不进仓库） |
 | `docs/` | 网站（GitHub Pages 从这里发布） |
 
-数据来自 Yahoo Finance、TradingView 公开选股器、SEC EDGAR、CNBC / MarketWatch / Yahoo Finance / Google News 的 RSS、Forex Factory 经济日历。
+数据来自 Yahoo Finance（含期权链）、TradingView 公开选股器、CFTC（期货持仓）、SEC EDGAR、CNBC / MarketWatch / Yahoo Finance / Google News 的 RSS、Forex Factory 经济日历。
 规则依据 J Law 的 TTT 课程与公开视频整理，是程序化的近似；新闻和业绩总结都按规则生成，没有使用 AI 改写。
 
 **仅供学习，不构成投资建议。**

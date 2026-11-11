@@ -78,8 +78,15 @@ if lj:
 Q = {c["t"]: c for c in S["now"]["cands"]}
 
 # ---------------------------------------------------------------- 每只股票
+# 被收购的股票（每日选股/deals.json：宣布收购后股价钉在收购价附近）不放进综合名单
+try:
+    DEALS = json.load(open(os.path.join(ROOT, "每日选股", "deals.json"), encoding="utf-8")).get("deals", {})
+except (OSError, ValueError):
+    DEALS = {}
 rows = []
 for t in sorted(set(JL) | set(LUK) | set(Q)):
+    if t in DEALS:
+        continue
     p = os.path.join(DATA, "stocks", t + ".json")
     if not os.path.exists(p):
         continue
@@ -120,7 +127,9 @@ for t in sorted(set(JL) | set(LUK) | set(Q)):
                      bull=bull, bear=bear, close=close, ma50=ma50, stop=stop,
                      score=len(systems) * 10 + len(bull) * 3 - (q["rank"] / 100 if q else 0)))
 
-rows.sort(key=lambda r: -r["score"])
+# 每一组里按 RS Rating 由高到低排（用户 2026-11-11 要求；没有 RS 的放最后，同分再按几个系统看好）
+rs_of = lambda t: ((RS or {}).get("stocks", {}).get(t) or {}).get("rating") or 0
+rows.sort(key=lambda r: (-rs_of(r["t"]), -r["score"]))
 A = [r for r in rows if r["grade"] == "A"]
 B = [r for r in rows if r["grade"] == "B"]
 C = [r for r in rows if r["grade"] == "C" and ("J Law" in r["systems"] or "量化" in r["systems"])][:15]   # 只看 J Law / 量化名单里的，最多 15 只
@@ -181,7 +190,7 @@ TAB = f"""<style>
 <div style="font-size:22px;font-weight:800;color:{fg}">{light} · {"今天不买新股票，只观察" if gate == "现金" else "今天买入用" + size}</div>
 <div style="margin-top:2px;font-size:13px">量化红绿灯：<b>{LIGHT[qgate][1]}</b> · J Law 大盘：<b>{html.escape(jstate or "未知")}</b> → 两个取较严的</div>
 <div style="margin-top:4px">可以买 <b>{len(A)}</b> 只 · 等买点 <b>{len(B)}</b> 只 · 要小心 <b>{len(C)}</b> 只</div>
-{rs_stale(RS)}<div class="sub" style="margin-top:4px">怎么排出来的：① 先看量化红绿灯决定买多少 → ② J Law / 量化动量 / Luk 名单选股，越多系统同时看好排越前 → ③ 只用回测有效的K线形态：看涨的加分，看跌的直接放进「要小心」。</div>
+{rs_stale(RS)}<div class="sub" style="margin-top:4px">怎么排出来的：① 先看量化红绿灯决定买多少 → ② J Law / 量化动量 / Luk 名单选股（已排除被收购的股票），每组按 RS Rating 由高到低排 → ③ 只用回测有效的K线形态：看涨的加分，看跌的直接放进「要小心」。</div>
 </div>
 <div class="card"><h3 style="color:#2E7D32">🟢 买点已经出现{"（今天红灯：先观察，不买）" if gate == "现金" else ""}</h3>
 <div class="sub">J Law 就绪名单或量化买点（52 周新高放量 / 收窄突破 / 回踩 20 日线），在 50 日线上，最近 3 天没有看跌K线。</div>

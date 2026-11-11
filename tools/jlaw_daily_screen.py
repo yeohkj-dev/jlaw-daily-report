@@ -22,8 +22,10 @@
 """
 import csv
 import datetime as dt
+import glob
 import json
 import os
+import re
 import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -307,6 +309,46 @@ def brk_signal(px):
     return dict(level=round(hh50, 2), vrel=round(v[-1] / avgv, 1), high=round(h[-1], 2), wup=wup)
 
 
+DEALS_FILE = os.path.join(SCREEN_DIR, "deals.json")   # 被收购的股票（Luk 选股、综合名单也读这份来排除）
+DEAL_RX = re.compile(r"\b(to acquire|acquires|acquired|acquisition|buyout|buy-out|take[- ]private|tender offer|to be bought|merger agreement|"
+                     r"agrees? to buy|definitive agreement)\b", re.I)
+DEALS = {}
+
+
+def find_deals(metas, pxs):
+    """被收购（宣布收购后股价被钉在收购价附近）：近 60 个交易日内有一天涨 ≥ 15%，之后最近 10 天
+    最高最低价差 ≤ 3%、平均每天振幅 ≤ 1%（正常股票不会这么平）；或近 30 天新闻标题说这家公司被收购、且之后股价几乎不动。"""
+    titles = []
+    for f in sorted(glob.glob(os.path.join(OUT_DIR, "新闻", "20??-??-??_*.json")))[-30:]:
+        try:
+            titles += [s["title"] for s in json.load(open(f, encoding="utf-8")).get("stories", []) if DEAL_RX.search(s["title"])]
+        except (OSError, ValueError):
+            pass
+    out = {}
+    for m, px in zip(metas, pxs):
+        if not px or len(px) < 70:
+            continue
+        c = [x["c"] for x in px]; h = [x["h"] for x in px]; l = [x["l"] for x in px]
+        n = len(c)
+        jumps = [i for i in range(n - 60, n) if c[i] / c[i - 1] - 1 >= 0.15]
+        seg = range(n - 10, n)
+        rng10 = (max(h[k] for k in seg) - min(l[k] for k in seg)) / c[-1]
+        avg = sum((h[k] - l[k]) / c[k] for k in seg) / 10
+        name = re.sub(r",?\s+(Inc\.?|Corp\.?|Corporation|Company|Co\.?|Ltd\.?|plc|Holdings?|Group|N\.V\.|S\.A\.).*$", "",
+                      m.get("description") or "", flags=re.I).strip()
+        news = next((t for t in titles if len(name) >= 4 and re.search(r"\b" + re.escape(name) + r"\b", t, re.I)), None)
+        if jumps and jumps[-1] < n - 10 and rng10 <= 0.03 and avg <= 0.01:
+            j = jumps[-1]
+            out[m["name"]] = dict(reason=f"{px[j]['d']:%m-%d} 跳涨 {(c[j] / c[j - 1] - 1) * 100:.0f}%，之后 10 天只在 {rng10 * 100:.1f}% 内波动（像被收购后钉在收购价）",
+                                  news=news)
+        elif news and rng10 <= 0.04 and avg <= 0.012:
+            out[m["name"]] = dict(reason="新闻说被收购，股价几乎不动", news=news)
+    DEALS.clear()
+    DEALS.update(out)
+    json.dump(dict(date=str(dt.date.today()), deals=out), open(DEALS_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return out
+
+
 def save_pending(best, brk, spy):
     """今天的 A0 和放量突破信号加进「等 2 小时买点」名单；超过 5 个交易日没触发的移除。"""
     try:
@@ -412,7 +454,11 @@ def main():
     res = [x for x in (analyse(m, p, spy) for m, p in zip(s["rows"], pxs)) if x]
     with ThreadPoolExecutor(8) as ex:
         px_extra = list(ex.map(lambda r: prices(r["name"]), s["extra"]))
+    # ---- 排除被收购的股票（宣布收购后跳涨、之后股价被钉在收购价附近，不是真的强势）----
+    deals = find_deals(s["rows"] + s["extra"], pxs + px_extra)
+    res = [r for r in res if r["sym"] not in deals]
     staged = [x for x in (stage_check(m, p, spy) for m, p in zip(s["rows"] + s["extra"], pxs + px_extra)) if x]
+    staged = [x for x in staged if x["sym"] not in deals]
     stage2 = sorted([x for x in staged if x["kind"] == "S2"], key=lambda x: -x["rs6m"])
     stage12 = sorted([x for x in staged if x["kind"] == "S12"], key=lambda x: (-x["score"], abs(x["to_pivot"])))
 
@@ -461,6 +507,13 @@ def main():
     vcp_watch.sort(key=lambda r: (-r["vcp"]["score"], r["vcp"]["risk"]))
     fresh_mom = sorted([r for r in res if r["mom"] and (len(r["px"]) - 1 - r["mom"]["i"]) <= 5],
                        key=lambda r: -r["mom"]["size"])
+
+    # ---- 全部名单按 RS Rating 由高到低排（没有 RS 的放最后）----
+    for x in staged:
+        x["rs"] = ((rs_now.get("stocks") or {}).get(x["sym"]) or {}).get("rating") if rs_now else None
+    by_rs = lambda r: -(r.get("rs") or 0)
+    for lst in (meta_ready, meta_watch, vcp_ready, vcp_watch, best, brk, stage12, stage2, fresh_mom):
+        lst.sort(key=by_rs)
 
     # ---- 与上一份比较 ----
     prev_files = sorted(f for f in os.listdir(SCREEN_DIR) if f.endswith(".csv") and f[:10] != str(today))
@@ -789,6 +842,10 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
     new_line = (f'<p style="margin:10px 0 0;"><b>新进入就绪名单：</b>{"、".join(link(x) for x in new_names[:20])}</p>' if new_names else "")
     ms_date = f'（大盘报告日期 {ms["date"]}）' if ms else ""
     sec = lambda t, c: f'<h3 style="margin:22px 0 8px;color:{c};">{t}</h3>'
+    deal_note = ('<p style="margin:6px 0 0;font-size:12px;color:#555;">📋 所有名单都按 <b>RS Rating</b> 由高到低排。'
+                 + (f'已排除 {len(DEALS)} 只被收购的股票（宣布收购后跳涨、之后股价钉在收购价附近，不是真的强势）：'
+                    + "、".join(f'<span title="{h.escape(v["reason"])}">{h.escape(k)}</span>' for k, v in sorted(DEALS.items())) if DEALS else "")
+                 + '</p>')
     return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>J Law 每日选股 {today}</title></head>
 <body style="margin:0;padding:0;background:#f4f5f7;font-family:Arial,'Microsoft YaHei',sans-serif;color:#222;">
@@ -801,7 +858,7 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 <div style="margin-top:6px;font-size:14px;line-height:1.6;"><b>建议：</b>{advice}</div></div>
 <div style="padding:16px 18px;font-size:14px;line-height:1.6;">
 <p style="margin:0;"><b>股票池：</b>第二阶段 + 日均成交额 ≥ 1 亿美元 <b>{n_univ}</b> 只 · 有动能事件 <b>{n_mom}</b> 只 · VCP 相对强度层 <b>{n_vcp}</b> 只
-<span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}
+<span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}{deal_note}
 {sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_rules}{best_tbl(best)}
 {sec(f"A3. 放量突破 50 日高 · 等 2 小时买点（{len(brk)} 只）", "#1B5E20")}{brk_rules}{brk_tbl(brk)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
@@ -816,7 +873,7 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 {more(stage2, s2_tbl)}
 {sec(f"D. RS Rating 前 30（{rs['date'] if rs else '—'}，共 {rs['n'] if rs else 0} 只美股排名）", "#1B5E20")}
 <p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">RS Rating（1–99，IBD 式）= 过去一年涨幅（最近一季权重加倍）在约 2,250 只美股里的排名，99 = 赢过 99% 的股票。各名单股票代码旁的 <b>RS</b> 标记是同一个数字：<b style="color:#1B5E20;">≥90</b> 最强、<b style="color:#2E7D32;">≥80</b> 强（Minervini / O'Neil 的门槛）、<b style="color:#C62828;">&lt;50</b> 弱。股票池只含市值 ≥3 亿、日成交额 ≥1,000 万美元的股票，比 IBD 全市场严格，数字可能比 IBD 低几分。这是强势排名，不是买点。</p>
-{rs_stale(rs)}{rs_top(rs, 30)}
+{rs_stale(rs)}{rs_top(rs, 30, exclude=DEALS)}
 <div style="display:flex;flex-wrap:wrap;gap:16px;">
 <div style="flex:1 1 360px;">{sec(f"热门产业组（同一行业 ≥{HOT_GROUP_MIN} 只）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{hot_html}</ul></div>
 <div style="flex:1 1 360px;">{sec("近 5 日新的动能事件（等低量回调）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{fresh_html}</ul></div></div>

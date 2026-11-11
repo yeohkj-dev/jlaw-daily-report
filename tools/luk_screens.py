@@ -38,23 +38,43 @@ SCREENS = [
      BASE + [{"left": "Volatility.W", "operation": "greater", "right": 3.5},
              {"left": "close", "operation": "greater", "right": "EMA21"},
              {"left": "Value.Traded", "operation": "greater", "right": 5e7}],
-     ("change", "desc"), 30, "市值 &gt;1 亿 · 1 周波动率 &gt;3.5% · 股价 &gt; 21 EMA · 成交额 &gt;5,000 万 · 按当日涨幅排序"),
+     ("change", "desc"), 30, "市值 &gt;1 亿 · 1 周波动率 &gt;3.5% · 股价 &gt; 21 EMA · 成交额 &gt;5,000 万 · 取当日涨幅最高的 30 只、按 RS Rating 排序显示；已排除被收购的股票"),
     ("gap", "Gappers（跳空股）", "Luk 的 Premarket 选股器：找有消息、跳空高开的股票。报告在收盘后跑，所以按今天开盘的跳空幅度排序。",
      BASE + [{"left": "average_volume_10d_calc", "operation": "greater", "right": 5e5},
              {"left": "Value.Traded", "operation": "greater", "right": 5e7},
              {"left": "gap", "operation": "egreater", "right": 3}],
-     ("gap", "desc"), 30, "市值 &gt;1 亿 · 10 日均量 &gt;50 万 · 成交额 &gt;5,000 万 · 跳空 ≥3%（为了名单精简另加） · 按开盘跳空 % 排序（Luk 原本在盘前按盘前涨幅排序）"),
+     ("gap", "desc"), 30, "市值 &gt;1 亿 · 10 日均量 &gt;50 万 · 成交额 &gt;5,000 万 · 跳空 ≥3%（为了名单精简另加） · 取开盘跳空最大的 30 只、按 RS Rating 排序显示（Luk 原本在盘前按盘前涨幅排序）；已排除被收购的股票"),
     ("leader", "Leaders（领导股）", "Luk 的 Leader 选股器：过去一个月涨最多的股票，他每个周末看一次，从中找下一波的领导股和主题。",
      BASE + [{"left": "average_volume_10d_calc", "operation": "greater", "right": 5e5},
              {"left": "Value.Traded|1W", "operation": "greater", "right": 3e8}],
-     ("Perf.1M", "desc"), 50, "市值 &gt;1 亿 · 10 日均量 &gt;50 万 · 本周成交额 &gt;3 亿 · 按 1 个月涨幅排序"),
+     ("Perf.1M", "desc"), 50, "市值 &gt;1 亿 · 10 日均量 &gt;50 万 · 本周成交额 &gt;3 亿 · 取 1 个月涨幅最高的 50 只、按 RS Rating 排序显示；已排除被收购的股票"),
 ]
 
 
+def deal_list():
+    """每日选股找出的被收购股票（每日选股/deals.json）。"""
+    try:
+        return json.load(open(os.path.join(OUT_DIR, "每日选股", "deals.json"), encoding="utf-8")).get("deals", {})
+    except (OSError, ValueError):
+        return {}
+
+
+DEALS = deal_list()
+
+
+def rs_of(sym):
+    return ((RS or {}).get("stocks", {}).get(sym) or {}).get("rating") or 0
+
+
 def run_screen(filters, sort, top):
-    body = {"filter": filters, "columns": COLS, "sort": {"sortBy": sort[0], "sortOrder": sort[1]}, "range": [0, top]}
+    """按选股器条件取前 top 只（先多取 20 只，扣掉被收购的股票），再按 RS Rating 由高到低排。"""
+    body = {"filter": filters, "columns": COLS, "sort": {"sortBy": sort[0], "sortOrder": sort[1]}, "range": [0, top + 20]}
     total = tv_scan(dict(body, columns=["name"], range=[0, 5000]))
     rows = [dict(zip(COLS, r["d"])) for r in tv_scan(body)]
+    # 被收购的股票：每日选股的名单，或 1 周波动率 < 0.6% 但近 1 个月涨 > 15%（宣布收购后股价被钉住）
+    pinned = lambda r: (r.get("Volatility.W") or 9) < 0.6 and (r.get("Perf.1M") or 0) > 15
+    rows = [r for r in rows if r["name"] not in DEALS and not pinned(r)][:top]
+    rows.sort(key=lambda r: -rs_of(r["name"]))
     return rows, len(total)
 
 
@@ -159,9 +179,9 @@ def main():
     th = themes(all_rows)
     new_cnt = {k: sum(1 for r in results[k][0] if prev and r["name"] not in prev.get(k, set())) for k in results}
     bullets = [
-        f"Strong Day 今天有 <b>{results['strong'][1]}</b> 只符合，前 3 名："
+        f"Strong Day 今天有 <b>{results['strong'][1]}</b> 只符合，RS 最高的 3 只："
         + "、".join(f"{tv_link(r['name'], ex=r['exchange'])}（{r['change']:+.1f}%）" for r in results["strong"][0][:3]) + "。",
-        f"Gappers 今天有 <b>{results['gap'][1]}</b> 只跳空 ≥3%，最大的："
+        f"Gappers 今天有 <b>{results['gap'][1]}</b> 只跳空 ≥3%，RS 最高的："
         + "、".join(f"{tv_link(r['name'], ex=r['exchange'])}（{r['gap']:+.1f}%）" for r in results["gap"][0][:3]) + "。",
         f"Leaders 前 50 名里，EMA 分类 Lead <b>{lead.get('Lead', 0)}</b> 只、Mediocre {lead.get('Mediocre', 0)} 只、Lag {lead.get('Lag', 0)} 只。",
     ]

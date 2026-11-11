@@ -32,3 +32,4 @@ __pycache__/
 回测/mtf/*.pkl
 回测/mtf/*.html
 回测/mtf/charts/
+大盘报告/资金持仓_*.json
