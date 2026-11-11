@@ -11,12 +11,23 @@
   "rs": 91
  },
  {
+  "sym": "RVTY",
+  "ex": "NYSE",
+  "kind": "A0",
+  "sig": "2026-11-11",
+  "close": 158.25,
+  "high": 163.29,
+  "stop_pct": 0.08,
+  "hard_pct": 0.12,
+  "rs": 94
+ },
+ {
   "sym": "RXO",
   "ex": "NYSE",
   "kind": "A0",
-  "sig": "2026-11-10",
-  "close": 27.93,
-  "high": 28.0,
+  "sig": "2026-11-11",
+  "close": 28.14,
+  "high": 28.41,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 95
