@@ -559,9 +559,9 @@ def bt_note(spy, qqq):
                 "平均每笔比同期买 SPY 多赚约 0.55%（每 $1 万约 $55）；开盘离突破点 5% 以上的反而比较好，但止损更远、仓位要小。止损贴着突破K线最低点、拿 20 天就卖，优势会消失。"
                 "单根反转K线（吞没、锤子、孕线、平底）几乎没有优势。")
     common = "另外，70 种有方向的形态里有 67 种「等下一根K线确认后才买」，60 天收益反而较差（入场价变差）。"
-    html = (f'<div style="margin-top:8px;font-size:13px;line-height:1.6;background:#fff;border:1px dashed #bbb;border-radius:6px;padding:8px 10px;">'
-            f'📊 <b>K线形态回测提示：</b>{head}。{body}{common}'
-            f'<span style="color:#888;font-size:11px;">（约 2,250 只美股 2005–2026 的统计平均，不是个股预测；详见仓库 回测/K线形态。）</span></div>')
+    html = (f'<details class="fold" style="margin-top:8px;font-size:13px;line-height:1.6;background:#fff;border:1px dashed #bbb;border-radius:6px;padding:6px 10px;">'
+            f'<summary style="cursor:pointer;">📊 <b>K线形态回测提示：</b>{head}（点开看）</summary><div style="margin-top:6px;">{body}{common}'
+            f'<span style="color:#888;font-size:11px;">（约 2,250 只美股 2005–2026 的统计平均，不是个股预测；详见仓库 回测/K线形态。）</span></div></details>')
     md = f"**K线形态回测提示**：{head}。{body.replace('<b>', '').replace('</b>', '')}{common}（统计平均，详见 回测/K线形态）"
     return html, md
 
@@ -616,13 +616,14 @@ def build_html(today, state, prev_state, advice, spy, qqq, n, b50, b200, s2, pre
 <table style="width:100%;border-collapse:collapse;font-size:13px;">
 <tr><th {th}>指数</th><th {th}>收盘</th><th {th}>当日</th><th {th}>近1月</th><th {th}>20天</th><th {th}>50天</th><th {th}>200天</th><th {th}>50线</th><th {th}>出货日</th></tr>
 {rows}</table>
-{fear}
 <p style="margin:14px 0 4px;"><b>市场宽度</b>（{n} 只市值 ≥100 亿美元的美股）：<b>{b50:.1f}%</b> 在 50 天线之上{delta(b50, "above50", ".1f")}，{b200:.1f}% 在 200 天线之上</p>
 <p style="margin:4px 0;"><b>JLaw Stage 2 筛出</b>：<b>{s2}</b> 只{delta(s2, "stage2", ".0f")} <span style="color:#777;font-size:12px;">（个股名单在「每日选股」的 C2）</span></p>
 {sig}
-{sec_html}
-{credit_part}
 <h3 style="margin:18px 0 6px;">见底 / 转强信号</h3><ul style="margin:0;padding-left:20px;list-style:none;">{bot}</ul>
+<!--POS-->
+{sec_html}
+{fear}
+{credit_part}
 
 <p style="margin:14px 0 0;font-size:12px;color:#555;">📈 点指数、行业 ETF 或股票代码会在新分页打开 TradingView 日线图；「RS 图」打开该行业 ÷ SPY 的相对强弱图。</p>
 </div>

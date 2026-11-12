@@ -59,7 +59,7 @@ BEST_BT = dict(n=1024, per_year=50, win=38, ex=2.10, ex_hard=2.00, cagr=13.8, sp
 HOT_GROUP_MIN = 3           # 同一细分行业 ≥3 只 = 热门组
 
 
-STAGE_SHOW = 30             # 名单先显示前 N 只，其余放在展开里
+STAGE_SHOW = 20             # 名单先显示前 N 只，其余放在展开里
 STAGE_MAX = 200             # 网页最多放 N 只
 SLOPE_UP = 1.0              # 200 天线近 21 日升幅 ≥ 此值（%）= 向上；-1.5 至此值 = 走平
 BASE_DEPTH = 40             # 底部（近 6 个月）最大振幅 %
@@ -678,6 +678,11 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
         hd = "".join(f"<th {th}>{x}</th>" for x in head)
         return f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:13px;"><tr>{hd}</tr>{body}</table></div>'
 
+    def fold(title, body, color="#1565C0"):
+        """每天都一样的规则 / 说明、或次要名单：收起来，点一下才展开，让当天的数据排在前面。"""
+        return (f'<details class="fold" style="margin:0 0 8px;"><summary style="cursor:pointer;color:{color};font-size:13px;font-weight:600;padding:4px 0;">'
+                f'{title}</summary><div style="margin-top:6px;">{body}</div></details>')
+
     def meta_tbl(rows):
         if not rows:
             return '<p style="color:#777;">今天没有符合条件的股票。</p>'
@@ -717,7 +722,9 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
                     + ("" if up else "<b style=\"color:#C62828;\">现在不开新仓（已买的照规则卖）：账户回测里「SPY 跌破 200 天线就不买」比照买好（没持股的钱放 QQQ：每年 +19.3% vs +15.2%）。</b>") + "</div>")
     else:
         spy_line = ""
-    best_rules = spy_line + f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
+    red_line = ('<div style="margin:0 0 8px;padding:8px 12px;border-left:4px solid #C62828;background:#FDECEA;font-size:13px;line-height:1.6;">'
+                '<b style="color:#C62828;">今天大盘是红灯（血汗钱）：名单只观察，先不买。</b>最终灯号看页面最上面。</div>') if key == "🔴" else ""
+    best_rules = red_line + spy_line + f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
 <b>怎么做：</b>
 <ol style="margin:4px 0 6px;padding-left:20px;">
 <li><b>买（新，推荐）：</b>名单出来后 5 个交易日内，等 <b>2 小时K线收盘重新站上 2 小时 20 EMA</b>（前一根在 20 EMA 下面）才买，收盘价就是你的「买价」；
@@ -739,6 +746,9 @@ def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready,
 最大回落 {b['maxdd']}%（SPY {b['spy_maxdd']}%），一样会跌一半。
 RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BEST_RS_MIN}。
 回测只有今天还在交易的股票（幸存者偏差），真实结果会差一些；小账户每张单 $1 手续费会吃掉不少（$2,000 账户要注意）。</div></div>"""
+
+    best_head, best_body = best_rules.split('<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;', 1)
+    best_body = '<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;' + best_body
 
     def brk_tbl(rows):
         if not spy200 or spy200[0] <= spy200[1]:
@@ -832,8 +842,9 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
     img = ""
     if png_path and os.path.exists(png_path):
         with open(png_path, "rb") as f:
-            img = ('<h3 style="margin:22px 0 8px;">图表（META：橙色虚线 = 突破位；VCP：橙色虚线 = 突破点；紫色点线 = 建议止损）</h3>'
-                   f'<img alt="候选股图表" style="width:100%;border:1px solid #eee;" src="data:image/png;base64,{base64.b64encode(f.read()).decode()}">')
+            img = ('<h3 style="margin:22px 0 8px;">就绪名单的图表</h3>'
+                   + fold("展开图表（META：橙色虚线 = 突破位；VCP：橙色虚线 = 突破点；紫色点线 = 建议止损）",
+                          f'<img alt="候选股图表" loading="lazy" style="width:100%;border:1px solid #eee;" src="data:image/png;base64,{base64.b64encode(f.read()).decode()}">'))
     hot_html = "".join(f'<li><b>{h.escape(k)}</b>（{len(v)}）：{"、".join(link(x) for x in v[:12])}</li>'
                        for k, v in sorted(hot.items(), key=lambda x: -len(x[1]))[:10]) or "<li>无</li>"
     fresh_html = "".join(f'<li>{link(r["sym"])}（{h.escape(r["industry"][:20])}）{r["mom"]["date"]:%m-%d} '
@@ -859,21 +870,22 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 <div style="padding:16px 18px;font-size:14px;line-height:1.6;">
 <p style="margin:0;"><b>股票池：</b>第二阶段 + 日均成交额 ≥ 1 亿美元 <b>{n_univ}</b> 只 · 有动能事件 <b>{n_mom}</b> 只 · VCP 相对强度层 <b>{n_vcp}</b> 只
 <span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}{deal_note}
-{sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_rules}{best_tbl(best)}
-{sec(f"A3. 放量突破 50 日高 · 等 2 小时买点（{len(brk)} 只）", "#1B5E20")}{brk_rules}{brk_tbl(brk)}
+{sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_head}{best_tbl(best)}{fold("📖 怎么买、怎么卖、回测结果（规则每天一样，点开看）", best_body)}
+{sec(f"A3. 放量突破 50 日高 · 等 2 小时买点（{len(brk)} 只）", "#1B5E20")}{brk_tbl(brk)}{fold("📖 怎么买、怎么卖、回测结果（规则每天一样，点开看）", brk_rules)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
-{sec("B. 观察名单 · META（优势 ≥3）", "#B26A00")}{meta_tbl(meta_watch[:10])}
-{sec("B. 观察名单 · VCP（得分 ≥5）", "#B26A00")}{vcp_tbl(vcp_watch[:10])}
-{st_css}{sec(f"C1. Stage 1 → 2 转换候选（{len(stage12)} 只）", "#6A1B9A")}
+{sec(f"B. 观察名单（还没到买点：META {len(meta_watch[:10])} 只 · VCP {len(vcp_watch[:10])} 只）", "#B26A00")}
+{fold(f"展开 META 观察名单（优势 ≥3，{len(meta_watch[:10])} 只）", meta_tbl(meta_watch[:10]), "#B26A00")}
+{fold(f"展开 VCP 观察名单（得分 ≥5，{len(vcp_watch[:10])} 只）", vcp_tbl(vcp_watch[:10]), "#B26A00")}
+{st_css}{sec(f"C1. Stage 1 → 2 转换候选（{len(stage12)} 只，先显示前 {STAGE_SHOW} 只）", "#6A1B9A")}
 <p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">底部整理后、快要进入上升阶段的股票：200 天线走平，近 6 个月底部振幅 ≤{BASE_DEPTH}%，股价站上 50 天线且 50 天线转上，RS 近 1 个月转强，股价在底部高点 −8% 至 +10% 之内。得分看 5 项：已突破底部高点、上涨日放量 ≥1.5 倍、站上 200 天线、50 天线接近或高于 200 天线、RS 线接近新高。程序分不清底部（Stage 1）和顶部横盘（Stage 3），两者都是 200 天线走平，请点图看之前是下跌还是上涨。</p>
 {more(stage12, s12_tbl)}
-{sec(f"C2. Stage 2 名单（{len(stage2)} 只，按 6 个月 RS 排序）", "#6A1B9A")}
+{sec(f"C2. Stage 2 名单（{len(stage2)} 只，按 RS Rating 排，先显示前 {STAGE_SHOW} 只）", "#6A1B9A")}
 <p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">已确认的上升阶段：收盘 &gt; 50 天线 &gt; 200 天线，50 和 200 天线都向上，距 52 周高 25% 以内，比 52 周低点高 ≥25%。阶段按 50 天线上穿 200 天线后的天数：早期 ≤60、中段 ≤180、后段 &gt;180。距 50 天线 &gt;25% 标「远离」，不宜追高。这是强势股名单，不是买点，买点仍看上面的 META / VCP。</p>
 {more(stage2, s2_tbl)}
 {sec(f"D. RS Rating 前 30（{rs['date'] if rs else '—'}，共 {rs['n'] if rs else 0} 只美股排名）", "#1B5E20")}
 <p style="margin:0 0 6px;font-size:12px;color:#666;line-height:1.6;">RS Rating（1–99，IBD 式）= 过去一年涨幅（最近一季权重加倍）在约 2,250 只美股里的排名，99 = 赢过 99% 的股票。各名单股票代码旁的 <b>RS</b> 标记是同一个数字：<b style="color:#1B5E20;">≥90</b> 最强、<b style="color:#2E7D32;">≥80</b> 强（Minervini / O'Neil 的门槛）、<b style="color:#C62828;">&lt;50</b> 弱。股票池只含市值 ≥3 亿、日成交额 ≥1,000 万美元的股票，比 IBD 全市场严格，数字可能比 IBD 低几分。这是强势排名，不是买点。</p>
-{rs_stale(rs)}{rs_top(rs, 30, exclude=DEALS)}
+{fold("展开 RS Rating 前 30 名", rs_stale(rs) + rs_top(rs, 30, exclude=DEALS), "#1B5E20")}
 <div style="display:flex;flex-wrap:wrap;gap:16px;">
 <div style="flex:1 1 360px;">{sec(f"热门产业组（同一行业 ≥{HOT_GROUP_MIN} 只）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{hot_html}</ul></div>
 <div style="flex:1 1 360px;">{sec("近 5 日新的动能事件（等低量回调）", "#1F4E78")}<ul style="margin:0;padding-left:20px;">{fresh_html}</ul></div></div>

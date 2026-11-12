@@ -332,7 +332,9 @@ def build_html(mode, now, window_start, stories, snap, cal, cal_label, checks):
     sub = f'<div style="font-size:13px;color:#555;">新闻窗口：{win} · 共 {len(stories)} 条事件，其中 {len(multi)} 条有多家媒体报道</div>'
     body = ((h3("期货与加密货币（对比周五收盘）") + snap_html if weekend and snap else "")
             + h3("重点新闻（多家媒体报道的优先）", GREEN) + top_html
-            + h3("按主题") + (by_topic or '<p style="color:#888;">没有其他新闻。</p>')
+            + h3("其他新闻 · 按主题")
+            + (f'<details class="fold"><summary style="cursor:pointer;color:{BLUE};font-size:13px;font-weight:600;">展开按主题分类的其他新闻</summary>{by_topic}</details>'
+               if by_topic else '<p style="color:#888;">没有其他新闻。</p>')
             + '<p style="color:#888;font-size:11px;margin-top:14px;">新闻按关键词自动挑选和归类，只显示媒体原标题、来源和 RSS 自带的摘要，'
               '点标题看原文。「N 家媒体报道」表示多家可信媒体在窗口内报道了相近标题。经济日历在上面的「本周重大事件 / 本周回顾」，'
               '数据核对在页头。仅供学习，不构成投资建议。</p>')

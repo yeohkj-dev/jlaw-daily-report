@@ -470,13 +470,16 @@ def build_html(groups, recent, upcoming, checks):
     n = sum(len(v) for v in groups.values())
     body = ""
     if recent:
-        body += h3("最近 14 天公布业绩", GREEN) + company_rows(recent) + "".join(detail(r) for r in recent)
+        body += (h3("最近 14 天公布业绩", GREEN) + company_rows(recent)
+                 + f'<details class="fold" style="margin:8px 0;"><summary style="cursor:pointer;color:{BLUE};font-size:13px;font-weight:600;">'
+                   f'展开这 {len(recent)} 家的逐家明细（指引原文、估值算法）</summary>' + "".join(detail(r) for r in recent) + "</details>")
     if upcoming:
         rows = "".join(f'<li>{tv_link(r)} {esc(r["name"][:28])} · {esc(SECTOR_ZH.get(r["sector"], r["sector"]))} · '
                        f'<span style="color:{RED};">{esc(r["next_er"])}</span></li>' for r in upcoming)
         body += h3("未来 14 天将公布业绩", AMBER) + f'<ul style="margin:0;padding-left:20px;">{rows}</ul>'
+    body += h3("11 个板块 · 各前 10 大公司（点板块名展开）")
     for sec, rs in groups.items():
-        body += (f'<details style="margin:14px 0;" {"open" if sec == "Technology" else ""}><summary style="cursor:pointer;font-size:16px;'
+        body += (f'<details class="fold" style="margin:6px 0;"><summary style="cursor:pointer;font-size:16px;'
                  f'font-weight:700;color:{BLUE};">{esc(SECTOR_ZH.get(sec, sec))}（{esc(sec)}）· 前 {len(rs)} 大</summary>'
                  + company_rows(rs) + '<div style="margin-top:8px;">' + "".join(detail(r) for r in rs) + "</div></details>")
     body += ('<p style="color:#888;font-size:11px;margin-top:14px;">综合 = 按 EPS / 营收是否超预期、分析师预期修正、业绩后股价反应打分（规则）。'

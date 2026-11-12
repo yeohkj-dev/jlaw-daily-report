@@ -106,17 +106,19 @@ def check_cta_cboe(cta):
         cb = {x["date"]: float(x["close"]) for x in json.loads(_get(CBOE_SPX))["data"]}
         y = cta["_px"]
         ds = sorted(y)[-260:]
-        miss = [str(d) for d in ds if str(d) not in cb]
-        off = [str(d) for d in ds if str(d) in cb and abs(y[d] / cb[str(d)] - 1) > 0.0005]
         cbs = sorted(cb)
-        flips = []
+        late = [str(d) for d in ds if str(d) > cbs[-1]]          # CBOE 还没更新到的最新几天：不算错，只比两边都有的日子
+        both = [d for d in ds if str(d) <= cbs[-1]]
+        miss = [str(d) for d in both if str(d) not in cb]
+        off = [str(d) for d in both if str(d) in cb and abs(y[d] / cb[str(d)] - 1) > 0.0005]
+        flips, yds = [], sorted(y)
         for n in LOOKBACKS:
-            f2 = cb[cbs[-n]]
-            if cbs[-1] == cta["date"] and abs(f2 / cta["sig"][n]["flip"] - 1) > 0.0005:
-                flips.append(f"{n} 天 {cta['sig'][n]['flip']:,.0f} vs CBOE {f2:,.0f}")
-        ok = not miss and not off and not flips and cbs[-1] == cta["date"]
-        det = (f"最近 {len(ds)} 天收盘逐日一致、4 个翻转价相同（CBOE 最新 {cbs[-1]}）" if ok else
-               f"CBOE 最新 {cbs[-1]}；缺 {len(miss)} 天、差 >0.05% {len(off)} 天" + (f"；翻转价不同：{'；'.join(flips)}" if flips else ""))
+            fd = str(yds[-n])                                    # 翻转价是哪一天的收盘
+            if fd in cb and abs(cb[fd] / cta["sig"][n]["flip"] - 1) > 0.0005:
+                flips.append(f"{n} 天 {cta['sig'][n]['flip']:,.0f} vs CBOE {cb[fd]:,.0f}")
+        ok = not miss and not off and not flips and len(late) <= 1 and len(both) >= 250
+        det = (f"{len(both)} 天收盘逐日一致、4 个翻转价相同" + (f"（CBOE 还没有 {late[-1]}，这一天没比）" if late else f"（CBOE 最新 {cbs[-1]}）") if ok else
+               f"CBOE 最新 {cbs[-1]}；缺 {len(miss)} 天、差 >0.05% {len(off)} 天、CBOE 落后 {len(late)} 天" + (f"；翻转价不同：{'；'.join(flips)}" if flips else ""))
         return dict(name="CTA 标普收盘 vs CBOE", ok=ok, critical=False, detail=det)
     except Exception as e:
         return dict(name="CTA 标普收盘 vs CBOE", ok=False, critical=False, detail=f"CBOE 取不到（{type(e).__name__}）")

@@ -105,12 +105,14 @@ def published_panel(key):
     return m.group(1) if m else None
 
 
-def pos_part(pos):
-    """「大资金在哪里买卖」（tools/positioning.py）接在大盘报告后面。"""
+def pos_part(body, pos):
+    """「大资金在哪里买卖」（tools/positioning.py）放进大盘报告：信号后面、行业前面（<!--POS--> 的位置）；没有记号就接在最后。"""
     if not pos or not pos.get("fragment"):
-        return ""
-    return ('<div style="max-width:960px;margin:0 auto;padding:0 16px 16px;"><div style="background:#fff;border:1px solid #e3e3e3;'
-            'border-radius:8px;padding:4px 18px 14px;font-size:14px;line-height:1.6;">' + pos["fragment"] + "</div></div>")
+        return body
+    if "<!--POS-->" in body:
+        return body.replace("<!--POS-->", pos["fragment"], 1)
+    return body + ('<div style="max-width:960px;margin:0 auto;padding:0 16px 16px;"><div style="background:#fff;border:1px solid #e3e3e3;'
+                   'border-radius:8px;padding:4px 18px 14px;font-size:14px;line-height:1.6;">' + pos["fragment"] + "</div></div>")
 
 
 def error_box(name, err):
@@ -154,6 +156,37 @@ GROUPS = [("today", "今天怎么做", ["combo", "brief", "risk"]),
 QUANT = os.path.join(OUT_DIR, "量化", "data")      # 量化/run.py 的输出（GitHub 上由 daily.yml 在本程序之前运行）
 
 
+FINAL = {}          # 最终灯号（综合名单算的：量化红绿灯和 J Law 大盘灯取较严的）；combined_tab() 填
+LIGHTS = {"进攻": ("#2E7D32", "🟢 绿灯", "可以正常买（每笔最多亏账户 1%）"), "谨慎": ("#B26A00", "🟡 黄灯", "少买、半仓（每笔最多亏账户 0.5%）"),
+          "现金": ("#C62828", "🔴 红灯", "今天不买新股票，只观察")}
+
+
+def final_light(state):
+    """页头的「今天最终灯号」。综合名单没算出来时，退回只显示 J Law 大盘状态。"""
+    if FINAL.get("gate") in LIGHTS:
+        fg, name, todo = LIGHTS[FINAL["gate"]]
+        q = LIGHTS.get(FINAL.get("qgate"), ("", "未知", ""))[1]
+        return (f'<div class="fl" style="border-left-color:{fg};"><span class="fl-k">今天最终灯号</span>'
+                f'<b class="fl-v" style="background:{fg};">{name}</b><span class="fl-t">{todo}</span>'
+                f'<span class="fl-s">量化 {q} + J Law {html.escape(FINAL.get("jstate") or "未知")} → 取较严的 · 各分页里的灯只是分项</span></div>')
+    fg = {"🔴": "#C62828", "🟡": "#B26A00", "🟢": "#2E7D32"}.get(state[:1], "#555")
+    return (f'<div class="fl" style="border-left-color:{fg};"><span class="fl-k">J Law 大盘状态</span>'
+            f'<b class="fl-v" style="background:{fg};">{html.escape(state)}</b><span class="fl-s">综合灯号这次没算出来，先看这个</span></div>')
+
+
+def with_final(body, what):
+    """分项的灯和最终灯号不同的时候，在那个分页最上面提醒（避免一页说买、一页说不买）。"""
+    body = re.sub(r"<!--FL-->.*?<!--/FL-->", "", body, flags=re.S)
+    g, q = FINAL.get("gate"), FINAL.get("qgate")
+    if g not in LIGHTS or g == q:
+        return body
+    fg, name, todo = LIGHTS[g]
+    return (f'<!--FL--><div style="max-width:820px;margin:12px auto 0;padding:0 16px;"><div style="background:#fff;border:2px solid {fg};border-radius:10px;'
+            f'padding:10px 14px;font-size:14px;line-height:1.6;"><b style="color:{fg};">今天最终灯号是 {name}：{todo}。</b><br>'
+            f'{what}自己是 {LIGHTS[q][1] if q in LIGHTS else "未知"}，但 J Law 大盘灯（{html.escape(FINAL.get("jstate") or "")}）更严，两个取较严的。'
+            f'下面的内容只当分项参考。</div></div><!--/FL-->') + body
+
+
 def quant_tab():
     """「量化系统」分页：市场状态分、个股交易开关、今天的买点；完整报告在 docs/quant.html。"""
     f = os.path.join(QUANT, "tab.html")
@@ -181,6 +214,7 @@ def combined_tab():
             lines = [x for x in p.stdout.strip().splitlines() if x.strip()]
             if p.returncode == 0 and lines:
                 s = json.loads(lines[-1])
+                FINAL.update(gate=s["gate"], qgate=s.get("qgate"), jstate=s.get("jstate"))
                 with open(os.path.join(QUANT, "combined.html"), encoding="utf-8") as fh:
                     return ("combo", "综合名单", (f"买点 {len(s['A'])} · 红灯先观察" if s["gate"] == "现金" else f"可买 {len(s['A'])} · 等 {len(s['B'])}"), fh.read())
             print("综合名单失败：", (p.stderr or p.stdout)[-800:], flush=True)
@@ -296,7 +330,7 @@ def main():
         state = mkt["state"] if mkt else (scr or {}).get("market_state", "未知")
         mkt_date = mkt["date"] if mkt else "—"
         n_ready = (len(scr["meta_ready"]), len(scr["vcp_ready"])) if scr else None
-        tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), (body_of(mkt["html"]) + pos_part(res.get("pos"))) if mkt else error_box("大盘报告", errs["mkt"])))
+        tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), pos_part(body_of(mkt["html"]), res.get("pos")) if mkt else error_box("大盘报告", errs["mkt"])))
         tabs.append(("scr", "每日选股", f"META {n_ready[0]} · VCP {n_ready[1]}" if n_ready else "失败",
                      body_of(scr["html"]) if scr else error_box("每日选股", errs["scr"])))
         luk = res.get("luk")
@@ -326,7 +360,8 @@ def main():
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
     tabs.append(combined_tab())
-    tabs.append(quant_tab())
+    qk, qt, qs, qb = quant_tab()
+    tabs.append((qk, qt, qs, with_final(qb, "量化系统")))
     tabs.append(risk_tab(state))
 
     # ---- 早报：放在第一个分页（周末沿用最近一个交易日的）----
@@ -382,10 +417,10 @@ def main():
     page = f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>每日报告 {today}</title>
 <style>
-body{{margin:0;background:#f4f5f7;font-family:Arial,'Microsoft YaHei',sans-serif;color:#222}}
-.bar{{position:sticky;top:0;z-index:10;background:#1F2937;color:#fff;padding:10px 16px 0}}
+body{{margin:0;background:#eef1f5;font-family:'Segoe UI',-apple-system,'PingFang SC','Microsoft YaHei',Arial,sans-serif;color:#1f2933;-webkit-font-smoothing:antialiased}}
+.bar{{position:sticky;top:0;z-index:10;background:linear-gradient(135deg,#111827,#1e3a5f);color:#fff;padding:10px 16px 0;box-shadow:0 2px 10px rgba(0,0,0,.18)}}
 .top{{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}}
-.title{{font-size:17px;font-weight:700}}
+.title{{font-size:18px;font-weight:800;letter-spacing:.3px}}
 .meta{{font-size:12px;color:#cbd5e1}}
 .chk{{font-size:12px;background:#fff;border-radius:4px;padding:1px 8px}}
 details.chk{{position:relative}} details.chk summary{{cursor:pointer}}
@@ -393,10 +428,10 @@ details.chk ul{{position:absolute;z-index:20;left:0;margin:4px 0 0;padding:8px 1
 border:1px solid #ddd;border-radius:6px;width:min(560px,88vw);max-height:60vh;overflow:auto;box-shadow:0 4px 12px rgba(0,0,0,.15);
 list-style:none;line-height:1.7}}
 .tabs{{max-width:1080px;margin:8px auto 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}}
-.tab{{flex:0 0 auto;border:0;cursor:pointer;padding:9px 14px;border-radius:8px 8px 0 0;background:#374151;color:#e5e7eb;
+.tab{{flex:0 0 auto;border:0;cursor:pointer;padding:9px 16px;border-radius:10px 10px 0 0;background:rgba(255,255,255,.10);color:#e5e7eb;transition:background .15s;
 font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .tab small{{display:block;font-size:11px;color:#cbd5e1}}
-.tab[aria-selected=true]{{background:#f4f5f7;color:#111;font-weight:700}}
+.tab:hover{{background:rgba(255,255,255,.2)}}.tab[aria-selected=true]{{background:#eef1f5;color:#111;font-weight:700}}
 .tab[aria-selected=true] small{{color:#555}}
 .panel{{display:none}}.panel.on{{display:block}}
 .subs{{display:none;max-width:1080px;margin:0 auto;padding:8px 16px 0;gap:6px;overflow-x:auto;scrollbar-width:none}}.subs.on{{display:flex}}.subs.one{{display:none!important}}
@@ -404,14 +439,48 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .stab small{{display:block;font-size:10.5px;color:#777}}
 .stab[aria-selected=true]{{background:#1F2937;border-color:#1F2937;color:#fff;font-weight:700}}.stab[aria-selected=true] small{{color:#cbd5e1}}
 @media (max-width:600px){{.tab{{padding:8px 10px;font-size:13px}}}}
+.stab{{box-shadow:0 1px 2px rgba(0,0,0,.05);transition:all .15s}}.stab:hover{{border-color:#1e3a5f}}
+.fl{{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:8px 0 2px;padding:7px 12px;background:rgba(255,255,255,.10);border-left:5px solid #888;border-radius:8px;width:100%;box-sizing:border-box}}
+.fl-k{{font-size:12px;color:#cbd5e1}}.fl-v{{color:#fff;font-size:15px;padding:2px 12px;border-radius:99px;white-space:nowrap}}
+.fl-t{{font-size:14px;font-weight:700}}.fl-s{{font-size:11.5px;color:#cbd5e1}}
+/* 分页内容的统一外观（各模块自己是内联样式，这里只加不冲突的东西） */
+.panel{{font-variant-numeric:tabular-nums}}
+.panel>div>div{{box-shadow:0 1px 3px rgba(16,24,40,.08),0 4px 14px rgba(16,24,40,.04);border-radius:12px!important}}
+.panel h3{{scroll-margin-top:190px;padding-left:10px;border-left:4px solid currentColor;font-size:16px;line-height:1.35}}
+.panel table tr:hover td{{background:#f3f7fd}}
+.panel table th{{position:relative;font-size:12px;letter-spacing:.2px}}
+.panel a:hover{{text-decoration:underline!important}}
+.panel details>summary{{list-style:none;user-select:none}}.panel details>summary::-webkit-details-marker{{display:none}}
+.panel details>summary::before{{content:"▸";display:inline-block;width:1.1em;color:#64748b;transition:transform .15s}}
+.panel details[open]>summary::before{{transform:rotate(90deg)}}
+.panel details.fold{{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px}}
+.panel details.fold[open]{{background:#fff}}
+.panel details.chk>summary::before{{content:none}}
+.toc{{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:1080px;margin:10px auto 0;padding:0 16px}}
+.toc a{{flex:0 0 auto;font-size:12px;color:#1e3a5f;background:#fff;border:1px solid #d6dde6;border-radius:99px;padding:4px 10px;text-decoration:none;white-space:nowrap}}
+.toc a:hover{{background:#1e3a5f;color:#fff;text-decoration:none!important}}
+#totop{{position:fixed;right:14px;bottom:16px;z-index:9;display:none;border:0;border-radius:99px;background:#1e3a5f;color:#fff;font-size:13px;padding:8px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}}
+@media (max-width:900px){{.fl-s{{display:none}}}}
+@media (max-width:600px){{.fl{{padding:5px 10px}}.fl-t{{font-size:13px}}.panel h3{{scroll-margin-top:230px}}}}
 </style></head><body>
 <div class="bar"><div class="top"><span class="title">每日报告 · {today}{"（周末版）" if weekend else ""}</span>
-<span class="meta">大盘数据 {html.escape(mkt_date)} · 大盘状态 <b style="color:#fff;background:{color};padding:1px 6px;border-radius:4px;">{html.escape(state)}</b></span>
+<span class="meta">大盘数据 {html.escape(mkt_date)}</span>
 {chk_html}{update_html(dt.datetime.now(dt.timezone.utc))}<!--NAV--></div>
+<div class="top">{final_light(state)}</div>
 <div class="tabs" role="tablist">{btns}</div></div>
 {subs}
 {panels}
+<button id="totop" title="回到最上面">↑ 顶部</button>
 <script>
+/* 每个分页最上面的「本页目录」：按 h3 标题自动生成，点了跳到那一段 */
+document.querySelectorAll('.panel').forEach(function(p){{var hs=p.querySelectorAll('h3');if(hs.length<4)return;
+var nav=document.createElement('div');nav.className='toc';
+hs.forEach(function(h,i){{if(h.closest('details'))return;var t=h.textContent.trim().split(/[（(：:]/)[0].replace(/ *·.*$/,'').replace(/ 详情.*$/,'').slice(0,18);if(!t)return;
+h.id=h.id||(p.id+'-h'+i);var a=document.createElement('a');a.href='#'+h.id;a.textContent=t;
+a.addEventListener('click',function(e){{e.preventDefault();h.scrollIntoView({{behavior:'smooth',block:'start'}});}});nav.appendChild(a);}});
+if(nav.children.length>=3)p.insertBefore(nav,p.firstChild);}});
+(function(){{var b=document.getElementById('totop');window.addEventListener('scroll',function(){{b.style.display=window.scrollY>900?'block':'none';}},{{passive:true}});
+b.addEventListener('click',function(){{window.scrollTo({{top:0,behavior:'smooth'}});}});}})();
 var tabs=document.querySelectorAll('.tab'),subs=document.querySelectorAll('.stab'),last={{}};
 function show(id){{var b=document.getElementById(id);if(!b)return;var g=b.dataset.group||'';
 document.querySelectorAll('.panel').forEach(function(p){{p.classList.toggle('on',p.id===b.getAttribute('aria-controls'));}});

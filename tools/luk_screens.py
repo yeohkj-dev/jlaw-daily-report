@@ -109,7 +109,10 @@ def cross_check(rows):
     return ok, bad
 
 
-def table_html(key, rows, prev, today):
+LUK_SHOW = 15      # 每个名单先显示前 N 只，其余点开看
+
+
+def table_html(key, rows, prev, today, start=1):
     def pc(x, d=1):
         if x is None:
             return "—"
@@ -121,7 +124,7 @@ def table_html(key, rows, prev, today):
     if key == "gap":
         head.insert(6, "盘前")
     body = ""
-    for i, r in enumerate(rows, 1):
+    for i, r in enumerate(rows, start):
         ex = r["exchange"] or ""
         url = "https://www.tradingview.com/chart/?symbol=" + (f"{ex}:{r['name']}" if ex else r["name"])
         new = " <b class='nw'>新</b>" if prev is not None and r["name"] not in prev else ""
@@ -209,9 +212,13 @@ def main():
     sections = ""
     for key, title, why, filters, sort, top, rule in SCREENS:
         rows, total = results[key]
-        sections += (h3(f"{title} · {total} 只符合，显示前 {min(top, len(rows))} 只")
-                     + f'<p style="margin:0 0 4px;font-size:13px;">{why}</p><p style="margin:0 0 6px;font-size:12px;color:#777;">条件：{rule}</p>'
-                     + (table_html(key, rows, prev.get(key) if prev_date else None, today) if rows else '<p style="color:#888;">今天取不到数据。</p>'))
+        pv = prev.get(key) if prev_date else None
+        tbl = table_html(key, rows[:LUK_SHOW], pv, today) if rows else '<p style="color:#888;">今天取不到数据。</p>'
+        if len(rows) > LUK_SHOW:
+            tbl += (f'<details class="fold" style="margin-top:8px;"><summary style="cursor:pointer;color:{BLUE};font-size:13px;font-weight:600;">'
+                    f'展开其余 {len(rows) - LUK_SHOW} 只</summary>{table_html(key, rows[LUK_SHOW:], pv, today, LUK_SHOW + 1)}</details>')
+        sections += (h3(f"{title} · {total} 只符合，先显示前 {min(LUK_SHOW, len(rows))} 只")
+                     + f'<p style="margin:0 0 4px;font-size:13px;">{why}</p><p style="margin:0 0 6px;font-size:12px;color:#777;">条件：{rule}</p>' + tbl)
     theme_html = ("".join(f"<li><b>{h.escape(k)}</b>（{len(v)}）：{h.escape('、'.join(v[:12]))}</li>" for k, v in th)
                   if th else "<li>今天没有同一行业 ≥3 只的主题。</li>")
     body = (css + h3("一眼看懂", GREEN) + summary + rs_stale(RS) + method + sections

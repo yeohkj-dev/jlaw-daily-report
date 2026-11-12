@@ -16,9 +16,9 @@ PLAIN = {   # 8 个信号的白话说法
     "波动：VIX 期限结构正常（VIX<VIX3M）": "短期没有突发恐慌",
     "风险偏好：可选消费/必需消费 在 100 日线上": "大家愿意买进攻型股票",
 }
-LIGHT = {"进攻": ("#2E7D32", "#E8F5E9", "🟢 绿灯：可以正常买股票"),
-         "谨慎": ("#B26A00", "#FFF4E0", "🟡 黄灯：可以买，但要少买、挑最强的"),
-         "现金": ("#C62828", "#FDECEA", "🔴 红灯：不买新股票，多拿现金")}
+LIGHT = {"进攻": ("#2E7D32", "#E8F5E9", "🟢 量化绿灯：量化这一项允许正常买"),
+         "谨慎": ("#B26A00", "#FFF4E0", "🟡 量化黄灯：量化这一项说少买、挑最强的"),
+         "现金": ("#C62828", "#FDECEA", "🔴 量化红灯：不买新股票，多拿现金")}
 BUY = {"进攻": "可以。看下面「今天可以买的股票」，每笔最多亏账户的 1%。",
        "谨慎": "可以少量买。只买下面列出的股票，每笔最多亏账户的 0.5%（平时的一半）。",
        "现金": "不要买。等灯变黄或变绿再说。"}
@@ -69,7 +69,7 @@ def build(o, S, site=None):
             f'想看详细研究和回测 ↗</a></div>') if site else ""
     return f"""<div style="font-size:15px;line-height:1.7;color:#222">
 <div style="background:{bg};border:2px solid {fg};border-radius:12px;padding:14px 16px;margin:12px 0">
-<div style="font-size:12px;color:#555">今天怎么做（{now["date"]} 收盘数据）</div>
+<div style="font-size:12px;color:#555">只看量化系统的话（{now["date"]} 收盘数据）· 最终灯号看页面最上面</div>
 <div style="font-size:24px;font-weight:800;color:{fg};margin:2px 0 6px">{head}</div>
 {qa("买新股票？", BUY[gate])}
 {qa("手上的股票？", "每天收盘看一次：<b>收盘价跌破 50 日均线 → 第二天卖掉</b>；没跌破就继续拿，不用管涨跌。")}
