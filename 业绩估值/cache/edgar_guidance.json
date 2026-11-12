@@ -1167,5 +1167,14 @@
 "url": "https://www.sec.gov/Archives/edgar/data/92122/000009212226000071/ex99-pressreleaseq32026.htm",
 "filed": "2026-11-05",
 "quotes": []
+},
+"CSCO:2026-11-12": {
+"url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000170/exhibit991pressrelease-q1f.htm",
+"filed": "2026-11-12",
+"quotes": [
+"Cisco expects to achieve the following results for fiscal 2027: FY 2027 Revenue $74.8 billion - $75.8 billion Non-GAAP EPS $5.47 - $5.53 Cisco estimates that GAAP EPS will be $4.38 to $4.44 for fiscal 2027.",
+"Our Q2 FY 2027 guidance assumes an effective tax provision rate of approximately 14.5% for GAAP and approximately 18.5% for non-GAAP results.",
+"Our FY 2027 guidance assumes an effective tax provision rate of approximately 16% for GAAP and approximately 18.5% for non-GAAP results."
+]
 }
 }

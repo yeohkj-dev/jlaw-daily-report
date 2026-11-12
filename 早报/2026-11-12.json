@@ -1,0 +1,223 @@
+{
+ "date": "2026-11-12",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-12（周四）收盘</b>\n\n<b>📉 昨晚：美股下跌</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> -0.4% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> -0.3% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> -1.6%\n10 年美债 5.13%（+13 基点） · VIX 18.7（+1.2） · 油（结算价） +0.1% · 美元 +0.3% · 金（结算价） -0.1%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://www.marketwatch.com/story/bond-yields-just-saw-their-biggest-surge-since-2022-as-expectations-grow-for-more-fed-rate-hikes-d0a4f195?mod=mw_rss_topstories\">Bond yields just saw their biggest surge since 2022 as expectations grow for more Fed rate hikes</a>（3 家媒体）\n• <a href=\"https://finance.yahoo.com/m/4a3dff17-3e8e-33ca-823f-8ac12eff6a4a/dow-jones-futures-rise-after.html?.tsrc=rss\">Dow Jones Futures Rise After Market Weathers Nvidia CEO Huang's Exit, Surging Yields; SpaceX-Tesla Merger Deal Close</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxPVFFiZmRWVmxZNDlVRnR1NHVQNkprRUhWMnNLMHFLWC1qdGljTm9ON2Z3U2FuXzNUcjRwRmNqMFZVemE4TVA1RVhRdl9paUtyMXJoYWhHbVl5d1FfNWZIZTVVU0IwcDQ0eHlnWGxxWEFhZjdkVko1a1hwY25XWE9uc3Q0MkIyaHpCWkNuZk05SGs1ck5DTFV4ZktQNWo?oc=5\">Wall Street shakes with swings for Nvidia and oil prices but recovers most of its early losses</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxQOEtEZ2FlQk85SDY5c1hGSWZfRlNTZUxtd1pKd2J2eHpkVzVwMEduSnBfd0ZnMjhLMVVWOTE5OEgxNGNFMDJGaFp5VjI2UXZ0TklNQlkycFBsRnIwWDZzbVlqTGNpQmF5d29teTdkMnZ3bmZrSHViVnRDZmttRmxQSVpreGxaWkF6?oc=5\">Jobless claims rise slightly as labor market holds steady</a>\n• 数据：首次申领失业金（预期 194K，前值 189K）\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> +1.5%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLU\"><b>公用事业</b></a> -0.0%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLB\"><b>原材料</b></a> -1.3%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLC\"><b>通讯</b></a> -1.0%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AMD\"><b>AMD</b></a> +5.9% — <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/11/stock-market-today-nov-11-advanced-micro-devices-jumps-and-not-only-because-of-coreweave-s-results/?.tsrc=rss\">Stock Market Today, Nov. 11: Advanced Micro Devices Jumps -- and Not O</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AVGO\"><b>AVGO</b></a> +5.5% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:ANET\"><b>ANET</b></a> +5.1% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MRNA\"><b>MRNA</b></a> -7.0% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:DAL\"><b>DAL</b></a> -5.2% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MDLN\"><b>MDLN</b></a> -5.2% — 没有找到相关新闻\n\n<b>👀 今晚要看</b>\n• 08:30 美东（马来西亚 21:30）核心 PPI（月增）（预期 0.3%，前值 0.7%）\n• 08:30 美东（马来西亚 21:30）PPI（月增）（预期 0.4%，前值 1.3%）\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-12）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": -0.35,
+   "check": -0.35,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": -0.32,
+   "check": -0.32,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": -1.64,
+   "check": -1.64,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 5.13,
+   "check": 5.1,
+   "source": "Yahoo ^TNX",
+   "ok": false
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 18.69,
+   "check": 18.7,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": 0.11,
+   "check": "前一天结算 88.74 vs 86.53；Yahoo 最后成交价 +2.68%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": 0.32,
+   "check": 0.25,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": -0.09,
+   "check": "前一天结算 3885.30 vs 4000.50；Yahoo 最后成交价 -2.99%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": -0.34,
+   "check": -0.34,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": -0.44,
+   "check": -0.44,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": -0.96,
+   "check": -0.96,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": -0.72,
+   "check": -0.72,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": -0.89,
+   "check": -0.89,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": -1.28,
+   "check": -1.28,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": 1.51,
+   "check": 1.51,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": -0.59,
+   "check": -0.59,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": -0.43,
+   "check": -0.43,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": -0.02,
+   "check": -0.02,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": -0.52,
+   "check": -0.52,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "AMD",
+   "brief": 5.86,
+   "check": 5.86,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AMD 市值 ≥500 亿",
+   "brief": 960,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AVGO",
+   "brief": 5.54,
+   "check": 5.54,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AVGO 市值 ≥500 亿",
+   "brief": 1739,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "ANET",
+   "brief": 5.06,
+   "check": 5.06,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "ANET 市值 ≥500 亿",
+   "brief": 261,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MRNA",
+   "brief": -6.97,
+   "check": -6.97,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MRNA 市值 ≥500 亿",
+   "brief": 94,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "DAL",
+   "brief": -5.22,
+   "check": -5.22,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "DAL 市值 ≥500 亿",
+   "brief": 57,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MDLN",
+   "brief": -5.17,
+   "check": -5.17,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MDLN 市值 ≥500 亿",
+   "brief": 53,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
+}
