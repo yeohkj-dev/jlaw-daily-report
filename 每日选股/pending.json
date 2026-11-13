@@ -11,12 +11,23 @@
   "rs": 91
  },
  {
+  "sym": "ICLR",
+  "ex": "NASDAQ",
+  "kind": "A0",
+  "sig": "2026-11-13",
+  "close": 194.65,
+  "high": 200.56,
+  "stop_pct": 0.08,
+  "hard_pct": 0.12,
+  "rs": 92
+ },
+ {
   "sym": "RVTY",
   "ex": "NYSE",
   "kind": "A0",
-  "sig": "2026-11-12",
-  "close": 157.02,
-  "high": 159.36,
+  "sig": "2026-11-13",
+  "close": 154.39,
+  "high": 160.59,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 94
@@ -57,5 +68,41 @@
   "hard_pct": null,
   "wup": true,
   "rs": 96
+ },
+ {
+  "sym": "QGEN",
+  "ex": "NYSE",
+  "kind": "PRE",
+  "sig": "2026-11-13",
+  "close": 49.89,
+  "level": 50.97,
+  "avgv": 6727427,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "rs": 76
+ },
+ {
+  "sym": "SYNA",
+  "ex": "NASDAQ",
+  "kind": "PRE",
+  "sig": "2026-11-13",
+  "close": 118.14,
+  "level": 121.98,
+  "avgv": 1064160,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "rs": 79
+ },
+ {
+  "sym": "VRNS",
+  "ex": "NASDAQ",
+  "kind": "PRE",
+  "sig": "2026-11-13",
+  "close": 48.94,
+  "level": 50.31,
+  "avgv": 4299174,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "rs": 93
  }
 ]
