@@ -18,7 +18,7 @@
 2026-11-06 起分页分成 **4 大类**（`tools/jlaw_daily_report.py` 的 `GROUPS`），每类下面是小分页；网站默认打开「今天怎么做 → 综合名单」：
 - **今天怎么做**：综合名单 · 早报 · 风险计算
 - **大盘**：大盘报告 · 量化系统 · 每周展望
-- **选股**：每日选股 · Luk 选股
+- **选股**：每日选股 · 主题雷达 · Luk 选股
 - **新闻·业绩**：今日新闻 · 业绩与估值
 
 面板仍是平的 `<div class="panel" id="p-<key>">`（`published_panel()` 靠这个取上一份）；小分页按钮的 class 是 `stab`（不要用 `sub`，各分页内容里 `.sub` 是小字样式）。记住上次打开的小分页用 localStorage `jlaw-tab2`。用户要求网站简单、不要太多分页，加新内容优先放进现有分页或大类。
@@ -29,6 +29,7 @@
 | 大盘报告 | `tools/market_regime.py` + `tools/positioning.py` | J Law 大盘体温计（躺赚 / 警戒 / 血汗钱）、恐惧指数（CNN + VIX）、行业 ETF 追踪、信用市场（科技 / AI 公司债利差）、见底信号；最后是「大资金在哪里买卖」（只在平日跑，周末沿用上一份） |
 | 每日选股 | `tools/jlaw_daily_screen.py` | A0 回测最佳、A3 放量突破、A4 即将突破（等放量）、J Law META 回调、VCP 突破、观察名单、Stage 1→2 候选、Stage 2 名单 |
 | Luk 选股 | `tools/luk_screens.py` | Martin Luk 的 Leaders / Strong Day / Gappers（条件来自 Luk 本人公布的 TradingView 设置） |
+| 主题雷达 | `tools/theme_radar.py`（2026-11-13 加入，见 §6d） | 85 个主题 / 行业 ETF 的状态（进行中 / 刚转强 / 接近中 / 转弱中）、每个 ETF 前十大持股和行业组里「RS ≥ 90 且 Stage 2」的 ★ 股票；只在平日跑，周末沿用上一份 |
 | 今日新闻 | `tools/news_digest.py` + `tools/weekly_events.py` | 上面是本周重大事件（周末是本周回顾 + 下周看点），下面是当天新闻 |
 | 业绩与估值 | `tools/earnings_options.py` + `tools/earnings_valuation.py` | 最上面「财报前的期权」；下面是 11 个板块各前 10 大公司的业绩、指引原文（SEC 8-K）、两年估值情景 |
 | 每周展望 | `tools/weekly_outlook.py` | 9 个因素打分判断下周方向（周日更新） |
@@ -161,8 +162,17 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - **提醒**：`save_pending(…, pre)` 把名单写进 `pending.json`（kind = `PRE`，每天整份换新）；`intraday_alerts.check_pre()` 用已收完的 60 分钟K线检查，Telegram 用 🚀 标示；盘前提醒列出名单和突破价。用 `--dry-run --force-date --force-time --pending` 重播 GDDY 10-30、ELF 10-15、MKTX 10-22 和回测一致。第一次真实触发还没验证。
 - **主题雷达研究**（另一个 session 做的，`回测/主题/主题雷达研究.html`）：价格指标无法提前 2–3 年看到主题，只有 RS 类指标有 6–12 个月的小优势。还没放进网站，`回测/主题/` 也还没提交。
 
+## 6d. 主题雷达（`tools/theme_radar.py` + `回测/主题/`，2026-11-13）
+
+- **研究（`回测/主题/`）**：`download_extra.py`（主题 ETF、ADR 日线 → `cache_extra/`）→ `build_indicators.py`（每月行业组 4 项指标：组 RS 排名、52 周新高比例、Stage 2 比例、RS≥90 成员比例）→ `analyze.py`（信号回测）→ `check_sources.py`（逐个实际抓取价格以外的数据来源）→ `crosscheck.py` → `report.py` 生成 `主题雷达研究.html`（发布成 `docs/theme_research.html`，是手动复制的静态文件，重跑研究后要再复制一次）。`now.py` 是研究阶段的本机版「主题现况」，网站用的是 `tools/theme_radar.py`。日线读仓库旁边的 `回测/cache20`；`data/`、`cache_extra/` 不进仓库。
+- **结论**：没有价格数据能提前 2–3 年看到主题（之后 24 个月最强 5% 的组，起涨时综合分在第 52 百分位）。行业组「第一次进前 10%」之后 24 个月比全部股票平均 −1.3%，每年约 20 次、只有 12% 变成大主题（随便挑 11%）。只有 RS 类指标有 6–12 个月的小优势（组 RS 前 10% → 12 个月 +4.7%）；52 周新高比例、Stage 2 比例在前 10% 之后 24 个月反而输。所有 % 是比「全部股票等权平均」（幸存者偏差让它每年比 SPY 多约 7 个百分点），不是比 SPY。事后挑的主题篮子信号来得早，但那是事后挑股，不能当回报。
+- **网站分页**：`theme_radar.py` 用量化股票池（`量化/data/stocks`）算行业组门槛，Yahoo 抓 85 个 ETF（`ETFS`，固定清单，加主题就加在这里）5 年日线，状态规则写在文件开头；★ = ETF 前十大持股（Yahoo `topHoldings`）或行业组成员里 RS ≥ 90 且 Stage 2，排除 `每日选股/deals.json`。**★ 条件没有单独回测过，页面已写明；不要把「刚转强 / 接近中」写成预测。**`BT` 常数是回测数字，重跑回测要人工同步。核对（进页头「数据核对」，都不算严重）：ETF 数量、ETF 最新收盘 vs TradingView、这里算的 RS vs `rs_rating.json`（同一天应完全一样）、持股取到几个。失败或周末时 `theme_tab()` 沿用网站上一份。
+- **大盘报告里的「主题动向」小结**（用户 2026-11-13 要求）：`theme_radar.summary_fragment()` 输出 `fragment`，`jlaw_daily_report.theme_part()` 接在 `<!--POS-->` 记号后（大资金后面、行业前面，要在 `pos_part()` 之前调用），带 `<!--THEME-->` 记号；链接用页面的 `show('t-theme')` 跳到主题雷达分页。
+- 价格以外的数据（SEC 资本开支、S-1 数量、Federal Register、USAspending、SPDR ETF 份额等）都验证过能免费取得，但没有足够历史可回测，**还没有放进网站**；要加的话只能当背景资料。
+
 ## 7. 待办 / 还没验证
 
+- 主题雷达（2026-11-13 加入）只在本机跑过，第一次 GitHub 运行后要检查 Actions 记录和页头数据核对（Yahoo 在 GitHub 上抓 85 个 ETF + 持股有没有被限流）。
 - 周末版「下周看点」的经济日历只在周六测过（取不到），周日的真实运行还要看结果。
 - 盘中买点提醒（2026-11-10 加入）只用过去的日子重播测试过，第一次真正在交易时段运行后要检查 Actions 记录。
 - FRED 利差取不到，可考虑其他免费来源。

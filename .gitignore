@@ -33,3 +33,9 @@ __pycache__/
 回测/mtf/*.html
 回测/mtf/charts/
 大盘报告/资金持仓_*.json
+
+# 主题雷达：每天生成的分页 HTML；研究用的缓存和中间数据
+主题雷达/
+回测/主题/cache_extra/
+回测/主题/data/
+回测/主题/*.html

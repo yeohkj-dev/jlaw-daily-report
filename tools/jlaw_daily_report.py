@@ -115,6 +115,18 @@ def pos_part(body, pos):
                    'border-radius:8px;padding:4px 18px 14px;font-size:14px;line-height:1.6;">' + pos["fragment"] + "</div></div>")
 
 
+def theme_part(body, th):
+    """「主题动向」小结（tools/theme_radar.py 的 fragment）放进大盘报告：大资金后面、行业前面（接在 <!--POS--> 记号后）；没有记号就接在最后。
+    要在 pos_part() 之前调用（pos_part 会把记号换掉）。"""
+    if not th or not th.get("fragment"):
+        return body
+    frag = "<!--THEME-->" + th["fragment"] + "<!--/THEME-->"
+    if "<!--POS-->" in body:
+        return body.replace("<!--POS-->", "<!--POS-->" + frag, 1)
+    return body + ('<div style="max-width:960px;margin:0 auto;padding:0 16px 16px;"><div style="background:#fff;border:1px solid #e3e3e3;'
+                   'border-radius:8px;padding:4px 18px 14px;font-size:14px;line-height:1.6;">' + frag + "</div></div>")
+
+
 def error_box(name, err):
     return (f'<div style="max-width:900px;margin:16px auto;padding:16px;background:#FDECEA;border-left:6px solid #C62828;'
             f'border-radius:6px;font-size:14px;"><b>{name}运行失败</b><pre style="white-space:pre-wrap;font-size:12px;'
@@ -151,7 +163,7 @@ def risk_tab(state):
 # 4 大类分页（顺序 = 显示顺序；每类第一个是默认小分页）
 GROUPS = [("today", "今天怎么做", ["combo", "brief", "risk"]),
           ("mkt", "大盘", ["mkt", "quant", "wk"]),
-          ("pick", "选股", ["scr", "luk"]),
+          ("pick", "选股", ["scr", "theme", "luk"]),
           ("news", "新闻·业绩", ["news", "ev"])]
 QUANT = os.path.join(OUT_DIR, "量化", "data")      # 量化/run.py 的输出（GitHub 上由 daily.yml 在本程序之前运行）
 
@@ -228,6 +240,18 @@ def combined_tab():
     return ("combo", "综合名单", "失败", error_box("综合名单", "还没有结果"))
 
 
+def theme_tab(th, weekend):
+    """「主题雷达」分页（tools/theme_radar.py）：哪些主题 ETF 在走 / 刚转强 / 转弱 + 可复查的股票。周末或失败时沿用网站上一份。"""
+    if th and th.get("html"):
+        return ("theme", "主题雷达", th["sub"], body_of(th["html"]))
+    old = published_panel("theme")
+    if old:
+        if not weekend and "这次没有更新" not in old:
+            old = note("主题雷达这次没有更新（数据下载或计算失败），这是上一份。") + old
+        return ("theme", "主题雷达", "上一份", old)
+    return ("theme", "主题雷达", "没有", error_box("主题雷达", "还没有结果"))
+
+
 def quant_checks():
     try:
         with open(os.path.join(QUANT, "checks.json"), encoding="utf-8") as fh:
@@ -292,7 +316,7 @@ def main():
     weekend = FORCE == "weekend" or (FORCE is None and et.weekday() in (5, 6))
     news_mode = ["--mode", "weekend" if weekend else "daily"]
     steps = ([] if weekend else [("mkt", "大盘报告", "market_regime.py", ()), ("scr", "每日选股", "jlaw_daily_screen.py", ()),
-                            ("luk", "Luk 选股", "luk_screens.py", ()), ("pos", "资金持仓", "positioning.py", ())]) + [
+                            ("luk", "Luk 选股", "luk_screens.py", ()), ("pos", "资金持仓", "positioning.py", ()), ("theme", "主题雷达", "theme_radar.py", ())]) + [
         ("news", "周末新闻" if weekend else "今日新闻", "news_digest.py", news_mode),
         ("ev", "业绩与估值", "earnings_valuation.py", ()),
         ("eopt", "财报期权", "earnings_options.py", ()),
@@ -330,7 +354,7 @@ def main():
         state = mkt["state"] if mkt else (scr or {}).get("market_state", "未知")
         mkt_date = mkt["date"] if mkt else "—"
         n_ready = (len(scr["meta_ready"]), len(scr["vcp_ready"])) if scr else None
-        tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), pos_part(body_of(mkt["html"]), res.get("pos")) if mkt else error_box("大盘报告", errs["mkt"])))
+        tabs.append(("mkt", "大盘报告", html.escape(state) + (f" · 恐贪 {mkt['fear']}" if mkt and mkt.get("fear") is not None else ""), pos_part(theme_part(body_of(mkt["html"]), res.get("theme")), res.get("pos")) if mkt else error_box("大盘报告", errs["mkt"])))
         tabs.append(("scr", "每日选股", f"META {n_ready[0]} · VCP {n_ready[1]}" if n_ready else "失败",
                      body_of(scr["html"]) if scr else error_box("每日选股", errs["scr"])))
         luk = res.get("luk")
@@ -360,6 +384,7 @@ def main():
                          note(f"每周展望在每个周日晚上（美东）更新，这是 {os.path.basename(f)[:10]} 的版本。") + body_of(f)))
 
     tabs.append(combined_tab())
+    tabs.append(theme_tab(res.get("theme"), weekend))
     qk, qt, qs, qb = quant_tab()
     tabs.append((qk, qt, qs, with_final(qb, "量化系统")))
     tabs.append(risk_tab(state))
@@ -383,7 +408,7 @@ def main():
                             (note(f"这是上一个交易日（{day}）的早报，周末不更新。") if day else "") + (old or body_of(f))))
 
     # ---- 数据核对汇总 ----
-    checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("wbrief", "周末版"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("pos", "资金持仓"), ("eopt", "财报期权"), ("wk", "每周展望"))
+    checks = [dict(c, module=lab) for key, lab in (("brief", "早报"), ("wbrief", "周末版"), ("mkt", "大盘"), ("luk", "Luk 选股"), ("theme", "主题雷达"), ("news", "新闻"), ("we", "本周事件"), ("ev", "业绩估值"), ("pos", "资金持仓"), ("eopt", "财报期权"), ("wk", "每周展望"))
               for c in ((res.get(key) or {}).get("checks") or [])] + quant_checks() + [dict(c, module="RS Rating") for c in rs_checks]
     crit = [c for c in checks if not c["ok"] and c.get("critical")]
     warn = [c for c in checks if not c["ok"] and not c.get("critical")]
