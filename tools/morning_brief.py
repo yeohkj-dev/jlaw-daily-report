@@ -230,14 +230,14 @@ def build(day):
     groups, actuals = [], []
     for ev in past:
         zh = nd.CAL_ZH.get(ev["title"], ev["title"])
-        # 实际值来自美国劳工统计局（BLS）官方数据；Forex Factory 只有预期和前值
+        # 实际值：BLS 官方（非农、失业率、时薪、CPI、PPI），其他（如申领失业金）用 TradingView 经济日历；Forex Factory 只有预期和前值
         a = bls.actual(ev["title"], dt.datetime.fromisoformat(ev["when"]), NEWS_DIR)
         if a:
             vs = bls.versus(a, ev.get("forecast"))
             item = (f"{e(zh)} 实际 <b>{a['actual']}</b>（预期 {e(ev.get('forecast') or '—')}" + (f"，{vs}" if vs else "")
-                    + (f"；上月修正为 {a['prev']}（原 {e(ev.get('previous'))}）"
+                    + (f"；上期修正为 {a['prev']}（原 {e(ev.get('previous'))}）"
                        if bls._num(ev.get("previous")) is not None and abs(bls._num(a["prev"]) - bls._num(ev.get("previous"))) > 0.05
-                       else f"；上月 {a['prev']}") + "）")
+                       else f"；上期 {a['prev']}") + "）")
             actuals.append(a)
         else:
             item = f"{e(zh)}（预期 {e(ev.get('forecast') or '—')}，前值 {e(ev.get('previous') or '—')}）"
@@ -347,8 +347,9 @@ def main():
     checks = [bc.summary(rows), dict(name="早报行情（TradingView vs Yahoo）", ok=len(diffs) == 3 and not bad, critical=False,
                    detail=(f"SPY {spy['chg']:+.2f}%；" if spy else "") + (f"{len(diffs) - len(bad)}/{len(diffs)} 一致" if diffs else "Yahoo 取不到这一天")
                    + (f"，不一致：{'、'.join(bad)}" if bad else "")),
-              dict(name="经济数据实际值（BLS 官方）", ok=True, critical=False,
-                   detail=(f"{len(data['actuals'])} 项取到" if data["actuals"] else "这一天没有 BLS 的数据公布，或 BLS 还没更新")),
+              dict(name="经济数据实际值（BLS / TradingView）", ok=True, critical=False,
+                   detail=(f"{len(data['actuals'])} 项取到（" + "、".join(sorted({a['source'] for a in data['actuals']})) + "）" if data["actuals"]
+                           else "这一天没有经济数据公布，或来源还没更新")),
               dict(name="早报新闻", ok=bool(data["macro"]), critical=False,
                    detail=f"这一天的新闻 {data['n_stories']} 条，选出 {len(data['macro'])} 条大市新闻")]
     print(json.dumps({"html": base + ".html", "json": base + ".json", "date": str(day),

@@ -226,7 +226,19 @@ def html(rows, cta):
                  f'<td {td}><span style="color:{col(r["lev_chg"])};">{num(r["lev_chg"])}</span></td><td {td}>{pct_txt(r["lev_pct"])}</td>'
                  f'<td {td}><b style="color:{col(r["am"])};">{num(r["am"])} 口</b><br><span style="font-size:11px;">{usd(r["am_usd"])}</span></td>'
                  f'<td {td}><span style="color:{col(r["am_chg"])};">{num(r["am_chg"])}</span></td><td {td}>{pct_txt(r["am_pct"])}</td></tr>')
-    cftc_tbl = (f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;"><tr>'
+    # CFTC 时间表：持仓是周二的，周五美东 15:30 公布（遇假日可能延到下周一）
+    WK = "一二三四五六日"
+    if rows:
+        d0 = dt.date.fromisoformat(rows[0]["date"])
+        pub, nxt = d0 + dt.timedelta(days=3), d0 + dt.timedelta(days=7)
+        npub = nxt + dt.timedelta(days=3)
+        when_cftc = (f'<div style="margin:2px 0 6px;font-size:12.5px;color:#1e3a5f;background:#EEF4FA;border-radius:6px;padding:6px 10px;">'
+                     f'🕒 <b>这一份</b>：{d0:%m-%d}（周二）的持仓，{pub:%m-%d}（周五）公布。'
+                     f'<b>下一份</b>：{nxt:%m-%d} 的持仓，预计 {npub:%m-%d}（周{WK[npub.weekday()]}）美东 15:30 公布（遇假日可能延到下周一），'
+                     f'网站在公布后的下一次更新（马来西亚时间早上 06:30）显示。</div>')
+    else:
+        when_cftc = ""
+    cftc_tbl = when_cftc + (f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;"><tr>'
                 f'<th {th}>期货</th><th {th}>杠杆基金净持仓<br>（对冲基金、CTA）</th><th {th}>比上周</th><th {th}>3 年百分位</th>'
                 f'<th {th}>资产管理人净持仓<br>（共同基金、退休金）</th><th {th}>比上周</th><th {th}>3 年百分位</th></tr>{body}</table></div>')
     cta_html = ""
@@ -244,13 +256,18 @@ def html(rows, cta):
         if not lines:
             lines.append("附近没有翻转价。")
         lines.append('<span style="color:#777;">金额是从现在的仓位算起的累计数：例如跌破第二个价位时，包括跌破第一个价位那部分。</span>')
-        cta_html = (f'<p style="margin:10px 0 4px;"><b>CTA 趋势模型（估算）</b>：标普 500 收盘 {cta["last"]:,.0f}（{cta["date"]}），'
+        cd = dt.date.fromisoformat(cta["date"])
+        nd = cd + dt.timedelta(days=3 if cd.weekday() == 4 else 1)
+        when_cta = (f'<div style="margin:6px 0 2px;font-size:12.5px;color:#1e3a5f;background:#EEF4FA;border-radius:6px;padding:6px 10px;">'
+                    f'🕒 下面的卖出 / 买入估计是按 <b>{cd:%m-%d}（周{WK[cd.weekday()]}）标普收盘</b>算的，翻转价对 <b>{nd:%m-%d}（周{WK[nd.weekday()]}）</b>有效；'
+                    f'每个交易日收盘后重算（网站马来西亚时间早上 06:30 更新）。</div>')
+        cta_html = when_cta + (f'<p style="margin:10px 0 4px;"><b>CTA 趋势模型（估算）</b>：标普 500 收盘 {cta["last"]:,.0f}（{cta["date"]}），'
                     f'模型仓位 <b style="color:{col(cta["pos"])};">{cta["pos"] * 100:+.0f}%</b>（约 {usd(cta["usd"])}）；近 20 天波动 {cta["vol"]:.0f}%（波动越大仓位越小）。</p>'
                     f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;"><tr><th {th}>趋势周期</th><th {th}>现在</th>'
                     f'<th {th}>翻转价（明天）</th><th {th}>离现价</th></tr>{srow}</table></div>'
                     '<ul style="margin:6px 0 0;padding-left:20px;font-size:13px;line-height:1.7;">' + "".join(f"<li>{l}</li>" for l in lines) + "</ul>")
     return f"""<h3 style="margin:22px 0 6px;">大资金在哪里买卖</h3>
-<p style="margin:0 0 6px;font-size:13px;line-height:1.6;"><b>CFTC 期货持仓（真实数据，每周）</b>：美国商品期货交易委员会每周公布各类机构在股指期货的多空口数。
+<p style="margin:0 0 6px;font-size:13px;line-height:1.6;"><b>CFTC 期货持仓（真实数据，每周更新一次）</b>：美国商品期货交易委员会每周公布各类机构在股指期货的多空口数。
 「杠杆基金」主要是对冲基金和 CTA（趋势跟踪基金），「资产管理人」是共同基金、退休金等长线资金。净持仓 = 多单 − 空单；美元金额按当周期货价格换算（标普每点 $50、纳指 $20、罗素 $50）。</p>
 {cftc_tbl}{cta_html}
 <p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">数据核对：CFTC 数字对过 CFTC 官网文字版周报，期货价格对过 TradingView，标普收盘对过 CBOE（结果在页头「数据核对」）。CFTC 是每周二的持仓、周五公布，所以会晚几天。杠杆基金的空单有很大一部分是对冲（例如买股票、卖期货），不一定代表看空。

@@ -84,15 +84,31 @@ def check_movers(movers, day):
 
 
 def check_bls(past, stories):
-    """BLS 实际值 vs 新闻里的数字和描述（例如「stronger-than-expected」「165,000」）。"""
+    """经济数据实际值的第二来源：BLS 的数字对 TradingView 日历（要一样）；只有 TradingView 的（例如申领失业金）对当天新闻里的数字。
+    另外 BLS 的非农 / 失业率照旧对新闻的数字和描述（例如「stronger-than-expected」「165,000」）。"""
     import bls
+    import tv_calendar
     out = []
+    text = " ".join((s["title"] + " " + (s.get("desc") or "")) for s in stories).lower()
     for ev in past:
-        a = bls.actual(ev["title"], dt.datetime.fromisoformat(ev["when"]))
+        when = dt.datetime.fromisoformat(ev["when"])
+        a = bls.actual(ev["title"], when)
         if not a:
             continue
+        if a.get("source") == "BLS":
+            t = tv_calendar.actual(ev["title"], when)
+            if t:
+                same = abs(t["value"] - a["value"]) <= 0.05 + 0.005 * abs(a["value"])
+                out.append(dict(item=ev["title"], brief=a["actual"], check=f"TradingView 日历 {t['actual']}" + ("，一致" if same else "，不一致"),
+                                source="BLS 官方 vs TradingView", ok=same))
+        else:
+            n = a["value"]
+            pats = [f"{n:,.0f},000", f"{n * 1000:,.0f}"] if "K" in a["actual"] else [f"{n:.1f}%", f"{n:.1f} percent", f"{n:.1f}"]
+            found = any(p in text for p in pats)
+            out.append(dict(item=ev["title"], brief=a["actual"], check=("当天新闻里有相同数字" if found else "当天新闻里没有找到这个数字（只有 TradingView 一个来源）"),
+                            source="TradingView vs 当天新闻", ok=True if found else None))
+            continue
         vs = bls.versus(a, ev.get("forecast"))
-        text = " ".join((s["title"] + " " + (s.get("desc") or "")) for s in stories).lower()
         n = abs(a["value"])
         found = (f"{int(n):,}" in text or f"{int(n)},000" in text) if ev["title"].startswith("Non-Farm") else (f"{a['value']:.1f}%" in text)
         tone = None

@@ -268,6 +268,13 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
     idx_html = table(head, irows)
 
     # ---- 经济数据 ----
+    def prev_html(e, act):
+        """前值：公布后如果上一期被修正（例如申领失业金 189K → 191K），两个都写。"""
+        old = e.get("previous") or "—"
+        if act and act.get("prev") not in (None, "—") and bls._num(old) is not None and bls._num(act["prev"]) is not None                 and abs(bls._num(act["prev"]) - bls._num(old)) > 0.05:
+            return f'{esc(old)}<br><span style="color:#888;font-size:11px;">修正为 {esc(act["prev"])}</span>'
+        return esc(old)
+
     def imp(e):
         return f'<span style="color:{RED};font-weight:700;">高</span>' if e["impact"] == "High" else f'<span style="color:{AMBER};">中</span>'
     if cal:
@@ -277,17 +284,18 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
             is_past = e["when"] <= now_utc
             st = (f'<span style="color:{GREEN};">已公布</span>' if is_past else f'<span style="color:{AMBER};">待公布</span>')
             hits = match_news(e, raw) if is_past and e["impact"] == "High" else []
-            act = bls.actual(e["title"], e["when"], NEWS_DIR) if is_past else None       # BLS 官方实际值
-            act_html = (f'<b>{act["actual"]}</b><br><span style="color:#888;font-size:11px;">{bls.versus(act, e.get("forecast"))}</span>'
-                        if act else "—")
+            act = bls.actual(e["title"], e["when"], NEWS_DIR) if is_past else None       # BLS 官方，没有就用 TradingView 日历
+            act_html = (f'<b>{act["actual"]}</b><br><span style="color:#888;font-size:11px;">{bls.versus(act, e.get("forecast"))}'
+                        f'{"" if not bls.versus(act, e.get("forecast")) else " · "}{act["source"]}</span>'
+                        if act else ('<span style="color:#aaa;" title="TradingView 日历还没有实际值">还没取到</span>' if is_past else "—"))
             res = ("<br>".join(f'<a href="{esc(h["link"])}" target="_blank" rel="noopener" style="color:#111;">{esc(h["title"])}</a>'
                                for h in hits)
                    if hits else ('<span style="color:#aaa;">公布后的新闻里还没有找到相关标题</span>' if is_past and e["impact"] == "High" else ""))
             crow += (f'<tr><td {TDN}>{to_et_str(e["when"])}</td><td {TDN}>{imp(e)}</td><td {TDN}>{st}</td>'
                      f'<td {TD}><b>{esc(zh or e["title"])}</b>' + (f'<br><span style="color:#999;font-size:11px;">{esc(e["title"])}</span>' if zh else "")
-                     + f'</td><td {TDN}>{act_html}</td><td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{esc(e.get("previous") or "—")}</td>'
+                     + f'</td><td {TDN}>{act_html}</td><td {TDN}>{esc(e.get("forecast") or "—")}</td><td {TDN}>{prev_html(e, act)}</td>'
                      f'<td {TD} style="font-size:12px;">{res}</td></tr>')
-        cal_html = table(("时间（美东）", "影响", "状态", "数据", "实际（BLS）", "预期", "前值", "结果相关新闻（高影响力）"), crow)
+        cal_html = table(("时间（美东）", "影响", "状态", "数据", "实际", "预期", "前值", "结果相关新闻（高影响力）"), crow)
     else:
         cal_html = '<p style="color:#888;">没有取到本周经济日历。</p>'
 
@@ -343,7 +351,7 @@ def build_html(weekend, monday, friday, et, idx, cal, stories, raw, done, todo, 
             + h3("本周最重大的新闻" + news_note) + news_html
             + ahead_html
             + '<p style="color:#888;font-size:11px;margin-top:14px;">规则自动整理，不用 AI。走势来自 Yahoo Finance（VIX 和恐惧指数在「大盘报告」）；数据核对在页头；经济日历来自 Forex Factory'
-              '（只有预期和前值；非农、失业率、时薪、CPI、PPI 的实际值来自美国劳工统计局 BLS 官方数据；「结果相关新闻」是本周新闻里关键词相符的标题，请点开确认）；新闻按重要性、可信媒体数量和连续报道天数排序。'
+              '（只有预期和前值；非农、失业率、时薪、CPI、PPI 的实际值来自美国劳工统计局 BLS 官方数据，其他（例如每周申领失业金）来自 TradingView 经济日历，实际值旁边写了来源；「结果相关新闻」是本周新闻里关键词相符的标题，请点开确认）；新闻按重要性、可信媒体数量和连续报道天数排序。'
               '仅供学习，不构成投资建议。</p>')
     return card(esc(title), body, accent=AMBER, bg="#FFF8EC", sub=sub)
 

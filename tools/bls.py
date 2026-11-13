@@ -63,7 +63,20 @@ def _num(s):
 
 
 def actual(title, when, cache_dir=None):
-    """返回 dict(actual='+165K', prev='+60K', vs='高于预期'…)；没有对应数列或 BLS 还没更新时返回 None。"""
+    """返回 dict(actual='+165K', prev='+60K', value=…, source='BLS' 或 'TradingView')。
+    BLS 有的数列用 BLS；BLS 没有的（例如每周首次申领失业金，是劳工部公布的）或 BLS 还没更新时，用 TradingView 经济日历（tv_calendar.py）。
+    都没有返回 None。"""
+    a = _bls_actual(title, when, cache_dir)
+    if a:
+        return a
+    try:
+        import tv_calendar
+        return tv_calendar.actual(title, when, cache_dir)
+    except Exception:
+        return None
+
+
+def _bls_actual(title, when, cache_dir=None):
     if title not in SERIES:
         return None
     sid, mode = SERIES[title]
@@ -96,7 +109,7 @@ def actual(title, when, cache_dir=None):
             return None
         a, p = (v0 / last - 1) * 100, (v1 / last_p - 1) * 100
         fmt = lambda x: f"{x:.1f}%"
-    return dict(actual=fmt(a), prev=fmt(p), value=round(a, 1), month=f"{y0}-{m0:02d}")
+    return dict(actual=fmt(a), prev=fmt(p), value=round(a, 1), month=f"{y0}-{m0:02d}", source="BLS")
 
 
 def versus(act, forecast):
@@ -104,6 +117,6 @@ def versus(act, forecast):
     f = _num(forecast)
     if act is None or f is None:
         return ""
-    tol = 5 if abs(f) >= 10 else 0.05
+    tol = 0.02 * abs(f) if abs(f) >= 100 else 5 if abs(f) >= 10 else 0.05     # 申领失业金 200K vs 195K 要算「高于预期」
     d = act["value"] - f
     return "符合预期" if abs(d) <= tol else ("高于预期" if d > 0 else "低于预期")

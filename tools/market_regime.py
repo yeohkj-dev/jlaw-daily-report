@@ -321,16 +321,30 @@ def credit(today, hist=()):
             b.update(sym=sym, zh=zh, yrs=yrs, ust=ust_at(curve, yrs), spread=(b["y"] - ust_at(curve, yrs)) * 100,
                      short=b["desc"][len(name):].strip())
         rows.append(b or dict(sym=sym, zh=zh))
+    stale = None
+    if not any(r.get("y") for r in rows) and hist:
+        # TradingView 债券选股器整个取不到时（2026-11-12 起它不理会筛选条件），沿用最近一天的记录，页面写明是哪一天的
+        stale = max(h["date"] for h in hist)
+        last = {h["sym"]: h for h in hist if h["date"] == stale}
+        rows = []
+        for sym, zh, name, window in ISSUERS:
+            h = last.get(sym)
+            if h:
+                rows.append(dict(sym=sym, zh=zh, desc=h["bond"], short=h["bond"][len(name):].strip(), y=float(h["yield"]),
+                                 spread=float(h["spread_bp"]), ust=float(h["yield"]) - float(h["spread_bp"]) / 100, px=None,
+                                 venues=0, finra=False))
+            else:
+                rows.append(dict(sym=sym, zh=zh))
     fred = {sid: fred_last(sid) for sid, _ in FRED}
     try:
         etf = etf_credit()
     except Exception:
         etf = None
-    return dict(curve=curve, rows=rows, fred=fred, etf=etf)
+    return dict(curve=curve, rows=rows, fred=fred, etf=etf, stale=stale)
 
 
 def save_credit_hist(today, cr, hist):
-    if any(h["date"] == str(today) for h in hist):
+    if cr.get("stale") or any(h["date"] == str(today) for h in hist):      # 沿用旧数据的那天不写进历史
         return
     new = not os.path.exists(CREDIT_HIST)
     with open(CREDIT_HIST, "a", newline="", encoding="utf-8-sig") as f:
@@ -346,7 +360,7 @@ def credit_html(cr, hist, today):
     td = 'style="padding:5px 6px;border-bottom:1px solid #eee;white-space:nowrap;"'
     th = 'style="padding:5px 6px;background:#f5f5f5;text-align:left;font-weight:600;border-bottom:1px solid #ddd;white-space:nowrap;"'
     # 约一周前（5 个记录日之前）的利差，同一只债券才比较
-    dates = sorted({h["date"] for h in hist if h["date"] != str(today)})
+    dates = sorted({h["date"] for h in hist if h["date"] != str(today) and h["date"] != cr.get("stale")})
     ref = dates[-5] if len(dates) >= 5 else (dates[0] if dates else None)
     old = {(h["sym"], h["bond"]): float(h["spread_bp"]) for h in hist if h["date"] == ref}
     body = ""
@@ -363,9 +377,10 @@ def credit_html(cr, hist, today):
             chg = f'<span style="color:{"#C62828" if d > 0 else "#2E7D32" if d < 0 else "#555"};">{d:+.0f}</span>'
             if d >= 25:
                 chg += ' <b style="color:#C62828;">扩大</b>'
+        px_txt = "—" if r.get("px") is None else f'{r["px"]:.1f}'
         body += (f'<tr><td {td}>{tv_link(r["sym"], None, r["sym"])} {r["zh"]}</td>'
                  f'<td {td}>{r["short"]}</td>'
-                 f'<td {td}>{r["px"]:.1f}</td><td {td}><b>{r["y"]:.2f}%</b></td><td {td}>{r["ust"]:.2f}%</td>'
+                 f'<td {td}>{px_txt}</td><td {td}><b>{r["y"]:.2f}%</b></td><td {td}>{r["ust"]:.2f}%</td>'
                  f'<td {td}><b style="color:{lvl[0]};">{sp:.0f} 基点</b> <span style="color:#888;font-size:11px;">{lvl[1]}</span></td>'
                  f'<td {td}>{chg or "—"}</td></tr>')
     tbl = (f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;">'
@@ -381,8 +396,8 @@ def credit_html(cr, hist, today):
     if o:
         lines.append(f"甲骨文为 AI 数据中心大量借债，利差 <b>{o['spread']:.0f} 基点</b>" + (f"，比科技巨头平均高 {o['spread'] - avg:.0f} 基点" if ig else "") + "。")
     if c:
-        lines.append(f"CoreWeave（AI 算力租赁，高收益级）债券价格 {c['px']:.0f}、收益率 <b>{c['y']:.1f}%</b>，利差 {c['spread']:.0f} 基点。"
-                     "价格远低于 100 代表市场担心它的还款能力。")
+        lines.append(f"CoreWeave（AI 算力租赁，高收益级）" + (f"债券价格 {c['px']:.0f}、" if c.get("px") else "") + f"收益率 <b>{c['y']:.1f}%</b>，利差 {c['spread']:.0f} 基点。"
+                     + ("价格远低于 100 代表市场担心它的还款能力。" if c.get("px") else "收益率这么高代表市场担心它的还款能力。"))
     # 整体信用市场
     mk = []
     for sid, zh in FRED:
@@ -396,8 +411,11 @@ def credit_html(cr, hist, today):
         mk.append(f'<li>高收益债 ETF（HYG）近 1 个月 {e["HYG"]["m1"]:+.1f}%，国债 ETF（IEF）{e["IEF"]["m1"]:+.1f}%，差 <b style="color:{"#C62828" if rel < -1 else "#2E7D32" if rel > 0 else "#555"};">{rel:+.1f} 点</b>'
                   f'（明显跑输代表市场在避开违约风险）；投资级债 ETF（LQD）{e["LQD"]["m1"]:+.1f}%。</li>')
     curve = "、".join(f"{y} 年 {v:.2f}%" for y, v in cr["curve"])
+    stale_box = (f'<div style="margin:0 0 8px;padding:8px 12px;background:#FDECEA;border-left:4px solid #C62828;color:#C62828;font-size:13px;font-weight:600;">'
+                 f'⚠ 今天取不到债券报价（TradingView 债券选股器从 2026-11-12 起不理会筛选条件，只回传固定的欧洲债券）。'
+                 f'下面的收益率和利差是 <b>{cr["stale"]}</b> 的数据，「同期美债」按当天利差倒推；每天仍会再试，恢复后自动换回当天数据。</div>') if cr.get("stale") else ""
     return f"""<h3 style="margin:22px 0 6px;">信用市场 · 科技与 AI 公司债券</h3>
-<p style="margin:0 0 6px;font-size:13px;line-height:1.6;">{"<br>".join(lines)}</p>{tbl}
+{stale_box}<p style="margin:0 0 6px;font-size:13px;line-height:1.6;">{"<br>".join(lines)}</p>{tbl}
 <ul style="margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.6;">{"".join(mk)}</ul>
 <p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">信用利差 = 公司债收益率 − 同年期美国国债收益率（美债曲线：{curve}），越高代表市场要求的违约补偿越多；
 利差在短时间内明显扩大，往往比股价更早反映公司的债务压力。债券报价来自 TradingView（优先用美国 FINRA 成交价），每只公司选一只约 10 年期的普通债（CoreWeave 选 2030–2033 年到期的）。
@@ -761,10 +779,11 @@ def main():
                       "sectors": [x["sym"] for x in sec], "sector_check": check,
                       "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,
                       "checks": [dict(name="行业 ETF 收盘价（Yahoo vs TradingView）", ok=check_ok, critical=False, detail=check),
-                                 dict(name="科技 / AI 债券报价", ok=bool(cr) and all(r.get("y") for r in cr["rows"]), critical=False,
-                                      detail=(f'{sum(1 for r in cr["rows"] if r.get("y"))}/{len(cr["rows"])} 家取到；'
+                                 dict(name="科技 / AI 债券报价", ok=bool(cr) and not cr.get("stale") and all(r.get("y") for r in cr["rows"]), critical=False,
+                                      detail=("取不到" if not cr else f'今天取不到，页面沿用 {cr["stale"]} 的数据' if cr.get("stale") else
+                                              f'{sum(1 for r in cr["rows"] if r.get("y"))}/{len(cr["rows"])} 家取到；'
                                               + "、".join(f'{r["sym"]} {r["venues"]} 个报价' + ("" if r["finra"] else "（无 FINRA）")
-                                                         for r in cr["rows"] if r.get("y"))) if cr else "取不到"),
+                                                         for r in cr["rows"] if r.get("y")))),
                                  dict(name="整体信用利差（FRED）", ok=bool(cr) and all(cr["fred"].values()), critical=False,
                                       detail=("取到" if cr and all(cr["fred"].values()) else "FRED 取不到，改用 HYG / IEF 走势")),
                                  dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
