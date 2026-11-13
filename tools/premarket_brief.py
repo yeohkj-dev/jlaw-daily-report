@@ -181,6 +181,16 @@ def build(et):
         pend = json.load(open(os.path.join(OUT_DIR, "每日选股", "pending.json"), encoding="utf-8"))
     except (OSError, ValueError):
         pend = []
+    pre = [p for p in pend if p.get("kind") == "PRE"]
+    pend = [p for p in pend if p.get("kind") != "PRE"]
+    if pre:
+        try:
+            pq = premarket([f"{p['ex']}:{p['sym']}" if p["ex"] else p["sym"] for p in pre])
+        except Exception:
+            pq = {}
+        L += ["", "<b>🎯 即将突破 · 等放量（穿过突破价 + 成交量 2 倍速度，盘中会提醒）</b>"]
+        L.append(" · ".join(f"{link(p['sym'], p['ex'])} 突破价 {p['level']:.2f}" + (f"（盘前 {pq[p['sym']]['pm']:+.1f}%）" if pq.get(p["sym"], {}).get("pm") is not None else "")
+                            for p in sorted(pre, key=lambda x: -(x.get("rs") or 0))[:12]))
     if pend:
         pp = premarket([f"{p['ex']}:{p['sym']}" if p["ex"] else p["sym"] for p in pend])
         L += ["", "<b>⏳ 今天等 2 小时买点（盘中触发会另外提醒）</b>"]

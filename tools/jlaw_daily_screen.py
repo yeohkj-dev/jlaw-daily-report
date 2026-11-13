@@ -309,6 +309,32 @@ def brk_signal(px):
     return dict(level=round(hh50, 2), vrel=round(v[-1] / avgv, 1), high=round(h[-1], 2), wup=wup)
 
 
+PRE_NEAR, PRE_SHOW = 0.05, 20      # 即将突破：离 50 日高 ≤5%；网页和提醒只放 RS 最高的 20 只
+# 回测（回测/K线形态/prebrk_bt.py 20 年日线、prebrk_60.py 3 年 60 分钟；重跑后人工同步）
+PRE_BT = dict(r1=0.71, r1_n=1066, r1_t=1.2, a3_same=0.38, n_same=0.04, iv20=1.45, i20=0.14, fake=-0.73, fail_pct=36, first_hour=721,
+              per_day=54, hit_vol=4)
+
+
+def prebrk_signal(px):
+    """即将突破（等放量）：升势（收盘 > 50 天线 > 200 天线、50 天线向上），收盘离 50 日最高价（含今天）0–5% 还没突破，
+    波动收窄（近 10 天平均振幅 < 之前 30 天的 80%），成交量萎缩（近 5 天均量 < 50 日均量）。条件和回测 prebrk_bt.py 一样。"""
+    if not px or len(px) < 260:
+        return None
+    c = [x["c"] for x in px]; h = [x["h"] for x in px]; l = [x["l"] for x in px]; v = [x["v"] for x in px]
+    m50, m200, m50_10 = sma(c, 50), sma(c, 200), sma(c, 50, 10)
+    level = max(h[-50:])
+    dist = 1 - c[-1] / level
+    if not (c[-1] > m50 > m200 and m50 > m50_10 and 0 < dist <= PRE_NEAR):
+        return None
+    tr = [max(h[i] - l[i], abs(h[i] - c[i - 1]), abs(l[i] - c[i - 1])) for i in range(len(c) - 40, len(c))]
+    atr10, atr30p = sum(tr[-10:]) / 10, sum(tr[:30]) / 30
+    v5, v50, avgv = sum(v[-5:]) / 5, sum(v[-50:]) / 50, sum(v[-20:]) / 20
+    if not (atr10 < 0.8 * atr30p and v5 < v50) or c[-1] < 5:
+        return None
+    return dict(level=round(level, 2), dist=round(dist * 100, 1), avgv=round(avgv), need=round(2 * avgv), tight=round(atr10 / atr30p * 100),
+                dry=round(v5 / v50 * 100))
+
+
 DEALS_FILE = os.path.join(SCREEN_DIR, "deals.json")   # 被收购的股票（Luk 选股、综合名单也读这份来排除）
 DEAL_RX = re.compile(r"\b(to acquire|acquires|acquired|acquisition|buyout|buy-out|take[- ]private|tender offer|to be bought|merger agreement|"
                      r"agrees? to buy|definitive agreement)\b", re.I)
@@ -349,7 +375,7 @@ def find_deals(metas, pxs):
     return out
 
 
-def save_pending(best, brk, spy):
+def save_pending(best, brk, spy, pre=()):
     """今天的 A0 和放量突破信号加进「等 2 小时买点」名单；超过 5 个交易日没触发的移除。"""
     try:
         old = json.load(open(PENDING, encoding="utf-8"))
@@ -361,6 +387,10 @@ def save_pending(best, brk, spy):
                 stop_pct=BEST_CLOSE_STOP, hard_pct=BEST_HARD_STOP, rs=r.get("rs")) for r in best]
     new += [dict(sym=r["sym"], ex=EXCH.get(r["sym"], ""), kind="BRK", sig=str(r["px"][-1]["d"]), close=r["close"], high=r["brk"]["high"],
                  level=r["brk"]["level"], stop_pct=BRK_CLOSE_STOP, hard_pct=None, wup=r["brk"]["wup"], rs=r.get("rs")) for r in brk]
+    # 即将突破：盘中「穿过突破价 + 成交量跑在 2 倍速度上」就提醒（intraday_alerts.py）。每天整份换新，不沿用旧的
+    new += [dict(sym=r["sym"], ex=EXCH.get(r["sym"], ""), kind="PRE", sig=str(r["px"][-1]["d"]), close=r["close"], level=r["pre"]["level"],
+                 avgv=r["pre"]["avgv"], stop_pct=BRK_CLOSE_STOP, hard_pct=None, rs=r.get("rs")) for r in pre]
+    old = [x for x in old if x.get("kind") != "PRE"]
     seen, out = set(), []
     for x in new + old:                                  # 同一只同一种只留最新的信号
         k = (x["sym"], x["kind"])
@@ -498,7 +528,19 @@ def main():
                 r["brk"] = b_
                 brk.append(r)
         brk.sort(key=lambda r: (not r["brk"]["wup"], -(r.get("rs") or 0)))
-    pending = save_pending(best if spy200 and spy200[0] > spy200[1] else [], brk, spy)   # SPY 跌破 200 天线时 A0 不开新仓
+    # ---- 即将突破（等放量）：还没突破、离 50 日高 ≤5%、收窄 + 缩量；SPY 在 200 天线上才列；按 RS 取前 PRE_SHOW 只 ----
+    pre, pre_total = [], 0
+    if spy200 and spy200[0] > spy200[1]:
+        got = set(r["sym"] for r in brk)
+        for r in res:
+            p_ = prebrk_signal(r["px"]) if r["sym"] not in got else None
+            if p_:
+                r["pre"] = p_
+                pre.append(r)
+        pre.sort(key=lambda r: (-(r.get("rs") or 0), r["pre"]["dist"]))
+        pre_total = len(pre)
+        pre = pre[:PRE_SHOW]
+    pending = save_pending(best if spy200 and spy200[0] > spy200[1] else [], brk, spy, pre)   # SPY 跌破 200 天线时 A0 不开新仓
     meta_watch.sort(key=lambda r: (-r["meta"]["n_edges"], r["meta"]["risk"]))
     vcp_pool = [r for r in res if r["sym"] in rs_layer]
     vcp_ready = [r for r in vcp_pool if r["vcp"]["score"] >= 6 and r["vcp"]["status"] in ("等突破", "刚突破") and r["vcp"]["risk"] <= VCP_MAX_RISK]
@@ -577,7 +619,11 @@ def main():
               "信号后 5 个交易日内，第一根 2 小时K线（09:30–11:30）的高点被之后的 2 小时收盘突破就买；收盘跌 15% 卖，否则拿 60 天。", ""]
     lines += [f"- {r['sym']}（{r['industry'][:18]}）收盘 {r['close']}，突破 50 日高 {r['brk']['level']}，量 {r['brk']['vrel']}x"
               + ("，周线升势" if r["brk"]["wup"] else "") for r in brk] or ["今天没有。"]
-    lines += [f"## A1. META 回调就绪（动能后低量回调到均线/突破位，止损 ≤5%，优势 ≥4）：{len(meta_ready)} 只", ""]
+    lines += ["", f"## A4. 即将突破 · 等放量：{len(pre)} 只（符合条件 {pre_total} 只，按 RS 取前 {PRE_SHOW}）", "",
+              "还没突破。盘中价格穿过突破价、而且成交量跑在平常 2 倍速度上才买（Telegram 盘中提醒）；收盘跌 15% 卖，否则拿 60 天。", ""]
+    lines += [f"- {r['sym']}（{r['industry'][:18]}）RS {r.get('rs') or '—'}，收盘 {r['close']}，突破价 {r['pre']['level']}（还差 {r['pre']['dist']}%），"
+              f"当天要有约 {r['pre']['need'] / 1e6:.1f}M 股" for r in pre] or ["今天没有。"]
+    lines += ["", f"## A1. META 回调就绪（动能后低量回调到均线/突破位，止损 ≤5%，优势 ≥4）：{len(meta_ready)} 只", ""]
     lines += meta_md(meta_ready[:15]) if meta_ready else ["今天没有符合条件的股票。"]
     lines += ["", f"## A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）：{len(vcp_ready)} 只", ""]
     lines += vcp_md(vcp_ready[:15]) if vcp_ready else ["今天没有符合条件的股票。"]
@@ -633,7 +679,7 @@ def main():
     html_path = os.path.join(SCREEN_DIR, f"{today}.html")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(build_html(today, state, ms, s, len(res), sum(1 for r in res if r["mom"]), len(vcp_pool), meta_ready, vcp_ready,
-                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200, brk))
+                           meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200, brk, pre, pre_total))
 
     print(json.dumps({"html": html_path, "date": str(today), "market_state": state, "universe": len(res),
                       "meta_ready": [(r["sym"], r["meta"]["n_edges"], r["meta"]["risk"], r["er_days"]) for r in meta_ready[:10]],
@@ -647,7 +693,7 @@ def main():
                       "report": md, "chart": png if has_png else None}, ensure_ascii=False))
 
 
-def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=(), best=(), spy200=None, brk=()):
+def build_html(today, state, ms, s, n_univ, n_mom, n_vcp, meta_ready, vcp_ready, meta_watch, vcp_watch, hot, fresh_mom, new_names, png_path, stage12=(), stage2=(), best=(), spy200=None, brk=(), pre=(), pre_total=0):
     """单文件 HTML（内联样式，图表以 base64 内嵌）。"""
     import base64
     import html as h
@@ -777,6 +823,38 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 21 年日线版（2005–2026）次日开盘买 {MTF_BT['brk_21y']:+.2f}%、加周线升势 {MTF_BT['brk_21y_w']:+.2f}%。每投入 $1 万，+1% ≈ 多 $100。
 胜率约一半，靠少数大涨赚钱；回测只有今天还在交易的股票，真实结果会差一些。这里的股票池是网站的选股池（市值 ≥ 30 亿、股价 ≥ 10），比回测窄。</div></div>"""
 
+    def pre_tbl(rows):
+        if not spy200 or spy200[0] <= spy200[1]:
+            return '<p style="color:#C62828;">今天 SPY 不在 200 天线上：这个名单不列（回测里只在 SPY 站上 200 天线时有优势）。</p>'
+        if not rows:
+            return '<p style="color:#777;">今天没有符合条件的股票。</p>'
+        body = ""
+        for r in rows:
+            p_ = r["pre"]
+            body += (f'<tr><td {td}>{name(r)}</td><td {td}>{h.escape(r["industry"][:20])}</td><td {td}>{r["close"]}</td>'
+                     f'<td {td}><b style="color:#1B5E20;">{p_["level"]}</b></td><td {td}>{p_["dist"]}%</td>'
+                     f'<td {td}>{p_["need"] / 1e6:.2f}M 股<br><span style="color:#888;font-size:11px;">平常 {p_["avgv"] / 1e6:.2f}M</span></td>'
+                     f'<td {td}>{p_["tight"]}%</td><td {td}>{p_["dry"]}%</td><td {td}>{er(r)}</td></tr>')
+        return wrap(("股票", "行业", "今天收盘", "突破价<br>（50 日最高）", "还差", "当天要有的成交量<br>（20 日均量 × 2）",
+                     "近 10 天振幅<br>÷ 之前 30 天", "近 5 天量<br>÷ 50 日均量", "业绩"), body)
+
+    q = PRE_BT
+    pre_rules = f"""<div style="margin:0 0 8px;padding:10px 14px;background:#F1F8E9;border:1px solid #C5E1A5;border-radius:6px;font-size:13px;line-height:1.7;">
+<b>这些股票还没突破，先放进观察；等它放量突破那一刻才买：</b>
+<ol style="margin:4px 0 6px;padding-left:20px;">
+<li><b>名单（每天收盘后）：</b>股票在升势（收盘 &gt; 50 天线 &gt; 200 天线、50 天线向上），收盘离 50 日最高价 5% 以内还没突破，
+最近 10 天振幅比之前 30 天小（&lt;80%），最近 5 天成交量低于 50 日均量；SPY 在 200 天线上。符合的按 RS Rating 取前 {PRE_SHOW} 只。</li>
+<li><b>买点（盘中）：</b>之后 5 个交易日内，价格穿过<b>突破价</b>，而且到那时的累计成交量 ≥ 这只股票「平常到这个时候」的 <b>2 倍</b>
+（Telegram「盘中买点提醒」每 30 分钟检查一次，用已收完的 60 分钟K线）。提醒到了才买；<b>只穿过、量没跟上不要买</b>。</li>
+<li><b>卖：</b>和 A3 一样：收盘比买价跌 15% → 第二天开盘卖；否则拿满 {BRK_HOLD} 个交易日。</li></ol>
+<div style="margin-top:6px;color:#555;font-size:12px;">
+<b>回测：</b>3 年 60 分钟数据（2023-12 至 2026-10，{q['r1_n']:,} 次提醒）提醒到了就买，每笔比同期买 SPY 多赚 <b>{q['r1']:+.2f}%</b>（每投入 $1 万约多 ${q['r1'] * 100:.0f}）；
+同一期间 A3「第二天开盘买」{q['a3_same']:+.2f}%、名单股「收盘确认后第二天开盘买」{q['n_same']:+.2f}%。<b>但 3 年样本统计上还不算可靠</b>（t = {q['r1_t']}，一般要 ≥2）。
+20 年日线近似版 {q['iv20']:+.2f}%（偏乐观：用了收盘才知道的全天成交量）；不看成交量一穿过就买只有 {q['i20']:+.2f}%，因为假突破（收盘跌回突破价下）平均 {q['fake']:+.2f}%。
+提醒大多在开盘第一小时出现；约 {q['fail_pct']}% 的提醒当天收盘会跌回突破价下面，事先分不出来，照规则卖就好。
+每天符合名单条件的股票里，5 天内真的放量突破的只有约 {q['hit_vol']}%，所以多数股票不会触发。回测只有今天还在交易的股票，真实结果会差一些。
+<a href="https://github.com/yeohkj-dev/jlaw-daily-report/tree/main/回测/K线形态" target="_blank" rel="noopener">回测程序 prebrk_bt.py / prebrk_60.py</a></div></div>"""
+
     def vcp_tbl(rows):
         if not rows:
             return '<p style="color:#777;">今天没有符合条件的股票。</p>'
@@ -872,6 +950,7 @@ RS 门槛放宽到 80，2016–2026 就 10 次全输 SPY，所以只买 ≥ {BES
 <span style="color:#777;font-size:12px;">（1M ≥{s['min1m']:.1f}%、6M ≥{s['min6m']:.1f}%；标普 1M {s['spy1m']:+.1f}%、6M {s['spy6m']:+.1f}%）</span></p>{new_line}{rs_stale(rs)}{deal_note}
 {sec(f"A0. ⭐ 回测最佳：META 就绪 + RS Rating ≥ {BEST_RS_MIN}（{len(best)} 只）", "#1B5E20")}{best_head}{best_tbl(best)}{fold("📖 怎么买、怎么卖、回测结果（规则每天一样，点开看）", best_body)}
 {sec(f"A3. 放量突破 50 日高 · 等 2 小时买点（{len(brk)} 只）", "#1B5E20")}{brk_tbl(brk)}{fold("📖 怎么买、怎么卖、回测结果（规则每天一样，点开看）", brk_rules)}
+{sec(f"A4. 即将突破 · 等放量（{len(pre)} 只" + (f"，符合条件 {pre_total} 只里 RS 最高的" if pre_total > len(pre) else "") + "）", "#1B5E20")}{red_line}{pre_tbl(pre)}{fold("📖 怎么买、怎么卖、回测结果（规则每天一样，点开看）", pre_rules)}
 {sec("A1. META 回调就绪（动能后低量回调到均线 / 突破位，止损 ≤5%，优势 ≥4）", "#2E7D32")}{meta_tbl(meta_ready[:15])}
 {sec("A2. VCP 突破就绪（得分 ≥6、接近突破点、止损 ≤8%）", "#2E7D32")}{vcp_tbl(vcp_ready[:15])}
 {sec(f"B. 观察名单（还没到买点：META {len(meta_watch[:10])} 只 · VCP {len(vcp_watch[:10])} 只）", "#B26A00")}

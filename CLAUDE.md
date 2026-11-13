@@ -27,7 +27,7 @@
 |---|---|---|
 | 早报 | `tools/morning_brief.py` | 昨晚美股发生什么、相关新闻（为什么）、行业、大公司异动、今晚要看什么 |
 | 大盘报告 | `tools/market_regime.py` + `tools/positioning.py` | J Law 大盘体温计（躺赚 / 警戒 / 血汗钱）、恐惧指数（CNN + VIX）、行业 ETF 追踪、信用市场（科技 / AI 公司债利差）、见底信号；最后是「大资金在哪里买卖」（只在平日跑，周末沿用上一份） |
-| 每日选股 | `tools/jlaw_daily_screen.py` | J Law META 回调、VCP 突破、观察名单、Stage 1→2 候选、Stage 2 名单 |
+| 每日选股 | `tools/jlaw_daily_screen.py` | A0 回测最佳、A3 放量突破、A4 即将突破（等放量）、J Law META 回调、VCP 突破、观察名单、Stage 1→2 候选、Stage 2 名单 |
 | Luk 选股 | `tools/luk_screens.py` | Martin Luk 的 Leaders / Strong Day / Gappers（条件来自 Luk 本人公布的 TradingView 设置） |
 | 今日新闻 | `tools/news_digest.py` + `tools/weekly_events.py` | 上面是本周重大事件（周末是本周回顾 + 下周看点），下面是当天新闻 |
 | 业绩与估值 | `tools/earnings_options.py` + `tools/earnings_valuation.py` | 最上面「财报前的期权」；下面是 11 个板块各前 10 大公司的业绩、指引原文（SEC 8-K）、两年估值情景 |
@@ -153,6 +153,13 @@ python tools/<模块>.py .                                    # 单独跑一个�
 - **结论**：小周期用来「买」、不要用来「卖」。最好的是 **2 小时**：BRK 用「当天第一根 2 小时K线高点被收盘突破」（3 年每笔比 SPY +1.27% vs 次日开盘 +0.91%）；A0 用「2 小时收盘重新站上 20 EMA」（+4.82% vs +3.78%，样本小、不显著）。等确认其实是过滤器：同一批信号买得更贵约 1–2%，但避开一半以上会亏的信号。小周期移动止损会砍掉赢家（全部系统变差）；日线 20 天线也太紧。META（全部）和 C9 程序版 21 年都没赢 SPY。
 - **数据坑**：Yahoo 有些股票的 60 分钟数据是别的证券（BNY、B、MOD、RGR、SUPN），所以回测只用「60 分钟最后一根收盘和日线收盘差 ≤2%」的日子。
 - **网站 / Telegram**：每日选股 A0 的买法改成「5 天内等 2 小时收盘站上 20 EMA」（不方便看盘照旧次日开盘买）；新增「A3. 放量突破 50 日高 · 等 2 小时买点」（`brk_signal()`，SPY 在 200 天线上才出）；`save_pending()` 把 A0（SPY 在 200 天线上时）和 A3 写进 `每日选股/pending.json`（5 个交易日后移除）；`tools/intraday_alerts.py` 盘中检查并发提醒（`--dry-run --force-date --force-time --pending` 可重播过去某天测试）；盘前提醒列出「今天等 2 小时买点」。回测数字在 `jlaw_daily_screen.py` 的 `MTF_BT`。
+
+## 6d. 即将突破 · 等放量（2026-11-13）
+
+- **回测**：`回测/K线形态/prebrk_bt.py`（20 年日线）、`prebrk_60.py`（3 年 60 分钟，读 `回测/mtf/cache60`），结果 `prebrk_bt20.json`、`prebrk60.json`、`即将突破回测.html`。结论：名单股「盘中穿过突破价 + 累计成交量 ≥ 平常同一时间的 2 倍」提醒到了就买，3 年每笔比同期 SPY +0.71%（1,066 笔，t = 1.2，**还不算可靠**）；同期 A3 +0.38%、收盘确认后第二天买 +0.04%。20 年近似版 +1.45% 偏乐观（用了全天量）。不看量一穿过就买只有 +0.14%（假突破 −0.73%）。约 36% 的提醒当天收盘跌回突破价下。
+- **网站**：每日选股「A4. 即将突破 · 等放量」（`prebrk_signal()`，条件和回测一样：升势、离 50 日高 0–5%、近 10 天振幅 < 之前 30 天 80%、近 5 天量 < 50 日均量；SPY 在 200 天线上才列；按 RS 取前 `PRE_SHOW`=20 只）。回测数字在 `PRE_BT` 常数，重跑后人工同步。网站股票池（Stage 2 + 日均成交额 ≥1 亿）比回测窄，弱市时名单会很短。
+- **提醒**：`save_pending(…, pre)` 把名单写进 `pending.json`（kind = `PRE`，每天整份换新）；`intraday_alerts.check_pre()` 用已收完的 60 分钟K线检查，Telegram 用 🚀 标示；盘前提醒列出名单和突破价。用 `--dry-run --force-date --force-time --pending` 重播 GDDY 10-30、ELF 10-15、MKTX 10-22 和回测一致。第一次真实触发还没验证。
+- **主题雷达研究**（另一个 session 做的，`回测/主题/主题雷达研究.html`）：价格指标无法提前 2–3 年看到主题，只有 RS 类指标有 6–12 个月的小优势。还没放进网站，`回测/主题/` 也还没提交。
 
 ## 7. 待办 / 还没验证
 

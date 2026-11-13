@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>即将突破回测</title>
+<style>
+body{margin:0;background:#eef1f5;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif;color:#1f2933;line-height:1.7}
+.w{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+.card{background:#fff;border-radius:12px;padding:16px 20px;margin:14px 0;box-shadow:0 1px 3px rgba(16,24,40,.08),0 4px 14px rgba(16,24,40,.04)}
+h1{font-size:22px;margin:4px 0 2px}h2{font-size:17px;margin:4px 0 8px;padding-left:10px;border-left:4px solid #1e3a5f}
+.sub{color:#64748b;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+th{background:#f5f7fa;text-align:left;padding:7px 8px;border-bottom:1px solid #dde3ea;white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid #eef1f5;vertical-align:top}
+.up{color:#2E7D32;font-weight:700}.dn{color:#C62828;font-weight:700}.mu{color:#888}
+.best{background:#F1F8E9}.verdict{background:#1e3a5f;color:#fff;border-radius:12px;padding:16px 20px}
+.verdict b{color:#FFD54F}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#E3F2FD;color:#0D47A1;margin-left:4px}
+</style></head><body><div class="w">
+
+<div class="card">
+<h1>「即将突破（等放量）」名单回测</h1>
+<div class="sub">2026-11-13 · 约 2,250 只美股日线 2006–2026（20 年）+ 约 1,970 只的 60 分钟K线 2023-12 至 2026-10（3 年）· 规则自动计算，不用 AI</div>
+</div>
+
+<div class="verdict">
+<div style="font-size:13px;opacity:.85">结论</div>
+<div style="font-size:18px;font-weight:800;margin:4px 0 8px">值得做，但优势不大：<b>盘中穿过突破价、而且成交量跑在 2 倍速度上</b>时买，是测过的买法里最好的。</div>
+<ul style="margin:0;padding-left:20px;font-size:14px">
+<li>实际可执行的版本（3 年 60 分钟数据）：每笔比同期买 SPY 多赚 <b>+0.71%</b>（每投入 $1 万约多 $71）；同一期间「收盘确认、第二天开盘买」（现在 A3 的做法）只有 +0.04%。</li>
+<li>但 3 年样本统计上<b>还不算可靠</b>（t = 1.2，一般要 ≥2）。20 年日线的近似版（+1.45%，t = 6.1）偏乐观，因为它用了收盘才知道的全天成交量。</li>
+<li><b>不看成交量、一穿过就买不行</b>：20 年只有 +0.14%，因为会买到很多收盘又跌回去的假突破（这些平均 −0.73%）。</li>
+<li>提醒大多在<b>开盘第一个小时</b>出现（1,066 次里 721 次），提醒时的价格平均只比突破价高 0.5%。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>名单怎么选（每天收盘后）</h2>
+<ol style="margin:0;padding-left:22px;font-size:14px">
+<li>股票升势：收盘 &gt; 50 天线 &gt; 200 天线，50 天线向上；SPY 在 200 天线上（和 A3 一样，回测里只有这时有优势）</li>
+<li>离 50 日最高价只差 0–5%，还没突破；<b>突破价</b> = 那天的 50 日最高价</li>
+<li>波动收窄：最近 10 天平均振幅 &lt; 之前 30 天的 80%</li>
+<li>成交量萎缩：最近 5 天均量 &lt; 50 日均量</li>
+<li>价 ≥ $5、20 日均成交额 ≥ 500 万美元</li>
+</ol>
+<p style="font-size:13px;color:#555;margin:8px 0 0">平均每天约 <b>54 只</b>上名单。5 个交易日内摸到突破价的有 49%，但<b>真的放量（≥2 倍）突破的只有约 4%</b>。所以名单要短（例如按 RS 只放前 20 只），盘中提醒才是重点。</p>
+</div>
+
+<div class="card">
+<h2>20 年日线：几种买法比较</h2>
+<div class="sub">卖法全部一样（同 A3）：收盘比买价跌 15% → 第二天开盘卖；否则拿 60 个交易日。「比 SPY」= 同一段时间买 SPY 的报酬差，每笔平均。</div>
+<div style="overflow-x:auto"><table>
+<tr><th>买法</th><th>笔数</th><th>胜率</th><th>每笔比 SPY</th><th>每 $1 万</th><th>可靠度 t</th><th>2006–15 / 2016–26</th><th>年份赢</th></tr>
+<tr><td>A3 现在的做法：放量收盘突破，第二天开盘买（不看名单）</td><td>14,878</td><td>53.5%</td><td class="up">+0.50%</td><td>+$50</td><td>3.3</td><td>+0.91% / +0.26%</td><td>14/21</td></tr>
+<tr><td>I 名单股盘中一穿过就买（不看量）</td><td>20,095</td><td>55.4%</td><td>+0.14%</td><td>+$14</td><td>1.4</td><td>+0.54% / <span class="dn">−0.10%</span></td><td>13/21</td></tr>
+<tr class="best"><td>IV 名单股盘中穿过就买，只算全天量 ≥2 倍的日子 <span class="tag">偏乐观</span></td><td>3,904</td><td>59.1%</td><td class="up">+1.45%</td><td>+$145</td><td>6.1</td><td>+2.09% / +1.02%</td><td>16/21</td></tr>
+<tr><td>C 名单股收盘确认（收在突破价上、量 ≥2 倍）用收盘价买</td><td>2,794</td><td>56.3%</td><td class="up">+0.56%</td><td>+$56</td><td>2.1</td><td>+1.03% / +0.22%</td><td>13/21</td></tr>
+<tr><td>N 名单股收盘确认后第二天开盘买</td><td>2,794</td><td>55.6%</td><td class="up">+0.52%</td><td>+$52</td><td>1.9</td><td>+1.04% / +0.15%</td><td>13/21</td></tr>
+<tr><td class="mu">　其中：盘中穿过但收盘跌回突破价下（假突破）</td><td class="mu">9,817</td><td class="mu">52.2%</td><td class="dn">−0.73%</td><td class="mu">−$73</td><td class="mu">−5.4</td><td class="mu">−0.32% / −0.98%</td><td class="mu">7/21</td></tr>
+<tr><td class="mu">　其中：盘中穿过、收盘也守住</td><td class="mu">10,278</td><td class="mu">58.5%</td><td class="up">+0.97%</td><td class="mu">+$97</td><td class="mu">7.1</td><td class="mu">+1.31% / +0.76%</td><td class="mu">15/21</td></tr>
+</table></div>
+<p style="font-size:13px;color:#555;margin:8px 0 0">差别主要来自<b>买价</b>：放量突破当天通常收得比突破价高不少，收盘或第二天才买就贵了。名单的「收窄 + 缩量」条件本身帮助不大（不要求这两项时 IV +1.20%、C +0.42%）。</p>
+</div>
+
+<div class="card">
+<h2>3 年 60 分钟K线：真正可以执行的盘中提醒</h2>
+<div class="sub">每根 60 分钟K线结束时检查：今天最高价已经 &gt; 突破价，而且到这时的累计成交量 ≥ 这只股票「平常到这个时候」累计量的 2 倍（用它前 20 天的盘中成交量分布，因为成交量是开盘、收盘多，中午少）。</div>
+<div style="overflow-x:auto"><table>
+<tr><th>买法（同一期间 2023-12 至 2026-10）</th><th>笔数</th><th>胜率</th><th>每笔比 SPY</th><th>每 $1 万</th><th>可靠度 t</th></tr>
+<tr><td>A3 现在的做法（第二天开盘买）</td><td>3,314</td><td>48.7%</td><td>+0.38%</td><td>+$38</td><td>0.9</td></tr>
+<tr><td>C 收盘确认，用收盘价买</td><td>357</td><td>50.7%</td><td class="dn">−0.32%</td><td>−$32</td><td>−0.3</td></tr>
+<tr><td>N 收盘确认，第二天开盘买</td><td>357</td><td>52.7%</td><td>+0.04%</td><td>+$4</td><td>0.0</td></tr>
+<tr class="best"><td><b>R1 提醒到了就买（用那根K线的收盘价）</b></td><td>1,066</td><td>53.8%</td><td class="up">+0.71%</td><td>+$71</td><td>1.2</td></tr>
+<tr><td>R0 同一批，假设用突破价买（预挂突破单）<span class="tag">偏乐观</span></td><td>1,066</td><td>54.9%</td><td class="up">+1.16%</td><td>+$116</td><td>1.9</td></tr>
+</table></div>
+<ul style="font-size:13.5px;margin:8px 0 0;padding-left:20px">
+<li>R1 每年都是正的：2024 +0.15%、2025 +1.23%、2026 +1.13%（2023 只有 12 月几天）。</li>
+<li>提醒出现在第几根K线：第 1 根（09:30–10:30）721 次、第 2 根 116 次，之后越来越少。</li>
+<li>36% 的提醒当天收盘又跌回突破价下面；这些平均比 SPY 少 0.77%。没办法事先分辨，所以按规则卖、不要因为跌回去就慌。</li>
+<li>只有 38.5% 的提醒日全天量最后真的 ≥2 倍：开盘第一小时的「2 倍速度」常常后劲不足，这是可执行版比 IV 差的原因。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>要注意</h2>
+<ul style="font-size:13.5px;margin:0;padding-left:20px">
+<li>回测只有今天还在交易的股票（幸存者偏差），真实结果会差一些。</li>
+<li>60 分钟数据只有 3 年、约 1,000 笔，统计上不够可靠；20 年版用的是全天成交量，偏乐观。真实优势大约在两者之间，可能每笔 +0.5% 到 +1%。</li>
+<li>Telegram 盘中提醒每 30 分钟检查一次，会比回测的「每小时K线结束」再快一点或慢一点；提醒到了价格可能已经走了。</li>
+<li>每笔平均优势不大，胜率约一半，要靠守规则、每笔都做才有用。仅供学习，不构成投资建议。</li>
+</ul>
+<p class="mu" style="font-size:12px;margin:8px 0 0">程序：回测/K线形态/prebrk_bt.py（20 年日线）、prebrk_60.py（60 分钟）；结果 prebrk_bt20.json、prebrk60.json。</p>
+</div>
+</div></body></html>

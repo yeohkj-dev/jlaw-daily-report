@@ -3,6 +3,8 @@
 多时间框架研究（回测/mtf/）：日线出信号（大周期），之后 5 个交易日内在 2 小时图上找买点（小周期）：
   BRK 放量突破 50 日高：当天第一根 2 小时K线（美东 09:30–11:30）的最高价，被之后的 2 小时K线收盘突破
   A0  META + RS ≥ 90：2 小时K线收盘重新站上 2 小时 20 EMA（前一根在 20 EMA 下面）
+  PRE 即将突破（等放量，回测/K线形态/prebrk_60.py）：今天最高价穿过突破价，而且到最近一根已收完的 60 分钟K线为止，
+      累计成交量 ≥ 这只股票前 20 天「同一时间为止」累计量平均的 2 倍 → 用那根K线的收盘价当买价
 只看已经收完的 2 小时K线（11:30、13:30、15:30、16:00 收）。同一只股票同一天只提醒一次（早报/_intraday_sent.json）。
 价格用 Yahoo 60 分钟K线合成，再和 TradingView 现价核对（差 >1% 会在信息里标 ⚠）。
 用法：python intraday_alerts.py [输出目录] [--dry-run] [--force-date YYYY-MM-DD --force-time HH:MM --pending 文件]（后面三个是测试用）
@@ -53,8 +55,47 @@ def bars_2h(sym):
     return out
 
 
+PACE = 2.0      # 即将突破：成交量要跑在平常的几倍速度上
+
+
+def check_pre(p, now_et):
+    """即将突破：用已收完的 60 分钟K线。回传 dict(c=买价, start, end, why) 或 None。"""
+    if str(now_et.date()) <= p["sig"]:
+        return None
+    bars, _ = yahoo_chart(p["sym"].replace(".", "-"), "3mo", "60m")
+    days = {}
+    for b in bars:
+        e = nd.to_et(dt.datetime.fromtimestamp(b["t"], dt.timezone.utc)).replace(tzinfo=None)
+        if dt.time(9, 30) <= e.time() < dt.time(16, 0):
+            days.setdefault(e.date(), []).append(dict(b, et=e, end=min(e + dt.timedelta(minutes=60), e.replace(hour=16, minute=0))))
+    today = [b for b in days.get(now_et.date(), []) if b["end"] <= now_et]
+    if not today:
+        return None
+    prev = [d for d in sorted(days) if d < now_et.date()][-20:]
+    full = [days[d] for d in prev if len(days[d]) >= 6]
+    if len(full) < 10:
+        return None
+    # 数据核对：Yahoo 有些股票的 60 分钟数据是别的证券 → 信号日那天 60 分钟最后收盘要和日线收盘差 ≤2%
+    sig = dt.date.fromisoformat(p["sig"])
+    if sig in days and p.get("close") and abs(days[sig][-1]["c"] / p["close"] - 1) > 0.02:
+        return None
+    n = len(today)
+    usual = sum(sum(x["v"] for x in d[:n]) for d in full) / len(full)      # 平常到这根K线为止的累计量
+    cum, hi = 0, 0
+    for k, b in enumerate(today):
+        cum += b["v"]
+        hi = max(hi, b["h"])
+        usual_k = sum(sum(x["v"] for x in d[:k + 1]) for d in full) / len(full)
+        if hi > p["level"] and usual_k and cum >= PACE * usual_k:
+            return dict(c=b["c"], start=b["et"], end=b["end"], pace=cum / usual_k,
+                        why=f"穿过突破价 {p['level']:.2f}，到 {b['end']:%H:%M} 的成交量是平常这个时候的 {cum / usual_k:.1f} 倍")
+    return None
+
+
 def check(p, now_et):
     """返回触发的那根 2 小时K线（今天、已收完、信号日之后），没有就 None。"""
+    if p["kind"] == "PRE":
+        return check_pre(p, now_et)
     bars = [b for b in bars_2h(p["sym"]) if b["end"] <= now_et]
     today = [b for b in bars if b["day"] == now_et.date()]
     if not today or str(now_et.date()) <= p["sig"]:
@@ -122,7 +163,18 @@ def main():
         px = b["c"]
         stop = px * (1 - p["stop_pct"])
         url = TV + urllib.parse.quote(f"{p['ex']}:{p['sym']}" if p["ex"] else p["sym"], safe=":")
-        name = "放量突破 50 日高" if p["kind"] == "BRK" else f"A0（META + RS {p.get('rs') or '≥90'}）"
+        name = ("放量突破 50 日高" if p["kind"] == "BRK" else f"即将突破名单 · 正在放量突破（RS {p.get('rs') or '—'}）" if p["kind"] == "PRE"
+                else f"A0（META + RS {p.get('rs') or '≥90'}）")
+        if p["kind"] == "PRE":
+            t = tvp.get(p["sym"])
+            chk = "" if not t else (f"（TradingView 现价 {t:.2f}）" if abs(t / px - 1) <= 0.015 else f"⚠ TradingView 现价 {t:.2f}，已经离提醒价超过 1.5%，请先看图")
+            back = "；⚠ 现价已跌回突破价下面" if t and t < p["level"] else ""
+            L.append(f"🚀 <a href=\"{html.escape(url)}\"><b>{html.escape(p['sym'])}</b></a> {name}")
+            L.append(f"  买点 <b>{px:.2f}</b>：{html.escape(b['why'])}{chk}{back}")
+            L.append(f"  止损：收盘跌破 <b>{stop:.2f}</b>（−{p['stop_pct'] * 100:.0f}%）就第二天开盘卖；否则拿 60 个交易日。"
+                     f"回测里约 36% 的提醒当天收盘会跌回突破价下，照规则卖就好。名单日 {p['sig'][5:]}")
+            L.append("")
+            continue
         t = tvp.get(p["sym"])
         chk = "" if not t else (f"（TradingView 现价 {t:.2f}）" if abs(t / px - 1) <= 0.01 else f"⚠ TradingView 现价 {t:.2f}，和 2 小时收盘差超过 1%，请先看图")
         L.append(f"🟢 <a href=\"{html.escape(url)}\"><b>{html.escape(p['sym'])}</b></a> {name}")
@@ -131,7 +183,7 @@ def main():
                  + (f"；预挂 {px * (1 - p['hard_pct']):.2f}（−{p['hard_pct'] * 100:.0f}%）保护单" if p.get("hard_pct") else "")
                  + f"；否则拿 60 个交易日。信号日 {p['sig'][5:]}")
         L.append("")
-    L += ["<i>按多时间框架研究：日线信号 + 2 小时买点。仅供学习，不构成投资建议。</i>"]
+    L += ["<i>日线信号 + 盘中买点（规则计算）。最终灯号是红灯时只观察、不买。仅供学习，不构成投资建议。</i>"]
     text = "\n".join(L)
     if DRY:
         print(text)
