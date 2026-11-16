@@ -1,11 +1,22 @@
 [
  {
+  "sym": "CRL",
+  "ex": "NYSE",
+  "kind": "A0",
+  "sig": "2026-11-16",
+  "close": 335.52,
+  "high": 338.2,
+  "stop_pct": 0.08,
+  "hard_pct": 0.12,
+  "rs": 97
+ },
+ {
   "sym": "ETSY",
   "ex": "NYSE",
   "kind": "A0",
-  "sig": "2026-11-09",
-  "close": 88.44,
-  "high": 91.65,
+  "sig": "2026-11-16",
+  "close": 85.0,
+  "high": 88.98,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 91
@@ -14,12 +25,12 @@
   "sym": "ICLR",
   "ex": "NASDAQ",
   "kind": "A0",
-  "sig": "2026-11-13",
-  "close": 194.65,
-  "high": 200.56,
+  "sig": "2026-11-16",
+  "close": 191.4,
+  "high": 195.47,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
-  "rs": 92
+  "rs": 93
  },
  {
   "sym": "RVTY",
@@ -44,19 +55,6 @@
   "rs": 95
  },
  {
-  "sym": "SGRY",
-  "ex": "NASDAQ",
-  "kind": "BRK",
-  "sig": "2026-11-09",
-  "close": 26.45,
-  "high": 27.23,
-  "level": 23.37,
-  "stop_pct": 0.15,
-  "hard_pct": null,
-  "wup": true,
-  "rs": 94
- },
- {
   "sym": "TGTX",
   "ex": "NASDAQ",
   "kind": "BRK",
@@ -73,34 +71,46 @@
   "sym": "QGEN",
   "ex": "NYSE",
   "kind": "PRE",
-  "sig": "2026-11-13",
-  "close": 49.89,
+  "sig": "2026-11-16",
+  "close": 49.81,
   "level": 50.97,
-  "avgv": 6727427,
+  "avgv": 6705253,
   "stop_pct": 0.15,
   "hard_pct": null,
-  "rs": 76
+  "rs": 78
+ },
+ {
+  "sym": "SGRY",
+  "ex": "NASDAQ",
+  "kind": "PRE",
+  "sig": "2026-11-16",
+  "close": 26.79,
+  "level": 27.23,
+  "avgv": 7708316,
+  "stop_pct": 0.15,
+  "hard_pct": null,
+  "rs": 98
  },
  {
   "sym": "SYNA",
   "ex": "NASDAQ",
   "kind": "PRE",
-  "sig": "2026-11-13",
-  "close": 118.14,
+  "sig": "2026-11-16",
+  "close": 117.52,
   "level": 121.98,
-  "avgv": 1064160,
+  "avgv": 1088228,
   "stop_pct": 0.15,
   "hard_pct": null,
-  "rs": 79
+  "rs": 85
  },
  {
   "sym": "VRNS",
   "ex": "NASDAQ",
   "kind": "PRE",
-  "sig": "2026-11-13",
-  "close": 48.94,
+  "sig": "2026-11-16",
+  "close": 49.09,
   "level": 50.31,
-  "avgv": 4299174,
+  "avgv": 4013500,
   "stop_pct": 0.15,
   "hard_pct": null,
   "rs": 93
