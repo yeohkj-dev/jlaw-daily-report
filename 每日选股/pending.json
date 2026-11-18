@@ -27,7 +27,7 @@
   "kind": "A0",
   "sig": "2026-11-16",
   "close": 191.4,
-  "high": 195.47,
+  "high": 196.32,
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 93
@@ -74,7 +74,7 @@
   "sig": "2026-11-16",
   "close": 49.81,
   "level": 50.97,
-  "avgv": 6705253,
+  "avgv": 6705255,
   "stop_pct": 0.15,
   "hard_pct": null,
   "rs": 78
@@ -86,7 +86,7 @@
   "sig": "2026-11-16",
   "close": 26.79,
   "level": 27.23,
-  "avgv": 7708316,
+  "avgv": 7708315,
   "stop_pct": 0.15,
   "hard_pct": null,
   "rs": 98
@@ -98,7 +98,7 @@
   "sig": "2026-11-16",
   "close": 117.52,
   "level": 121.98,
-  "avgv": 1088228,
+  "avgv": 1088230,
   "stop_pct": 0.15,
   "hard_pct": null,
   "rs": 85
@@ -110,7 +110,7 @@
   "sig": "2026-11-16",
   "close": 49.09,
   "level": 50.31,
-  "avgv": 4013500,
+  "avgv": 4070340,
   "stop_pct": 0.15,
   "hard_pct": null,
   "rs": 93

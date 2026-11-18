@@ -1,0 +1,260 @@
+{
+ "date": "2026-11-17",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-17（周二）收盘</b>\n\n<b>📉 昨晚：美股下跌</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> -1.0% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> -0.7% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> -1.4%\n10 年美债 5.11%（+0 基点） · VIX 25.4（+2.6） · 油（结算价） -1.9% · 美元 +0.0% · 金（结算价） -1.0%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://finance.yahoo.com/m/3b22ed8c-00c3-32f8-89f5-91bc21ccb366/dow-jones-futures-rise%2C-techs.html?.tsrc=rss\">Dow Jones Futures Rise, Techs Jump As Nvidia Beats, Says This On Jensen Huang; Target, Anthropic IPO Ahead</a>（4 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxNQUo5ZjhNVXlMSUJ5eUQ1Q05MeXVTM0VEZ2ZEd1E1c1NzS0NlNFdROTZaOS02aE44OXZHWjFuNWR3U0hFMDNZRkp0UlhxN3JCaWpDQ2xIelZ5amJJbDhOQ0pEei03RkFaTFFRbFBFSUFpbWlTYTZCYTcwZmgtRi1LMzM0dzVFNkFubWpkTGlRTmlHbWZ2VTBDaDlWWUVodzlFZk5ndnNRQzhWS3BtdGRUUzJDZmhoLTN5M1E?oc=5\">Fed needs to prepare for bond-market intervention during calm times, Hammack says</a>（2 家媒体）\n• <a href=\"https://www.marketwatch.com/story/nvidias-stock-rises-as-blowout-numbers-help-ease-ceo-transition-fears-2f20d38a?mod=mw_rss_topstories\">Nvidia’s stock rises as blowout numbers help ease CEO transition fears</a>\n• <a href=\"https://finance.yahoo.com/m/09235625-48aa-3cd5-9f49-db1550a67866/review-%26-preview%3A-bad-time.html?.tsrc=rss\">Review &amp; Preview: Bad Time for a Selloff</a>\n• 数据：核心零售销售 实际 <b>0.6%</b>（预期 0.4%，高于预期；上期修正为 1.1%（原 0.9%）） → 新闻里还没找到结果\n• 数据：零售销售 实际 <b>0.2%</b>（预期 0.1%，高于预期；上期 0.8%） → 新闻里还没找到结果\n\n<b>🏭 行业</b>\n最抗跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> -0.5%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLI\"><b>工业</b></a> -0.5%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLF\"><b>金融</b></a> -1.9%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLU\"><b>公用事业</b></a> -1.6%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:SPCX\"><b>SPCX</b></a> +3.2% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:LITE\"><b>LITE</b></a> +2.6% — <a href=\"https://finance.yahoo.com/markets/stocks/articles/lumentum-lite-got-takeover-offer-220406453.html?.tsrc=rss\">Lumentum (LITE) Got a Takeover Offer. What Does It Mean for Holders? (</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AVGO\"><b>AVGO</b></a> +2.5% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:CRM\"><b>CRM</b></a> -9.5% — <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-stocks-slide-on-ai-chip-and-tech-pressures-salesforce-plummets-9/?.tsrc=rss\">Stock Market Today, Nov. 17: Stocks Slide on AI Chip and Tech Pressure</a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:INTU\"><b>INTU</b></a> -7.2% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:NOW\"><b>NOW</b></a> -6.5% — <a href=\"https://www.cnbc.com/2026/11/16/kevin-warsh-fed-ai-jobs-productivity-interest-rateshtml.html\">Analysis: The Fed's chairman sees an AI revolution coming. Now he has </a>\n\n<b>👀 今晚要看</b>\n• 14:00 美东（马来西亚 03:00）FOMC 会议纪要（预期 —，前值 —）\n• 业绩：<a href=\"https://www.tradingview.com/chart/?symbol=NYSE:TJX\"><b>TJX</b></a>、<a href=\"https://www.tradingview.com/chart/?symbol=NYSE:LOW\"><b>LOW</b></a>\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-16）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": -1.01,
+   "check": -1.01,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": -0.73,
+   "check": -0.73,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": -1.43,
+   "check": -1.43,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 5.11,
+   "check": 5.1,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 25.45,
+   "check": 25.46,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": {
+    "close": 84.38,
+    "chg": -1.895128473433333
+   },
+   "check": null,
+   "source": "Yahoo CL=F",
+   "ok": null
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": {
+    "close": 103.648,
+    "chg": 0.04633204633204809
+   },
+   "check": null,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": null
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": {
+    "close": 3824.1,
+    "chg": -1.0377309663060896
+   },
+   "check": null,
+   "source": "Yahoo GC=F",
+   "ok": null
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": -0.91,
+   "check": -0.91,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": -0.89,
+   "check": -0.89,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": -1.46,
+   "check": -1.46,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": -1.91,
+   "check": -1.91,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": -0.55,
+   "check": -0.55,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": -1.22,
+   "check": -1.22,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": -0.52,
+   "check": -0.52,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": -1.41,
+   "check": -1.41,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": -1.23,
+   "check": -1.23,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": -1.59,
+   "check": -1.59,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": -1.49,
+   "check": -1.49,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "SPCX",
+   "brief": 3.16,
+   "check": 3.16,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "SPCX 市值 ≥500 亿",
+   "brief": 1924,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "LITE",
+   "brief": 2.56,
+   "check": 2.56,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "LITE 市值 ≥500 亿",
+   "brief": 51,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AVGO",
+   "brief": 2.46,
+   "check": 2.46,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AVGO 市值 ≥500 亿",
+   "brief": 1631,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "CRM",
+   "brief": -9.45,
+   "check": -9.45,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "CRM 市值 ≥500 亿",
+   "brief": 160,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "INTU",
+   "brief": -7.17,
+   "check": -7.17,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "INTU 市值 ≥500 亿",
+   "brief": 86,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NOW",
+   "brief": -6.51,
+   "check": -6.51,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NOW 市值 ≥500 亿",
+   "brief": 96,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "Core Retail Sales m/m",
+   "brief": "0.6%",
+   "check": "当天新闻里没有找到这个数字（只有 TradingView 一个来源）",
+   "source": "TradingView vs 当天新闻",
+   "ok": null
+  },
+  {
+   "item": "Retail Sales m/m",
+   "brief": "0.2%",
+   "check": "当天新闻里有相同数字",
+   "source": "TradingView vs 当天新闻",
+   "ok": true
+  },
+  {
+   "item": "TJX 业绩日期",
+   "brief": "下个交易日",
+   "check": "2026-11-18",
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "LOW 业绩日期",
+   "brief": "下个交易日",
+   "check": "2026-11-18",
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
+}
