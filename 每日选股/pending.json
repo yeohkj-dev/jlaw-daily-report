@@ -42,40 +42,5 @@
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 94
- },
- {
-  "sym": "RXO",
-  "ex": "NYSE",
-  "kind": "A0",
-  "sig": "2026-11-11",
-  "close": 28.14,
-  "high": 28.41,
-  "stop_pct": 0.08,
-  "hard_pct": 0.12,
-  "rs": 95
- },
- {
-  "sym": "QGEN",
-  "ex": "NYSE",
-  "kind": "PRE",
-  "sig": "2026-11-17",
-  "close": 49.75,
-  "level": 50.97,
-  "avgv": 6308955,
-  "stop_pct": 0.15,
-  "hard_pct": null,
-  "rs": 76
- },
- {
-  "sym": "VRNS",
-  "ex": "NASDAQ",
-  "kind": "PRE",
-  "sig": "2026-11-17",
-  "close": 49.02,
-  "level": 50.31,
-  "avgv": 3883700,
-  "stop_pct": 0.15,
-  "hard_pct": null,
-  "rs": 94
  }
 ]

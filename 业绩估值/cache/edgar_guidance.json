@@ -1202,5 +1202,31 @@
 "Capital expenditures of approximately 2.5% of total sales The Home Depot will conduct a conference call today at 9 a.m.",
 "Our adjusted diluted earnings per share guidance for fiscal 2026 excludes an expected after-tax impact of approximately $0.55 from acquired intangible asset amortization."
 ]
+},
+"TJX:2026-11-18": {
+"url": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
+"filed": "2026-11-18",
+"quotes": [
+"The Company now expects to repurchase approximately $3.0 billion of TJX stock during Fiscal 2027.",
+"For the full year Fiscal 2027, the Company now expects consolidated comparable sales to be up 4%.",
+"The Company expects its full-year diluted earnings per share outlook to be in the range of $5.33 to $5.36."
+]
+},
+"LOW:2026-11-18": {
+"url": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000126/exhibit991-10302026.htm",
+"filed": "2026-11-18",
+"quotes": [
+"Comparable sales expected to be up approximately +0.5% compared to prior year (previously flat)",
+"Our adjusted operating margin and adjusted diluted earnings per share guidance for fiscal 2026 excludes an expected 40 basis points and $0.50 after tax impact, respectively, from intangible asset amortization."
+]
+},
+"DHR:2026-10-21": {
+"url": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000201/dhr-20261021xex991.htm",
+"filed": "2026-10-21",
+"quotes": [
+"For the fourth quarter 2026, the Company anticipates that non-GAAP core revenue excluding respiratory revenue will increase in the 4.0% to 5.0% range year-over-year.",
+"We expect respiratory revenue to be an approximately 150 basis point headwind, resulting in core revenue growth of approximately 3.0%.",
+"For full year 2026, the Company is increasing its full year adjusted diluted net earnings per common share guidance to a range of $8.57 to $8.62 versus previous guidance of $8.45 to $8.60."
+]
 }
 }
