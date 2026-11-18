@@ -307,6 +307,43 @@ def load_credit_hist():
         return list(csv.DictReader(f))
 
 
+# 2026-11-12 起债券选股器失效，改按代码直接取报价（tools/tv_quote.py）。每家固定同一只债券（和 信用历史.csv 一样），
+# 第一个是 FINRA（美国成交价，延迟约 4 小时），第二个是德国交易所报价（核对用）；CoreWeave 这只是 RegS，只在德国交易。
+# 换债券时两个代码都要改，代码可用 symbol-search.tradingview.com/symbol_search/v3/?text=<债券名>&search_type=bond 查。
+BOND_TICKERS = {
+    "MSFT": ("Microsoft Corporation 3.45% 08-AUG-2036", "FINRA:MSFT4389879", "FWB:US594918BS2"),
+    "AAPL": ("Apple Inc. 4.5% 23-FEB-2036", "FINRA:AAPL4336436", "FWB:US37833BW9"),
+    "GOOGL": ("Alphabet Inc. 4.8% 15-FEB-2036", "FINRA:GOOG6308907", "FWB:US2079KBM8"),
+    "AMZN": ("Amazon.com, Inc. 4.875% 13-MAR-2036", "FINRA:AMZN6336477", "FWB:US23135DF0"),
+    "META": ("Meta Platforms, Inc. 5.25% 15-MAY-2036", "FINRA:FB6383866", "FWB:US30303MAH5"),
+    "NVDA": ("NVIDIA Corporation 4.95% 15-JUN-2036", "FINRA:NVDA6427659", "FWB:US67066GAT1"),
+    "ORCL": ("Oracle Corporation 5.7% 04-FEB-2036", "FINRA:ORCL6302370", "FWB:US68389XDZ5"),
+    "CRWV": ("CoreWeave, Inc. 8.5% 15-JUL-2032 RegS", "FWB:XS333313928", "GETTEX:A4EWUD"),
+}
+
+
+def ws_bonds(today):
+    """按代码取报价（主来源 + 第二来源），自己算到期收益率。回传 {sym: dict(desc, mat, y, px, …)}。"""
+    import tv_quote
+    q = tv_quote.quotes([t for _, a, b in BOND_TICKERS.values() for t in (a, b)])
+    out = {}
+    for sym, (desc, main_t, alt_t) in BOND_TICKERS.items():
+        cm = tv_quote.parse_bond(desc)
+        m, a = q.get(main_t) or {}, q.get(alt_t) or {}
+        if not cm or not m.get("lp") or not m.get("lp_time"):
+            continue
+        cpn, mat = cm
+        qd = dt.datetime.fromtimestamp(m["lp_time"], dt.timezone.utc).date()
+        if (today - qd).days > 5:                              # 报价太旧不用
+            continue
+        y = tv_quote.ytm(m["lp"], cpn, mat, qd)
+        alt = a.get("lp") if a.get("lp_time") and (today - dt.datetime.fromtimestamp(a["lp_time"], dt.timezone.utc).date()).days <= 5 else None
+        out[sym] = dict(desc=desc, mat=mat, y=y, px=m["lp"], venues=2 if alt else 1, finra=main_t.startswith("FINRA:"),
+                        spread_q=abs(tv_quote.ytm(alt, cpn, mat, qd) - y) * 100 if alt else 0.0, qdate=str(qd),
+                        px2=alt, src=main_t, src2=alt_t, tv_y=m.get("yield_to_maturity"))
+    return out
+
+
 def credit(today, hist=()):
     last_bond = {h["sym"]: h["bond"] for h in hist}            # 历史按日期排，后面的覆盖前面的
     curve = ust_curve()
@@ -316,6 +353,16 @@ def credit(today, hist=()):
             b = pick_bond(name, window, today, last_bond.get(sym))
         except Exception:
             b = None
+        rows.append(b)
+    if not any(rows):
+        try:
+            got = ws_bonds(today)
+        except Exception as e:
+            print("债券报价（websocket）取不到：", type(e).__name__, file=sys.stderr)
+            got = {}
+        rows = [got.get(sym) for sym, *_ in ISSUERS]
+    rows, raw = [], rows
+    for (sym, zh, name, window), b in zip(ISSUERS, raw):
         if b:
             yrs = (b["mat"] - today).days / 365.25
             b.update(sym=sym, zh=zh, yrs=yrs, ust=ust_at(curve, yrs), spread=(b["y"] - ust_at(curve, yrs)) * 100,
@@ -354,6 +401,27 @@ def save_credit_hist(today, cr, hist):
         for r in cr["rows"]:
             if r.get("y"):
                 w.writerow([today, r["sym"], r["desc"], round(r["y"], 3), round(r["spread"])])
+
+
+def bond_tol(r):
+    """两个交易所收益率可以差多少基点：一般 30；高收益债交易少，用收益率的 5%（例如 15% → 75 基点）。"""
+    return max(30, r["y"] * 5)
+
+
+def bond_ok(rows):
+    got = [r for r in rows if r.get("y")]
+    return len(got) == len(rows) and not any(r.get("venues", 0) >= 2 and r["spread_q"] > bond_tol(r) for r in got)         and not any(r.get("tv_y") and abs(r["y"] - r["tv_y"]) > 0.15 for r in got)
+
+
+def bond_check_txt(rows):
+    """债券报价核对：主来源 vs 第二来源的收益率差（≤30 基点）；自己算的到期收益率 vs TradingView 给的（≤0.15 个百分点）。"""
+    got = [r for r in rows if r.get("y")]
+    bad = [f'{r["sym"]} 两个交易所差 {r["spread_q"]:.0f} 基点' for r in got if r.get("venues", 0) >= 2 and r["spread_q"] > bond_tol(r)]
+    one = [r["sym"] for r in got if r.get("venues", 0) < 2]
+    tv = [r for r in got if r.get("tv_y")]
+    tvbad = [f'{r["sym"]} 自算 {r["y"]:.2f}% vs TV {r["tv_y"]:.2f}%' for r in tv if abs(r["y"] - r["tv_y"]) > 0.15]
+    dates = sorted({r["qdate"] for r in got if r.get("qdate")})
+    return ("报价日 " + "、".join(dates) + "；" if dates else "") +         f'{sum(1 for r in got if r.get("venues", 0) >= 2)} 家有第二个交易所核对' + (f'（{"、".join(bad)}）' if bad else "（收益率差都在容许范围：≤30 基点，高收益债 ≤ 收益率的 5%）") +         (f'；只有一个报价：{"、".join(one)}' if one else "") +         (f'；TradingView 也给了 {len(tv)} 家收益率' + (f'，不一致：{"、".join(tvbad)}' if tvbad else "，和自算一致") if tv else "")
 
 
 def credit_html(cr, hist, today):
@@ -411,6 +479,8 @@ def credit_html(cr, hist, today):
         mk.append(f'<li>高收益债 ETF（HYG）近 1 个月 {e["HYG"]["m1"]:+.1f}%，国债 ETF（IEF）{e["IEF"]["m1"]:+.1f}%，差 <b style="color:{"#C62828" if rel < -1 else "#2E7D32" if rel > 0 else "#555"};">{rel:+.1f} 点</b>'
                   f'（明显跑输代表市场在避开违约风险）；投资级债 ETF（LQD）{e["LQD"]["m1"]:+.1f}%。</li>')
     curve = "、".join(f"{y} 年 {v:.2f}%" for y, v in cr["curve"])
+    qd = sorted({r["qdate"] for r in cr["rows"] if r.get("qdate")})
+    qdates = f"报价日：{'、'.join(qd)}。" if qd else ""
     stale_box = (f'<div style="margin:0 0 8px;padding:8px 12px;background:#FDECEA;border-left:4px solid #C62828;color:#C62828;font-size:13px;font-weight:600;">'
                  f'⚠ 今天取不到债券报价（TradingView 债券选股器从 2026-11-12 起不理会筛选条件，只回传固定的欧洲债券）。'
                  f'下面的收益率和利差是 <b>{cr["stale"]}</b> 的数据，「同期美债」按当天利差倒推；每天仍会再试，恢复后自动换回当天数据。</div>') if cr.get("stale") else ""
@@ -418,7 +488,8 @@ def credit_html(cr, hist, today):
 {stale_box}<p style="margin:0 0 6px;font-size:13px;line-height:1.6;">{"<br>".join(lines)}</p>{tbl}
 <ul style="margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.6;">{"".join(mk)}</ul>
 <p style="margin:6px 0 0;font-size:11px;color:#777;line-height:1.5;">信用利差 = 公司债收益率 − 同年期美国国债收益率（美债曲线：{curve}），越高代表市场要求的违约补偿越多；
-利差在短时间内明显扩大，往往比股价更早反映公司的债务压力。债券报价来自 TradingView（优先用美国 FINRA 成交价），每只公司选一只约 10 年期的普通债（CoreWeave 选 2030–2033 年到期的）。
+利差在短时间内明显扩大，往往比股价更早反映公司的债务压力。债券报价来自 TradingView（美国 FINRA 成交价，延迟约 4 小时；德国交易所报价用来核对），到期收益率按价格、票息、到期日自己计算（每半年付息）；
+每家公司固定同一只约 10 年期的普通债（CoreWeave 是 2032 年到期、只在欧洲交易的 RegS 债，用德国交易所报价）。{qdates}
 <b>违约率</b>：Moody's、S&amp;P 等的违约率是付费数据，这里没有，改用利差反映市场对违约风险的看法。</p>"""
 
 
@@ -779,11 +850,9 @@ def main():
                       "sectors": [x["sym"] for x in sec], "sector_check": check,
                       "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,
                       "checks": [dict(name="行业 ETF 收盘价（Yahoo vs TradingView）", ok=check_ok, critical=False, detail=check),
-                                 dict(name="科技 / AI 债券报价", ok=bool(cr) and not cr.get("stale") and all(r.get("y") for r in cr["rows"]), critical=False,
+                                 dict(name="科技 / AI 债券报价", ok=bool(cr) and not cr.get("stale") and bond_ok(cr["rows"]), critical=False,
                                       detail=("取不到" if not cr else f'今天取不到，页面沿用 {cr["stale"]} 的数据' if cr.get("stale") else
-                                              f'{sum(1 for r in cr["rows"] if r.get("y"))}/{len(cr["rows"])} 家取到；'
-                                              + "、".join(f'{r["sym"]} {r["venues"]} 个报价' + ("" if r["finra"] else "（无 FINRA）")
-                                                         for r in cr["rows"] if r.get("y")))),
+                                              f'{sum(1 for r in cr["rows"] if r.get("y"))}/{len(cr["rows"])} 家取到；' + bond_check_txt(cr["rows"]))),
                                  dict(name="整体信用利差（FRED）", ok=bool(cr) and all(cr["fred"].values()), critical=False,
                                       detail=("取到" if cr and all(cr["fred"].values()) else "FRED 取不到，改用 HYG / IEF 走势")),
                                  dict(name="CNN 恐惧贪婪指数", ok=bool(fng), critical=False,
