@@ -79,8 +79,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "没有变化"
           else
-            git commit -q -m "每日报告 $(date -u +%Y-%m-%d)"
-            git pull --rebase origin main
-            git push origin main
-            git push
+             git commit -q -m "每日报告 $(date -u +%Y-%m-%d)"
+             git stash --include-untracked
+             git pull --rebase -X theirs origin main
+             git push origin main
           fi
