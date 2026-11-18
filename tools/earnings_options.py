@@ -122,6 +122,10 @@ def fragment(rows, today):
     ok = sorted([r for r in rows if "err" not in r and 0 <= (dt.date.fromisoformat(r["er"]) - today).days <= DAYS], key=lambda r: (r["er"], r["sym"]))
     body = ""
     for r in ok:
+        # 有任何一个数字是空的（例如期权链没有成交、算不出最大痛点）就整行不显示，免得整个分页失败
+        if any(r.get(k) is None for k in ("px", "move", "lo", "hi", "call_wall", "put_wall", "pain")):
+            continue
+        pc_txt = "—" if r["pc"] is None else f'{r["pc"]:.2f}'
         url = "https://www.tradingview.com/chart/?symbol=" + (f"{r['ex']}:{r['sym']}" if r["ex"] else r["sym"])
         w = f'<br><span style="color:#B26A00;font-size:11px;">⚠ {html.escape("；".join(r["warn"]))}</span>' if r["warn"] else ""
         body += (f'<tr><td {td}><a href="{html.escape(url)}" target="_blank" rel="noopener" style="color:#1565C0;text-decoration:none;font-weight:700;">{r["sym"]} 📈</a>'
@@ -129,7 +133,7 @@ def fragment(rows, today):
                  f'<td {td}><b>±{r["move"]:.1f}%</b><br><span style="font-size:11px;color:#666;">{r["lo"]:,.2f} – {r["hi"]:,.2f}</span>{w}</td>'
                  f'<td {td}>{r["call_wall"]:,.2f}<br><span style="font-size:11px;color:#666;">{(r["call_oi"] or 0):,} 张</span></td>'
                  f'<td {td}>{r["put_wall"]:,.2f}<br><span style="font-size:11px;color:#666;">{(r["put_oi"] or 0):,} 张</span></td>'
-                 f'<td {td}>{r["pain"]:,.2f}</td><td {td}>{r["pc"]:.2f}</td><td {td}>{r["exp"][5:]}' + (f'（IV {r["iv"]:.0f}%）' if r["iv"] > 5 else '') + '</td></tr>'
+                 f'<td {td}>{r["pain"]:,.2f}</td><td {td}>{pc_txt}</td><td {td}>{r["exp"][5:]}' + (f'（IV {r["iv"]:.0f}%）' if (r["iv"] or 0) > 5 else '') + '</td></tr>'
                  if r["call_wall"] and r["put_wall"] else "")
     tbl = (f'<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12.5px;"><tr>'
            f'<th {th}>股票</th><th {th}>财报日</th><th {th}>现价</th><th {th}>期权预期波动<br>（财报后到期）</th><th {th}>看涨未平仓最多<br>（上方压力）</th>'

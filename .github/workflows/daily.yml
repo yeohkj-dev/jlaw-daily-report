@@ -18,7 +18,7 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +34,13 @@ jobs:
             https://github.com/notofonts/noto-cjk/raw/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
           pip install -q matplotlib
           rm -rf ~/.cache/matplotlib
+
+      # 平日版：先等 Yahoo 日线更新到最新交易日（最多 60 分钟，之后照样继续）。2026-11-17 曾因 Yahoo 还没更新，全部模块用了前一天的数据
+      - name: 等 Yahoo 日线更新
+        if: github.event.schedule != '30 23 * * 0'
+        timeout-minutes: 65
+        continue-on-error: true
+        run: python tools/wait_data.py --max-min 60
 
       # 量化系统：市场状态分 + 进出场信号 + 完整回测报告（docs/quant.html）
       # 个股数据（约 2,250 只 × 5 年）用 actions/cache 保存，平常每天只补最近几天
@@ -53,7 +60,12 @@ jobs:
 
       # --strict：数据核对有严重问题时，这一步会失败、网站保留上一份报告，GitHub 会发邮件通知
       - name: 生成报告（大盘 / 选股 / 新闻 / 业绩估值 / 每周展望）
-        run: python tools/jlaw_daily_report.py . --no-open --publish docs --strict
+        # 失败（多半是数据源一时取不到）就等 10 分钟自动再跑一次（2026-11-17 22:30 那次失败，2 小时后手动重跑就成功）
+        run: |
+          python tools/jlaw_daily_report.py . --no-open --publish docs --strict || {
+            echo "第一次失败，10 分钟后再试一次"; sleep 600
+            python tools/jlaw_daily_report.py . --no-open --publish docs --strict
+          }
 
       # 早报发到 Telegram（只在报告成功发布后；同一份只发一次；发送失败不影响网站）
       - name: 发送早报到 Telegram

@@ -367,9 +367,23 @@ def main():
                  + (f"{news['stories']} 条新闻" if news else "新闻失败"),
                  we_body + (body_of(news["html"]) if news else error_box("新闻", errs["news"]))))
     ev = res.get("ev")
-    tabs.append(("ev", "业绩与估值", f"最近公布 {len(ev['recent'])} 家" if ev else "失败",
-                 ((res.get("eopt") or {}).get("fragment") or "") +
-                 (("<!--EV-START-->" + body_of(ev["html"]) + "<!--EV-END-->") if ev else error_box("业绩与估值", errs["ev"]))))
+    # 业绩与估值有严重问题（例如 Yahoo 一时只取到不到 70% 公司）时，不要因为这一页挡住整个网站：
+    # 这一页沿用网站上一份，并把它的严重问题降成提醒（2026-11-17 22:30 那次就是因为「公司数据」整个网站没更新）
+    ev_bad = ev and any(not c["ok"] and c.get("critical") for c in ev.get("checks") or [])
+    old_ev = published_panel("ev") if ev_bad else None
+    if ev_bad:
+        for c in ev["checks"]:
+            if not c["ok"] and c.get("critical"):
+                c["critical"] = False
+                c["detail"] += "（这一页沿用上一份）" if old_ev else "（这一页照样显示今天取到的部分）"
+    if old_ev:
+        m = re.search(r"<!--EV-START-->.*?<!--EV-END-->", old_ev, re.S)
+        ev_body = note("业绩与估值这次取不到足够的公司数据（Yahoo 一时限制），这一页是上一份；下次更新会恢复。") + (m.group(0) if m else old_ev)
+        ev_sub = "上一份"
+    else:
+        ev_body = ("<!--EV-START-->" + body_of(ev["html"]) + "<!--EV-END-->") if ev else error_box("业绩与估值", errs["ev"])
+        ev_sub = f"最近公布 {len(ev['recent'])} 家" if ev else "失败"
+    tabs.append(("ev", "业绩与估值", ev_sub, ((res.get("eopt") or {}).get("fragment") or "") + ev_body))
     wk = res.get("wk")
     if wk:
         tabs.append(("wk", "每周展望", f"{wk['verdict']}（{wk['total']:+d}）", body_of(wk["html"])))
@@ -484,7 +498,8 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .toc{{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:1080px;margin:10px auto 0;padding:0 16px}}
 .toc a{{flex:0 0 auto;font-size:12px;color:#1e3a5f;background:#fff;border:1px solid #d6dde6;border-radius:99px;padding:4px 10px;text-decoration:none;white-space:nowrap}}
 .toc a:hover{{background:#1e3a5f;color:#fff;text-decoration:none!important}}
-#totop{{position:fixed;right:14px;bottom:16px;z-index:9;display:none;border:0;border-radius:99px;background:#1e3a5f;color:#fff;font-size:13px;padding:8px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}}
+.subwrap{{position:sticky;top:0;z-index:9;background:#eef1f5;padding-bottom:8px;box-shadow:0 6px 8px -8px rgba(0,0,0,.25)}}
+#totop{{position:fixed;right:14px;bottom:16px;z-index:11;display:none;border:0;border-radius:99px;background:#1e3a5f;color:#fff;font-size:13px;padding:8px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}}
 @media (max-width:900px){{.fl-s{{display:none}}}}
 @media (max-width:600px){{.fl{{padding:5px 10px}}.fl-t{{font-size:13px}}.panel h3{{scroll-margin-top:230px}}}}
 </style></head><body>
@@ -493,7 +508,7 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 {chk_html}{update_html(dt.datetime.now(dt.timezone.utc))}<!--NAV--></div>
 <div class="top">{final_light(state)}</div>
 <div class="tabs" role="tablist">{btns}</div></div>
-{subs}
+<div class="subwrap" id="subwrap">{subs}</div>
 {panels}
 <button id="totop" title="回到最上面">↑ 顶部</button>
 <script>
@@ -504,7 +519,11 @@ hs.forEach(function(h,i){{if(h.closest('details'))return;var t=h.textContent.tri
 h.id=h.id||(p.id+'-h'+i);var a=document.createElement('a');a.href='#'+h.id;a.textContent=t;
 a.addEventListener('click',function(e){{e.preventDefault();h.scrollIntoView({{behavior:'smooth',block:'start'}});}});nav.appendChild(a);}});
 if(nav.children.length>=3)p.insertBefore(nav,p.firstChild);}});
-(function(){{var b=document.getElementById('totop');window.addEventListener('scroll',function(){{b.style.display=window.scrollY>900?'block':'none';}},{{passive:true}});
+/* 小分页那一排固定在页头下面（页头高度会随画面宽度变，所以用 JS 量） */
+(function(){{var bar=document.querySelector('.bar'),w=document.getElementById('subwrap');
+function fit(){{w.style.top=bar.offsetHeight+'px';document.querySelectorAll('.panel h3').forEach(function(h){{h.style.scrollMarginTop=(bar.offsetHeight+w.offsetHeight+8)+'px';}});}}
+fit();window.addEventListener('resize',fit);document.querySelectorAll('.tab,.stab').forEach(function(x){{x.addEventListener('click',function(){{setTimeout(fit,0);}});}});}})();
+(function(){{var b=document.getElementById('totop');window.addEventListener('scroll',function(){{b.style.display=window.scrollY>200?'block':'none';}},{{passive:true}});
 b.addEventListener('click',function(){{window.scrollTo({{top:0,behavior:'smooth'}});}});}})();
 var tabs=document.querySelectorAll('.tab'),subs=document.querySelectorAll('.stab'),last={{}};
 function show(id){{var b=document.getElementById(id);if(!b)return;var g=b.dataset.group||'';
