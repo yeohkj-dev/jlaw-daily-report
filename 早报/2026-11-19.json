@@ -1,0 +1,230 @@
+{
+ "date": "2026-11-19",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-19（周四）收盘</b>\n\n<b>📉 昨晚：美股大跌</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> -2.0% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> -2.2% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> -2.2%\n10 年美债 5.05%（-2 基点） · VIX 28.4（+3.9） · 油（结算价） +0.7% · 美元 +0.1% · 金（结算价） -1.5%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://www.marketwatch.com/story/anthropics-stock-surges-in-its-debut-and-the-rest-of-the-market-dives-anyway-19671218?mod=mw_rss_topstories\">Anthropic’s stock surges in its debut — and the rest of the market dives anyway</a>（18 家媒体）\n• <a href=\"https://www.marketwatch.com/story/why-micron-intel-and-other-ai-stocks-are-getting-a-lift-on-thursday-cf6f59f8?mod=mw_rss_topstories\">Why Micron, Broadcom and other AI stocks gave up their gains Thursday</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxQZ2V1TTUwaFZ4T1pYN3VBVDlqZThZVHBvQ0VhNnRNNlpWVlZXLUYtVWh5T096NmxYbEsxdjF6T0JmZmZCM0lHQ01CT2NUcTdrUzJ0djdFbWRteWlNTWF4enhqajdoY2ZWcjBmc0lMYkpYczV1RDJVdmxZWFctNDI3bHFxOTBySmZvbHNDRXM5QmxqWUtieXFJYjZnUmNONVUzUnBTYTlMdlNqaDdzdkYweVRHZ2w?oc=5\">AI surge could strain US capacity and overheat economy, Fed's Goolsbee says</a>\n• <a href=\"https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-nvidia-slides-as-investors-weigh-ceo-transition-fallout-despite-strong-q3-results/?.tsrc=rss\">Stock Market Today, Nov. 19: Nvidia Slides as Investors Weigh CEO Transition Fallout Despite Strong Q3 Results</a>\n• 数据：Philly Fed Manufacturing Index（预期 20.6，前值 20.9）\n• 数据：首次申领失业金 实际 <b>203K</b>（预期 198K，高于预期；上期修正为 202K（原 200K））\n\n<b>🏭 行业</b>\n最抗跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> -0.7%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLU\"><b>公用事业</b></a> -1.2%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLY\"><b>可选消费</b></a> -2.8%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLC\"><b>通讯</b></a> -2.7%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:PANW\"><b>PANW</b></a> +6.4% — <a href=\"https://www.marketwatch.com/story/palo-alto-networks-stock-soars-as-earnings-show-ai-has-upped-the-stakes-for-cybersecurity-308e34b8?mod=mw_rss_topstories\">Palo Alto Networks’ stock gets a fresh AI-fueled boost from earnings</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:WDC\"><b>WDC</b></a> +3.0% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:CRWD\"><b>CRWD</b></a> +2.7% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AMD\"><b>AMD</b></a> -7.7% — <a href=\"https://www.cnbc.com/2026/11/19/amd-falls-on-short-seller-report-of-alleged-china-exposure.html\">AMD dives on short-seller report of alleged China exposure</a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:DASH\"><b>DASH</b></a> -5.8% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:UNH\"><b>UNH</b></a> -5.6% — 没有找到相关新闻\n\n<b>👀 今晚要看</b>\n• 没有高影响力数据或大公司业绩\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-19）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": -1.96,
+   "check": -1.96,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": -2.19,
+   "check": -2.19,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": -2.18,
+   "check": -2.18,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 5.05,
+   "check": 5.05,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 28.43,
+   "check": 28.44,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": 0.68,
+   "check": "前一天结算 82.44 vs 83.26；Yahoo 最后成交价 -0.31%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": 0.11,
+   "check": 0.06,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": -1.55,
+   "check": "前一天结算 3685.50 vs 3741.90；Yahoo 最后成交价 -3.01%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": -1.9,
+   "check": -1.9,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": -2.79,
+   "check": -2.79,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": -2.67,
+   "check": -2.67,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": -1.49,
+   "check": -1.49,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": -2.0,
+   "check": -2.0,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": -2.06,
+   "check": -2.06,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": -0.65,
+   "check": -0.65,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": -2.05,
+   "check": -2.05,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": -1.45,
+   "check": -1.45,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": -1.24,
+   "check": -1.24,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": -1.7,
+   "check": -1.7,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "PANW",
+   "brief": 6.42,
+   "check": 6.42,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "PANW 市值 ≥500 亿",
+   "brief": 296,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "WDC",
+   "brief": 2.98,
+   "check": 2.98,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "WDC 市值 ≥500 亿",
+   "brief": 111,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "CRWD",
+   "brief": 2.71,
+   "check": 2.71,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "CRWD 市值 ≥500 亿",
+   "brief": 249,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AMD",
+   "brief": -7.72,
+   "check": -7.72,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AMD 市值 ≥500 亿",
+   "brief": 802,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "DASH",
+   "brief": -5.8,
+   "check": -5.8,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "DASH 市值 ≥500 亿",
+   "brief": 69,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "UNH",
+   "brief": -5.55,
+   "check": -5.55,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "UNH 市值 ≥500 亿",
+   "brief": 296,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "Unemployment Claims",
+   "brief": "203K",
+   "check": "当天新闻里没有找到这个数字（只有 TradingView 一个来源）",
+   "source": "TradingView vs 当天新闻",
+   "ok": null
+  }
+ ]
+}
