@@ -31,16 +31,5 @@
   "stop_pct": 0.08,
   "hard_pct": 0.12,
   "rs": 94
- },
- {
-  "sym": "RVTY",
-  "ex": "NYSE",
-  "kind": "A0",
-  "sig": "2026-11-13",
-  "close": 154.39,
-  "high": 160.59,
-  "stop_pct": 0.08,
-  "hard_pct": 0.12,
-  "rs": 94
  }
 ]

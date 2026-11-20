@@ -62,5 +62,13 @@
   "forecast": "",
   "previous": "4.3%",
   "actual": ""
+ },
+ {
+  "title": "President Trump Speaks",
+  "when": "2026-11-20T12:00:00-05:00",
+  "impact": "Medium",
+  "forecast": "",
+  "previous": "",
+  "actual": ""
  }
 ]
