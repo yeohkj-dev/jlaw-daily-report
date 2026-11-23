@@ -1,0 +1,892 @@
+{
+ "mode": "weekend",
+ "generated": "2026-11-23T00:06:53.114479+00:00",
+ "window_start": "2026-11-20T16:00:00-05:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "During Wall Street's worst week in over a year, we put money to work. What we're buying",
+   "link": "https://www.cnbc.com/investingclub/2026/11/21/during-wall-streets-worst-week-in-over-a-year-we-put-money-to-work-what-were-buying.html",
+   "source": "CNBC",
+   "sources": [
+    "Barron's",
+    "Business Insider",
+    "CNBC",
+    "Financial Times",
+    "Forbes Africa",
+    "Seeking Alpha",
+    "WSJ",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-20T21:07:08+00:00",
+   "latest": "2026-11-22T21:00:43+00:00",
+   "desc": "The brutal sell-off is creating opportunities for us to put cash to work.",
+   "n_sources": 8,
+   "score": 58
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
+   "link": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "CNN",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-21T00:36:40+00:00",
+   "latest": "2026-11-22T23:40:25+00:00",
+   "desc": "Anthropic's public debut did little to calm the stock market as the AI trade unravels.",
+   "n_sources": 3,
+   "score": 20
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Is a Stock Market Crash Imminent for the AI-Driven Trump Bull Market? History Weighs In With an Unpleasant Answer.",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQM2t0TmJCNjBTTEhIaUVlbDM5bXFvRWl5RWVydVFyNGZEdlRDa0pVRDQyRjUwMi1MdnJTRnYydFdVT2tDWTZvVk4tQTlINUZPdzI1NHZRMWR6VFlBUU9VZTZpSzhDYjFPM3NoUXQwVXhkOXNmSkRGRGQ3S1ZtZXhHbWR5YkI1ZFBUOXdaRjZFR2NidnZQd0RLY2FMQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T09:26:02+00:00",
+   "latest": "2026-11-22T09:26:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "The U.S. and Canada ‘fairly close’ to reaching tariff-relief deal: Greer",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTlA2Umx3N3M0LW1KNmVIc3E1YThXUWdkZG9YVGd1alNSUUZyOVFnYlBsTmQxdUhaT0ZVb1pLSDhaQW85NEl0TEtVRFNVbDc1Z08yWWRPczU0V3BjZDc1NDVhM0RFVElja2VaMl9MODVFeGJiYjl5S2ZYZE04UExDWWpUSngwU0M2bUE0Sklvd29LOFNNZURDZ1FqMU1TcmgzVW9oZldyeHhoVTlQRktmLTZoQVZ6eUotSzN3?oc=5",
+   "source": "National Post",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-21T00:25:00+00:00",
+   "latest": "2026-11-22T23:43:57+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Taiwan stocks suffer worst week since 1990 as AI rout drains emerging Asia",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQcXhsb1I4V0xwaGxLenV3SlRaLTNyYk9FbUVLM3NZb0VqTVBxckJiMl9rWW8zTFU1VE5ZLXFoeDJnNDRNblRLcm9DeTcwYU9yXzZoYVFfU0FyZklTU3FUUjlvSnJJSGNhN285aHotdGhQRFl6Z0NuekdrZmdXQVpEYmFLckNTQk5JVnFkMENZSm1Da25FMS1uc3NUSFM?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T19:21:13+00:00",
+   "latest": "2026-11-22T19:21:13+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold Is Crashing Like 2008. Peter Schiff Says That's Exactly Why He's Bullish",
+   "link": "https://beincrypto.com/peter-schiff-gold-crash-2008-bullish/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T17:51:08+00:00",
+   "latest": "2026-11-22T17:51:08+00:00",
+   "desc": "Peter Schiff says gold's crash mirrors 2008. See what happened next then, and why Goldman sees more Fed hikes first.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Prediction: This Will Be Nvidia’s Stock Price in 2027 After Its Phenomenal Q3 Results",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZjNERS1Vb09VQnBtSHVrNF8yamdKc1NGMW9wSVFMX1F0SVFBRGFCNnVEakZOcU42dU5UWkVYZUZaNGxlNEZtMS1DRFFRR1dSQ1pDNGY1MlBEejFlUnpCeWh6YWQxV2ZzY3E4UnF6a3pUQjBXN2VHc1Bfa19zVHlUVkt6ZGFmbUlFT0F3SXIzN1JGbVRDODcyM0lnSlNWYUFT?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-21T22:07:02+00:00",
+   "latest": "2026-11-21T22:07:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "市场动态",
+   "title": "Dow Jones, Nasdaq futures rebound up to 600 points - This is the most important trigger of the week",
+   "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNdGE2RVZORUdRZ3Nxd3hkYjZPajdtQmQ1V3FfS2M1Y29HaTJRc2M4U01aeVZ2S1NBMWZYWFcybWZ0Y082ZTNSZE55a3NjemhhYlFvZnhOdGY4Y01PcXZJOGhEa1ZSeGs3QkJjemxLamJ3T1F0STk0TDZTN1hpakZjOEpheUt1N0dkelJBY3ZURngyNldkSnRwR3Q4NEs4YWYyeHllcC0wcnI2RVQ4Qm1jZVlodUlOV0J3YUpVWWNWSTd3Y0E5YXRWa3BQclJTcmxEY29maUctcUx4d0Q5LWtVMTAyTU50VlVxem9kZ19kb9IB9AFBVV95cUxNRzNiTlN2MDRsR1FaXzZfMjJ6dlVvR1NfTnBoWmhhTmZCSUZBSnFGcDBMeEphR2F6ZUo3WHlTNUpJdF9CRi1sSkxoaHZDakpiQmhMV2l3bjl3Q3lBM0ExLTBDbTRLdlBOUWp0akU3LTFUOGZ2ZDczYnRwa196T20xT1k3cm41Vm5rSU5KV1VaR3o3OXgydHJpc29vT2ZDalM3OVBXcTRUN0lHZEgyakx2OUxsR2xKbG00NG5RVnNpYllVUFFOc0dmRXREM013SVF0S0lScGhJU3dEYmdSbDhrOGthRUM0Xzg3QTZKS2NaWDBTZEtq?oc=5",
+   "source": "CNBC TV18",
+   "sources": [
+    "Barron's",
+    "CNBC TV18",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:04:00+00:00",
+   "latest": "2026-11-22T23:47:10+00:00",
+   "desc": "All three major U.S. stock indexes notched their biggest one-week point drops on record, according to Dow Jones Market Data.",
+   "n_sources": 3,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Bessent Warns Fed of Overtightening as Stocks Fall",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVXV3TVJiNnVERDdyUk5DOFpDVTUxbTRoYnVsNnhhWlNMY3ZUMFV3ZlZPU214QjZsTVpUcHNyWGZQRmNjaW9TajRtb0wtNVo0QXNXSGNoXzJ1enA1SFF3QUxoMFBUME9pWlRBcGtib0RDVWp6UVJ0ajhoOWtMR2xXRWc4eW80cjg1YU1DSDk4aw?oc=5",
+   "source": "Wisevoter",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T16:08:20+00:00",
+   "latest": "2026-11-22T22:54:04+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Bond Market’s Go-To Trade for Fed Hikes Roiled by Stocks Retreat",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWmRPX29ITVVwcjVDVWpENEUyaFJ5alFtbVBxTzc0OWZoNkozOW9GZ3UwT3NBOGM5aUtxdm5SbjdYYmNxR3NIWVY1LWFaRUhINmRmdmxYaHlKRzY5dlBnQ3JaYkdlZU1XbVFRcnBDTkcyb1hPNG5pblZkUV9MdEd2S25aSE1TWWFzLXVrQzc0YkxQVTY1MnJYbV82TzgteDJKN2YyWmNneXY1aTg5NURYNFJzcDRxQQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T20:00:00+00:00",
+   "latest": "2026-11-22T20:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Wall Street Strategists See Silver Lining for Stock Market",
+   "link": "https://finance.yahoo.com/m/b9c4ec7d-2130-3254-b875-74dcc9c56b57/wall-street-strategists-see.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Barron's",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T19:46:00+00:00",
+   "latest": "2026-11-22T19:46:00+00:00",
+   "desc": "Ingredients for a meaningful recovery are falling into place, but there may be more downside before we get there.",
+   "n_sources": 2,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "The 10-Year Treasury Now Pays 5%. These 3 Dividend Stocks Still Pay More",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQTNtN2lTTC0xYWZ0bWFfSkhXSGNhUWNiVzBNT0Y4MFRjNU92OU9ZQ2NjNHNMempXX3llMTBxUUpkWjZvVUFWakM0WWRRNzRLOUZRdXNuZk1NMVY5aWVMcDllSGhvMmlzdllnZVJ4Znh4RDZnZ3U3M1ZQZUdGcVlxbDB4U3JmOC1BNGoyLXdMcUI?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T14:32:00+00:00",
+   "latest": "2026-11-22T14:32:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Russia's seaborne crude exports hit four-month high as drones idle refineries",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQb3VZZnh0SXlYUWdhamdKbHR1aWZvbjR2d0dhcThmbnNqLU5FSVUwUWFFRGV5SWVvNlBZUGphenBWYmllQjBGOHZvLWJOMGhldEZpeXhZTU9wdHlyZUtGbTJHQnl5Q3ROTlQtajV1cUE3c2FERG1LeGRGTUpvU2dFLUxpRkdPNlFuMWtfYVFsaHRzUFZjdkE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T08:51:16+00:00",
+   "latest": "2026-11-22T08:51:16+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "China, Korea and Taiwan Rush Stock Rescues Before Monday: Can They Help the S&P 500?",
+   "link": "https://beincrypto.com/china-korea-taiwan-stock-rescues-monday/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T20:33:23+00:00",
+   "latest": "2026-11-22T20:33:23+00:00",
+   "desc": "China, Korea and Taiwan lead Asia to rush out stock rescues as the S&P 500 enters Monday on a seven-day losing streak.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Taiwan Mulls Lowering Margin Requirement to Support Stock Market",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcy1GQkh0M3hrSlpfQUVkS1A1RXNWRHJIU3Rwa0lTVlVIUmdOYjF0dmRnYXFpQlNkRXBFRGxyR0NGQ0cya25VZno3UXNQWk1IYkZyb2VHQ29Hc0ZxWEEwWkpzZnNzNUtKOG9FRmg2ejhCWWE0aW5DYWhKNnYzNkw2SE5zaXBxTlIwYlpNRDlBSzYxb2ZWZ1dHbkJ2R25MTF8zMGZsTE1Ya2dqaGhva3lKRUVqRWlQUQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T12:25:17+00:00",
+   "latest": "2026-11-22T12:35:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "经济数据",
+   "title": "Tech outages are fueling a new doomsday economy",
+   "link": "https://www.cnbc.com/2026/11/21/emergency-prep-spending-tech-outages.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-21T15:04:56+00:00",
+   "latest": "2026-11-21T15:04:56+00:00",
+   "desc": "Recent technology outages have left some worried about AI cyberattacks and the U.S. electricity grid. The doomsday economy is heating up as a result.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Goldman Traders See Entry Point in US Stocks But Warn of Risks",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNZldNMFlSOWFqTTdmTDNmdFowSHd4aF9EN0g3eWtBYTk3MEp1RXZTN09TQThzaFlNTTVQc0pENUlhNng2VXpFd1M5cnpZdF80WmJvblRrVUQ1bW9QbkkwWm1TMzZZbk9YWXdMT0VKNUZ6YWRHNks4QWRjS3RHYm9sZk81OVpvMmsxWGFJQU4tWnUta0JMclRKOElZMS14cEpEQ2FMYkJkTlF6OTIta09RR3BFQQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T19:05:02+00:00",
+   "latest": "2026-11-22T19:05:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Top bank resets Tesla stock target, yet standalone value is alarming",
+   "link": "https://www.thestreet.com/investing/stocks/top-bank-resets-tesla-stock-target-yet-standalone-value-is-alarming?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T18:47:00+00:00",
+   "latest": "2026-11-22T18:47:00+00:00",
+   "desc": "One big upgrade comes with a catch.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "US futures bounce while Asia markets brace for AI wipeout",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNR2c4ZVNmcHBzVFctOTBkRUd2d0VHTklseUhCcEtZT2VHbU1WbWprMUk2aDZSQ2tkZHNYVE9EWUgyaEkxeWtyN0M2V2NzR2ZCTHFmMEhvbHFDeExTNUdTeDF3WkxJZ2RSdmZ2cHBxWlFjTXdoa1hXdlZQRWtyTFFKVlJjMA?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-22T23:49:29+00:00",
+   "latest": "2026-11-22T23:49:29+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia Just Lost Nearly Half Its Value. A 62-Year-Old With $1 Million in an S&P 500 Index Fund Owns About $50,000 of It Without Buying a Share",
+   "link": "https://247wallst.com/investing/2026/11/22/nvidia-just-lost-nearly-half-its-value-a-62-year-old-with-1-million-in-an-sp-500-index-fund-owns-about-50000-of-it-without-buying-a-share/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:43:00+00:00",
+   "latest": "2026-11-22T23:43:00+00:00",
+   "desc": "Nvidia has lost nearly half its value since Oct. 6. Here is how much of it sits in a $1 million 401(k): about $50,000 in an S&P 500 index fund and roughly $14,000 in a 2030 target-date fund.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Berkshire’s Abel Keeps Nearly 47% of $360 Billion Portfolio in 3 Stocks",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOalFwMXMyakFGZlEzbmwxM2pBQUZXc3FPM1FiWTJEXzZnLXBldDk4cnBwanZDYnRjaEIzTGNOcV9aYnlwZGdnekQzTE9zRVJVYzAxMlg2U0VydkFxdU5hLVloSzM3bzR0SFdXblpjYUdoa3FYdkI0SEIwVkZHNmtkTmRLWVpLMGRGMDJSdW5pRTF4ZGZseFlta0tKNA?oc=5",
+   "source": "JournalArta",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T20:47:02+00:00",
+   "latest": "2026-11-22T23:40:34+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "3 AI Hardware Stocks Down More Than 30% From Their Records to Buy Now and Hold Through 2030",
+   "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNY0V1aHFOOFY0TlZaZXJIZGxBdkhEMnVpcmpBd2dXdklYTnlGRnZUbjFWZFVRaURhTGltek1aeUg4Rk56OFZVNHJjZk9PeFpfcGhEeU9zV285Nm1TM2ZCaW11OFZYbXgwWnVRYzNSQzdmcGIyR1hIWkNrYUZ4ektfYXJPa2tYcUMzSGtpZ2NBaEZxX1k?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T21:43:02+00:00",
+   "latest": "2026-11-22T22:03:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "How exposed is the S&P 500 to an AI trade bust?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/exposed-p-500-ai-trade-211253614.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T21:12:53+00:00",
+   "latest": "2026-11-22T21:12:53+00:00",
+   "desc": "Investing.com -- Around half of the S&P 500’s market capitalization has exposure to artificial intelligence in some form, a Capital Economics analysis suggested, using an approach in which the AI industry and ecosystem was divided into five kinds of companies ",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Democrats to seek reversal of Trump's tariffs",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE42dmdJSk90dU4zS1dLLTRBRGlacFh5eUtWWVFuU0ZFRFo5MmZiaF9hOV9OWnFjWm9aVnBWak5ybkVZMmxxa2tUdHA3b3o5XzctaUdHNw?oc=5",
+   "source": "AzerNews",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-11-22T11:00:05+00:00",
+   "latest": "2026-11-22T16:34:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Prediction: These Will Be AMD’s and Nvidia’s Stock Prices by 2028",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPOUZUTmFNWGdrZXVXZkhPTzJhR3g1YXFmN3ZIbGxsWTd6WVZlZTdvOUx1ZVB2OFJiTXRmdFpwN1NET29tMWhCOWxxY29WeGJoSlNXXzVUaXRPOFFiOFlUcnpHTUxPd2VwTGYwU1hQMGZ1YkZvbko2V0RFU1hEVHpDbnVIMmg3Y1FSX2U3enNUNlB6ZHM1bmJxUTg4X1RIeGZK?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T16:04:02+00:00",
+   "latest": "2026-11-22T16:04:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Asian countries take steps to aid stock markets after AI rout",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNN2hTbGd3Q2JhVFl6bkQyd1BqMGJ1Nnk5ckhIcFlLOTAySEZuV2ExRnVEMmpYcnZPUlVNbzdfMmhpR0F3SEhxeF92WlNSUmFuc0JobFROVmNxU3JTSDBNNDdZZk1NSDdLcGc1TnJZSjd1bDFyam5TdFBFVE00OFBIVmo4dDI3dU82SXJrWUl3LThUUlBEa1N3cm1oZTY?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T15:42:43+00:00",
+   "latest": "2026-11-22T15:42:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Investors Brave Stock Market ‘Fragility’ as AI Trade Falters",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTnVJSXZOc19yY1dPSG12MGpNT29BU3g1X1c2TjliWWE4V0tGejk1cWdlRUJaZUI5bmhyT0RFTVZlWDNidmEwX01XYU1kT3ZVdFlVX2YzTGZqQnJEdlBVeEhZQTJXT2JmNkdWZ1J3b3FQeTh2N3VvWmJQNFMweEJpV3NhbEkxWGVQWUN4NmZsOXNHOHJWZE1VUUFXNHlRUHliakRwakRKbTl4ZDZYUUE?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T15:00:00+00:00",
+   "latest": "2026-11-22T15:00:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "GPU prices are rising for Nvidia's older chips even as the stock keeps going down: Chart of the Day",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPbmNXRjNhZUdxb2NzZG03T1VJOFdieU1vTWwwNllJRGV3N0h5ei1ZRldwTk5TNmFFSzNFblhCdnVhcFowOXlNZm54a29aeTJEOFJhUU03Z0ZTUU5Hc0doOF8xOE0tcDhlQjBIQ0o5R3p6dFo3eEdwQVFJQUU3bktTSUFDUzl6R2N6a096SGdOejhGdmhFQkRFZS1YMnpNUHpiSDdYU3VNdWloR3g0WFNtM2h0RmxjMUFwU0JUX0ZLa01IdEJZelBUMWdmbEpYVWJLR3ZzdWYwcExNWjJWVjZqNjdNeG9iTjBMcUE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T12:37:21+00:00",
+   "latest": "2026-11-22T12:37:21+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Why Anthropic's blockbuster IPO couldn't escape the stock market correction",
+   "link": "https://www.cnbc.com/2026/11/20/anthropic-ipo-ai-stock-market-selloff.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-21T14:07:53+00:00",
+   "latest": "2026-11-21T14:07:53+00:00",
+   "desc": "Anthropic's IPO was a big public market success for the company, but Friday's selloff shows that valuing the AI stock will remain volatile for investors.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Warsh wants Fed officials to talk less. Instead, they’re talking more",
+   "link": "https://www.cnbc.com/2026/11/20/warsh-fed-forward-guidance-rate-hikes.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-20T21:10:48+00:00",
+   "latest": "2026-11-20T21:10:48+00:00",
+   "desc": "Fed officials have been rushing to the microphones lately while the Fed chairman stays on the sidelines.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "市场动态",
+   "title": "Dow Jones Futures Rise As Oracle, Korea Try To Ease Market Fears; Look For These Absolute Losers",
+   "link": "https://finance.yahoo.com/m/9ef9da98-bccf-3565-9a30-9bc3e57ad4b9/dow-jones-futures-rise-as.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Investor's Business Daily",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T22:42:00+00:00",
+   "latest": "2026-11-22T23:56:13+00:00",
+   "desc": "Futures loom as Oracle and South Korea try to calm market fears after the stock market worst week since Covid.",
+   "n_sources": 2,
+   "score": 9
+  },
+  {
+   "topic": "经济数据",
+   "title": "One thing Thanksgiving travelers can be thankful for: Gas prices are down 75 cents from this year’s peak",
+   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxObWhNODBmYkRqTnpSTmtPQ05TQWJnRUVGbjRMSDB6ZmNYZUh1MF9wM3lIakhkcmFjMjRCODdWMmRVT04tZ25iS0NFTnF0eWNKUTRybnBzZUFPeUtRRWQ4NmlsZU1YLXdpTUh4UGlBNDVnUHZlYjA1R2xQaXVCYkdVOVNDMGVIZjgtZVQ5LUlXcU9tU25NM1VKNGZUU1VsZXlLV3hDbld0SWN1aG9yV24xaERiOHNiY1V0aUVWcGIwX0dZRVFRblNEbUdZcWNLMk9iZUgzSDdqdFNBcXVVYkE?oc=5",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-21T00:36:00+00:00",
+   "latest": "2026-11-22T23:30:26+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Employees at Eric Trump-backed robot startup lose health benefits as company's cash crunch deepens",
+   "link": "https://www.cnbc.com/2026/11/22/foundation-future-industries-health-benefits-payroll-base-group.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-22T18:55:05+00:00",
+   "latest": "2026-11-22T18:55:05+00:00",
+   "desc": "Foundation is pursuing an emergency bridge loan and has been in talks with VC firms as it waits for a $150 million investment from South Korea's Base Group.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump says there could be a 'positive spin' from the latest FBI database hack",
+   "link": "https://www.cnbc.com/2026/11/21/trump-fbi-database-hack.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-21T16:57:34+00:00",
+   "latest": "2026-11-21T16:57:34+00:00",
+   "desc": "This would make the second recent intrusion into the FBI system.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Rough Road: China’s WeRide Shares Dive Nearly 8.6% To All-Time Low",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNVgyaVpZd3ljSEVCQzNEYTJDTGZ5YzNPTGE4XzNHX3dRQ2ZOb1FOQWVya3RHb3BsaWtZY1I3a3FiNVZkWDJaX1ZLbjFzLUZKU1NKR1NYM3lzTmNOdE5hVDYzaHpOOHUwaExzYTl1WFhadVdJaF9oU3hEN3NuRGtOOUw3Y000NUZscGRURWs1OTVQWEZVRTYzNlY1aw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:43:30+00:00",
+   "latest": "2026-11-22T23:43:30+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Has Plains All American Pipeline (PAA) Stock Run Ahead Of Earnings?",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOeXl6cDVEQTlGNEhMZkRLRzZJdGFhWUFTT1BoaGtBNTlRSWxTY1NBSmI2T1cwV3ZiRGdmNEdRNGYzbFpnZ3RIY1lEVVduOG5SSUVNZGl6ZVUtVl9WME9HaU9pVW15THk1TWE2bzZhNUZkc0dObUk0WGQyNjd4Ym5RNXU0R0dwUnJNTXhyTkxNSWFYRE9JbWlVNGx6dENzS0hO?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:12:42+00:00",
+   "latest": "2026-11-22T23:12:42+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "How Investors May Respond To House Foods Group Stock As Earnings And Dividend Rise",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQT3hLcTlGRWN6TmpKenNKSWhYbFBjZGxxNV9aSi1IcU4wbWpITHN0YUxIVi1aRk95a1R5Y1R0XzNSUzNMbXVTS0g4R0xLdzVHRFl6ckc4LU9ncHhXRVpzUDVBX3dKMVhBeU1WalVtQ2E0LV9KQlQ0dnZKVjFuZnJSZ1dqdnlwVFo0TUJXTkxocmt6NDhZRjhKQzVjcnZsbGM?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T22:08:37+00:00",
+   "latest": "2026-11-22T22:08:37+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Corporate America hunts for ‘generational’ growth in AI, trading cards and the L.A. airport",
+   "link": "https://www.marketwatch.com/story/corporate-america-hunts-for-generational-growth-in-ai-trading-cards-and-the-l-a-airport-3072eb1a?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-22T21:51:00+00:00",
+   "latest": "2026-11-22T21:51:00+00:00",
+   "desc": "There’s been no shortage of trends deemed once-in-a-generation by executives on earnings calls.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Uber Trades at 16 Times Forward Earnings and a 30% Discount to Its All-Time High Stock Price. Here’s Why Robotaxis Make That a Mistake.",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSHZyaGFERVlmY2dIZE51S0g1WmtuWVhyU09pQ0FLczBfU0x3RVhrVGRmWDlzajd5YzJzMlpkdm9jb0xrZkM1QnBYV01WLTdKSWxielRTTDF5c0tfaTczcFVMRnN4Z1dwYkwwRzQ5bHFyUzhibmN0N0hsRTREMmlCU1gzZkthdWRac0NqUFJUUDVBb29XZXp0Xw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T20:05:02+00:00",
+   "latest": "2026-11-22T20:05:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Saudi Arabia, Bahrain report new attacks as Iran says it remains open to a deal with U.S.",
+   "link": "https://www.cnbc.com/2026/11/22/saudi-houthi-bahrain-iran-attacks-araghchi-talks.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-22T13:25:47+00:00",
+   "latest": "2026-11-22T13:25:47+00:00",
+   "desc": "Saudi Arabia said it destroyed a drone launched by Iran-backed Houthis, while Bahrain said an industrial facility was hit by Iranian projectiles.",
+   "n_sources": 1,
+   "score": 7
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Oil Shock Response Sets Emerging-Market Bond Winners and Losers",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdHBTS2V5UlFuYVNrN0I0WlhvRDJyaHVPS212aDhsQS1LaG43TDdlV21EM1owVzZSUmRIY2xmc2ZkRnE5Y3FkOG9RbzVFVWUzUmlISDBmVWNSLWxYcUYxeURQVWpwcklJZGs0ZzJLVlZxdmtld3NmX1hUWkI4TmpnMnVCcU11SXVWZFVqRUdPT1FJZGJRNjlmRVZ3WlM3NUs0V2hvcW1tOFR5SVFzUXFpaS1jTTA?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T13:30:00+00:00",
+   "latest": "2026-11-22T13:30:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 6
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "An ‘illusion of glitz and glamour’: Inside California’s modern-day gold rush, where miners can bring in millions",
+   "link": "https://www.cnbc.com/make-it/2026/11/21/california-mining-modern-gold-rush.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-21T14:05:40+00:00",
+   "latest": "2026-11-21T14:05:40+00:00",
+   "desc": "The price of gold has sparked a modern-day gold rush in California. Small-scale miners are investing time, physical labor and money to unearth the yellow metal.",
+   "n_sources": 1,
+   "score": 6
+  },
+  {
+   "topic": "市场动态",
+   "title": "US Stock Futures Open Higher After Tech Selloff: Markets Wrap",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMFVRM2J2cTZ6eU02Qzk1TF83UmhsSEN3SlpHYjJuc2lDeXBVM0h6WkN2bEJCUlk5RnZNOFMta05FOXFqeTZQQWZnbFl2RG1WTWVNSXYwVWhZRFZxRkx6SDlhTWtUWk92UVBJa2FGWVk3ak9rOUVJYjZ6RDBqcUZCOEpiWmFVWGxvVmM1Y2prdDk2N19EZG0xWjU3aFV5QkJ6MjF4eExGSkd3TWxaWGRBVzhB?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T23:36:15+00:00",
+   "latest": "2026-11-22T23:36:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Upstart Is Yesterday's News. Is This Fintech Stock the Better Buy?",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQQXk5XzlmX3U1V1c3QjBtekJ1ZkFXV3lVMERzcUdJVEV6M3hiYnJqMExUX0lpLWJQekN6cHlwaWEyYThkSy1KNnhVbllYRWVBdTROYlJucjZheGI3ZngtQ1l3aFBoRnl5akFpc05MMDA3cmNMSUYxaVUzMkg0ZklZdkxqRXBfUFB3bGZMS1V5MC1XM3B2cWFnZ1cwbENaNWZLNmhWRw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:04:02+00:00",
+   "latest": "2026-11-22T23:24:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Jim Cramer Warns the Market Is “Destroying Savings for the Many”",
+   "link": "https://247wallst.com/investing/2026/11/22/jim-cramer-warns-the-market-is-destroying-savings-for-the-many/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T23:07:32+00:00",
+   "latest": "2026-11-22T23:07:32+00:00",
+   "desc": "Americans over 70 own a bigger slice of the stock market than any other age group, and a few giant names now drive both the gains and the losses. Here is how retirees can check their own exposure before the next drop.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Stock Traders Brace For More Volatility After Tech-Driven Rout",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNeURSVWpyQXZjLW5UcndZVDJPQnE0NDU2UllUMUI5S29qcFJlWDg1empEbThycVphd2p3dmxJTUJJckZVQXBhaGlmT0JaNkh3SFZHRG5HNHl5ckpheVAzU3JHQldJVGQ2cl9RVWw4Wk96RXNiN0d1dW5iQ1RETTMxRnJVS2tnNFRwOVJkdjhxRHd5ZmJRNkoxaEtUcGNiSmdXRWxtYjRrM2RVcVREUXJneFZMcw?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T23:04:42+00:00",
+   "latest": "2026-11-22T23:04:42+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Has the AI Bubble Already Burst?",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNY1JnMEhXZi1IVjZ1SmxTWE5RWThOVFJSLTAxcV9mQ3NWVUYyNm5UNjVaTkhHZDduNnVDclZJWWd4Vi1KOElBS1lrSExJSFVCZGtyWEdMRnpSLW9kZ3hQa2pfMUoyTUJqaWlYSDRyaEdjdlZ2RTlVQk5FS3JkU0czdw?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-22T22:51:30+00:00",
+   "latest": "2026-11-22T22:51:30+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Luzerner Kantonalbank (SWX:LUKN) Stock May Be 8% Undervalued On Excess Returns",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMldwTktqaTRBZlhmWDB1VGZCZnN2NGZxX3R4Q1JsQzJNeTZLWjZyUlF5THdOUHM2VVhnVzBUTTl5bDljY1YzRlo3cU4xYzB6dkFmT1dzOEV4WlRvX3JpN3BET1RkYUZyWGF0YTVJaE9aTkJPSjJUYlpjTkF1cG9ob3QzNnRZSHFjT0gtcGpXSEhEM1drOW5hdlRGZm9pOXJFbmpV?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T22:09:54+00:00",
+   "latest": "2026-11-22T22:09:54+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "General Motors (GM) Joins The NASDAQ Composite, Is The Stock Still Undervalued?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/general-motors-gm-joins-nasdaq-220818980.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T22:08:18+00:00",
+   "latest": "2026-11-22T22:08:18+00:00",
+   "desc": "General Motors (GM) has just been added to the NASDAQ Composite Index, drawing fresh attention to how the automaker’s stock trades as passive funds adjust their holdings around this inclusion. Over the past year, General Motors has mixed short term volatility ",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Charlie Bilello Flags the Nasdaq 100’s First Bear Market Since April 2025",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSDNZa2xoSTJGWFFKaTB4TktCeFNJOU1IU2hvLTVtREtPRGQ3QWt1T0RRaGNlbkZ6RGpSVTNCbjFYWmxlNW5Qck9SNFB4TVd1WmYtdjB6TUlZb3d4dWE4b2lwODRmSDJ1NmN1OWx2Wm5zTGFXX3dyUVJXTkJzdzJja3FpQ3N6VmxzWGNSelc0YTFXVi04Tmo4OG0xdjl5QQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T21:17:16+00:00",
+   "latest": "2026-11-22T21:17:16+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Why York Space Systems Stock Plunged This Week",
+   "link": "https://www.fool.com/coverage/market-movers/2026/11/22/why-york-space-systems-stock-plunged-this-week/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T20:54:08+00:00",
+   "latest": "2026-11-22T20:54:08+00:00",
+   "desc": "Contract delays are motivating investors to look elsewhere in the final frontier.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "FTSE 100 giant to quit London for New York",
+   "link": "https://www.telegraph.co.uk/business/2026/11/22/ftse-100-giant-to-quit-london-for-new-york/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T20:53:57+00:00",
+   "latest": "2026-11-22T20:53:57+00:00",
+   "desc": "A FTSE 100 giant is quitting the London stock market for New York in a blow for the Government’s effort to stop companies fleeing the City.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Dip Buyers Hesitate to Step In as Nasdaq 100 Nears a Bear Market",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWHZubEhRQlFlOHctVERKbjNHYUJoS2ZpQk9FOEhoX1JMY2Z4LW1maVJ4OVBPRzJ1R213dW9nd0l6NmpxWXhxbDJfRHNXOVZwdHVtUk1YYjFDM2FDRUhQUElKaE5GeHlWUlBkV0RvNXhHLVloem9EUmZwdlZfeVZtN2VuQkptcGdHclBZQkhlV0tEbkxOODVqY1R4dm91azczNXBEMmpxUXNsY2J6UEVxRUpNYWUxZw?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-22T20:31:44+00:00",
+   "latest": "2026-11-22T20:31:44+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Here's What a $1,000 Investment in Broadcom Stock Could Be Worth By 2035",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMVNCbndSQjlqa05taG81cGJDQUZ6WXdnVmFfREVsYmJUMXk1UTl1aWFFMnpvWHF2V0MyUHdSc2FJRnB3a2FqX25pSE9UWWxRS0JnN3RxUGU4WnZpcWxlTDRyVUt4ZXpZYkgxOWtYellHN1lJMUdNcXE1YTBtbnJSNVIyTmFoVkVISzVMYkpYa0xKN1Y0UFphVWEyTFc?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T19:22:02+00:00",
+   "latest": "2026-11-22T19:22:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Palantir Stock Could Finish 2026 Lower. Its Only 2 Losing Years Ended Very Differently.",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPeGRwZGc4SThiSUdrdC0xZ1NUQkM5OVN2SWFLaFQwMDJ2ZWtKOFprZld3UndPZkluLS0wU0lyX3ZGb2w3WkJYeThfdjBsZEFpbmVPZ1lrS2t1NDUwcmJkYXQya1NUdDFUZlBodWFfLXFMSjBWUGVxUU5XZXFYa3pUR2xwZ0tQZFEzckwzYjdzZVhKZmtzNmZfaFZSakhjQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T18:37:02+00:00",
+   "latest": "2026-11-22T18:57:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Billionaire Ray Dalio’s Bridgewater Keeps 16% of Its $23 Billion Stock Portfolio in S&P 500 Index Funds, Even After Cutting Them",
+   "link": "https://247wallst.com/investing/2026/11/22/billionaire-ray-dalios-bridgewater-keeps-16-of-its-23-billion-stock-portfolio-in-sp-500-index-funds-even-after-cutting-them/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T18:43:15+00:00",
+   "latest": "2026-11-22T18:43:15+00:00",
+   "desc": "Ray Dalio's fund sold billions in the market's most popular index funds last quarter, yet one of them still sits at the top of its holdings. The filing hides more than it shows, and the real lesson has nothing to do with the sales.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "The S&P 500 and Dow Jones Are Dangerously Close to Joining the Nasdaq in a Correction. Here’s the Level That Would Put the Nasdaq in a Bear Market, and What History Says Investors Should Do During a Stock Market Crash.",
+   "link": "https://www.fool.com/investing/2026/11/22/the-s-and-p-500-and-dow-jones-are-dangerously-close-to-joining-the-nasdaq-in-a-correction-here-s-the-level-that-would-put-the-nasdaq-in-a-bear-market-and-what-history-says-investors-should-do-during-a/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T17:30:02+00:00",
+   "latest": "2026-11-22T17:50:02+00:00",
+   "desc": "Buying high-quality stocks and ETFs during periods of intense volatility can pay off for long-term investors.",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Everyday Economics: The stock selloff could hit spending",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNakZOMUU3YnlwVlhHdFRGZjZMYXlyNzFGTjBvcmNIZDdfU2dKYkpueHZ3TWNNVWhlb21sbnlmOG9FVmdqa0N0QmNxdmJkT3JxSklSN1VGeWVYdlY1dHpPLVdqbFBDcUZsZHRablE3RGFBN1dCSlFINW0xYlZrWWF5X2RITjJfdjdNNkdvd3AtVHFMNnRlTXFuXy1HWUU?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T17:07:00+00:00",
+   "latest": "2026-11-22T17:07:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Prediction: Dec. 9 Will Be a Huge Day for the Stock Market",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWjVYY0FqcVBwMC1fNG9lN2ZZYWE5b3ZsWG1zYTRiWUFDaE5OdVZOTjdmWm1STjFwWWFnMlhZbnFkYUNMOEZYbFVBRFdjcjVjai1SV1ZhTEdEcjVVaV9wMzVBYllUU0tmWTVLd0RMaUNCUFgtanFpMkFWT3I5UW5QZW04Um1xVVlZQUg2aEVlT0JWeTAw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-22T16:33:02+00:00",
+   "latest": "2026-11-22T16:53:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  },
+  {
+   "topic": "市场动态",
+   "title": "Take-Two’s Guide Implies A Q4 Loss. I’d Wait (NASDAQ:TTWO)",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUC1ZNHFVNzhFeXlQa283Nkx3Wk5naFJuS2d2cVFYdllNRDVDNVpSUnhwZmxiTmFvaXNDSE1henFnYVkyVEl1cnVPaVlCdjBrYk02YW5VY3NTSjdKZ0Q3N01xVkxDcXY4Q0lLckxFN1l0ZnhnYUc1OWE2QkxiUzFKUnZfZkwtUU5DUUlGSUtSbTI?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-22T16:44:15+00:00",
+   "latest": "2026-11-22T16:44:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 5
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 555 条标题，合并后 74 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "5 个事件有 ≥2 家媒体报道"
+  },
+  {
+   "name": "期货快照",
+   "ok": true,
+   "critical": false,
+   "detail": "5/5 个品种取到数据"
+  },
+  {
+   "name": "快照数据新鲜度",
+   "ok": true,
+   "critical": false,
+   "detail": "5/5 个在 4 天内更新"
+  }
+ ]
+}
