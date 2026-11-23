@@ -1,0 +1,223 @@
+{
+ "date": "2026-11-23",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-23（周一）收盘</b>\n\n<b>📈 昨晚：美股大涨</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> +4.7% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> +7.0% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> +3.6%\n10 年美债 4.94%（-1 基点） · VIX 26.6（-9.3） · 油（结算价） +0.1% · 美元 +0.5% · 金（结算价） -0.6%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://www.cnbc.com/2026/11/23/trump-nvidia-jensen-huang.html\">Trump sealed deal for Nvidia to rehire Jensen Huang as CEO</a>（21 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxOamhQcGtONXo1SHNRdHRjWHRPZ3gzaHJCUTdNbW1BdUJ3ZUhLTjZ6X1F2dVo3SDdmZHZlWFIwMHVOX3RSZ3lFaE9vRzFDdUE0YlhFbXVTOWxuM2J3dkVwYjE0VE5JV0ZIaHNVLVp3d1dIMGxlX3JvVTNkNnRsRldmeUsyVk9IYldqbTFsU3RZUXpWclpybnhaei1CU2U5WDdQb1ZfcHpZdm5TdldRUlVfMVNnV0dDMG56eWRfNEhCbw?oc=5\">US Stock Selloff Revives Question of a Fed ‘Put,’ This Time Under Warsh</a>\n• <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE8zUEZ5RFBSUFVIYndfb1BsWDRoVXVPektsM0Y1TFVadF9PaXRXdEF5Y1I4dWd1bHhMZWNZanVqSlo0UFhHREFHa2ZXR1M3T19WSVB0bF9ZWTZqems?oc=5\">Federal Reserve warnings rattle Wall Street</a>\n• <a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxQUVE3WWhmSEFMaFZmRkVRTHN5R1N0V3lLbmdYYWsyZ0QxSnRqaFdkcktIS1JqTk5RRTI0ODREZV9jcldqb3BpMzhmN3BUOWhRaDI1bGdnMG45VDRxNFU1YXN4X2hEd1Y4RTRLMkdabDU1T2p1cnRpT2R1VUY1UElIS1h3Q3NtdlpEMFpoaHB6bXh5LUNFakwyLUYwWF9KVG9YRmRKT2xwcVp4WkQtYnBucFV5WWFfbDY1dDRlWW9halQwclNac2tubV9vQQ?oc=5\">Oil Futures Fall for Third Straight Week on Supply Outlook</a>\n• 数据：Flash Manufacturing PMI（预期 54.5，前值 56.0）\n• 数据：Flash Services PMI（预期 55.6，前值 57.9）\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLK\"><b>科技</b></a> +9.0%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLY\"><b>可选消费</b></a> +4.0%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLE\"><b>能源</b></a> -1.1%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLP\"><b>必需消费</b></a> -0.1%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:NVDA\"><b>NVDA</b></a> +31.5% — <a href=\"https://www.cnbc.com/2026/11/23/trump-nvidia-jensen-huang.html\">Trump sealed deal for Nvidia to rehire Jensen Huang as CEO</a>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:DELL\"><b>DELL</b></a> +20.5% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MU\"><b>MU</b></a> +19.0% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:CRWD\"><b>CRWD</b></a> -8.9% — <a href=\"https://www.cnbc.com/2026/11/20/zscaler-crowdstrike-deal.html\">Zscaler stock jumps 18% on report that CrowdStrike in talks to buy sec</a>\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:ELV\"><b>ELV</b></a> -3.8% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:COP\"><b>COP</b></a> -2.9% — 没有找到相关新闻\n\n<b>👀 今晚要看</b>\n• 没有高影响力数据或大公司业绩\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-23）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": 4.71,
+   "check": 4.71,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": 7.0,
+   "check": 7.0,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": 3.56,
+   "check": 3.56,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 4.94,
+   "check": 4.92,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 26.61,
+   "check": 26.62,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": 0.15,
+   "check": "前一天结算 80.17 vs 83.98；Yahoo 最后成交价 -4.39%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": 0.46,
+   "check": 0.49,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": -0.57,
+   "check": "前一天结算 3651.40 vs 3515.40；Yahoo 最后成交价 +3.24%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": 8.97,
+   "check": 8.97,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": 3.97,
+   "check": 3.97,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": 3.57,
+   "check": 3.57,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": 1.98,
+   "check": 1.98,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": 3.9,
+   "check": 3.9,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": 3.23,
+   "check": 3.23,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": -1.06,
+   "check": -1.06,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": 1.23,
+   "check": 1.23,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": -0.09,
+   "check": -0.09,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": 1.48,
+   "check": 1.48,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": 1.04,
+   "check": 1.04,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "NVDA",
+   "brief": 31.48,
+   "check": 31.48,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NVDA 市值 ≥500 亿",
+   "brief": 3978,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "DELL",
+   "brief": 20.46,
+   "check": 20.46,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "DELL 市值 ≥500 亿",
+   "brief": 213,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "MU",
+   "brief": 19.04,
+   "check": 19.04,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MU 市值 ≥500 亿",
+   "brief": 801,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "CRWD",
+   "brief": -8.92,
+   "check": -8.92,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "CRWD 市值 ≥500 亿",
+   "brief": 214,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "ELV",
+   "brief": -3.78,
+   "check": -3.78,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "ELV 市值 ≥500 亿",
+   "brief": 82,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "COP",
+   "brief": -2.89,
+   "check": -2.89,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "COP 市值 ≥500 亿",
+   "brief": 156,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
+}

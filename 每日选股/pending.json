@@ -11,17 +11,6 @@
   "rs": 97
  },
  {
-  "sym": "ETSY",
-  "ex": "NYSE",
-  "kind": "A0",
-  "sig": "2026-11-16",
-  "close": 85.0,
-  "high": 88.98,
-  "stop_pct": 0.08,
-  "hard_pct": 0.12,
-  "rs": 91
- },
- {
   "sym": "ICLR",
   "ex": "NASDAQ",
   "kind": "A0",
