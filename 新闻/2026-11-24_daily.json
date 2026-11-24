@@ -1,0 +1,888 @@
+{
+ "mode": "daily",
+ "generated": "2026-11-24T23:26:31.920941+00:00",
+ "window_start": "2026-11-23T23:26:31.920941+00:00",
+ "stories": [
+  {
+   "topic": "美联储 / 利率",
+   "title": "Trump administration set to unveil new tariffs after probe on excess factory capacity, sources say",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNklFaE54bEV6OGdKT29ScUxHUlZwRDNyREJ0MzBSZzZGdnptTkVxaXNHeWx2WjFWYVMzMzdMeU92dC1PVmYyZ1BTT3lCTWVRVnJ5ODFEb0NXYWpDd1ZQUlg4bkZ5QVAyck9KQUhMbldjY2FqMmtsZGs3MTFUY0xLZm9wMWRRTFAyS3VvZUZ6Wnk0VzlxTjR3VS1GSkJ1S3VCU2xmZ09FX1E5dUVjTUhfR21wMG1pcktxdGc?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Bloomberg",
+    "Bloomberg Government News",
+    "Bloomberg Law News",
+    "Bloomberg.com",
+    "CNBC",
+    "Financial Times",
+    "Fox Business",
+    "Investor's Business Daily",
+    "Politico",
+    "Reuters",
+    "Seeking Alpha",
+    "Yahoo Finance",
+    "Yahoo Finance UK"
+   ],
+   "when": "2026-11-23T23:28:00+00:00",
+   "latest": "2026-11-24T22:48:14+00:00",
+   "desc": "",
+   "n_sources": 13,
+   "score": 78
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Treasury yields are steady as investors await more economic data",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9kVk10NWJKZmMxSHlDRjExaTRUbnMtRmhRTGFta21UaHg4NGNSZndMYTRxczhZSmg5TllvWi1LekdUcGc2c2hfcnVrQnhPR0NTSjI0QU0yZHpFZldCSndPWENKaXNKV0VubXYtTW9ndVllY3hRek1B0gF8QVVfeXFMUGg3N2J0czVpMHZ6dzNPbjdfb2dmYk9NQUw2ZmVQUG00UWlJeDdEaUkzSjJQMU5DOVVXQXg4YzBkYlJldkV0aFRjNXZJM2hKckRRR3lYc2xhemdhMk9rLTk4Q2Uxc3k0Xy1yOE9QZWVpM095amUwdk1BLXlHXw?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Reuters"
+   ],
+   "when": "2026-11-24T00:57:00+00:00",
+   "latest": "2026-11-24T23:21:56+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 31
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Dow Jones Futures: Nvidia, Anthropic Lead AI Retreat But Many Sectors Strong; Fed Inflation Data Due",
+   "link": "https://finance.yahoo.com/m/d96603c1-fe7f-3bf3-8158-0728b464d469/dow-jones-futures%3A-nvidia%2C.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Investor's Business Daily",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:57:00+00:00",
+   "latest": "2026-11-24T23:02:58+00:00",
+   "desc": "Nvidia, Anthropic and Sandisk led an AI sell-off but medicals, retailers and more fared well. Fed inflation data looms.",
+   "n_sources": 2,
+   "score": 28
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Could Trump’s Auto Tariffs Push Canada into China’s Arms?",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZDRLVm1CVlE0ZWRCR3V2NnpYT3J6TVVucmpuYTlMVHJnRHNiVVZvaThUTlRtQTRqRlpsckUwNkd4Vno4NkxIYzRlZjFSQkdtWHh2THVqNmQ3aENTbVBZZ1FldG9Ic0dfa1U0bmhZUkxOaWJ6czRnem15dHVvcnd1N2Z0SXd1Qk0?oc=5",
+   "source": "Autoweek",
+   "sources": [
+    "Seeking Alpha",
+    "WSJ"
+   ],
+   "when": "2026-11-24T13:08:00+00:00",
+   "latest": "2026-11-24T23:01:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 27
+  },
+  {
+   "topic": "通胀",
+   "title": "Nasdaq, S&P 500 slip following Monday's Nvidia-fueled rally",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSTdTSVk1YVg0WC1SRVJKVW1XYTZJbjRhRVctYkNzZHZRcW5TaVE3MVdSd2JfYUNaV3otX1FzR1lxYkwyWWZtbS1ONDdiem9UVUI0ckV6c2tiOEt0TGViNlUxZFdSeDV0aVJ4cjZkSkE5Nk9veE1UTmxad0xxaXhScndGMV9IdWVrNUpOQnY0Y0hXVmpZVFgwbTFQMDZiX0NqdExaejlYMzJnbjg?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T10:47:56+00:00",
+   "latest": "2026-11-24T22:01:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 25
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "AI boom looms over Warsh's Fed as inflation worries grow",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQLTBqVnllWWdXMThBVk1EbTYyUVgwVW9RYTR6TW1faTkwM2R3eV9yRVQ4VUkteFBMbS1TdDRCb2VzZXNCT0kySThGTUg2d3EyalZpMHZrZEltcko1Ui1lTGdlSS1PZUpiQlo1WGlxbG1hclV2NC1pUU5YU01GbjB2R2dPMFZQUVBoSGRBMXBhNnRDZ1JUdURuamtRWkpTdw?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-24T11:08:45+00:00",
+   "latest": "2026-11-24T11:25:29+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 24
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Anthropic’s stock just broke below its IPO price for the first time",
+   "link": "https://www.marketwatch.com/story/anthropics-stock-just-broke-below-its-ipo-price-for-the-first-time-5dc82668?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "CNBC",
+    "MarketWatch",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T16:34:56+00:00",
+   "latest": "2026-11-24T21:46:00+00:00",
+   "desc": "Shares are trading below their IPO price of $83, less than a week after their debut on the Nasdaq.",
+   "n_sources": 3,
+   "score": 23
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Nvidia’s stock drops as these major questions loom over Jensen Huang’s return",
+   "link": "https://www.marketwatch.com/story/nvidias-stock-drops-as-these-major-questions-loom-over-jensen-huangs-return-9096636f?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "CNBC",
+    "MarketWatch"
+   ],
+   "when": "2026-11-24T13:31:29+00:00",
+   "latest": "2026-11-24T21:14:00+00:00",
+   "desc": "Huang’s reinstatement as CEO doesn’t fix regulatory issues or the investigation into his relationship with a former Megaspeed executive.",
+   "n_sources": 2,
+   "score": 22
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "US stock market today: Nasdaq and S&P 500 fall as Nvidia and AI stocks slide, Dow gains",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWXhISFVWZllNX2ItSVRiWFVqSDFNQzloY29ZNGJjR04wa2lyRWx5Q1Nibjk1SGEzOHNMN0FrU2RiLV9JNW8yQjdHa25EZWRYLXliQzc2RDh5YWRUUHlWX1FRcHpNZmJySFJXM0t1d0lRd1RsSGNpSWF5NTJjNjV4UHR3?oc=5",
+   "source": "Beinsure",
+   "sources": [
+    "Yahoo Finance UK"
+   ],
+   "when": "2026-11-24T13:50:52+00:00",
+   "latest": "2026-11-24T20:08:26+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "America Readies New Tariffs on China. Will Bitcoin and Stocks Sink Again?",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVHpybUl5dlI1U2NvZTQ3aktLUkF3dTNISXVUWTduc195TlJVeTk3S0pILVR1QTg3dG42aVZBTnZnTzJUcGtmYkwwUmhUb01PZDE3QnlIUXk1cFdsaTlnNUxDakt1TGRJQjQ2YU9kWWpxQzVER3lQZlNhSXlPM09obnNOSWNwTzJIS3RHOEJwVEhCOUxWY0gxUlJGM1dnVjdlNjJwdQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T13:19:55+00:00",
+   "latest": "2026-11-24T13:19:55+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 20
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Oil settles up $2 as traders weigh continued Hormuz ship attacks",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters",
+    "WSJ"
+   ],
+   "when": "2026-11-24T02:56:00+00:00",
+   "latest": "2026-11-24T21:42:26+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 19
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Fed's John Williams indicates higher interest rates likely 'over time' to address inflation",
+   "link": "https://www.cnbc.com/2026/11/23/john-williams-fed-inflation-rate-hikes.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T13:33:26+00:00",
+   "latest": "2026-11-24T13:33:26+00:00",
+   "desc": "The influential central banker expressed confidence that inflation will get closer to the Fed's 2% target in 2027.",
+   "n_sources": 1,
+   "score": 19
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Stock Market Today, Nov. 24: AMD Plunges 9% as 337 Million-Share Resale Filing Adds to AI Sell-Off",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-amd-plunges-9-as-337-million-share-resale-filing-adds-to-ai-sell-off/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:19:38+00:00",
+   "latest": "2026-11-24T22:39:38+00:00",
+   "desc": "AMD's latest decline highlights mounting pressure on semiconductor stocks as investors weigh regulatory concerns, potential share sales, and the financial demands of expanding AI infrastructure.",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Nasdaq 100 Tumbles as Nvidia Euphoria Fades, New Tariffs Floated",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcHhkVFpXSmc2SFJ3VEV3WHg5Vm4xYmRlM2l5R3Z2TEx6emJsdVRiQVBJTjJpaDJ3X2NsZFBURUR4anlRVDY4aTl0cHFvUzFTWUw5VUtXcE5pSEt1TzNPTWlXU0xHYV84QjVURk9LV1pFRGloYTQ1aU1iUmJ4TlN1NlVRYXN6QS1ub2Z6Mm1HMlNXS0hYV1YxNzF5SV9MSUNkNUtRTnRqb1phaUlESmRaMUxjcTM0dw?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T21:39:15+00:00",
+   "latest": "2026-11-24T21:39:15+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Stock Market Today, November 24, 2026: Nasdaq Falls as Nvidia and Anthropic Slide, Oil price at $89, Gold Drops to $3,620",
+   "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQM1ljM2NfLXUwSENYazc2cERKNkFvM3FuRkF5aGd3dnRRZFB6d1FnVnZlMlZMem1ScmNWWDV6X2ZuclZCSm92WDAtVlZFLWxMWDItS2NzendFVGQzN3VobEhhU1dZeXRFNjFXWEVRdTJ5c1d0WFpxcUdvcURia1RwSlBxX1NjV29GZ04yT1RNdExOLVJERmZWdXRtSWF4NDhxQk9mOGhTRk9HOHN1Zmd6QktFcVB1N0FhTFplQ21Oal83ODFNYTJKNmtxNEVuNFZwRDVQSnlIYzBBOElrOW5ldFg1aEFhVER2SlVKZ09n?oc=5",
+   "source": "Eurasia Business News",
+   "sources": [
+    "AP News"
+   ],
+   "when": "2026-11-24T16:02:21+00:00",
+   "latest": "2026-11-24T21:25:29+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Bond Traders Rush to Hedge Risk of Fed Hikes Stalling Economy",
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTks3ZzVpZ2RhN2hxV1hPSlJ2T3c2ZGZrVWtKRktucmtOR3QtaWNHQ2drajdHQS1wT3BQbTJzQnBDZmhWaTgwZU1kWUxvd0w4YUVPdGVwTlZjWnNLT2tib053VjJCTno3dVZvM1Q5SGktcUp6QVV4cVotOGd5bVRSQ1AxOHBGUjViMVVCQ05KNHRLSlpxNENRM25KYTZUYnJlUHc5bnhYUzVwdnRfNmxxdmxR?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T21:30:00+00:00",
+   "latest": "2026-11-24T21:30:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Stock Market Today, Nov. 24: Tech Sell-Off Drags Nasdaq as Dow Gains on Value Rotation",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-tech-sell-off-drags-nasdaq-as-dow-gains-on-value-rotation/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:11:48+00:00",
+   "latest": "2026-11-24T22:11:48+00:00",
+   "desc": "Investors rotated into healthcare and value names as AI momentum cooled and retailers' earnings beats lifted sentiment, today, Nov. 24, 2026.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "U.S. Stocks Mostly Lower After Nvidia Earnings Fail to Soothe Nerves",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeVFyOU5ZTWtBVzZob0FxRUQxME5TdllYbHgxNDVsTTZYaDBQMkNnU0x6czdEaUtlemhyQXJWVHk3cURHeWJ5NXRncmtubDZtZnNvTG5ac1E0Vm1YS0o3OWRrRm5GNi1wOEFwallTZmhyaHBqX0Z2MG80S3gzb3ViQnhZTWgxSmlkRHFTa09NNXA5MHhGVzYtQ28yVVRIdzVyZ2RJYTJ4cldqZms3dFg1ekplQUp1QQ?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-24T16:52:08+00:00",
+   "latest": "2026-11-24T16:52:08+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold Prices Edge Lower Following Sharp Recovery as Federal Reserve Rate Expectations Weigh on Demand",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRGZxT3NPYWNCNDZDVGdvU2oycXdGMXlSSHN0UGFyTU95YkVvYW5SOHYyQ2FGaDAzeW9QdlcwNDJpRVpLcG53OWtYV2JwQUJiOS1Pb3lHM2VUUnVfcDJRTXJTdHpGOGJtMW9Bc1RYMzdCMGFPQkdYYUJGT2VOLXlEY2V6Y3FPWnk3a3NkdkcyWDEyOGJ6RGJIdzl5REJWdUVJQ1BfbQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T10:21:12+00:00",
+   "latest": "2026-11-24T10:21:12+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Watch US Readies Tariff Hike on China, EU Goods",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeHFRM2wyYk91ZXI3NElzMkxTM01fNVJtU2pjSlRXZzBlVExPSWRUV3locjJsejF5dVc3LXBibjJLeXRsbnpzVUIxNHp5X2pPOTNRdmQydi02bWtEX3RFNV94TlYydGtBMWhpUXBCaG9NX21BWEZuNUZMbGtqTDkwTzBuMmM2ZktVWGM4VUh4QXBPN01HNUlsQ2RLdw?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T21:59:59+00:00",
+   "latest": "2026-11-24T21:59:59+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "US Said to Plan New Round of Tariffs on China, EU",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVGczT294YWtfNjUtQUppUFVNMHhmcWRUaHRhWTBCS00yLVhNQjJWXzVMSWZ0ZXl3aGl1Uk1NdFlYMUdmX1RDRUNqWXU2R1BWSFFGd1ltd1BmMUtiVEFoUXQtZno2MEgyOEl1bHYzTmdpNEtibFdKTDdvaUhQNk5rcTlLemplZ0RvQmJITU5pWmdjU2l4LUtsdVpOVS1kYklseWlPaQ?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T21:39:50+00:00",
+   "latest": "2026-11-24T21:39:50+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "The Next Tariff Fight Is Taking Shape. What It Means for the U.S.-China Truce.",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTnlURUVGYlVHRTBQYmgtZWRwNFR4UzYzRVFSYkpkc3dPeTI2RVgtd1dNMkhwbWxyMGRYMFJtV0hneS1SMS1IZms4S0dXSW45MzFRVTkxRl91VjY5LUV0SElNMGFsaDNiSmd4RXZYWElwUWpmN1Qza0RaTjVIY3hRc0ZsRUpTOEp1MTNidU9aVQ?oc=5",
+   "source": "Barron's",
+   "sources": [
+    "Barron's"
+   ],
+   "when": "2026-11-24T20:51:00+00:00",
+   "latest": "2026-11-24T20:51:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "The 10-Year Treasury Yield Just Did Something It Hasn’t Done Since 2007, and History Has a Blunt Message for Stock Investors",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPNnRNVUFYU09rSHMtZ2FWajM5eU1ZYnVIa2s5QjZ1bTUxdVU4aE1sWS1HNmdKQS1wLVFjdmtfMUlUV1Z6SXBLNUZIWXZ3SHpLRjRucXFhXzQtQ3lfSXdmVTdVT1NtcGtTN25NbTZfd2VuTk9sMFFGYnhOYXlueGIxTEZldTcteGozbFhtN2JVcEY1R191a1E?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T17:43:01+00:00",
+   "latest": "2026-11-24T17:43:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Dollar climbs as renewed AI euphoria fuels Fed hike bets",
+   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNanNiZVlvczY3SnoxTFdNOG9HNldIdFBDOU56cTFHQjdGU2xYRzh6YWE5MllkSXJSaWZNRlEtczJLaURrQW05aXNVaDNDZ1c1cFFvUlRnVFNBNVdldGtFanA0VnJkVWV4Y2I2NU5wb04tRDJuU05vWThkZnBpOHFRWHJ3bFZ0eGpKcXVn0gGQAUFVX3lxTE5nb3JUZU1KQV80MG9WTTdhUTZaMWxrMmpiZ3Q5NGU2eGdDSkxWa0RHVDJ2X3IzallVNWpaOHh4ZnBrd3c5b0s3ZFdlZlVCcDR5OWVTallOV0pIS0xkbzAwUFBoWFJsMEEtVy0ycVl1b2ZDQTl3bWZBSjFwN09JVU81ekYwUW1pOW1Dbnd0WWpqdA?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T04:16:00+00:00",
+   "latest": "2026-11-24T04:16:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Jensen Huang tells staff that Nvidia doesn't need a succession plan",
+   "link": "https://www.cnbc.com/2026/11/24/jensen-huang-nvidia-employee-meeting.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "The New York Times"
+   ],
+   "when": "2026-11-24T05:31:15+00:00",
+   "latest": "2026-11-24T23:13:49+00:00",
+   "desc": "Nvidia CEO Jensen Huang resigned after multiple reported affairs, including one with a Chinese businesswoman who is alleged to be a spy for Beijing.",
+   "n_sources": 2,
+   "score": 14
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump wanted Jensen Huang back. Now, the president is all alone in Washington",
+   "link": "https://www.cnbc.com/2026/11/24/trump-jensen-huang-nvidia.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T21:13:39+00:00",
+   "latest": "2026-11-24T21:13:39+00:00",
+   "desc": "Republicans worry Nvidia CEO Jensen Huang's affairs with a suspected Chinese spy jeopardized U.S. national security.",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Dow Brushes Off Tech Rout, Tariff Worries to Add 423 Points: Stock Market Today",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORDlBZFFUUWxZYkxqWGpaaWpjcmtvbGl0RmVEaHVhcF9uckJVdmxpRzlObmI5UXpnb01PRW5KQUh5VkRIVkpZYVNieVZybXBJYmVvcjNXZVB6dEpOR25uVnJLUUg3TmcwT2xfUV95WjU4Vm9oNWd0TEJxd21kaUxYcW00emlpNzB1UlJKbHZ1MGhjaGtwWHZ3dlJnQy0wXzJtZVdjMA?oc=5",
+   "source": "Kiplinger",
+   "sources": [
+    "Kiplinger"
+   ],
+   "when": "2026-11-24T21:13:00+00:00",
+   "latest": "2026-11-24T21:13:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Op-ed: Trump’s Nvidia board intervention put a price on national security. Our adversaries will take note",
+   "link": "https://www.cnbc.com/2026/11/24/trump-nvidia-jensen-huang-national-security-china-chips.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T20:02:49+00:00",
+   "latest": "2026-11-24T20:02:49+00:00",
+   "desc": "President Trump's decision to force Nvidia's board to bring back Jensen Huang as CEO is exactly what Beijing, Tehran, and Moscow would want to see.",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Wall Street trades mixed as markets assess new tariff concerns",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNZHJGTFNDT0RkRklVOU9tcU1KOFhTU0FqeURTRi1TRlp5eDdndzdaVC1XUWFad1kyd1Z0WlVGWTRxVjJfM3R4R25QbWdqNWMyakR3LUd1NjZCSUNHSTJ4alRRUU1YVXpveUxPb2RoOGYwaG1ESFVjb1FELVpjVGpsUmFwWDhES2FfMEdxOHJNOHFqNEp3WkYtM2txcDllTDZuZVE?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-24T18:39:22+00:00",
+   "latest": "2026-11-24T18:39:22+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Chevron Corporation (CVX) Is Benefiting From Rising Oil Prices: Could Geopolitical Tensions Fuel Further Gains?",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOampINHVPMW41ZGFXZ2dGVXZSTHp5SjU3cHJJVS1jTThnZFRpa1Z2VmlLeVB5RG9IRTlnOERwY0JyM2NucWZKTTctNlA5SlFuOE5JcGlIRVppWTN0eUlkUVl1cDFGbU1ZRHlJei1OTHh3ZDB0UDRMbUdiaW52MGoxbVczQ0FHNEdDbUFIQ0MxeUc2ck5MVFkxd1hKUF84ejg?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T16:52:53+00:00",
+   "latest": "2026-11-24T16:52:53+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Stock market slides as investors assess fresh tariff concerns (SPX:)",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPenF4Mk1TRFRxVjlVc2Y0bHlPTVo1cExUREtVN1QxaktQcFFPZEdoeXM1LXJGOVN6enY1aFcza3BHQ2dQM0dRQ0tadGk1UUhGYnRIczlLb2ltTDdqdkxUaUwxVHM0eDhBM2pfUVVoQkFXTVpNYUp4RnJYcW9LS1dVdnM4TjRibGhI?oc=5",
+   "source": "Seeking Alpha",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-24T14:31:39+00:00",
+   "latest": "2026-11-24T14:31:39+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "It's still Trump's stock market",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBEWkU1djBuOW5JeXF4NDJWcFg0QWljV0tDRHJOU2dHVHNfYjY0QjNZVUN5UGRXOXhrT1c1aWNpckg2ODFUUDNFWFo3ajNpdEVSTjNrRjE4TXRQbFBNYmtaTnhhSjlObzBGUkE?oc=5",
+   "source": "Axios",
+   "sources": [
+    "Axios"
+   ],
+   "when": "2026-11-24T12:44:35+00:00",
+   "latest": "2026-11-24T12:44:35+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "HPE just posted its strongest growth ever — but its stock is sinking",
+   "link": "https://www.marketwatch.com/story/hpe-just-posted-its-strongest-growth-ever-and-its-stock-is-tacking-on-more-big-gains-4421cebb?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-24T21:45:00+00:00",
+   "latest": "2026-11-24T21:45:00+00:00",
+   "desc": "HPE boosted its financial forecast on Monday in the face of strong AI demand.",
+   "n_sources": 1,
+   "score": 12
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "SharkNinja (SN) Joins The S&P 500 As Fair Value Debate Heats Up",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/sharkninja-sn-joins-p-500-221420996.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:14:20+00:00",
+   "latest": "2026-11-24T22:14:20+00:00",
+   "desc": "SharkNinja (SN) just landed a major milestone, with S&P Dow Jones Indices set to add the company to the S&P 500 on December 2 as it moves up from the S&P MidCap 400. The index upgrade comes after a strong run. SharkNinja has a 1-day share price return of 5.99%",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Stock Market Today, Nov. 24: Hecla Mining Slides as Silver Prices Fall on Rate-Hike Worries",
+   "link": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-hecla-mining-slides-as-silver-prices-fall-on-rate-hike-worries/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T21:54:57+00:00",
+   "latest": "2026-11-24T22:13:01+00:00",
+   "desc": "On Nov. 24, Hecla Mining shares slipped as a premarket silver selloff weighed on the miner, and investors are watching metal prices closely.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Morning Movers: Dick’s Sporting and Dollar Tree gain following quarterly reports",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/morning-movers-dick-sporting-dollar-220046732.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:00:46+00:00",
+   "latest": "2026-11-24T22:00:46+00:00",
+   "desc": "Stock futures are lower as investors take profits following Monday’s powerful technology-led rebound. The retreat follows a historic rally in which the S&P 500 gained 4.7%, the Nasdaq jumped 6.5% and the Dow advanced 3%, ending a seven-session losing streak fo",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Copper Resumes Decline as Investors Look Beyond Drama at Nvidia",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxORmkwMElFUWtfQlhMcVNNY010SXlpbm12cW1IT3BEWExiOTkyMWU5Ulk2T0tva1lkMnd5R2d5LXFJbW9jNDFMOS0tOVZmdG9rYnFrWGhybmNfaHVOaGRIYzRuMEJ3S2lQa0R1YWl1R2JvRTI4b2k4YkdFWjV2QnF4bnl3VlUzSkdySHZJVmtMU2x0bk9vNmUxS2JPb3RPZjl5OHNEa1BkOHNaM3JDdklPVDU0MWI?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T21:20:12+00:00",
+   "latest": "2026-11-24T21:20:12+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Asian Stocks to Slide as AI Trade Doubts Resurface: Markets Wrap",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T23:13:08+00:00",
+   "latest": "2026-11-24T23:13:08+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "UOB (SGX:U11) Stock May Be 46% Undervalued Despite New AI Rollout",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPZXhYN1JYUU4tZ2NMNTY0VS1OODZFckttVjFoMUNXaG5HUFpMSV9JVWNqMXZtMENPaXh2aGRfcmc3LWo5MXp6MERhZlp0dDl2QXlsMGJxQzZ4aGJWTzU0WWdWSDd4X2pkR2hoTWFWZ0lrcHl4clFZLXdfWW9IdmRNOFBlVlRyN3ZkVDdmT3dkOA?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:22:50+00:00",
+   "latest": "2026-11-24T22:22:50+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Wall Street's $1.4 Trillion Bubble May Be on the Verge of Bursting -- but It's Not Artificial Intelligence (AI)",
+   "link": "https://www.fool.com/investing/2026/11/24/wall-street-s-usd1-4-trillion-bubble-may-be-on-the-verge-of-bursting-but-it-s-not-artificial-intelligence-ai/?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:00:02+00:00",
+   "latest": "2026-11-24T22:20:02+00:00",
+   "desc": "While Wall Street obsesses over an artificial intelligence (AI) bubble, record levels of borrowing could pose an unexpected threat to the stock market.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "3 Winners From Huang’s Return—for the Long Haul",
+   "link": "https://finance.yahoo.com/m/26a2b797-b208-36eb-abb5-9c96ac37cca8/3-winners-from-huang%E2%80%99s.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T22:01:00+00:00",
+   "latest": "2026-11-24T22:01:00+00:00",
+   "desc": "Intel, Marvell, and Dell stocks all have reason to cheer the reinstatement of Jensen Huang as Nvidia’s CEO, who has fostered all the companies.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Why Nvidia is 'bar none' the 'cheapest growth stock in the market'",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPRDNza0JmYlVZRVJ4eXZhZUszNFlzSVA3aHFpaTNKVXp5UlQ1LVdxR2NyV0FDMFBQVm5JbTlGZ1RDUjlWRjlHaHhndG5mS3ExWTQxUkNDdHYzVXBaT3RMbGNGT1NhWk9ZX1BEcVdyUjdvQWIxQ0Vjd19MSG9hTk51SEE4S2hpMmxHcmh2NHNlZURNaGFqVUhhVlBjRTlGem9HaVY0OWNxY21peG9iRlE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T21:34:25+00:00",
+   "latest": "2026-11-24T21:34:25+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Live Updates: Huang’s Return to Nvidia Sparks Stock Rally and Lawmaker Skepticism",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdnQ0LTNaSmJtV2pfeHlCZmVqWDM1QXU0TkZZcnYxS1JpTGozTVR2dVhfM013NUp2VWdoMmdFWjZtR0tUenJlOURYNGFtcmZwZjJrd2VnSjUxVnFoZk90bWhrV3d3NzNkTTlyNjM3NzZXaXZLUEdEWlV4ZGdEeUZQY0xZbzBnZUYz?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-11-24T21:33:00+00:00",
+   "latest": "2026-11-24T21:33:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Micron’s stock falls as an analyst warns about a future supply glut",
+   "link": "https://www.marketwatch.com/story/microns-stock-falls-as-an-analyst-warns-about-a-future-supply-glut-f7fbeefb?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "MarketWatch"
+   ],
+   "when": "2026-11-24T21:22:00+00:00",
+   "latest": "2026-11-24T21:22:00+00:00",
+   "desc": "A BNP Paribas analyst says the risk of an “oversupply scenario is mounting” for memory chips, and that could threaten Micron’s pricing power.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia shares fall more than 5% as Huang comeback rally cools",
+   "link": "https://www.cnbc.com/2026/11/24/nvidia-stock-jensen-huang-return.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T21:15:23+00:00",
+   "latest": "2026-11-24T21:15:23+00:00",
+   "desc": "Jensen Huang was reinstated as CEO of Nvidia after he resigned following an acknowledgement of an extramarital affair.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Most Fed Regional Boards Wanted to Raise Rates in October",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWFNldmpiMGd5YzhHM3NRMXFQbmV5ZkE1ZkVXR3liN3RmVHhLdlF2TExubnJJeEM0Vm5NTHJpMlpBSlFZemt6YURLM3I1TFBrcWQzSUtUUGNEX3FiZ2dUZWlCZnl4c0w2SFZQYklPeExXTHNWdVlGYUltbEdvaWJuYUZTSHVRRHA0Rk5rQUN5T0dMVHFnek9vZlEzdlpxYUpEQ3I0ZDJmaUtGQ1VL?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T19:36:40+00:00",
+   "latest": "2026-11-24T19:36:40+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nasdaq Resumes Selloff as Nvidia, Anthropic Shares Slump",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOeEpzR3NLc2czaVQ0bUV4SzB6NTk3MjJtbWFoWXJVcjZxcDFNS1NYc1VSYkhDMTRXTUpHVktRQUQxb0c1VkVuTlBQOWF6TzA4N2pxZzdlSy1BczA3azhsX0N1dk9Td0R0d210ZVBfOGh3cXB1SkE1Yi1ZTnpKM0pFcnduQzlaV18wMGhlMUNfVW5OaVdPWGp6dDRLa2JMQQ?oc=5",
+   "source": "WSJ",
+   "sources": [
+    "WSJ"
+   ],
+   "when": "2026-11-24T19:32:00+00:00",
+   "latest": "2026-11-24T19:32:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "DW News. . Jensen Huang's return to Nvidia added nearly a trillion dollars to the chipmaker's value in a day and buoyed the entire US stock market. But the spectacular rebound also exposes how much of Wall Street, and of the pension savings of teachers an",
+   "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPM09SVGFEdnlhYnlvM1JxbC1IZmNGZkYzd2NuaWtOWlNqR1VmY0Radl8xVTNUMkd5Z0N0Q2Vyc3FYemNNLThveFlwUFV4b1E1bnlvTEYzOC1YQWJudXE4Q1VSa1dpcHhQd3ZqSTZMcDJLdzUtMVdHRTZZRWFWVkQ1bFV1dUdJT1RmU3BwN25XZHRQVU5CdGtGR1p5ZFo0dGhNYlRHcmszaURWZFptLXpkNWVkWEpoTFVMWW81NGVmelVMaXJLNEllVnRJam4tMGp5bFBpM2pUdGNRSml4aWEwUGxn?oc=5",
+   "source": "Facebook",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T17:11:23+00:00",
+   "latest": "2026-11-24T19:30:22+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stock Market Midday, Nov. 24: Nvidia Drops 9% as Wall Street's Historic AI Rally Loses Momentum",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOYVZqbFp0S2VwUjFCTVJFWkJZS2NSbnNNVl9yVkRDQ0U4bElGTU56bF85Qi1JbVZfam85b1E4eFZyRl9wbElvQVRtZU1UcDk1eWVMcXplN2JwM1BGQmRraktoQ0hoQWstUlNBQjJGOHJaa3ZjRzhxV3NYOTM5aWgzTnV5c2MzUFh1aEhFYVpHV0pwbHFKc2c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T17:25:02+00:00",
+   "latest": "2026-11-24T17:45:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stock Markets Face ‘What Now?’ Risks After Nvidia-Powered Rebound",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQUjVhRUV3T3hwUWRFRkhUakhSYlNDRzVpYnZCVG9xRXZNdC1CVUNseElQd3Vpck55cE1jXzZydkdwZGg1TFB3aXpsaWVJVUtOSWFCZ0RpWWdrcWU0X29XWjVHQ0V1MTlaXzQ5TklUSUQyS2FVUC1jSWVNUXZOQk1IUUtPZTJ4SklCZnp6OTBLcVU0ZTVmS1k4?oc=5",
+   "source": "Barron's",
+   "sources": [
+    "Barron's"
+   ],
+   "when": "2026-11-24T17:24:00+00:00",
+   "latest": "2026-11-24T17:24:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stock Market Today: Jensen’s Return to Nvidia Is Causing Index Indigestion",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaUlzNnB3UU13ZVdvV1BzS3QyVFJEbXBzSk9UakhNc2VfbFFYS0pleUI0TlNBb3h0MzYtV1ZJd2RYSDZGTHI0R3h4RUFzZ04wMWZDZmh3UlVjYUswWVQ5RWt6YWd5eXpmM0pwa3R2SzBwdGJiWWd6R2F5VjJfX0tuTWM4eEpacXFTeU9aVWFzekhHLUFvQWFMYkNJd0xSQQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T16:50:00+00:00",
+   "latest": "2026-11-24T16:50:01+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Nvidia Rally Can’t Hide the Market’s AI Problems",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNdTVXeDMzNFJyRzhZbktqU1lHaTBRZHV2RzdRQTZISDRZbDRuNkE5UFAyVWVDZE5ZeEVaNnhnZm1LdzR1aFNQbWNuMTBsbE8yWmQtT2MwRGZzN0JsTFMxekdrVFJuY0xNUm5YYlhTd1FsMElwUUJCYW1oakE2MUI5ZQ?oc=5",
+   "source": "Barron's",
+   "sources": [
+    "Barron's"
+   ],
+   "when": "2026-11-24T15:25:00+00:00",
+   "latest": "2026-11-24T15:25:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Commercial real estate activity falls 14% in October, as interest rates rise",
+   "link": "https://www.cnbc.com/2026/11/24/commercial-real-estate-activity-falls-14percent-in-october.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T15:05:14+00:00",
+   "latest": "2026-11-24T15:05:14+00:00",
+   "desc": "Commercial real estate activity dropped 14% in October from September, according to an index from LightBox, a commercial real estate data platform.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "US stocks set to slide as Nvidia rally fizzles out",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVkYtS2FmcVdSQWZoN3k3ZGNUbkF1akRXOFU2VTdtLXJBV3JBZF85N2tTZFh5TUpFbHBTRThVQXhMaXpZQzh1WjZESmN5NEdxQjY1LU1EQlZkRUk1NGVfTjNFZTlONVRGaDFZY3dKZWZjVE5zMXVoRXBxNjIweUQwaXpzWW9WOTVBNHJKaEtha0ttTzhhYVZtajhmUnZXUQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-24T13:47:34+00:00",
+   "latest": "2026-11-24T13:47:34+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Markets Slide as Tech Stocks Partly Reverse Nvidia-Sparked Rally",
+   "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5YNzAwNUxMLVhwWjVNV0FCN3VrS0ZaMy1DS1Q3Q1dzOVVPM19LRXNhN3djeWpQMlg4dUR1enNmaHNQV1duekxwZ1lSLVpTT3lMN281cE80VHlja0NuSG1SXzdDdU1SbWEzRWhuQmR1NzM5d0FvaE9qazJVUFJTT2M?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-11-24T12:05:47+00:00",
+   "latest": "2026-11-24T12:05:47+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "通胀",
+   "title": "Bank of Canada Fades Core Inflation, Switches Gauges",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOUVJ3MVdLQjc0eVhETnJBR0xUWUp6UjVhMmtFcnQ5aEdBV2VqbnlNZkdlSnpMOENIYnNNWHV5X3kzVThaWjE2MXhVMXJnV0o3STlZRzdXWF9fMk9KWHhMMXliUXoyR1V6dHpISkVDbk14ODJWZGE4amhMNlZFMDZvNVRjT3pFUFdsZWlvbm0tcnNRVE1Eb0loSmw4VUZLa2VCbzZDTg?oc=5",
+   "source": "Bloomberg.com",
+   "sources": [
+    "Bloomberg.com"
+   ],
+   "when": "2026-11-24T20:58:22+00:00",
+   "latest": "2026-11-24T20:58:22+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "通胀",
+   "title": "Bank of Canada keeps 2% inflation target but adjusts what to track",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTEphb3RfRzU3bDlGa3RGekpDZnRTSG9aYTNyM2w3RjZDU3VKelJIZ3BjbnA5dFFKcW5ueFpsNWJuSkVELWs5a2FuMkFjQ2F3aWJva2hnR25KZFZkYW1yTDN6OFo4WTRzdXdqQ3hoNUFYVEY5MVdWbDFQTGtYZ1p5MkVSVThlbnh6bHZvVXpJaTVmRkhDN2tYNlJGOGNYM004MUtkWm41UlBDVE1FRVhGbDg5Znp6c2RPVjVoYjZ1SHp4UHdrUHNuM1RUUkhGeVJOV0praA?oc=5",
+   "source": "BNN Bloomberg",
+   "sources": [
+    "BNN Bloomberg"
+   ],
+   "when": "2026-11-24T20:58:12+00:00",
+   "latest": "2026-11-24T20:58:12+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump Account contributions from friends and family pass $1 billion mark, Treasury says",
+   "link": "https://www.cnbc.com/2026/11/24/trump-accounts-family-contributions-billion.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T22:18:47+00:00",
+   "latest": "2026-11-24T22:18:47+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "AG Blanche, FBI’s Patel dodge questions about Jensen Huang investigation",
+   "link": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-fbi-doj-patel-blanche.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-24T19:19:12+00:00",
+   "latest": "2026-11-24T19:19:12+00:00",
+   "desc": "The AG and FBI director evaded answering reporters' questions about details of an investigation Trump said resolved security concerns about Jensen Huang.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump prepares a new round of targeted tariffs",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9IOXZTRnJTd1pRNzd0dUhFN0pGM3p5Vmcyc2kzT1BmZDMyNmxNWUV5RWFYUmNMdE5OblIxRFZyODdiaFdmWnFBWTdjYzMwX2c0d0NSSXNsSlhlTDl4S2xXTXJON1hkbDczcEw2RXFTZjROdGxO?oc=5",
+   "source": "Axios",
+   "sources": [
+    "Axios"
+   ],
+   "when": "2026-11-24T19:06:02+00:00",
+   "latest": "2026-11-24T19:06:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 539 条标题，合并后 108 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "10 个事件有 ≥2 家媒体报道"
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+ "date": "2026-11-24",
+ "telegram_html": "<b>☀️ 早报 · 美股 11-24（周二）收盘</b>\n\n<b>📉 昨晚：美股下跌</b>\n<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:SPY\"><b>标普</b></a> -0.5% · <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:QQQ\"><b>纳指</b></a> -2.0% · <a href=\"https://www.tradingview.com/chart/?symbol=AMEX:IWM\"><b>小型股</b></a> +0.5%\n10 年美债 4.93%（-1 基点） · VIX 26.4（-0.2） · 油（结算价） -0.6% · 美元 -0.5% · 金（结算价） -0.0%\n\n<b>❓ 为什么（相关新闻，不是因果分析）</b>\n• <a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxNNklFaE54bEV6OGdKT29ScUxHUlZwRDNyREJ0MzBSZzZGdnptTkVxaXNHeWx2WjFWYVMzMzdMeU92dC1PVmYyZ1BTT3lCTWVRVnJ5ODFEb0NXYWpDd1ZQUlg4bkZ5QVAyck9KQUhMbldjY2FqMmtsZGs3MTFUY0xLZm9wMWRRTFAyS3VvZUZ6Wnk0VzlxTjR3VS1GSkJ1S3VCU2xmZ09FX1E5dUVjTUhfR21wMG1pcktxdGc?oc=5\">Trump administration set to unveil new tariffs after probe on excess factory capacity, sources say</a>（13 家媒体）\n• <a href=\"https://www.marketwatch.com/story/anthropics-stock-just-broke-below-its-ipo-price-for-the-first-time-5dc82668?mod=mw_rss_topstories\">Anthropic’s stock just broke below its IPO price for the first time</a>（3 家媒体）\n• <a href=\"https://finance.yahoo.com/m/d96603c1-fe7f-3bf3-8158-0728b464d469/dow-jones-futures%3A-nvidia%2C.html?.tsrc=rss\">Dow Jones Futures: Nvidia, Anthropic Lead AI Retreat But Many Sectors Strong; Fed Inflation Data Due</a>（2 家媒体）\n• <a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSTdTSVk1YVg0WC1SRVJKVW1XYTZJbjRhRVctYkNzZHZRcW5TaVE3MVdSd2JfYUNaV3otX1FzR1lxYkwyWWZtbS1ONDdiem9UVUI0ckV6c2tiOEt0TGViNlUxZFdSeDV0aVJ4cjZkSkE5Nk9veE1UTmxad0xxaXhScndGMV9IdWVrNUpOQnY0Y0hXVmpZVFgwbTFQMDZiX0NqdExaejlYMzJnbjg?oc=5\">Nasdaq, S&amp;P 500 slip following Monday's Nvidia-fueled rally</a>（2 家媒体）\n• 数据：谘商会消费者信心 实际 <b>103.3</b>（预期 92.4，高于预期；上期修正为 91.9（原 91.7））\n\n<b>🏭 行业</b>\n领涨：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLV\"><b>医疗</b></a> +3.0%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLP\"><b>必需消费</b></a> +1.7%　领跌：<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLK\"><b>科技</b></a> -3.3%、<a href=\"https://www.tradingview.com/chart/?symbol=AMEX:XLI\"><b>工业</b></a> -0.5%\n\n<b>🔥 大公司异动（市值 ≥500 亿）</b>\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:MRNA\"><b>MRNA</b></a> +7.2% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:NKE\"><b>NKE</b></a> +5.9% — 没有找到相关新闻\n🟢 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:AMGN\"><b>AMGN</b></a> +5.5% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NASDAQ:ADI\"><b>ADI</b></a> -17.4% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:HPE/PC\"><b>HPE/PC</b></a> -16.7% — 没有找到相关新闻\n🔴 <a href=\"https://www.tradingview.com/chart/?symbol=NYSE:HPE\"><b>HPE</b></a> -16.3% — <a href=\"https://www.marketwatch.com/story/hpe-just-posted-its-strongest-growth-ever-and-its-stock-is-tacking-on-more-big-gains-4421cebb?mod=mw_rss_topstories\">HPE just posted its strongest growth ever — but its stock is sinking</a>\n\n<b>👀 今晚要看</b>\n• 08:30 美东（马来西亚 21:30）核心 PCE 物价（预期 0.3%，前值 0.3%）\n• 08:30 美东（马来西亚 21:30）GDP 修正值（预期 3.5%，前值 3.4%）\n• 业绩：<a href=\"https://www.tradingview.com/chart/?symbol=NYSE:DE\"><b>DE</b></a>\n\n<b>🚦 大盘状态：🔴 血汗钱</b>（2026-11-24）\n<a href=\"https://yeohkj-dev.github.io/jlaw-daily-report/\">打开每日报告 →</a>",
+ "crosscheck": [
+  {
+   "item": "AMEX:SPY",
+   "brief": -0.49,
+   "check": -0.49,
+   "source": "Yahoo SPY",
+   "ok": true
+  },
+  {
+   "item": "NASDAQ:QQQ",
+   "brief": -1.99,
+   "check": -1.99,
+   "source": "Yahoo QQQ",
+   "ok": true
+  },
+  {
+   "item": "AMEX:IWM",
+   "brief": 0.53,
+   "check": 0.53,
+   "source": "Yahoo IWM",
+   "ok": true
+  },
+  {
+   "item": "TVC:US10Y",
+   "brief": 4.93,
+   "check": 4.9,
+   "source": "Yahoo ^TNX",
+   "ok": true
+  },
+  {
+   "item": "TVC:VIX",
+   "brief": 26.37,
+   "check": 26.36,
+   "source": "Yahoo ^VIX",
+   "ok": true
+  },
+  {
+   "item": "NYMEX:CL1!",
+   "brief": -0.56,
+   "check": "前一天结算 82.05 vs 80.17；Yahoo 最后成交价 +1.81%",
+   "source": "Yahoo CL=F",
+   "ok": false
+  },
+  {
+   "item": "TVC:DXY",
+   "brief": -0.45,
+   "check": -0.45,
+   "source": "Yahoo DX-Y.NYB",
+   "ok": true
+  },
+  {
+   "item": "COMEX:GC1!",
+   "brief": -0.04,
+   "check": "前一天结算 3561.90 vs 3651.40；Yahoo 最后成交价 -2.47%",
+   "source": "Yahoo GC=F",
+   "ok": false
+  },
+  {
+   "item": "AMEX:XLK",
+   "brief": -3.26,
+   "check": -3.26,
+   "source": "Yahoo XLK",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLY",
+   "brief": 0.68,
+   "check": 0.68,
+   "source": "Yahoo XLY",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLC",
+   "brief": 0.82,
+   "check": 0.82,
+   "source": "Yahoo XLC",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLF",
+   "brief": 0.83,
+   "check": 0.83,
+   "source": "Yahoo XLF",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLI",
+   "brief": -0.53,
+   "check": -0.53,
+   "source": "Yahoo XLI",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLB",
+   "brief": 0.54,
+   "check": 0.54,
+   "source": "Yahoo XLB",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLE",
+   "brief": 0.97,
+   "check": 0.97,
+   "source": "Yahoo XLE",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLV",
+   "brief": 2.95,
+   "check": 2.95,
+   "source": "Yahoo XLV",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLP",
+   "brief": 1.66,
+   "check": 1.66,
+   "source": "Yahoo XLP",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLU",
+   "brief": 0.18,
+   "check": 0.18,
+   "source": "Yahoo XLU",
+   "ok": true
+  },
+  {
+   "item": "AMEX:XLRE",
+   "brief": 1.31,
+   "check": 1.31,
+   "source": "Yahoo XLRE",
+   "ok": true
+  },
+  {
+   "item": "MRNA",
+   "brief": 7.21,
+   "check": 7.21,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "MRNA 市值 ≥500 亿",
+   "brief": 92,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "NKE",
+   "brief": 5.89,
+   "check": 5.89,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "NKE 市值 ≥500 亿",
+   "brief": 53,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "AMGN",
+   "brief": 5.54,
+   "check": 5.54,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "AMGN 市值 ≥500 亿",
+   "brief": 256,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "ADI",
+   "brief": -17.37,
+   "check": -17.37,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "ADI 市值 ≥500 亿",
+   "brief": 152,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "HPE/PC",
+   "brief": -16.69,
+   "check": null,
+   "source": "Yahoo",
+   "ok": null
+  },
+  {
+   "item": "HPE/PC 市值 ≥500 亿",
+   "brief": 64,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "HPE",
+   "brief": -16.31,
+   "check": -16.31,
+   "source": "Yahoo",
+   "ok": true
+  },
+  {
+   "item": "HPE 市值 ≥500 亿",
+   "brief": 53,
+   "check": null,
+   "source": "TradingView",
+   "ok": true
+  },
+  {
+   "item": "CB Consumer Confidence",
+   "brief": "103.3",
+   "check": "当天新闻里没有找到这个数字（只有 TradingView 一个来源）",
+   "source": "TradingView vs 当天新闻",
+   "ok": null
+  },
+  {
+   "item": "DE 业绩日期",
+   "brief": "下个交易日",
+   "check": "2026-11-25",
+   "source": "TradingView",
+   "ok": true
+  }
+ ]
+}
