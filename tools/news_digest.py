@@ -384,6 +384,7 @@ def main():
                        stories=[{k: (v.isoformat() if isinstance(v, dt.datetime) else v) for k, v in s.items()} for s in stories[:60]],
                        checks=checks), f, ensure_ascii=False, indent=1)
     print(json.dumps({"html": base + ".html", "mode": mode, "stories": len(stories),
+                      "window": f"{to_et(window_start):%m-%d %H:%M} 至 {to_et(now):%m-%d %H:%M} 美东",
                       "multi_source": sum(1 for s in stories if s["n_sources"] >= 2), "checks": checks,
                       "top": [s["title"] for s in stories[:5]]}, ensure_ascii=False))
 

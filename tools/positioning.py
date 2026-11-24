@@ -287,7 +287,8 @@ def main():
         "<div style='max-width:960px;margin:0 auto;padding:16px;background:#fff;'>" + frag + "</div></body></html>")
     json.dump(dict(rows=rows, cta={k: v for k, v in (cta or {}).items()}, checks=checks), open(base + ".json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1, default=str)
-    print(json.dumps({"html": base + ".html", "fragment": frag, "checks": checks}, ensure_ascii=False, default=str))
+    asof = "、".join(x for x in ((f"CFTC 持仓 {rows[0]['date']}（周二，每周五公布）" if rows else ""), (f"标普收盘 {cta['date']}" if cta else "")) if x)
+    print(json.dumps({"html": base + ".html", "fragment": frag, "asof": asof, "checks": checks}, ensure_ascii=False, default=str))
 
 
 if __name__ == "__main__":

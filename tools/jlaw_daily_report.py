@@ -199,6 +199,35 @@ def with_final(body, what):
             f'下面的内容只当分项参考。</div></div><!--/FL-->') + body
 
 
+GMT8 = dt.timezone(dt.timedelta(hours=8))
+DONE_AT = {}       # 每个模块跑完（= 取得数据）的时间
+
+
+def asof_pill(label, got):
+    t = f" · 取得 {got.astimezone(GMT8):%m-%d %H:%M}（GMT+8）" if got else ""
+    return f'<div class="asof" title="数据日期：这一段用的是哪一天的数据；取得：网站抓数据的时间">📅 数据：{html.escape(label)}{t}</div>'
+
+
+def stamp(body, label, got=None, overrides=None):
+    """每个分页最上面、每段标题（h3）下面加「数据：… · 取得：…」。overrides = {标题开头文字: 标签 或 (标签, 取得时间)}。
+    沿用上一份的分页（周末、失败时）原本就有日期标签，保留原样。"""
+    if not body or 'class="asof"' in body or not label:
+        return body
+    overrides = overrides or {}
+
+    def one(m):
+        title = re.sub(r"<[^>]+>", "", m.group(0))
+        title = re.sub(r"^[^\w（(]+", "", title).strip()
+        lab, g = label, got
+        for k, v in overrides.items():
+            if title.startswith(k) or k in title[:len(k) + 6]:
+                lab, g = (v if isinstance(v, tuple) else (v, got))
+                break
+        return m.group(0) + asof_pill(lab, g)
+    body = re.sub(r"<h3\b[^>]*>.*?</h3>", one, body, flags=re.S)
+    return f'<div class="asof-top">{asof_pill(label, got)}</div>' + body
+
+
 def quant_tab():
     """「量化系统」分页：市场状态分、个股交易开关、今天的买点；完整报告在 docs/quant.html。"""
     f = os.path.join(QUANT, "tab.html")
@@ -303,7 +332,7 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     os.makedirs(REPORT_DIR, exist_ok=True)
     now = dt.datetime.now(dt.timezone.utc)
-    rs_checks = []
+    rs_checks, rso = [], None
     try:            # RS Rating（tools/rs_rating.py）：要在每日选股、Luk、综合名单之前算好，它们会读
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import rs_rating
@@ -327,6 +356,7 @@ def main():
         print(f"{i}/{len(steps)} {label} 运行中……", flush=True)
         r, e, secs = run(script, extra)
         res[key], errs[key] = r, e
+        DONE_AT[key] = dt.datetime.now(dt.timezone.utc)
         print(f"    {'完成' if r else '失败'}（{secs:.0f} 秒）", flush=True)
 
     tabs = []          # (id, 标题, 小字, 内容)
@@ -450,6 +480,39 @@ def main():
                    f'<button class="stab" id="t-{k}" data-group="{g}" aria-controls="p-{k}" aria-selected="{"true" if k == first else "false"}">'
                    f'{html.escape(by_key[k][0])}<small>{by_key[k][1]}</small></button>' for k in keys) + "</div>"
                    for i, (g, name, keys) in enumerate(groups))
+    # ---- 每段的数据日期（用户 2026-11-24 要求：每段都写明数据是哪天的、什么时候取得）----
+    def g(k):
+        return DONE_AT.get(k)
+    qsum = {}
+    try:
+        with open(os.path.join(QUANT, "summary.json"), encoding="utf-8") as fh:
+            qsum = json.load(fh)
+        qgot = dt.datetime.fromtimestamp(os.path.getmtime(os.path.join(QUANT, "summary.json")), dt.timezone.utc)
+    except (OSError, ValueError):
+        qgot = None
+    th, pos_, news_, we_, eopt_, brief_ = (res.get(k) or {} for k in ("theme", "pos", "news", "we", "eopt", "brief"))
+    mk = mkt or {}
+    close = f"美股收盘 {mk.get('date') or mkt_date}"
+    labels = {
+        "brief": (f"美股收盘 {brief_.get('date')}" if brief_.get("date") else None, g("brief") or g("wbrief"), {}),
+        "mkt": (close, g("mkt"), dict(mk.get("asof") or {}, **{"大资金在哪里买卖": (pos_.get("asof") or close, g("pos")),
+                                                              "主题动向": (f"美股收盘 {th['date']}" if th.get("date") else close, g("theme"))})),
+        "scr": (f"美股收盘 {(scr or {}).get('data_date') or mkt_date}", g("scr"),
+                {"D. RS Rating": f"RS 排名用 {rso['date']} 收盘" if rso else close}),
+        "luk": (f"TradingView 选股器 · {close}", g("luk"), {}),
+        "theme": (f"美股收盘 {th['date']}" if th.get("date") else None, g("theme"), {}),
+        "news": (f"新闻 {news_.get('window')}" if news_.get("window") else None, g("news"),
+                 {"一眼看懂": ("本周新闻 + 行情", g("we")), "本周走势": (f"本周 {we_.get('monday', '')} 起 · {close}", g("we")),
+                  "经济数据": ("Forex Factory 日历；实际值 BLS / TradingView", g("we")), "大公司财报": ("本周财报日历", g("we")),
+                  "本周最重大的新闻": ("本周之前几天的新闻", g("we")), "下周看点": ("下周日历", g("we"))}),
+        "ev": (f"各公司最新一季财报（公布日见表）· 股价 {close}", g("ev"),
+               {"财报前的期权": ("Yahoo 期权链（最近收盘的未平仓量、报价）", g("eopt"))}),
+        "wk": ((f"每周展望 {os.path.basename(latest_file('每周展望'))[:10]} 版（每周日美东晚上更新）" if latest_file("每周展望") else "每周展望（每周日美东晚上更新）"),
+               g("wk") or (dt.datetime.fromtimestamp(os.path.getmtime(latest_file("每周展望")), dt.timezone.utc) if latest_file("每周展望") else None), {}),
+        "combo": (f"美股收盘 {qsum.get('date')}" if qsum.get("date") else None, qgot, {}),
+        "quant": (f"美股收盘 {qsum.get('date')}" if qsum.get("date") else None, qgot, {}),
+    }
+    tabs = [(k, t, sub, stamp(body, *labels[k]) if k in labels else body) for k, t, sub, body in tabs]
     panels = "".join(f'<div class="panel{" on" if k == first else ""}" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}">{body}</div>'
                      for k, _, _, body in tabs)
     today = et.date()
@@ -495,6 +558,8 @@ font:inherit;font-size:14px;text-align:left;line-height:1.3}}
 .panel details.fold{{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px}}
 .panel details.fold[open]{{background:#fff}}
 .panel details.chk>summary::before{{content:none}}
+.asof{{display:inline-block;font-size:11.5px;color:#475569;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:99px;padding:1px 10px;margin:0 0 8px;line-height:1.6}}
+.asof-top{{max-width:1080px;margin:10px auto 0;padding:0 16px}}.asof-top .asof{{margin:0;background:#fff}}
 .toc{{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:1080px;margin:10px auto 0;padding:0 16px}}
 .toc a{{flex:0 0 auto;font-size:12px;color:#1e3a5f;background:#fff;border:1px solid #d6dde6;border-radius:99px;padding:4px 10px;text-decoration:none;white-space:nowrap}}
 .toc a:hover{{background:#1e3a5f;color:#fff;text-decoration:none!important}}

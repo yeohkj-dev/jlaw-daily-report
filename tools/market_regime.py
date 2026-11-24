@@ -845,7 +845,15 @@ def main():
                 w.writerow(["date", "state", "spy", "qqq", "above50", "above200", "spy_dist", "qqq_dist", "stage2"])
             w.writerow([today, state, round(spy["close"], 2), round(qqq["close"], 2), round(b50, 1), round(b200, 1),
                         len(spy["dist"]), len(qqq["dist"]), s2])
-    print(json.dumps({"date": str(today), "state": state, "changed": bool(changed), "report": path, "html": html_path,
+    # 各段的数据日期（每日报告在每段标题下显示「数据：… · 取得：…」）
+    et5 = dt.timezone(dt.timedelta(hours=-5))
+    qd = sorted({r["qdate"] for r in cr["rows"] if r.get("qdate")}) if cr else []
+    asof = {"恐惧指数": "、".join(x for x in ((f"CNN {fng['time'].astimezone(et5):%m-%d %H:%M} 美东" if fng and fng.get("time") else ""),
+                                            (f"VIX 最新 {vix['date']}" if vix else "")) if x) or f"美股收盘 {today}",
+            "信用市场": (f"沿用 {cr['stale']} 的债券数据" if cr and cr.get("stale") else ("债券报价 " + "、".join(qd) if qd else f"美股收盘 {today}"))
+                        + f" · 美债收益率最新",
+            "行业指数追踪": f"美股收盘 {today}（TradingView 核对）"}
+    print(json.dumps({"date": str(today), "asof": asof, "state": state, "changed": bool(changed), "report": path, "html": html_path,
                       "red": red, "yellow": yellow, "above50": round(b50, 1), "stage2": s2,
                       "sectors": [x["sym"] for x in sec], "sector_check": check,
                       "fear": round(fng["score"]) if fng else None, "vix": round(vix["close"], 2) if vix else None,

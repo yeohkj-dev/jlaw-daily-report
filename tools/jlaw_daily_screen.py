@@ -681,7 +681,8 @@ def main():
         f.write(build_html(today, state, ms, s, len(res), sum(1 for r in res if r["mom"]), len(vcp_pool), meta_ready, vcp_ready,
                            meta_watch, vcp_watch, hot, fresh_mom, new_names, png if has_png else None, stage12, stage2, best, spy200, brk, pre, pre_total))
 
-    print(json.dumps({"html": html_path, "date": str(today), "market_state": state, "universe": len(res),
+    print(json.dumps({"html": html_path, "date": str(today), "data_date": str(spy[-1]["d"]) if spy else None,
+                      "market_state": state, "universe": len(res),
                       "meta_ready": [(r["sym"], r["meta"]["n_edges"], r["meta"]["risk"], r["er_days"]) for r in meta_ready[:10]],
                       "vcp_ready": [(r["sym"], r["vcp"]["score"], r["vcp"]["risk"], r["er_days"]) for r in vcp_ready[:10]],
                       "best": [(r["sym"], r["rs"], r["close"], r["er_days"]) for r in best],
