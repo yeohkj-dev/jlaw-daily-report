@@ -1,0 +1,879 @@
+{
+ "mode": "daily",
+ "generated": "2026-11-26T23:30:03.492920+00:00",
+ "window_start": "2026-11-25T23:30:03.492920+00:00",
+ "stories": [
+  {
+   "topic": "地缘政治",
+   "title": "Oil rises on supply concerns as Iran claims mine strikes on ships",
+   "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZjJNNHJQMXB1U0JpZEVtSF96dms3OUdSdEJLempwbFA3NTR5ZVVBTnpZeDItc2x2QWVVcjFGT1h6eEZMN1RVVnNSYUNIalhLc2oxV0x5RGVSNGRtbmYyZkhUbXhHTkxrY0N3ZGN0bHFFb1pQSXdwSWJibjJ2RGtBVdIBhgFBVV95cUxPNDhMbDFsaFBFMHIzYjdTejlZYThtZGpERnRSV0NmMUY1QjFtUnc2T0RUN0FnVVY3aHBfODVDQm4tZE95UmY2S3J4OW9QYnBLZXE0Qk54WUJqSkpzRWNjdnlWY0t2b0JwOXVYSm1JVVBtRDBzSkdCT0RfekNhc3VUVG5KLTQzUQ?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Reuters",
+    "WSJ",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T02:21:00+00:00",
+   "latest": "2026-11-26T15:36:47+00:00",
+   "desc": "",
+   "n_sources": 4,
+   "score": 32
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Dollar steady as sliding yields temper safe-haven bid",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPYTJZRTgtVktLT1QyVGljZXZUWTlTeGdrcDFNbkhTLWpDeHVYSDg3V250dW1BRS0xb1IyM3VqRWdhSjhZU0lMTVdfOHdqekRIY2FkWkVNQXZuSmpDN09kTzlpOER3azl5YV9lajFGZ3ZQeG51clM5R1BYUnpMNDZ1X1BVemt6SC1IWlFqTVFyaHnSAZYBQVVfeXFMT2xDQ3k1MXE0LTJHdW12V09fMHBBVzlydC1ib0pSaWFkcDVFMXdHYkM5V3RrUG5vSmd3aDVid0tmLUpSaDlBUm9wMngwV2J3Y3ZVV1BqcXlpQTVpUFJ5WlFLSHhKNmFPZXR4QkdXajREcFo2SDJzd09HOXJwRlllYWJhWmJOLWdvZm9sMDFuWWktb2xaWG93?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC",
+    "Yahoo Finance Australia"
+   ],
+   "when": "2026-11-26T02:28:01+00:00",
+   "latest": "2026-11-26T11:30:36+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 30
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Watch Trump’s China Tariffs Threaten Fresh Trade Tensions",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOaGdtSnItLVVFWENtbHltMDdEVGNkZkUtOTcwZzdwMm4yQlVURHhSVEVqQWMzb3dlZGNQVUJibHFiOWtweDVCV2xZQi1JYVUxVjh4ODhuSU5LMlVUTkhHMEZCLWg1Q3NYdm8zSHlzNG1zdUxCRTFzU0Q1NDNyUndGeGR5bWpMS0Q5ZXpMLUVkVGRFcWwyQnZxZjJKUGc?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Axios",
+    "Bloomberg",
+    "Financial Times",
+    "WSJ"
+   ],
+   "when": "2026-11-26T01:24:25+00:00",
+   "latest": "2026-11-26T23:16:07+00:00",
+   "desc": "",
+   "n_sources": 4,
+   "score": 29
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "US Inflation Hits 3.8%: Will the Fed Raise Interest Rates Again in December?",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPckJoTzRUZlhpcnZBcjBQUDdDWGEzMmdPOGJVVjZLOFFmaDZOY0pJN1I1MGo3VEgyb1l2eE9RRzFhOFM0ekNfV3VqdE01UHBxX0pQMGtqT1JJTWZLbEE5czVWYXpOSm93bGxCWVRuNU1QSmh4d0NBdUVGWTVuNFcxc0FMY0NCZHJXa1lBRGp4Ym42U3FJckFBQjFGZzlPMEwwYnphal9sa1UwQ05lNTlMRA?oc=5",
+   "source": "CryptoRank",
+   "sources": [
+    "Seeking Alpha"
+   ],
+   "when": "2026-11-26T00:00:00+00:00",
+   "latest": "2026-11-26T21:11:03+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 28
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T17:02:41+00:00",
+   "latest": "2026-11-26T17:02:41+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 25
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Beware higher correlation but nab high U.S. credit yields, fund managers say",
+   "link": "https://www.cnbc.com/2026/11/26/mispricing-risk-fund-managers-ai-volatility.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T05:36:01+00:00",
+   "latest": "2026-11-26T05:36:01+00:00",
+   "desc": "The AI boom could trigger a recession, but data centers remain an attractive investment opportunity, a hedge fund manager said.",
+   "n_sources": 1,
+   "score": 22
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold steadies after hitting over one-year low; Fed outlook in focus",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNS2RGZHQ2cnNGQUVwT25tM2lrZFZkUDMwdXpSWWpkSmljWFpFZGh1dWl3WUwwZ2Ricy1hd2lsSVRRazdmeW1OdXFycllzcmJ2NWxQdEQtMmZRN2pBUjJaTFMtZXlJOHVXNHBDWmdzc09jQmk5YnhQQU0wUmx4cEtVOFl3SVTSAYoBQVVfeXFMTjVWQXJNNzhKbnh3SkxiV1VhbGtUQ1BrYTJfMnJ3Qnl4WVkxMjMwQVAxSHhtSkRWZ2E5TEpIZV96Vm9jRjhKQUV2ZVd2WHd4dmlMTzlxVW9UQWJQSWl4dlNUbFR5VGl5V0EwMURrSndKS3MyOVpwNGdGVzd3eno4TVpBb2tZY0xmNDBR?oc=5",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T04:45:00+00:00",
+   "latest": "2026-11-26T04:45:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 22
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump’s Latest Tariffs Undercut the ‘China Plus One’ Idea",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRlZxT2c1ekdQZ3lIOXg3OW1kakF5bnFLMHhYLWluR2EyVUlvSGc0R2d4TmgzSUsyTlRWdVo4M0NLdTU5YmpDbnNWOEpIQWtGSE1ORFhuZE0xaTFYQ3pFR0JmR1ozMnFZc3lyZ0Y2T3dRckRIWE51ZjhnODR5cVlzSFJDaXlmNVpzOUd0TXZBQlJHZ1JSNU5CeG5ZdG9lTEJCTmZQQlZQcFVEWGI3c0E?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg",
+    "The New York Times"
+   ],
+   "when": "2026-11-26T13:07:35+00:00",
+   "latest": "2026-11-26T22:31:56+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 21
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Major US Trading Partners Respond to Trump’s New Tariffs",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdHhkU2VvcmNqQzVQc0ZGYnIzOUUyZ2sxaXY0bThYVF9UbEdnYk9WM0x5SVdQZ3Etc05qbGpFWXFoU0taZUFCeUZKZWpDWEN6OUxBaE4tRFBIbXF5X2c4VFUtT3puVWFYbEFRSm54MTU2YkxST2E1anVJVDRBQ1dmLXdkdklOcG91aFpOXzNPdTA5TWM0QUJKbldQS0lHckF5SzBHSHNacFdTeTczcEpB?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T09:11:11+00:00",
+   "latest": "2026-11-26T18:29:00+00:00",
+   "desc": "",
+   "n_sources": 2,
+   "score": 21
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "10-Year Treasury Yields Just Fell to 4.85%. These 3 Dividend Stocks Pay More",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObW5JX2dYN3dzZUdaWWx0YkhDeV9Zd3k5RHFXeENDbFYybDJvY21MZXM2LUlSYWdKOFR4Q2FkRkZvVDQwLXcwWDJoUFpVdW9WRlM2eEdsanU3UWQwYTNBdTZjQjlFRDRLdEw1UVprOTlaZ0Q3LUNtTjBiemVyZ0FkSVd1ei1CLVhGemo4YW9KZmNFZHZjSVNOWQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T04:37:03+00:00",
+   "latest": "2026-11-26T12:07:31+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 21
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "How Trump's proposed tariffs for India compare with rival nations",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNazJTSjI3dk40ZnhoM2ZJR2N2eXp0NUFoaWUxNUI4NW9wV19YWEtpd24tS0t5YnFHV2YzSkRmSXdiTnR6cjRuMTROY1d1VlQ2NUR3UjNNMUJkeU5XQVBOeUQ1VnVTQmtQU3BVOUNndHdyeUhvWDcxdmRHMGtheVJCREs4UzdCWS1VVDQwcmdQYWtILXltMHRhN1UxeTVtdGhuMFhpemlOdDRkLTB5?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "CNBC",
+    "Reuters"
+   ],
+   "when": "2026-11-26T04:12:00+00:00",
+   "latest": "2026-11-26T11:10:56+00:00",
+   "desc": "Proposed tariffs of 18% on Bangladesh, Cambodia, Thailand, and 20% on China and Vietnam, subject to their respective trade deals, offer India a competitive advantage.",
+   "n_sources": 2,
+   "score": 19
+  },
+  {
+   "topic": "地缘政治",
+   "title": "West China Cement (SEHK:2233) Stock Looks Stretched Against Its Current Earnings",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcThzVzFuTnlQTDkwamxCYk5BcVNRaHljVjY0N1NsZDlXaTh6ME1FRDdYQlR5Q1pTQTV6VVJNNFRpcHpvVHVBSjZqNWZDMDB1TFhTeHBwNUtCMV94REpWS3NfT3A5SHNRcUE2c09pYTE0ekFteTItM1MxVThaamgwZUctNW1VMGcwLURfRDl3TkwxVm1tZnhV?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T20:12:19+00:00",
+   "latest": "2026-11-26T20:12:19+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Newly proposed tariffs raise chances of the Fed keeping interest rates higher for longer",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUVBPbUFTb1h0MEdxOXBWX1N0V0V3MXFNSktwOTJKc25xOWdpczFIbHFSZ0JYalM1QUNGdUtnUVZRSkFOdURVLTROQndxYlZnZUJaaUdpdURidXRtYUF3VnJtS21yQ2ZQd1BzeE9DSjh3X0w4aWZOVFJ1ZVp0VFNyUkVuOHlkWFd5NUlCYmZUc3VXQkd6Rnp3U01kT1Z1cTlSZnhMZ1VFZkFTcm01MDI1TDNuc08zMk1JeDB4NTJiaEU5OEpBQWR2NllWUmxDenB2emFpR2Q5R3k5dno3ODBxVGs0UndyeU0?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T11:16:49+00:00",
+   "latest": "2026-11-26T11:16:49+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 18
+  },
+  {
+   "topic": "通胀",
+   "title": "Brazil's Embraer criticizes new US tariffs, warns of air travel inflation",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQY25OMnN4NU9UMkpqZXcxWk5oMkdHRnR3alJpWVZfMnZVOEN2U1k3Z0xkVTdEZTFoSm9KdXExUnVReGhGeDl5SnprUncxOXpzSGpOazRVOEMzREczYzF2ODNaTkh4b2l4Q1dCU1JhekJIVXFNX1J1eTdlNmFpbTVSYU5BRUQwRmZzU3BvMjEyTmhOd3JXZlRjY1cwUjV0LWl0QkhVTVUzQmFKYmlJaEtQdXZORUdnZ25GZnZHcU04UEMtWDg?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T22:54:36+00:00",
+   "latest": "2026-11-26T22:54:36+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 17
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Wealthy Europeans look beyond stocks amid AI selloff. Here’s where they’re investing",
+   "link": "https://www.cnbc.com/2026/11/26/wealthy-europeans-alternative-investments-ai.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T06:48:12+00:00",
+   "latest": "2026-11-26T07:23:42+00:00",
+   "desc": "Goldman Sachs Alternatives' inaugural survey of high-net-worth investors found they're increasingly looking to alternatives amid turbulent markets.",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Gold drifts lower as Fed rate-hike fears loom",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNczNWcXJNQVFwUEZ5UjlTc1o0ZFE5NVFYZzA2eTJURHRsMmRMRmc1LTZ1TWszbFYyN05QRHRiQ1VIb1ZxUE9pTUs5WDVya1M0WFJEQ3lCN3J0T3h4bndfa1NyZFB4VFFaby1NWVdRRlFZeGlKdDNnYkRZN0c0eFZQY3VSWS11NW9SbUdndElMZk9oNk1kd0haVWh0Rl9VcTA1MDg1REE1cHZXWk14Umc?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T03:39:00+00:00",
+   "latest": "2026-11-26T03:39:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 16
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "KB Financial Group Stock And South Korean Bank Shares After The Rate Hike",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQb1IxU2FCdVZPOHdzNEZkRVIyUnBpWnNVdkZlTzJpVWs4U1JWa0gxSENLN1F0U0J2VVQwU1Zmd29KcDdwazFlc0RRbXFSM282a0FPWVNZRElfeklPUmFXUkM0d1dQNGxmcFQyb2tJZVNWVWg3QnlQcklrOTl6ZnVaVzFxdm1BeV9vaVVxclFoSUZnSFgya2FNM2d0UQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T22:09:07+00:00",
+   "latest": "2026-11-26T22:09:07+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump demands probe into ‘record setting error’ after third-quarter GDP data gets massive revision higher",
+   "link": "https://www.cnbc.com/2026/11/26/trump-gdp-revision-investigation.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T21:13:17+00:00",
+   "latest": "2026-11-26T21:13:17+00:00",
+   "desc": "President Donald Trump on Thursday deemed the latest gross domestic product revision a mistake, claiming that it should be \"immediately investigated.\"",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Supply fears lift global oil prices after Strait of Hormuz incidents",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMF9yaHJYdHRRcWppOUxnUzQtUVZpT2dSSWF2V24wclFENEg1anBRMEc3eWRQRFZLSDR0YmdTcUMyUWRhd3JJZDBUVkdmdXBpR1RJclg1OHRUTmpjblhZMUczbENTemVLOUFpRjEtclVzZlNrQjB4VTFFdmRtY05RaTZtQmZrN3NiUkc3VEtZWV9YWkc5MUFFX09VLWF0R3pldnZ6OTF1ZHNWaEhCZlpBMnF3U1Bad9IBwwFBVV95cUxQaUwtM2RpS0FMLXBoNENDZ0gxSXcyWWY1al81Rld3c2ZkUUlxMTdkb0xKLWw4S1Q4SlpHaklWUXpyRnMtWDVsNGh6Z0J2SXdOVjFfRTFzc0VfaC1WZ0VoelZRQl9NZU9aaG1ZZFgxSTVsckdRUmhrXzFaWkNmcTdhVzh4M2tPbkRqUFJCbDZIYWhGYk9CT1hGY001a3RCNlluUFJyLU1PNjA5OU0wOE1SUnU4Skt4eTNWbUxhTXdFaHFaSGc?oc=5",
+   "source": "Baird Maritime",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T01:43:25+00:00",
+   "latest": "2026-11-26T17:54:33+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump, NATO chief caution Russia as attacks on Ukraine’s energy infrastructure intensify",
+   "link": "https://www.cnbc.com/2026/11/26/trump-nato-rutte-russia-ukraine-war.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T16:12:47+00:00",
+   "latest": "2026-11-26T16:12:47+00:00",
+   "desc": "Trump and NATO chief Mark Rutte urged Russia to avoid actions that could expand the war and called for a rapid peaceful resolution.",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump Aims to Keep Leverage Over Xi With 40% China Tariff Threat",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcTVMWExHUXNZQS1TWHdON1BLSjgydFhicUlOeWo0dXZ4cVBxYm4zUk9ydG5YXy1oNlVNMDB4TlU1ZjRoaDdGMlJieE5XSlJsenNFZ3ZDWGtvVEt0V0IyaGNwRnYyRGNJdXlBaGs0MEdsUjhPZ1FwNFV2NlVfZ21Ldk9DLTk3Wk1lWF9FenVEZHdselN5X2ktUHItdUpMZVM4eldXMnNiM2pqWExNMUotWGdjYw?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T08:41:53+00:00",
+   "latest": "2026-11-26T15:31:11+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNREd0RUx1TTJiVHRreUdrdTRYNk5HdVNmMFp4SURfa3c2S1NmalFseWJ5VnZqWkxJZ1gzR1FtZkNjZnJWRzRrU05hNUJCYVhOdGk2RzJRU1NiTVRnYXd4bThxWlhZSmpsMzlGMXZGc0lPaFo3R0FydU5fYkc0Y1c1U0pzSUY?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-11-26T14:58:45+00:00",
+   "latest": "2026-11-26T14:58:45+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Taiwan says it is confident of keeping previously agreed tariffs with US",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcG1xdFN1WlF6MWxzVDZhdVZhOUpVMGprdUVpSE1hbUxZRjB2Q0RuTE9JOVRmX1pJYlVDUDJYdW1hVGk2UmRJVWxwbVNYOUlSOWlJb2NpRnRsSlppc1RoUUpONl9ndEQzTVYwY3RKdm1RZFNGX2xEemFBcVN1M2dWSUU3cXB6UWRZU1l3eWp2dTZQQ25Lcm8tX0hObGVneWFZR3V1ZlJoOXctQUZmdGREb1hjS3htWlhNRHN6UjRXTkxQUQ?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-25T23:31:00+00:00",
+   "latest": "2026-11-25T23:31:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 15
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Steve Cohen’s 5 Biggest Stock Bets for 2027",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/steve-cohen-5-biggest-stock-220614898.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T22:05:20+00:00",
+   "latest": "2026-11-26T22:06:14+00:00",
+   "desc": "Steve Cohen’s Point72 Asset Management filed its third-quarter 13F with the SEC on November 16, reporting about $90.0 billion in holdings at September 30, including options, according to 13f.info. That snapshot predates the Nasdaq Composite’s 5.5% drop on Nove",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "What Could US Tariffs Mean For Puma (XTRA:PUM) Stock?",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRWpjQ1ExMzFhUGZwaHM3RWJpeWVEa2wwbG1PSVlwZVVfOHJKREJpb0hkMDFkVnBiUEhWV0JwM0NYREJhTDI0Z1JtN3JPaEhINzZSajhVZDR4NU9jQjBrOE0wSWUtaG9BaWtONzVDSzRXNURGbkNBclN5SGxTRkZiUmN2b3FGVmpuaFlsOUN4dk02WHYzbWc?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T19:14:19+00:00",
+   "latest": "2026-11-26T19:14:19+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "European Natural Gas Prices Mixed as Middle East Tensions Renew Supply Concerns",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYmh1dzJqeEVBTmp0bHV0eV9nYkd2eVlkWnUxWm9kZ1diQldFMFFGZUVmQVQyVS1tbmlTdG1zTGxURjNvWmh4RlV2TG1tdVNJalpLQkxScW5BUEc2R3pXLWVHRFdOVmxxd1Q3Q2RDNFlXcl93T2xxX2N6VkJ5RnREQ3NLOERxZVVSZEE?oc=5",
+   "source": "Yahoo Finance UK",
+   "sources": [
+    "Yahoo Finance UK"
+   ],
+   "when": "2026-11-26T14:11:53+00:00",
+   "latest": "2026-11-26T14:11:53+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "地缘政治",
+   "title": "Iran Claims Two Tankers Hit Mines In Strait Of Hormuz. But Oil Traders Are More Worried About Too Much Crude.",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMVJhN0RXUFdEUWlzM1EtMDZwRzhNODJOSnRjcng5czA2V0JFNk54ZE1KOHRzdlZ6a05zcHVJYlRuMWNncEd1MTZIdEJJeHZDa0F5NVVuUWxJbzR1V0cwV2dCUDhRaFFnejdsZWRuUVJoaVhmSVp2V3dKLXY5SkIwc0xhTk9uY1A2NS16bg?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T12:13:27+00:00",
+   "latest": "2026-11-26T12:13:27+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "SpaceX, Musk pledge to donate a share each to active Trump Accounts",
+   "link": "https://www.cnbc.com/2026/11/25/spacex-musk-trump-account-stock.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T06:39:34+00:00",
+   "latest": "2026-11-26T06:39:34+00:00",
+   "desc": "SpaceX said it will donate one share of the company's class A stock to every active Trump Account, and CEO Elon Musk would match it.",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump Rejoiced in the Market’s Nvidia Surge. It Didn’t Last Long.",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNVVJKQzVEUVhZQkxHM28yQ1paU3Y2ZVhGT25aMFpyYmN6akhuOEVxTVpVT1hpeVk3ZkV1MWNjNlA2NjdZZ3ZMLVlGZVFVbEdqNjlmQ0FodV9mb0lLanNiSVhyX2o2WUdZaXNGSEdWWWFnUnptRG03QXM4N253RkYxXzNKVQ?oc=5",
+   "source": "The New York Times",
+   "sources": [
+    "The New York Times"
+   ],
+   "when": "2026-11-26T01:53:20+00:00",
+   "latest": "2026-11-26T01:53:20+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 13
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Semiconductor chips are the new oil. Here's why",
+   "link": "https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T17:52:15+00:00",
+   "latest": "2026-11-26T17:52:15+00:00",
+   "desc": "Semiconductor exports overtook oil and gas for the first time in 2026, as the AI boom fueled chip demand.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "财报 / 公司",
+   "title": "Nasdaq (NDAQ) Stock Could Be 18% Overvalued Following Record Recurring Revenue",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQVZGSERmbWI5bzJuNE5ETUVpNjZEemxFYTAwLUIwOVZsVFpVVTVFM056cVVKa0plM3NOS3lfQ0pKbVA2VXdsV29adjZDRGxWRHZGSGozVnZrUllUTUpSSkMyLVdkajQ5bllZMG5lQ2lJTG01bHdIb0RSZkktb1ZCNzd4OFp4eXVaaVZoTlE3SnpWUTZmNlE?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T16:13:41+00:00",
+   "latest": "2026-11-26T16:13:41+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Spike in oil prices partly reverses rupee rally, forward premiums surge",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOcVVHMmNCU2duUTNWNkVyNzMzUmhKMWxJZExIQVJwc1hhcDlMNS1KUzYxMnFjc3dGeTViMGg1YmhJUGhjR3REQjRqbks5cTMzMmVpaWtyWHhCOHo0YVg5ZHNfYkJ1NmgtMWxZRU1ib0pUejloVVExcmxqeGJXZ1NQNTJ4YTc5WWEzN3BOaFpnNVIxTk1Gc1ZLbE1PNjQ4c2dmS2Yw?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T02:38:00+00:00",
+   "latest": "2026-11-26T10:18:30+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Latin America has the copper and energy the AI build-out needs. Infrastructure is the test",
+   "link": "https://www.cnbc.com/2026/11/26/latin-america-copper-energy-ai-investment.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T08:59:11+00:00",
+   "latest": "2026-11-26T08:59:11+00:00",
+   "desc": "Latin America’s copper, oil, gas and rare earths could benefit from rising AI energy demand, if infrastructure and fiscal policy attract investment.",
+   "n_sources": 1,
+   "score": 11
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Jensen Huang’s Return Doesn’t Make Nvidia Stock (NVDA) a Buy",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSndtT1dTZXdiYWpqTXRoMktMU3pTZ3U0d1lMTURLenJTa1BpdkE5c0IwNnVPTFJYX2NidVRlb2FuT3BNZFptMDBvQ3ZPdTVEbGowUlRvbVlpNXpZRFlTQUkyd0VMTmtmUUZfWjlnWWJYbVJYY0VGa3BDVEU2clpGR18zbmlaV0xOTWRDb2xWYnBhWE5iZUdJ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T21:22:00+00:00",
+   "latest": "2026-11-26T21:22:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Advantest (TSE:6857) Stock Could Trade At A Premium On New AI Test Head",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQTDdIaFdqNDVYUXV5bEo5UnRlQ3IxdmowRk9oZ3VwTExZUXFZcGpQRDN6bzl6RkRnX2pxcFBxZXhlWXcxV2E2Z2JONUoweXA5TmZoMm1CLTNvTEZUU09UdnV3TzV1MXpoSzlfeWRDeHFWSGV4TG5WQUZBTjFlc3F0ZGl4V01HWnhxZVQzVy1uMHdFYnBrRHdCbGRSaw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T21:12:51+00:00",
+   "latest": "2026-11-26T21:12:51+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Before the Sell-Off, AI Stocks Showed Dot-Com-Level Bubble Signals: Study",
+   "link": "https://decrypt.co/384066/before-the-sell-off-ai-stocks-showed-dot-com-level-bubble-signals-study?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T19:01:02+00:00",
+   "latest": "2026-11-26T19:01:02+00:00",
+   "desc": "A study of 170 years of financial journalism suggests AI stocks rivaled dot-com bubble levels, but estimates vary.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Apple Stocks Rise as AI Selloff Spares the iPhone Maker",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/apple-stocks-rise-ai-selloff-190038273.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T19:00:38+00:00",
+   "latest": "2026-11-26T19:00:38+00:00",
+   "desc": "Apple gained while the Nasdaq briefly fell 4.6%, as investors favored device-based AI over cloud spending despite rising memory costs.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "SoftBank Group Stocks Jump 7.32% as AI Rebound Lifts Tokyo After a 14.83% Rout",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/softbank-group-stocks-jump-7-184827003.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T18:48:27+00:00",
+   "latest": "2026-11-26T18:48:27+00:00",
+   "desc": "The OpenAI investor recovered about two-fifths of Wednesday's plunge as Kioxia surged 12.6% and the Nikkei closed 0.9% higher.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Stocks, Nasdaq Futures Climb as AI Trade Rebounds: Markets Wrap",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeEQtTUQwY0ZyTEpubU1fOUV6eVQzR2llam9uaF9UUnQ5LVNvcWJFT0dRYW9NRHM2cDQtYkpaOF9rS1ZuVE8zaDhmYWk0S1IzdU1sOER5aWJLOTQteFZFTjRkMUJwUTdta0ZnemNITTBEa1VVb1c1MGJkUnZoMFRKNDZjM1d6SDBqZ1g2NDZTenZfSEZK?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T18:07:43+00:00",
+   "latest": "2026-11-26T18:07:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "Buyer beware? Nvidia's volatile swings expose risks of single-stock ETFs",
+   "link": "https://www.cnbc.com/2026/11/26/nvidias-volatile-swings-expose-risks-of-single-stock-etfs.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T16:00:01+00:00",
+   "latest": "2026-11-26T16:00:01+00:00",
+   "desc": "ETF Action founding partner Mike Akins and GraniteShares CEO Will Rhind react to Nvidia's sharp losses and latest comeback.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "How Much Is Jensen Huang Worth to Nvidia? The Stock Market Just Gave a Clear Answer",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQN1Rxc3Npdy0xNkNUdG5uVng4N2VYRUdpTWUwVUFIcXViLXpaTGtEdDc5bEM3dkEzZDcwandwN19SdnhGbzN0VmRNRkZieVVLc1FVSzFrUVJnQ0Y3VnlIMjhvRVlWYmk2aWY4UGdpejJOMkQ1bFJ2N3UtQTA2TVZSSGNFQ1dhUlRhSG0zUUFJR0JYSkVvU2VraGZpWQ?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T12:54:02+00:00",
+   "latest": "2026-11-26T12:54:02+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "4 things investors can be thankful for after a brutal stretch for stocks, from AI to the consumer",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQdWlVMVN4S3hZMFhfdjBibTlzdGtBbm5ScV9XWks2NjM2VG15X1FZdk9qZmhYTFRNRVplYUdYVFhsWUdiQzJfRWhyQlBhdzJVclNGMW9iU0JKMkI3SFkteUpGNkRvbFYwVUg2eEM2Q3FieTN0MDZaR0ZHcklhVEpmTkloRnRvVE9UV1V3WVdCX0hvd0hFaW9NTElLQzVUMzBzNzF2WG9UUndnVkZSOTFya2ptTjE?oc=5",
+   "source": "Business Insider",
+   "sources": [
+    "Business Insider"
+   ],
+   "when": "2026-11-26T10:50:00+00:00",
+   "latest": "2026-11-26T10:50:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "India swaps, treasury bills signal possibility of outsized RBI rate hike next week",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTURLc0UwZjNUdy05dVdJMVFLLUpDNUQwN19INXh3cVcwdW5fM2k3eDV2bnY4ZkZkMDVzSjN4N3Yzcm9CQ1MtT1hmaVJzMmY5VkpMUzgxQzVrQm1zZzU2OERSak1TeU84dDlTOVk0aEZSNXFGcUNzaFo2bVlXN2wwYjRScUxtVE9GeXFFRjBFdWdlZ2tjOEpnQ19UTmVJVnlBQ0ZVclBQdHhieTd0SDJlVEU3c0ZTaFZFazB6cVAtbWpqMmU2?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T10:21:58+00:00",
+   "latest": "2026-11-26T10:21:58+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Ex-Chelsea Co-Owner Boehly Calls High Yields Manageable: Is Distressed Credit Next?",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNT1d6SHR0aEFBWVE1WmY2djZwLUV0cjJiQjlHQTZVV2xYRDdiQzBCMUhFbFZlaFVxdkF4ZnQwVmswYlRlTzJlVTlBSjFaaFJGNlZtSnI5WmxmQ2hvOFNqbHYwOTFmY05NbW1tWFhxRUhJX1FtR3IwTHJlbHhma1lETFBQV3VFNXQzVHp3aVZNZHpOMjE2TWc?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T09:22:39+00:00",
+   "latest": "2026-11-26T09:22:39+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "ANZ Removed From NY Fed List of FX Counterparties in Rare Move",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPZXlFSTdMZVB4WkVMRFFIU1ZrSVRmWW9NTUZqMUJ5SXRUQUhTNVRxSzJmc0pSVWlEODJrc2ZOemVQeVk1SVpOQXY4X3JCS3IycUFHV3pBWlUzSzNHMTlPNm5MN2xuMUljMkhDUVBBQ21tXzNoSXhub0FOb3B0cjdjMHYwR2l5RGM3eXMwcEZZU2NtdFdPZkVrb1BXbldZRzE3aUJzbjJxTjlQS2d3eV9WZFpFMA?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T06:28:00+00:00",
+   "latest": "2026-11-26T06:28:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "A Fed tightening to allow subsequent loosening",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBoMmVIOXlodnl2ZVg0SjJsc3VFVXA1S3o1a3JVNXhsSHJRUExyZlVjajZ4aVIwNWMyZWZia2RjSXFjeDBuMmljOEZVbUF6aTh3UkhNZXVBdVZId3JpbVRfRTlvb2RqNFlsSGg4MjVBTVU?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-11-26T05:30:09+00:00",
+   "latest": "2026-11-26T05:30:09+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "S&P warns Nvidia credit rating could be cut over 'rising' management and governance risk",
+   "link": "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T03:19:44+00:00",
+   "latest": "2026-11-26T03:19:44+00:00",
+   "desc": "S&P Global Ratings said Nvidia's credit rating could be cut by one notch as it flagged \"rising\" management and governance risk at the chipmaker.",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "美联储 / 利率",
+   "title": "Australian bank ANZ dropped from NY Fed's foreign exchange counterparty list",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNX0hoU2hvV28yQ0RhZnVqNk43V2UyQU1TUUxnVnNWd2pPWFBuYmxDWW0wNEhBMWpuX2pCYVc2cFFodEM2QkFiWU1JUngxQXhrbngzdEpObTRBSXdCWFpuV05vR19IYmdWZWprRW9XOS1MYU54ZWZyTzdMdVI3eGpiTVpQaFVHbHAwLV9lNldnTmlLYVVBSDVUX2JDM0ZzcDVwLTRiV2dGT05PRm9SQkRHYjdkdmp3Zw?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T02:06:00+00:00",
+   "latest": "2026-11-26T02:06:00+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 10
+  },
+  {
+   "topic": "市场动态",
+   "title": "Dow Jones Futures Rise On Holiday; Look For This Bullish Market Signal",
+   "link": "https://finance.yahoo.com/m/158e82fc-b889-34b6-8704-99a49e9a83ae/dow-jones-futures-rise-on.html?.tsrc=rss",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Investor's Business Daily",
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T19:39:00+00:00",
+   "latest": "2026-11-26T23:13:40+00:00",
+   "desc": "Futures rose on Thanksgiving after a wild market session, with the Nasdaq rallying off lows and Anthropic reversing higher.",
+   "n_sources": 2,
+   "score": 9
+  },
+  {
+   "topic": "科技 / AI",
+   "title": "We are living in perilous times if Nvidia CEO Jensen Huang dictates your 401(k) balance",
+   "link": "https://www.marketwatch.com/story/we-are-living-in-perilous-times-if-nvidias-jensen-huang-dictates-your-401-k-balance-e0942d1e?mod=mw_rss_topstories",
+   "source": "MarketWatch",
+   "sources": [
+    "CNBC",
+    "MarketWatch"
+   ],
+   "when": "2026-11-26T03:13:43+00:00",
+   "latest": "2026-11-26T15:30:00+00:00",
+   "desc": "Why did a futurist with Huang’s prescient vision build a company where all roads lead to him?",
+   "n_sources": 2,
+   "score": 9
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Two Years After Trump’s Tariff Declaration, Canada Tries to Move On",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOaWdwNl9jTnFFSS10Z3BXNVZOWjR6N3ItM3d4MHhIcXZ1TGtyQS03UUV4a0FuYVdMd3FaZ0VVQ09QUTl6d3RDU1RJQW1fcVM3aGZMWURHanZmN3BQanNhT1FVa3Fwb0pUYmtmb3poMm5ZZ0gwelVieGVOQUozVHlXYlkxV1Q4azV5MlNfbEw1T1lSbnFyNndwNjlWUDVBWGFjZkZiUVJLY1dRcU9PU1QwQUZ4V2lnZ3IwNTNGcXMwQldueE5fVWc?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T22:21:40+00:00",
+   "latest": "2026-11-26T22:21:40+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "BlackRock (BLK) Seeks SEC Approval For A New ETIF Fund Structure",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPOVc4dXJac3ZZeFFpWl9uV25ORGxONGJXTjVVOGFqSmt5TER5VHRoVzhibTlFeWl2VHBtSnVNR3JOd2FIc1RfdmlxUXlmdXAtQ0Z4NV9LcGFTOWh6a3Z6bTlBTkUzaGJjNVRlOFpkS3dtdDZRY1pMOGZHSFpRM29MN3doVGdpdXBwM09ULUFURDJfbGtTVnR5Vm1Obzkzdw?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T22:12:21+00:00",
+   "latest": "2026-11-26T22:12:21+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "能源 / 大宗",
+   "title": "Alberta Raises Projected Surplus to $6 Billion as Oil Surges",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbmNyTXN3aVprWEZ0VjNoMXhXbXJNRlRFVnc3Mkt2bkVQR1hXdmRWZGx5WGRxeVMwdThzc0oyT0ZyTWVsbDZwanVhelR0Q0E4SXlkXzRMWG44bjRiSnQ0Q0RSN29Ca2twXzloUDdKVzVKMEFFaGYtTmdidE54WGhkQ0U4YlZZTGhmVXJDRmJXLTg2YkVaUkFQb0duREFwT2s4c0xoRDhiU1FPVlNfUnhZ?oc=5",
+   "source": "Bloomberg",
+   "sources": [
+    "Bloomberg"
+   ],
+   "when": "2026-11-26T18:53:51+00:00",
+   "latest": "2026-11-26T20:33:10+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "What are tariffs, how do they work and why is Trump using them?",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBweHdveUp5S2F0aGJwSEs2U2lOMkF6NzRNZTd3bEJUdTQwVjhRX0pjZmFzZ25hRzk4MHE0WW9KVkEtUjIxRUNWbXRzX3pmd1A5UWhyaE5Ja1ZWdw?oc=5",
+   "source": "BBC",
+   "sources": [
+    "BBC"
+   ],
+   "when": "2026-11-26T18:54:51+00:00",
+   "latest": "2026-11-26T18:54:51+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump doubles down on his tariff agenda",
+   "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOEw1dWg4Zk1kZDVIdTlQckpIRjV0Ny1BMTI0RVFESGdVbkNMSHNZYkpndVlPMnZibHExS1pORE80SmxLaGJyQ0p1MExPVHlzbEVJZlI1amJpdkQ0eDAtV2NzOVJlcUhzLS1oNWFLZnRGUmNoZldCQ2NtaWhnRzZtczFqNGc?oc=5",
+   "source": "Financial Times",
+   "sources": [
+    "Financial Times"
+   ],
+   "when": "2026-11-26T18:31:18+00:00",
+   "latest": "2026-11-26T18:31:18+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Mexico urges Asian trade partners to crack down on tariff dodging",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaHhmUFduZ0tRbWFBQ2xIRmtIZDU0S012anU5bEx3SGVzOXVmV1JkNGxIZkNXV0RYTWJlNEVqUTFoS0tnQ1QtcXI0bVlJT25XQ1Y4TFZvczVTbTFPWTc3eUF6MzF6M0swR3JYTGR0ZjNwZVhhb2dWUjNBSjBod1ZfWU4zajFXMnBYUU1YY3pNQXNDWlRQa2VILWVJc25tcnJpV3ljRW95RjViUXM?oc=5",
+   "source": "Reuters",
+   "sources": [
+    "Reuters"
+   ],
+   "when": "2026-11-26T17:09:43+00:00",
+   "latest": "2026-11-26T17:09:43+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump Is Hiking Tariffs Again. Here Are the New Tariff Rates on 14 Countries",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNenlTeFhoc2tNMU1lRjBlck91OWtjbzN2NHhLRmM3WmlqWE1TeFI5d2phS2dlNzE3a2VWNU5rdTRDM1k3RHp1bDlLSm5YTTUtN2JSVS1MMEJmM1docXJhSFhGVW4wcG41c1RsRWpJaXRDNGpaakd5em5haE1VSVR1Z1RQMHBxM0syTXZnM1NCVWpvZzZrVzlTU1hBcXY0VFU?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T13:17:38+00:00",
+   "latest": "2026-11-26T13:17:38+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "U.S. tariff-hike threats pile pressure on partners to sign trade deals",
+   "link": "https://www.cnbc.com/2026/11/26/us-tariffs-hike-trade-agreement.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T07:58:19+00:00",
+   "latest": "2026-11-26T12:46:55+00:00",
+   "desc": "The U.S. planned a fresh tariff salvo on 14 trading partners, while offering some countries lower rates if they secure trade deals with Washington.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Switzerland’s biggest bank set for showdown with lawmakers as capital fight intensifies amid crisis planning",
+   "link": "https://www.cnbc.com/2026/11/26/ubs-swiss-capital-rules-finma-crisis-plan.html",
+   "source": "CNBC",
+   "sources": [
+    "CNBC"
+   ],
+   "when": "2026-11-26T11:17:39+00:00",
+   "latest": "2026-11-26T11:17:39+00:00",
+   "desc": "Swiss regulator FINMA said UBS can execute its preferred crisis-resolution strategy, even as the bank faces a separate parliamentary fight over tougher capital requirements.",
+   "n_sources": 1,
+   "score": 8
+  },
+  {
+   "topic": "政策 / 关税",
+   "title": "Trump's new tariffs would put rates right back where they were before the Supreme Court stepped in",
+   "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPTVg5UHpONGNFdFNFMDVfQlFwT1p3dDItcHg2TWRmdDFkT1hCMTlXSGoxM2JLTXViNG1pbUwtZXY2WnB2U050QkViTVJQQkJsSnozaE1ISDMyRGJtSUJuTGNtdjhNWVNoVHVsV1ExYUhyWVM4QVdzNXlmbUg2LWE4b1hraGFCYXdkNEEzYW9LTExIZExfalhEOUtfTUh4MFFlU2dvT0hWUDRXLW1aUDZzNDJlWTNELVRSc09TVFA3SGpRR2FwcF82bXVHUnk0dHQ2TkhIbFJuUFNtNTJjelpfWURfMEFPakhHX2c?oc=5",
+   "source": "Yahoo Finance",
+   "sources": [
+    "Yahoo Finance"
+   ],
+   "when": "2026-11-26T11:04:36+00:00",
+   "latest": "2026-11-26T11:04:36+00:00",
+   "desc": "",
+   "n_sources": 1,
+   "score": 8
+  }
+ ],
+ "checks": [
+  {
+   "name": "新闻来源",
+   "ok": true,
+   "critical": false,
+   "detail": "16/16 个 RSS 成功"
+  },
+  {
+   "name": "新闻数量",
+   "ok": true,
+   "critical": false,
+   "detail": "窗口内 425 条标题，合并后 112 个事件"
+  },
+  {
+   "name": "多来源确认",
+   "ok": true,
+   "critical": false,
+   "detail": "8 个事件有 ≥2 家媒体报道"
+  }
+ ]
+}
